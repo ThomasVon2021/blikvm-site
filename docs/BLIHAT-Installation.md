@@ -8,7 +8,7 @@
 
 Open the protective bag
 
-![1655798851616](image/BLIKVM-HAT/hat-install/1655798851616.jpg){width="300"}  
+![1655798851616](image/BLIKVM-HAT/hat-install/1655798851616.png){width="300"}  
 
 ## 2.Install the main device
 
@@ -40,7 +40,7 @@ Open the protective bag and take out the parts
 
 ![IMG_8330](image/BLIKVM-HAT/hat-install/IMG_8330.JPG){width="300"}  
 
-![1655800122720](image/BLIKVM-HAT/hat-install/1655800122720.jpg){width="300"}  
+![1655800122720](image/BLIKVM-HAT/hat-install/1655800122720.png){width="300"}  
 
 Install Micro SD card
 
@@ -72,7 +72,7 @@ Install four Hex Spacers
 
 ![IMG_8342](image/BLIKVM-HAT/hat-install/IMG_8342.JPG){width="300"}  
 
-![1655800959748](image/BLIKVM-HAT/hat-install/1655800959748.jpg){width="300"}  
+![1655800959748](image/BLIKVM-HAT/hat-install/1655800959748.png){width="300"}  
 
 ![IMG_8344](image/BLIKVM-HAT/hat-install/IMG_8344.JPG){width="300"}  
 
