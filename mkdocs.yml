@@ -48,7 +48,9 @@ markdown_extensions:
 nav:
     - "Getting started":
         - "BLIKVM Overview": index.md
-        - "BLIKVM HAT version guide": BLIKVM-HAT-guide.md
+        - "HAT version":
+          - "BLIKVM HAT version guide": BLIKVM-HAT-guide.md
+          - "illustrated instructions": BLIHAT-Installation.md
         - "BLIKVM CM4 version guide": BLIKVM-CM4-guide.md
         - "BLIKVM PCIe version guide": BLIKVM-PCIE-guide.md
     - "Configure":
