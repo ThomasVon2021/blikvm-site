@@ -104,6 +104,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#blikvm-pcie" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -384,10 +389,91 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          BLIKVM PCIe version guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         BLIKVM PCIe version guide
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1introduction" class="md-nav__link">
+    1.Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2specification" class="md-nav__link">
+    2.Specification
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3accessories" class="md-nav__link">
+    3.Accessories
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4dimensions" class="md-nav__link">
+    4.Dimensions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5list" class="md-nav__link">
+    5.List
+  </a>
+  
+    <nav class="md-nav" aria-label="5.List">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#product-list" class="md-nav__link">
+    Product List
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-items-prepared-by-the-user" class="md-nav__link">
+    List of items prepared by the user
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -573,6 +659,71 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1introduction" class="md-nav__link">
+    1.Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2specification" class="md-nav__link">
+    2.Specification
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3accessories" class="md-nav__link">
+    3.Accessories
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4dimensions" class="md-nav__link">
+    4.Dimensions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5list" class="md-nav__link">
+    5.List
+  </a>
+  
+    <nav class="md-nav" aria-label="5.List">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#product-list" class="md-nav__link">
+    Product List
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-items-prepared-by-the-user" class="md-nav__link">
+    List of items prepared by the user
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -590,9 +741,268 @@
 
 
 
-  <h1>BLIKVM PCIe version guide</h1>
-
-
+<h1 id="blikvm-pcie">BLIKVM PCIe</h1>
+<h2 id="1introduction"><strong>1.Introduction</strong></h2>
+<p><img alt="main1" src="../image/BLIKVM-PCIe/BLIKVM_PCIe_main1.png" width="500" /></p>
+<p>BLIKVM PCIe is a PCIe add-in card based on Raspberry Pi CM4 for KVM Over IP. This product’s key features include video capture, ATX controller, PoE, OLED , UART and RTC. The card has a standard PCIe I/O bracket and a low profile PCIe  I/O bracket. The product is currently perfectly compatible with blikvm image and pikvm image.</p>
+<h2 id="2specification"><strong>2.Specification</strong></h2>
+<p><img alt="BLIKVM_PCIe_main-define" src="../image/BLIKVM-PCIe/BLIKVM_PCIe_main-define.png" width="400" /></p>
+<p><img alt="BLIKVM_PCIe_main-back" src="../image/BLIKVM-PCIe/BLIKVM_PCIe_main-back.png" width="400" /></p>
+<div class="admonition note">
+<p class="admonition-title"><strong>HDMI IN</strong></p>
+<p>The bridge chip is Toshiba TC358743, which supports both video and audio(I2S), and the highest input resolution is 1080p@60fps.
+Fixed HDMI back power issue.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title"><strong>USB-PC</strong></p>
+<p>There are two USB-PC ports on the product, and users can choose any USB-PC port.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title"><strong>POWER-IN</strong></p>
+<p>When using PoE power supply, there is no need to connect the PWR-IN port. When not using PoE power supply, connect the PWR-IN port to a standard 5V/3A USB power supply.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title"><strong>ETHERNET-PoE</strong></p>
+<ul>
+<li>Gigabit Ethernet port</li>
+<li><strong>Standard:</strong> IEEE 802.3af PoE</li>
+<li><strong>Input voltage:</strong> 37-57 V DC</li>
+<li><strong>Output power:</strong> 5 V DC/2.4 A</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title"><strong>ATX-Connecter</strong></p>
+<p>Connect to power control interface on the motherboard of the controlled computer with DuPont cables. It can turn on, off, and restart the controlled computer.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title"><strong>OLED Display</strong></p>
+<p>A white OLED display with a resolution of 128x64, and the chip is SSD1306. This display can show the temperature, IP address and other information of the Raspberry Pi.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title"><strong>FAN</strong></p>
+<p>The Card HAT is fitted with a small fan that is controlled by your Raspberry Pi CM4 via GPIO12. </p>
+</div>
+<div class="admonition note">
+<p class="admonition-title"><strong>BOOT</strong></p>
+<p>Fit jumper to disable eMMC Boot</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title"><strong>Real Time Clock (RTC)</strong></p>
+<p>The clock chip is PCF8563 that is controlled by your Raspberry Pi CM4 via I2C. The CR1220 battery is installed under the HDMI IN module.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title"><strong>UART</strong></p>
+<p>Connect the serial port to debug your Raspberry Pi CM4.</p>
+</div>
+<h2 id="3accessories"><strong>3.Accessories</strong></h2>
+<p><img alt="BLIKVM_PCIe_main-back" src="../image/BLIKVM-PCIe/accessories.png" width="400" /></p>
+<div class="admonition note">
+<p class="admonition-title"><strong>HDMI pass-through EDID emulator</strong></p>
+<p>If the controlled computer does not output HDMI images correctly, please use this accessory. Connect the Source port to the controlled computer, connect the Sink port to the HAT. Then you can set the correct HDMI output on the controlled computer.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title"><strong>VGA-HDMI module</strong></p>
+<p>When your device does not have an HDMI output interface, you can use a VGA to HDMI module.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title"><strong>USB to TTL module</strong></p>
+<p>Connect your computer usb interface with the serial port of BLIKVM to debug your Raspberry Pi CM4.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title"><strong>Fan</strong></p>
+<p>Use a cooling fan to cool the Raspberry Pi CM4, but installing a fan will make the product thicker than a standard PCIe add-in card.</p>
+</div>
+<h2 id="4dimensions"><strong>4.Dimensions</strong></h2>
+<p><img alt="dimension1" src="../image/BLIKVM-PCIe/dimension.png" width="400" /></p>
+<h2 id="5list">5.List</h2>
+<h3 id="product-list">Product List</h3>
+<table>
+<thead>
+<tr>
+<th>BLIKVM PCIe card version</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BLIKVM PCIe add-in card</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Cooling fan</td>
+<td>1</td>
+</tr>
+<tr>
+<td>OLED display</td>
+<td>1</td>
+</tr>
+<tr>
+<td>USB to TTL module</td>
+<td>1</td>
+</tr>
+<tr>
+<td>HDMI pass-through EDID emulator</td>
+<td>1</td>
+</tr>
+<tr>
+<td>VGA-HDMI module</td>
+<td>1</td>
+</tr>
+<tr>
+<td>32G Micro SD card</td>
+<td>1</td>
+</tr>
+<tr>
+<td>HDMI cable 0.5m</td>
+<td>1</td>
+</tr>
+<tr>
+<td>HDMI Coupler</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Network cable 1m</td>
+<td>1</td>
+</tr>
+<tr>
+<td>USB-A to USB-C cable 1m</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Dupont USB cable 0.4m</td>
+<td>1</td>
+</tr>
+<tr>
+<td>WiFi antenna</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Dupont Cables 8pin Male to Male 40cm</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Dupont Cables 8pin Male to Female 40cm</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Metal heatsink</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Phillips screwdriver</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Cross Wrench Sleeve</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>BLIKVM PCIe plug-n-play version</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BLIKVM PCIe add-in card</td>
+<td>1</td>
+</tr>
+<tr>
+<td>CM4 102000</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Cooling fan</td>
+<td>1</td>
+</tr>
+<tr>
+<td>OLED display</td>
+<td>1</td>
+</tr>
+<tr>
+<td>USB to TTL module</td>
+<td>1</td>
+</tr>
+<tr>
+<td>HDMI pass-through EDID emulator</td>
+<td>1</td>
+</tr>
+<tr>
+<td>VGA-HDMI module</td>
+<td>1</td>
+</tr>
+<tr>
+<td>32G Micro SD card</td>
+<td>1</td>
+</tr>
+<tr>
+<td>HDMI cable 0.5m</td>
+<td>1</td>
+</tr>
+<tr>
+<td>HDMI Coupler</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Network cable 1m</td>
+<td>1</td>
+</tr>
+<tr>
+<td>USB-A to USB-C cable 1m</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Dupont USB cable 0.4m</td>
+<td>1</td>
+</tr>
+<tr>
+<td>WiFi antenna</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Dupont Cables 8pin Male to Male 40cm</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Dupont Cables 8pin Male to Female 40cm</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Metal heatsink</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Phillips screwdriver</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Cross Wrench Sleeve</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="list-of-items-prepared-by-the-user">List of items prepared by the user</h3>
+<table>
+<thead>
+<tr>
+<th>Raspberry Pi CM4(if you order PCIe card only)</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PoE-sourcing equipment or 5V/3A USB adapter</td>
+<td>1</td>
+</tr>
+<tr>
+<td>CR1220 coin cell battery</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
 
               
             </article>
