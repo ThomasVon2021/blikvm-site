@@ -32,7 +32,7 @@ theme:
 extra:
   homepage: https://www.blicube.com
 repo_name: BLIKVM
-repo_url: https://github.com/ThomasVon2021/pikvm-board
+repo_url: https://github.com/ThomasVon2021/blikvm-site.git
 markdown_extensions:
   - attr_list
   - md_in_html
@@ -49,16 +49,16 @@ nav:
     - "Getting started":
         - "BLIKVM Overview": index.md
         - "HAT version":
-          - "BLIKVM HAT version guide": BLIKVM-HAT-guide.md
+          - "BLIKVM HAT guide": BLIKVM-HAT-guide.md
           - "illustrated instructions": BLIHAT-Installation.md
-        - "BLIKVM CM4 version guide": BLIKVM-CM4-guide.md
-        - "BLIKVM PCIe version guide": BLIKVM-PCIE-guide.md
+        - "BLIKVM CM4 guide": BLIKVM-CM4-guide.md
+        - "BLIKVM PCIe guide": BLIKVM-PCIE-guide.md
     - "Configure":
-        - "flashing os": flashing_os.md
+        - "Flashing os": flashing_os.md
         - "OLED display": OLED-display.md
     - "Accessories":
         - "ATX guide": atx-guide.md
-        - "HDMI to CSI&Audio": hdmi-csi-i2s.md
+        - "HDMI to CSI & Audio": hdmi-csi-i2s.md
         - "USB splitter": usb-splitter-guide.md
 
 
