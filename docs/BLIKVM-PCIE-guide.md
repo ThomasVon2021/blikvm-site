@@ -1,16 +1,24 @@
 # BLIKVM PCIe
 
-## **1.Introduction**
+## **Introduction**
 
 ![main1](image/BLIKVM-PCIe/BLIKVM_PCIe_main1.png){width="500"}
 
 BLIKVM PCIe is a PCIe add-in card based on Raspberry Pi CM4 for KVM Over IP. This product’s key features include video capture, ATX controller, PoE, OLED , UART and RTC. The card has a standard PCIe I/O bracket and a low profile PCIe  I/O bracket. The product is currently perfectly compatible with blikvm image and pikvm image.
 
-## **2.Specification**
+## **Installation requirements**
+!!! note "You will need the following things"
+    * Raspberry Pi CM4(if you order PCIe card only).
+    * PoE-sourcing equipment or 5V/3A USB adapter.
+    * CR1220 coin cell battery.
 
-![BLIKVM_PCIe_main-define](image/BLIKVM-PCIe/BLIKVM_PCIe_main-define.png){width="400"}
-
-![BLIKVM_PCIe_main-back](image/BLIKVM-PCIe/BLIKVM_PCIe_main-back.png){width="400"}
+## **Basic setup**
+**1.** [If you have an assembly kit, Flash the memory card or eMMC ](./flashing_os.md)   
+**2.Build BLIKVM** according to the [illustrated instructions](./BLIKVM-PCIe-installation.md):
+## **Specification**
+!!! note "hardware feature list"
+    ![BLIKVM_PCIe_main-define](image/BLIKVM-PCIe/BLIKVM_PCIe_main-define.png){width="300"}
+    ![BLIKVM_PCIe_main-back](image/BLIKVM-PCIe/BLIKVM_PCIe_main-back.png){width="300"}
 
 !!! note "**HDMI IN**"
     The bridge chip is Toshiba TC358743, which supports both video and audio(I2S), and the highest input resolution is 1080p@60fps.
@@ -46,7 +54,7 @@ BLIKVM PCIe is a PCIe add-in card based on Raspberry Pi CM4 for KVM Over IP. Thi
 !!! note "**UART**"
     Connect the serial port to debug your Raspberry Pi CM4.
 
-## **3.Accessories**
+## **Accessories**
 
 ![BLIKVM_PCIe_main-back](image/BLIKVM-PCIe/accessories.png){width="400"}
 !!! note "**HDMI pass-through EDID emulator**"
@@ -61,13 +69,13 @@ BLIKVM PCIe is a PCIe add-in card based on Raspberry Pi CM4 for KVM Over IP. Thi
 !!! note "**Fan**"
     Use a cooling fan to cool the Raspberry Pi CM4, but installing a fan will make the product thicker than a standard PCIe add-in card.
 
-## **4.Dimensions**
+## **Dimensions**
 
 ![dimension1](image/BLIKVM-PCIe/dimension.png){width="400"}
 
 
 
-## 5.List
+## **List**
 
 ### Product List
 

@@ -32,7 +32,7 @@ theme:
 extra:
   homepage: https://www.blicube.com
 repo_name: BLIKVM
-repo_url: https://github.com/ThomasVon2021/blikvm-site.git
+repo_url: https://github.com/ThomasVon2021/blikvm.git
 markdown_extensions:
   - attr_list
   - md_in_html
@@ -52,7 +52,9 @@ nav:
           - "BLIKVM HAT guide": BLIKVM-HAT-guide.md
           - "illustrated instructions": BLIHAT-Installation.md
         - "BLIKVM CM4 guide": BLIKVM-CM4-guide.md
-        - "BLIKVM PCIe guide": BLIKVM-PCIE-guide.md
+        - "PCIe version":
+          - "BLIKVM PCIe guide": BLIKVM-PCIE-guide.md
+          - "illustrated instructions": BLIKVM-PCIe-installation.md
     - "Configure":
         - "Flashing os": flashing_os.md
         - "OLED display": OLED-display.md

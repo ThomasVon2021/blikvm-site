@@ -7,6 +7,8 @@
 ## Download the image
 
 * **[PiKVM image (BLIKVM-CM4)](https://mgk9cjip0o.feishu.cn/file/boxcnYAhGhLxaEVOQdSrNiD1Pbg?from=from_copylink)**
+* **[PiKVM image (BLIKVM-PCIe)] will coming soon**
+* **[PiKVM image (BLIKVM-HAT)] will coming soon**
 
 ## Flash the image
 
@@ -15,14 +17,21 @@
     [How to flash the eMMC on a Raspberry Pi Compute Module 4](https://www.youtube.com/watch?v=jp_mF1RknU4)
 
 ### Board Link
-First, use the jumper cap to short the boot pin.Then connect the data cable to the USB OTG interface.
-Power on blikvm and observe the act light, the green light is always on.Taking Ubuntu system as an example:  
-![Image title](image/flash_os/flash_led-300x300.png){width="300"}
-
+First, use the jumper cap to short the boot pin.
+!!! info "If you use BLIKVM CM4 version"
+    Then connect the data cable to the USB OTG interface. Power on blikvm and observe the act light, the green light is always on.  
+    ![Image title](image/flash_os/flash_led-300x300.png){width="300"}
+!!! info "If you use BLIKVM PCIe version"
+    Then connect the data cable to the USB-PC interface. Power on blikvm and observe the ACT and PWR LED isn't light. 
+    After initialize EMMC through the usbboot/rpiboot, the ACT and PWR LED light is always on.  
+    ![Image title](image/flash_os/pcie-flash-boot.jpg){width="300"}
+    ![Image title](image/flash_os/pcie_flash_after_rpiboot.jpg){width="300"}
+    
 !!! tip "EMMC knowledge"
     If you use raspberry pi computing modules such as CM3 or CM4 EMMC，you can initialize EMMC through the usbboot. Note that the EMMC version cannot directly use the SD card to start the image.
     From this video you can learn how to flash image quickly.[How to flash the eMMC on a Raspberry Pi Compute Module 4 video](https://www.youtube.com/watch?v=jp_mF1RknU4)
 
+**Taking Ubuntu system as an example:**
 ###  Linux usbboot
 If you use an Micro-SD Card, you don't need to care about that.
 ```
