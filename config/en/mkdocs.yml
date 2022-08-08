@@ -1,0 +1,74 @@
+site_name: BLIKVM Handbook
+docs_dir: '../../docs/en'
+site_dir: '../../generated/en'
+site_description: Open and cheap DIY IP-KVM on Raspberry Pi
+site_author: Thomas Von
+theme:
+  name: material
+  custom_dir: '../../overrides/'
+  logo: assets/images/logo.png
+  icon:
+    admonition:
+      note: octicons/tag-16
+      abstract: octicons/checklist-16
+      info: octicons/info-16
+      tip: octicons/squirrel-16
+      success: octicons/check-16
+      question: octicons/question-16
+      warning: octicons/alert-16
+      failure: octicons/x-circle-16
+      danger: octicons/zap-16
+      bug: octicons/bug-16
+      example: octicons/beaker-16
+      quote: octicons/quote-16
+  features:
+    - content.code.annotate
+    - navigation.indexes
+    - navigation.sections
+    - navigation.top
+    - navigation.tracking
+    - navigation.expand
+    - search.highlight
+    - search.share
+    - search.suggest
+
+extra:
+  homepage: https://www.blicube.com
+  alternate:
+    - name: English
+      link: /www/wwwroot/wiki.blicube.com/test/generated/en/
+      lang: en
+    - name: 中文
+      link: /www/wwwroot/wiki.blicube.com/test/generated/zh/
+      lang: zh
+repo_name: BLIKVM
+repo_url: https://github.com/ThomasVon2021/blikvm.git
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+nav:
+    - "Getting started":
+        - "BLIKVM Overview": index.md
+        - "HAT version":
+          - "BLIKVM HAT guide": BLIKVM-HAT-guide.md
+          - "illustrated instructions": BLIHAT-Installation.md
+        - "BLIKVM CM4 guide": BLIKVM-CM4-guide.md
+        - "PCIe version":
+          - "BLIKVM PCIe guide": BLIKVM-PCIE-guide.md
+          - "illustrated instructions": BLIKVM-PCIe-installation.md
+    - "Configure":
+        - "Flashing os": flashing_os.md
+        - "OLED display": OLED-display.md
+    - "Accessories":
+        - "ATX guide": atx-guide.md
+        - "HDMI to CSI & Audio": hdmi-csi-i2s.md
+        - "USB splitter": usb-splitter-guide.md
