@@ -5,7 +5,7 @@ This module takes the incoming HDMI signal and converts it into a separate CSI s
 HDMI input supports up to 1080P60Hz. It works well on raspberry pi, there are three versions of this module 
 in history(C779、C780、C790). C790 is the latest version. C790 has mitigate HDMI backpowering,also has two csi 
 channels and four csi channels at the same time.
-![](image/hdmi-csi-i2s/c790.png)
+![](assets/images/hdmi-csi-i2s/c790.png)
 
 ## **Features**
 ### **C790**
@@ -21,13 +21,13 @@ channels and four csi channels at the same time.
     * Weight: 10g
 
 !!! note "interface"
-    ![](image/hdmi-csi-i2s/c790-interface.png){width="400"}  
+    ![](assets/images/hdmi-csi-i2s/c790-interface.png){width="400"}  
     C790 has two csi output interface. In fornt of C790, the CSI-2 interface is 15 pin FPC seat, 
     spacing 1.0 mm. In back of C790, the CSI-2 interface is 22 pin FPC seat, spacing 0.5 mm.
-    ![](image/hdmi-csi-i2s/c790-i2s-connect.png){width="400"}  
+    ![](assets/images/hdmi-csi-i2s/c790-i2s-connect.png){width="400"}  
 
 !!! note "size"
-    ![](image/hdmi-csi-i2s/c790-size.png){width="400"}  
+    ![](assets/images/hdmi-csi-i2s/c790-size.png){width="400"}  
 
 ### **C780**
 ??? info "C780A hardware parameters"
@@ -49,17 +49,17 @@ channels and four csi channels at the same time.
     * Power supply:3.3V
     * Weight: 10g
 ??? info "interface"
-    ![](image/hdmi-csi-i2s/2-4.png){width="400"}  
+    ![](assets/images/hdmi-csi-i2s/2-4.png){width="400"}  
     The wiring of audio part is shown in Figure.  
-    ![](image/hdmi-csi-i2s/2-8.png){width="400"}
+    ![](assets/images/hdmi-csi-i2s/2-8.png){width="400"}
 ??? info "size"
     The size of C780 is shown in Figure. There are 6 mounting holes with a diameter of 2.75mm, 
     which are suitable for M2.5 screws.  
-    ![](image/hdmi-csi-i2s/2-1.png){width="400"}  
+    ![](assets/images/hdmi-csi-i2s/2-1.png){width="400"}  
     As shown in Figure, the user can directly fix the module on the raspberry pi zero.C780 is designed 
     to be broken, and the hole spacing before breaking can be perfectly installed with most series of 
     raspberry pi.
-    ![](image/hdmi-csi-i2s/2-2.png){width="400"}
+    ![](assets/images/hdmi-csi-i2s/2-2.png){width="400"}
 
 ### **C779**
 ??? info "hardware parameters"
@@ -75,7 +75,7 @@ channels and four csi channels at the same time.
 ??? info "size"
     The size of C779 is shown in Figure. There are 4 mounting holes with a diameter of 2.75mm, 
     which are suitable for M2.5 screws.  
-    ![](image/hdmi-csi-i2s/c779-size.png){width="400"}  
+    ![](assets/images/hdmi-csi-i2s/c779-size.png){width="400"}  
 
 ## **Software demo**
 The use guide of C790/C780/C779 depends on the official Raspberry Pi OS version you are using. 
@@ -279,7 +279,7 @@ Linux raspberrypi 5.10.63-v7l+ #1459 SMP Wed Oct 6 16:41:57 BST 2021 armv7l GNU/
     ```
     PS: We recommend that you modify the above framerate parameter to the actual frame rate of your HDMI signal, 
     the actual frame rate value is from the result of ‘v4l2-ctl –query-dv-timings’ command.
-    ![Image title](image/hdmi-csi-i2s/v4l2-rate.png){width="400"}
+    ![Image title](assets/images/hdmi-csi-i2s/v4l2-rate.png){width="400"}
     For the above HDMI device, because the frame rate is 60, so we modify the framerate parameter to 60 like the followint command.
     Record the video only:
     ```
@@ -294,7 +294,7 @@ Linux raspberrypi 5.10.63-v7l+ #1459 SMP Wed Oct 6 16:41:57 BST 2021 armv7l GNU/
 
 ## **Packing List**
 ??? info "C790"
-    ![](image/hdmi-csi-i2s/c790-packing-list.png){width="400"}
+    ![](assets/images/hdmi-csi-i2s/c790-packing-list.png){width="400"}
 
 ## **Test video**
 C780A test:https://www.youtube.com/watch?v=ecqyINoiHNQ

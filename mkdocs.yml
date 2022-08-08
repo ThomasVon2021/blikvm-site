@@ -31,6 +31,13 @@ theme:
 
 extra:
   homepage: https://www.blicube.com
+  alternate:
+    - name: English
+      link: /en/
+      lang: en
+    - name: 中文
+      link: /zh/
+      lang: zh
 repo_name: BLIKVM
 repo_url: https://github.com/ThomasVon2021/blikvm.git
 markdown_extensions:

@@ -2,7 +2,7 @@
 
 ## **1. Introduction**
 
-![image-20220107110102815](image/usb-splitter/usb-splitter.png)
+![image-20220107110102815](assets/images/usb-splitter/usb-splitter.png)
 
 The adaptor allows the Raspberry Pi 4 to be used with a Pi USB-C power supply while allowing access to USB OTG data over a separate USB-C connection.
 
@@ -31,7 +31,7 @@ An adaptor of this kind does not fall within the USB specification. It's designe
 
 ## **2.Mechanical Diagram**
 
-![image-20220107154909710](image/usb-splitter/usb-splitter-size.png)
+![image-20220107154909710](assets/images/usb-splitter/usb-splitter-size.png)
 
 ## **3.Test video**
 
