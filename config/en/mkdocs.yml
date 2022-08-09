@@ -36,10 +36,10 @@ extra:
   homepage: https://www.blicube.com
   alternate:
     - name: English
-      link: /test/en/
+      link: /blikvm/en/
       lang: en
     - name: 中文
-      link: /test/zh/
+      link: /blikvm/zh/
       lang: zh
 repo_name: BLIKVM
 repo_url: https://github.com/ThomasVon2021/blikvm.git
