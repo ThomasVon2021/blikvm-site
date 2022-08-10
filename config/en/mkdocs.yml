@@ -34,6 +34,10 @@ theme:
 
 extra:
   homepage: https://www.blicube.com
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ThomasVon2021/blikvm-site
+      name: Join the translation work
   alternate:
     - name: English
       link: /blikvm/en/
