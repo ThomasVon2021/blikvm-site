@@ -16,7 +16,7 @@
 
 **主体设备已安装完成**
 
-## **3.连接UBX接口和ATX接口**
+## **3.连接USB接口和ATX接口**
 !!! note "此文中的主板使用的是Asus H520M-E，不同的主板接口定义不一定相同，请参考您的主板相关手册。"
     ![connection_preparation](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/connection_preparation.jpg){width="300"}
     ![connect_USB_and_ATX](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/connect_USB_and_ATX.jpg){width="300"}
@@ -28,7 +28,7 @@
 !!! note ""
     ![connect_OLED](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/connect_OLED.jpg){width="400"}
 
-## **5.链接HDMI线**
+## **5.连接HDMI线**
 !!! note "将您电脑的HDMI输出口通过HDMI线直接连接到BLIKVM PCIe卡的HDMI IN接口。HDMI EDID模拟器不是必须要是用的，当您的计算机不能正确输出HDMI画面时，可以通过尝试使用此模块接在你的计算机的HDMI接口上，从而让您的计算机可以输出一个正确扽HDMI画面"
     ![Connect_HDMI_cable_1](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/Connect_HDMI_cable_1.jpg){width="300"}
     ![Connect_HDMI_cable_2](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/Connect_HDMI_cable_2.jpg){width="300"}
