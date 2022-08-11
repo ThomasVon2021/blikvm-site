@@ -6,6 +6,7 @@ you can mention PR. we will thank you very much for your translation work.
 
 ## File Structure
 You can add your language fellow this struct.
+```
 ├─ config/
 │    ├─ en/
 │    │  └─ mkdocs.yml
@@ -33,7 +34,7 @@ You can add your language fellow this struct.
 └─ overrides/
      └─assets/
         └─images/
-
+```
 
 ## Acknowledgments 
 <a href="https://www.mkdocs.org/" target="_blank">mkdcos</a>
