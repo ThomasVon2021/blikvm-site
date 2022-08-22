@@ -7,8 +7,8 @@
 ## Download the image
 
 * **[PiKVM image (BLIKVM-CM4)](https://mgk9cjip0o.feishu.cn/file/boxcnYAhGhLxaEVOQdSrNiD1Pbg?from=from_copylink)**
-* **[PiKVM image (BLIKVM-PCIe)](https://mgk9cjip0o.feishu.cn/file/boxcnLGj2bvflJjiK0jRYKDQaQh)**
-* **[PiKVM image (BLIKVM-HAT)] will coming soon**
+* **[PiKVM image (BLIKVM-PCIe)](https://drive.google.com/file/d/1lsZRhSrK3w_OE7MG1ycY6YeiT3jfJS4A/view?usp=sharing)**
+* **[PiKVM image (BLIKVM-HAT)](https://mgk9cjip0o.feishu.cn/file/boxcnYAhGhLxaEVOQdSrNiD1Pbg?from=from_copylink)**
 
 ## Flash the image
 
