@@ -45,6 +45,9 @@ extra:
     - name: 中文
       link: /blikvm/zh/
       lang: zh
+    - name: 日本語
+      link: /blikvm/ja/
+      lang: ja
 repo_name: blikvm
 repo_url: https://github.com/ThomasVon2021/blikvm.git
 markdown_extensions:
