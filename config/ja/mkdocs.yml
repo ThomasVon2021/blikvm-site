@@ -1,0 +1,81 @@
+site_name: BLIKVM ハンドブック
+docs_dir: '../../docs/ja'
+site_dir: '../../generated/ja'
+site_description: Open and cheap DIY IP-KVM on Raspberry Pi
+site_author: Thomas Von
+theme:
+  name: material
+  custom_dir: '../../overrides/'
+  logo: assets/images/logo.png
+  icon:
+    admonition:
+      note: octicons/tag-16
+      abstract: octicons/checklist-16
+      info: octicons/info-16
+      tip: octicons/squirrel-16
+      success: octicons/check-16
+      question: octicons/question-16
+      warning: octicons/alert-16
+      failure: octicons/x-circle-16
+      danger: octicons/zap-16
+      bug: octicons/bug-16
+      example: octicons/beaker-16
+      quote: octicons/quote-16
+  features:
+    - content.code.annotate
+    - navigation.indexes
+    - navigation.sections
+    - navigation.top
+    - navigation.tracking
+    - navigation.expand
+    - search.highlight
+    - search.share
+    - search.suggest
+
+extra:
+  homepage: https://www.blicube.com
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ThomasVon2021/blikvm-site
+      name: Join the translation work
+  alternate:
+    - name: English
+      link: /blikvm/en/
+      lang: en
+    - name: 中文
+      link: /blikvm/zh/
+      lang: zh
+    - name: 日本語
+      link: /blikvm/ja/
+      lang: ja
+repo_name: blikvm
+repo_url: https://github.com/ThomasVon2021/blikvm.git
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+nav:
+    - "はじめに":
+        - "BLIKVMの概要": index.md
+        - "HAT バージョン":
+          - "BLIKVM HAT ガイド": BLIKVM-HAT-guide.md
+          - "組み立てガイド": BLIHAT-Installation.md
+        - "BLIKVM CM4 ガイド": BLIKVM-CM4-guide.md
+        - "PCIe バージョン":
+          - "BLIKVM PCIe ガイド": BLIKVM-PCIE-guide.md
+          - "組み立てガイド": BLIKVM-PCIe-installation.md
+    - "設定":
+        - "OSの書き込み": flashing_os.md
+        - "OLED ディスプレイ": OLED-display.md
+    - "アクセサリー":
+        - "ATX ガイド": atx-guide.md
+        - "HDMI-CSI&I2Sブリッジ": hdmi-csi-i2s.md
+        - "USB スプリッタ": usb-splitter-guide.md
