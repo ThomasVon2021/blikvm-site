@@ -1,151 +1,146 @@
-# BLIKVM HAT version guide
-## **Introduction**
+# BliKVM Hat 使用说明
+## **介绍**
 
-!!! info "BLIKVM hat Video"
+!!! info "BliKVM Hat 360度 视频"
     <iframe width="560" height="315" src="https://www.youtube.com/embed/SdpmMojDbGA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-The Raspberry Pi IPKVM HAT is an add-on board for Raspberry Pi 4, made especially for KVM Over IP.  
-BLIKVM-RPI4 is a Raspberry Pi 4 PoE KVM HAT.  This product’s key features include video capture, 
-ATX adapter,PoE, OLED and RTC. The product has a customized metal case to dissipate heat and provide protection 
-for the HAT. The product can be easily installed on a standard 1U rack. The product is currently perfectly compatible
-with blikvm image and pikvm image.  
+BliKVM Hat版本是基于树莓派4B制作的一款硬件，用于KVM Over IP。Hat关键功能包括HDMI视频捕获、ATX控制、PoE供电、OLED屏幕显示、RTC时钟。
+Hat配有金属外壳，用于保护和散热。Hat可以被安装到1U的机架。同时支持blikvm镜像和pikvm镜像。
+
  ![Image title](assets/images/BLIKVM-HAT/case.png){width="300"}  
-## **Installation requirements**
-!!! note "If you have an assembly kit, you will need the following things"
-    * Raspberry Pi 4B with 1Gb RAM or more.
-    * HDMI cable.
-    * Straight Ethernet cable (for the ATX board connection).
-    * Power supply unit & cable(5.1V 3A USB-C, recommended by the Raspberry Pi).
+## **安装要求**
+!!! note "如果你购买的只是一个Hat，你还需要下面设备"
+    * 树莓派4B，1GB RAM或者更多
+    * MicroSD card (推荐最少16Gb, class 10).
+    * HDMI 线缆.
+    * 网线 (用于Hat和ATX的连接).
+    * 电源适配器和线缆(5.1V 3A USB-C).
 
-## **Basic setup**
-**1.** [Flash the memory card or eMMC ](./flashing_os.md) 
+## **基础设置**
+**1.** [烧录镜像](./flashing_os.md) 
 
-**2.Build BLIKVM** according to the video instruction or review the [illustrated instructions](./BLIHAT-Installation.md):
+**2.组装Hat** 参考下面的视频说明或者参考[图文说明](./BLIHAT-Installation.md):
 
-??? info "Video Guide: Metal case step by step"
+??? info "Hat 视频安装导览: 手把手教你如何组装Hat到树莓派上"
     <iframe width="560" height="315" src="https://www.youtube.com/embed/FaZBQUA7rAM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-**3.** Install the ATX adapter board
+**3.** 安装**ATX**模块
 
-!!! info "The board has a standard PCIe I/O bracket and a low profile PCIe  I/O bracket. Choose one as needed"
+!!! info "ATX模块配有一个全高或者半高的PCIe挡板，你可以根据需求选择安装"
     ![IMG_8366](assets/images/BLIKVM-HAT/hat-install/IMG_8366.JPG){width="300"}
     ![IMG_8367](assets/images/BLIKVM-HAT/hat-install/IMG_8367.JPG){width="300"}
 
-!!! info "Use Dupont cables to connect ATX adapter board to motherboard and chassis panel. There are clear pin definitions on the board for easy wiring."
+!!! info "使用杜邦线连接ATX模块和机箱里的主板，ATX模块上都有清晰的引脚定义方便你连接"
     ![IMG_8368](assets/images/BLIKVM-HAT/hat-install/IMG_8368.JPG){width="300"}
     ![IMG_8369](assets/images/BLIKVM-HAT/hat-install/IMG_8369.JPG){width="300"}
 
-!!! info "Mount the ATX adapter board to the case shell"
+!!! info "将ATX模块安装到机箱外壳上"
     ![IMG_8370](assets/images/BLIKVM-HAT/hat-install/IMG_8370.JPG){width="300"}
 
-!!! info "Use a RJ45 network cable to connect the board to the CN-ATX interface of the HAT"
+!!! info "使用RJ45的网线连接ATX和Hat"
     ![004d8da8059a57b87d2d40ce70174e7](assets/images/BLIKVM-HAT/hat-install/004d8da8059a57b87d2d40ce70174e7.png){width="300"}
 
-**4.** Connect the HDMI cable
+**4.** 连接HDMI线缆
 
-!!! info "Connect the HDMI output port of the computer directly to the HDMI IN port of the HAT with an HDMI cable. The HDMI pass-through EDID emulator is not necessary! If your computer does not output the correct HDMI format, plug the HDMI pass-through EDID emulator into the HDMI output port of the computer. This allows you to configure a fixed HDMI output format on your computer."
+!!! info "使用HDMI线缆，将被控电脑的HDMI和Hat的HDMI IN端口连接。HDMI模拟器不是必须使用的，当你的电脑不能正确输出画面时，可以尝试使用HDMI模拟器来校正电脑的HDMI输出"
     ![30c484ad28e149b703ccc74c09e52db](assets/images/BLIKVM-HAT/hat-install/30c484ad28e149b703ccc74c09e52db.png){width="300"}
     ![IMG_8373](assets/images/BLIKVM-HAT/hat-install/IMG_8373.JPG){width="300"}
 
-**5.** Install the USB cable
-!!! info "Connect the RPI4 port to the Raspberry Pi 4"
+**5.** 安装USB线缆
+!!! info "请注意这里使用USB分电板不是必须的，如果你使用PoE供电不需要使用此模块，如果你需要使用USB供电则需要。通过USB-C线连接树莓派4B的TYPE-C口到分电板的RPI4端口"
     ![IMG_8374](assets/images/BLIKVM-HAT/hat-install/IMG_8374.JPG){width="300"}
     ![IMG_8375](assets/images/BLIKVM-HAT/hat-install/IMG_8375.JPG){width="300"}
 
-!!! info "Connect the USB port to the controlled computer"
+!!! info "连接分电板上的USB端口到被控电脑"
     ![IMG_8376](assets/images/BLIKVM-HAT/hat-install/IMG_8376.JPG){width="300"}
 
-!!! warning "When using PoE power supply, there is no need to connect the PWR port. When not using PoE power supply, connect the PWR port to a standard 5V/3A USB power supply."
+!!! warning "当使用PoE供电时，请注意不需要在使用USB供电设备。当不使用PoE供电时，推荐使用5V/3A的电源适配器到分电板的PWR端口"
 
-**6.** Test
-!!! info "Powered by PoE, the HAT is connected to the router via the network cable"
+**6.** 测试
+!!! info "图中通过PoE供电，Hat通过网线连接到网络中"
     ![IMG_8377](assets/images/BLIKVM-HAT/hat-install/IMG_8377.JPG){width="300"}
 
-!!! info "The screen displays the current status of the device, including the machine's IP address"
+!!! info "OLED屏幕将会正常显示设备的工作状态，包括设备的IP地址"
     ![IMG_8379](assets/images/BLIKVM-HAT/hat-install/IMG_8379.JPG){width="300"}
 
-!!! info "Access the IP address of the HAT in the browser. Enjoy!"
+!!! info "打开浏览器，输入设备的IP地址，即可打开控制的WEB界面，现在去使用它吧！"
     ![image-20220621174207504](assets/images/BLIKVM-HAT/hat-install/image-20220621174207504.png){width="300"}
 
-## **Specification**
+## **性能参数**
 ![Image title](assets/images/BLIKVM-HAT/specification.png){width="600"}
 
-??? note "**HDMI IN**"
-    The bridge chip is Toshiba TC358743, which supports both video and audio(I2S), and the highest input resolution is 1080p@50fps.
-    Fixed HDMI back power issue.
+??? note "**HDMI 输入**"
+    使用Toshiba TC358743为HDMI转换的主芯片，同时支持视频和声音的采集，支持视频最高输入为1080P60Hz.解决了HDMI反向供电问题。
 
 ??? note "**CN-ATX**"
-    The CN-ATX interface is connected to the ATX adapter board (an accessory for the HAT)through a network cable, which can turn on, 
-    off, and restart the controlled computer.
+    CN-ATX接口通过网线连接ATX模块，用来控制被控电脑的开机、关机、和重启操作。
 
-??? note "**Display**"
-    A white OLED display with a resolution of 128x32, and the chip is SSD1306. 
-    This display can show the temperature, IP address and other information of the Raspberry Pi.
+??? note "**显示屏**"
+    配有白色的显示屏，分辨率为128x32，使用芯片为SSD1306。显示屏会显示如温度、IP地址等树莓派的信息。
 
 ??? note "**PoE**"
-    - **Standard:** IEEE 802.3af PoE
-    - **Input voltage:** 37-57 V DC
-    - **Output power:** 5 V DC/2.4 A
-    - Plug in the PoE jumper cap to enable PoE power supply
+    - **标准:** IEEE 802.3af PoE
+    - **输入电压:** 37-57 V DC
+    - **输出电压:** 5 V DC/2.4 A
+    - 使用PoE模块供电，需要将Hat上的PoE的引脚使用跳线帽短接。
 
-??? note "**FAN**"
-    The IPKVM HAT is fitted with a small fan that is controlled by your Raspberry Pi via GPIO12. 
+??? note "**风扇**"
+    风扇默认使用树莓派上的GPIO12控制。
 
-??? note "**Real Time Clock (RTC)**"
-    The clock chip is PCF8563 that is controlled by your Raspberry Pi via I2C. The coin cell battery is installed under the HDMI IN module.
+??? note "**RTC时钟**"
+    RTC时钟主芯片为PCF8563，通过I2C和树莓派连接。启用RTC时钟工作的纽扣电池安装位置在HDMI-IN模块的下面。
 
-## **Accessories**
+## **配件**
 
-### **ATX adapter board**
+### **ATX模块**
 
 ![Image title](assets/images/BLIKVM-HAT/ATX-A-B.png){width="300"}
 
-This board is connected to the switch port on the motherboard of the controlled computer with DuPont cables. 
-The board has a standard PCIe I/O bracket and a low profile PCIe  I/O bracket.
+ATX模块通过杜邦线和电脑的主板连接。ATX模块配有全高和半高的PCIe挡板。
 
-### **USB/PWR splitter**
+### **USB/PWR 分电板**
 ![Image title](assets/images/BLIKVM-HAT/usb-spiltter.png){width="300"}
 
-- Connect the RPI4 port to your Raspberry Pi 4.
-- Connect the USB port to the controlled computer.
-- When using PoE power supply, there is no need to connect the PWR port. When not using PoE power supply, connect the PWR port to a standard 5V/3A USB power supply.
+- RPI4端口用于连接到树莓派4B.
+- USB端口用于连接到被控电脑.
+- 当使用PoE供电时，不需要使用分电板.
 
-### **HDMI pass-through EDID emulator**
+### **HDMI模拟器**
 
 ![Image title](assets/images/BLIKVM-HAT/edid-emulator.png){width="300"}
 
-If the controlled computer does not output HDMI images correctly, please use this accessory. Connect the Source port to the controlled computer, connect the Sink port to the HAT. Then you can set the correct HDMI output on the controlled computer.
+如果被控电脑不能正确输出画面，可以尝试使用此模块来解决。将此模块连接到Hat上后，再通过HDMI线缆连接到被控电脑。
 
-### **Metal case**
+### **金属外壳**
 
 ![Image title](assets/images/BLIKVM-HAT/metal-case.png){width="300"}  
-The metal case protects the HAT and improve heat dissipation. There are clear port markings on the case.
 
-The case can be easily installed on a standard 1U rack.
+金属外壳可以保护Hat和用于散热.外壳上每个端口有清晰的丝印来表示此端口用途。此外壳可以方便的安装在1U的机架上。
+
 
 ## **List**
 
 ### **Product List**
 ![Image title](assets/images/BLIKVM-HAT/product-list.png){width="300"}
 
-| Raspberry Pi IPKVM HAT                 | 1    |
-| -------------------------------------- | ---- |
-| ATX adapter board                      | 1    |
-| USB/PWR splitter                       | 1    |
-| HDMI pass-through EDID emulator        | 1    |
-| Metal case                             | 1    |
-| 32G TF card                            | 1    |
-| USB Type-C to USB Type-C Cable 30cm    | 1    |
-| Dupont Cables 8pin Male to Male 40cm   | 1    |
-| Dupont Cables 8pin Male to Female 40cm | 1    |
-| Phillips screwdriver                   | 1    |
-| Cross Wrench Sleeve                    | 1    |
+| BliKVM Hat 模块                   | 1    |
+|---------------------------------| ---- |
+| ATX 模块                          | 1    |
+| USB/PWR 分电板                     | 1    |
+| HDMI模拟器                         | 1    |
+| 金属外壳                            | 1    |
+| 32G TF 卡                        | 1    |
+| USB Type-C 转 USB Type-C 线缆 30cm | 1    |
+| 杜邦线 8pin 母对母 40cm               | 1    |
+| 杜邦线 8pin 母对公 40cm               | 1    |
+| 十字螺丝刀                           | 1    |
+| 十字扳手套筒                          | 1    |
 
-### **List of items prepared by the user**
+### **用户需要准备设备的清单**
 
-| Raspberry Pi 4                              | 1    |
-| ------------------------------------------- | ---- |
-| RJ45 network cable                          | 2    |
-| USB Type-A to USB Type-C Cable              | 2    |
-| HDMI cable                                  | 1    |
-| PoE-sourcing equipment or 5V/3A USB adapter | 1    |
-| CR1220 coin cell battery                    | 1    |
+| 树莓派4B                      | 1    |
+|----------------------------| ---- |
+| RJ45 网线                    | 2    |
+| USB Type-A 转 USB Type-C 线缆 | 2    |
+| HDMI 线缆                    | 1    |
+| PoE供电设备 or 5V/3A USB 电源适配器 | 1    |
+| CR1220纽扣电池                 | 1    |

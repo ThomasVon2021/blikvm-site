@@ -15,6 +15,8 @@ BLIKVM PCIe是一款基于树莓派CM4的IPKVM扩展卡，可以安装到PC或�
 ## **快速安装说明**
 **1.** [如果你购买的是需要自己组装的版本，烧录系统镜像参考请点击此处 ](./flashing_os.md)   
 **2.组装 BLIKVM** 参考的 [说明文档](./BLIKVM-PCIe-installation-zh.md)
+??? info "Geerling的测试视频"
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/cVWF3u-y-Zg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## **产品特性**
 !!! note "硬件接口清单"
