@@ -16,6 +16,9 @@ BLIKVM PCIeはRaspberry Pi CM4を使ったKVM Over IPのためのPCIeカード�
 **1.** 組み立てキットを購入した場合は、[microSDカードまたはeMMCにOSイメージを書き込んでください](./flashing_os.md)   
 **2.BLIKVMの組み立て** [組み立てガイド]に従ってください(./BLIKVM-PCIe-installation.md):
 
+??? info "Geerling: Engineering Test video"
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cVWF3u-y-Zg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## **仕様**
 !!! note "ハードウェアの外観"
     ![BLIKVM_PCIe_main-define](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_main-define.png){width="300"}
