@@ -1,9 +1,9 @@
-# BLIKVM CM4 version guide 
+# BLIKVM CM4 version 使用说明
 
-!!! info "BLIKVM CM4 Video"
+!!! info "BLIKVM CM4 360度 视频"
     <iframe width="560" height="315" src="https://www.youtube.com/embed/2av-JFFkF6I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## **Installation requirements**
+## **安装要求**
 !!! note "If you have an assembly kit, you will need the following things"
     * Raspberry CM4 with 1Gb RAM or more.
     * MicroSD card (at least 16Gb, class 10 recommended).
