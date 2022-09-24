@@ -39,5 +39,6 @@ You can add your language fellow this struct.
 
 ## Acknowledgments 
 <a href="https://www.mkdocs.org/" target="_blank">mkdcos</a>  
-<a href="https://github.com/nishiku" target="_blank">Masao NISHIKU</a>
+<a href="https://github.com/nishiku" target="_blank">Masao NISHIKU</a>  
+<a href="https://github.com/GordoNice" target="_blank">Ivan Gordeev</a>
 
