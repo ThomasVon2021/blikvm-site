@@ -4,82 +4,73 @@
     <iframe width="560" height="315" src="https://www.youtube.com/embed/2av-JFFkF6I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## **安装要求**
-!!! note "If you have an assembly kit, you will need the following things"
-    * Raspberry CM4 with 1Gb RAM or more.
-    * MicroSD card (at least 16Gb, class 10 recommended).
-    * USB-C to USB-A cable.
-    * HDMI cable.
-    * Straight Ethernet cable (for the ATX board connection).
-    * Power supply unit (5.1V 3A USB-C, recommended by the Raspberry Pi).
+!!! note "如果你购买的是需自己组装的版本（不是plug-n-play版本），你需要自己准备以下设备"
+    * 树莓派CM4，最小1Gb RAM.
+    * MicroSD card (至少16Gb, class 10 recommended).
+    * USB-C转USB-A线缆.
+    * HDMI线缆.
+    * 网线.
+    * 电源适配器(5.1V 3A USB-C).
 
-!!! warning "Power supply"
-    You must use USB-C to USB-A cable. Use USB-C to USB-C cable can't work, This is an incompatibility in the hardware design and will be 
-    fixed in a later version.
+!!! warning "电源适配器"
+    在BLIKVM CM4 V2.2版本中，你必须使用USB-C转USB-A线缆进行供电，如果使用USB-C转USB-C线缆可能无法供电。这是这个版本硬件设计的bug，在它后面的版本
+    中此问题将会被修复。
 
-## **Basic setup**
-**1.** [Flash the memory card or eMMC ](./flashing_os.md) 
+## **基础配置**
+**1.** [烧录镜像到SD卡或者eMMC](./flashing_os.md) 
 
-**2.Build BLIKVM** according to the video instruction or review the instructions:
+**2.组装 BLIKVM** 参考下面的视频和说明进行设备安装:
 
-??? info "Video Guide: Metal case step by step"
+??? info "完整拆箱和安装视频"
     <iframe width="560" height="315" src="https://www.youtube.com/embed/aehOawHklGE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-??? info "Geerling: Engineering Test video"
+??? info "Geerling测试视频"
     <iframe width="560" height="315" src="https://www.youtube.com/embed/3OPd7svT3bE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
-??? info "Ortimo: BLIKVM with Raspberry PI CM4 16GB EMMC setup"
+??? info "Ortimo使用BLIKVM CM4 eMMC版本指导"
     <iframe width="560" height="315" src="https://www.youtube.com/embed/xypeC7Fne6Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-**3.** Connect BLIKVM to the computer according to the diagram below:
+**3.** 根据下图接口定义所示，连接被控电脑到BLIKVM上:
 ![Image title](assets/images/blikcm-cm4-interface.png){width="400"}
 
-* HDMI IN and otg port must be connected to the computer. ATX too, but it’s optional, read below. 
-There should be no USB hub between BLIKVM and the computer, as some UEFI/BIOS cannot detect them at the boot stage. 
-BLIKVM supports 1080p60Hz or lower about HDMI source.
-* Connect Ethernet to the network and PWR IN to the BLIKVM power supply.
+* HDMI IN和otg接口必须和被控电脑连接，ATX是可选项。建议在BLIKVM和被控电脑之间最好不要有USB扩展坞，因为在UEFI或BIOS阶段，可能检测不到扩展坞。
+BLIKVM CM4版本最高支持1080P60Hz的输入。
 
-## **ATX connection**
+* 通过Ethernet将BLIKVM连接到网络，通过PWR IN端口工供电。
+
+## **ATX电源控制连接**
 ![Image title](assets/images/BLKVM-CM4/ATX-interface.png){width="400"}
 
-To manage the power of your computer, you will connect CN-ATX port to the computer.The user can use the ATX cable 
-provided with the product to connect the product and the motherboard ATX switch of the controlled computer. 
-The length of the ATX cable is 60CM, you can also use the double female Dupont cables.
+为了管理被控计算机的电源，你需要将CN-ATX端口和被控电脑连接。你可以使用提供的ATX线缆(60厘米)或者杜邦线连接到被控电脑的主板上。
 
 ![Image title](assets/images/BLKVM-CM4/atx-cable-computer.png){width="400"}
 
-## **Hardware Features**
+## **硬件参数**
 ![Image title](assets/images/BLKVM-CM4/blikvm-cm4-hardware-features.png)
 
-* 1、HDMI IN port with I2S
-* 2、ATX controller interface (power on/off, reboot control, PWR and HDD ACT LEDs)
-* 3、USB3.0 port x 2
-* 4、USB-C OTG
-* 5、Real Time Clock (RTC)
-* 6、Gigabit Ethernet
-* 7、Activity LED
-* 8、Micro SD Card socket
-* 9、Power LED
-* 10、I2C display connector
-* 11、nRPI_BOOT Jumper
-* 12、USB-C power input
-* 13、FAN connector 5V
-* 14、CSI-2 date lanes switch
-* 15、CM4 Module Connectors
+* 1、HDMI采集（支持音频）
+* 2、ATX控制 (开机/关机，重启,电源和硬盘指示灯)
+* 3、USB3.0端口两个
+* 4、USB-C OTG接口（用于鼠标和数传控制）
+* 5、RTC时钟
+* 6、以太网口
+* 7、呼吸灯
+* 8、SD卡槽
+* 9、电源指示灯
+* 10、显示屏
+* 11、短接烧录镜像接口
+* 12、USB-C电源输入接口
+* 13、风扇
+* 14、CM4模组接口
 
-## ** Support 1080p60hz HDMI input **
-First in V2.2 version, there is CSI channel switch. This switch is switch 2 csi channels or 4 csi channels. 
-In other versions, the switch is obsolete. Newer keeps the factory state, ignore this switch. Only flip the switch 
-when the device is powered off, otherwise it may cause permanent damage! The four small switches should be up or 
-down at the same time.  
-![Image title](assets/images/BLKVM-CM4/kvm-cm4-switch.png){width="400"}  
-The video encoding function of the Raspberry Pi is implemented by the HDMI-to-CSI bridge chip Toshiba TC358743, 
-which supports up to 4 CSI-2 data lanes. The camera interface of Raspberry Pi 4B only supports 2 CSI-2 date 
-lanes(up to 1080P50Hz), Raspberry Pi CM4 can support 4 CSI-2 date lanes(up to 1080P60Hz). Currently, PiKVM 
-only uses two CSI-2 channels.
+## ** 支持 1080p60hz HDMI输入**
+在V2.2版本中，这里有一个CSI通道切换器。确认切换器在4通道一侧。再其它版本中，移除了此切换器，默认4通道全部使能。
 
-1、 find edid file:
+![Image title](assets/images/BLKVM-CM4/kvm-cm4-switch.png){width="400"}
+你使用的PiKVM镜像版本不同，当发现不支持1080P60Hz的输入时，请按照下面说明，进行检查和配置
+1、 使用下列命令，打开edid文件:
 ```
 rw
 vim /etc/kvmd/tc358743-edid.hex
 ```
-write the following 1080p 60Hz EDID into the file tc358743-edid.hex.
+删除原文件中的内容，将下列内容写到tc358743-edid.hex文件中.
 ```
 00FFFFFFFFFFFF0031D8888800888888
 1C150103800000780AEE91A3544C9926
@@ -98,12 +89,10 @@ D08A20E02D10103E9600C48E21000018
 00000000000000000000000000000000
 0000000000000000000000000000001C
 ```
-2、add csi 4 lanes
-Edit /boot/config.txt, modify "dtoverlay=tc358743" to "dtoverlay=tc358743,4lane=1"
+2、增加CSI 4通道配置
+编辑/boot/config.txt, 找到 "dtoverlay=tc358743" 改为 "dtoverlay=tc358743,4lane=1"
 ```
 vim /boot/config.txt
 ro
 ```
-Now, reboot blikvm, and you can test 1080p 60hz input.
-
-![](https://github.com/ThomasVon2021/pikvm-CM4-Board/blob/main/images/wiki/60hz.jpg)  
+Now,你可以测试1080P60Hz的视频输入了。

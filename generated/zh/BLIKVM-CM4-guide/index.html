@@ -448,29 +448,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#basic-setup" class="md-nav__link">
-    Basic setup
+  <a href="#_2" class="md-nav__link">
+    基础配置
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#atx-connection" class="md-nav__link">
-    ATX connection
+  <a href="#atx" class="md-nav__link">
+    ATX电源控制连接
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#hardware-features" class="md-nav__link">
-    Hardware Features
+  <a href="#_3" class="md-nav__link">
+    硬件参数
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#support-1080p60hz-hdmi-input" class="md-nav__link">
-    Support 1080p60hz HDMI input
+  <a href="#1080p60hz-hdmi" class="md-nav__link">
+    支持 1080p60hz HDMI输入
   </a>
   
 </li>
@@ -747,29 +747,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#basic-setup" class="md-nav__link">
-    Basic setup
+  <a href="#_2" class="md-nav__link">
+    基础配置
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#atx-connection" class="md-nav__link">
-    ATX connection
+  <a href="#atx" class="md-nav__link">
+    ATX电源控制连接
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#hardware-features" class="md-nav__link">
-    Hardware Features
+  <a href="#_3" class="md-nav__link">
+    硬件参数
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#support-1080p60hz-hdmi-input" class="md-nav__link">
-    Support 1080p60hz HDMI input
+  <a href="#1080p60hz-hdmi" class="md-nav__link">
+    支持 1080p60hz HDMI输入
   </a>
   
 </li>
@@ -799,84 +799,78 @@
 </div>
 <h2 id="_1"><strong>安装要求</strong></h2>
 <div class="admonition note">
-<p class="admonition-title">If you have an assembly kit, you will need the following things</p>
+<p class="admonition-title">如果你购买的是需自己组装的版本（不是plug-n-play版本），你需要自己准备以下设备</p>
 <ul>
-<li>Raspberry CM4 with 1Gb RAM or more.</li>
-<li>MicroSD card (at least 16Gb, class 10 recommended).</li>
-<li>USB-C to USB-A cable.</li>
-<li>HDMI cable.</li>
-<li>Straight Ethernet cable (for the ATX board connection).</li>
-<li>Power supply unit (5.1V 3A USB-C, recommended by the Raspberry Pi).</li>
+<li>树莓派CM4，最小1Gb RAM.</li>
+<li>MicroSD card (至少16Gb, class 10 recommended).</li>
+<li>USB-C转USB-A线缆.</li>
+<li>HDMI线缆.</li>
+<li>网线.</li>
+<li>电源适配器(5.1V 3A USB-C).</li>
 </ul>
 </div>
 <div class="admonition warning">
-<p class="admonition-title">Power supply</p>
-<p>You must use USB-C to USB-A cable. Use USB-C to USB-C cable can't work, This is an incompatibility in the hardware design and will be 
-fixed in a later version.</p>
+<p class="admonition-title">电源适配器</p>
+<p>在BLIKVM CM4 V2.2版本中，你必须使用USB-C转USB-A线缆进行供电，如果使用USB-C转USB-C线缆可能无法供电。这是这个版本硬件设计的bug，在它后面的版本
+中此问题将会被修复。</p>
 </div>
-<h2 id="basic-setup"><strong>Basic setup</strong></h2>
-<p><strong>1.</strong> <a href="../flashing_os/">Flash the memory card or eMMC </a> </p>
-<p><strong>2.Build BLIKVM</strong> according to the video instruction or review the instructions:</p>
+<h2 id="_2"><strong>基础配置</strong></h2>
+<p><strong>1.</strong> <a href="../flashing_os/">烧录镜像到SD卡或者eMMC</a> </p>
+<p><strong>2.组装 BLIKVM</strong> 参考下面的视频和说明进行设备安装:</p>
 <details class="info">
-<summary>Video Guide: Metal case step by step</summary>
+<summary>完整拆箱和安装视频</summary>
 <p><iframe width="560" height="315" src="https://www.youtube.com/embed/aehOawHklGE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
 </details>
 <details class="info">
-<summary>Geerling: Engineering Test video</summary>
+<summary>Geerling测试视频</summary>
 <p><iframe width="560" height="315" src="https://www.youtube.com/embed/3OPd7svT3bE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  </p>
 </details>
 <details class="info">
-<summary>Ortimo: BLIKVM with Raspberry PI CM4 16GB EMMC setup</summary>
+<summary>Ortimo使用BLIKVM CM4 eMMC版本指导</summary>
 <p><iframe width="560" height="315" src="https://www.youtube.com/embed/xypeC7Fne6Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
 </details>
-<p><strong>3.</strong> Connect BLIKVM to the computer according to the diagram below:
+<p><strong>3.</strong> 根据下图接口定义所示，连接被控电脑到BLIKVM上:
 <img alt="Image title" src="../assets/images/blikcm-cm4-interface.png" width="400" /></p>
 <ul>
-<li>HDMI IN and otg port must be connected to the computer. ATX too, but it’s optional, read below. 
-There should be no USB hub between BLIKVM and the computer, as some UEFI/BIOS cannot detect them at the boot stage. 
-BLIKVM supports 1080p60Hz or lower about HDMI source.</li>
-<li>Connect Ethernet to the network and PWR IN to the BLIKVM power supply.</li>
+<li>
+<p>HDMI IN和otg接口必须和被控电脑连接，ATX是可选项。建议在BLIKVM和被控电脑之间最好不要有USB扩展坞，因为在UEFI或BIOS阶段，可能检测不到扩展坞。
+BLIKVM CM4版本最高支持1080P60Hz的输入。</p>
+</li>
+<li>
+<p>通过Ethernet将BLIKVM连接到网络，通过PWR IN端口工供电。</p>
+</li>
 </ul>
-<h2 id="atx-connection"><strong>ATX connection</strong></h2>
+<h2 id="atx"><strong>ATX电源控制连接</strong></h2>
 <p><img alt="Image title" src="../assets/images/BLKVM-CM4/ATX-interface.png" width="400" /></p>
-<p>To manage the power of your computer, you will connect CN-ATX port to the computer.The user can use the ATX cable 
-provided with the product to connect the product and the motherboard ATX switch of the controlled computer. 
-The length of the ATX cable is 60CM, you can also use the double female Dupont cables.</p>
+<p>为了管理被控计算机的电源，你需要将CN-ATX端口和被控电脑连接。你可以使用提供的ATX线缆(60厘米)或者杜邦线连接到被控电脑的主板上。</p>
 <p><img alt="Image title" src="../assets/images/BLKVM-CM4/atx-cable-computer.png" width="400" /></p>
-<h2 id="hardware-features"><strong>Hardware Features</strong></h2>
+<h2 id="_3"><strong>硬件参数</strong></h2>
 <p><img alt="Image title" src="../assets/images/BLKVM-CM4/blikvm-cm4-hardware-features.png" /></p>
 <ul>
-<li>1、HDMI IN port with I2S</li>
-<li>2、ATX controller interface (power on/off, reboot control, PWR and HDD ACT LEDs)</li>
-<li>3、USB3.0 port x 2</li>
-<li>4、USB-C OTG</li>
-<li>5、Real Time Clock (RTC)</li>
-<li>6、Gigabit Ethernet</li>
-<li>7、Activity LED</li>
-<li>8、Micro SD Card socket</li>
-<li>9、Power LED</li>
-<li>10、I2C display connector</li>
-<li>11、nRPI_BOOT Jumper</li>
-<li>12、USB-C power input</li>
-<li>13、FAN connector 5V</li>
-<li>14、CSI-2 date lanes switch</li>
-<li>15、CM4 Module Connectors</li>
+<li>1、HDMI采集（支持音频）</li>
+<li>2、ATX控制 (开机/关机，重启,电源和硬盘指示灯)</li>
+<li>3、USB3.0端口两个</li>
+<li>4、USB-C OTG接口（用于鼠标和数传控制）</li>
+<li>5、RTC时钟</li>
+<li>6、以太网口</li>
+<li>7、呼吸灯</li>
+<li>8、SD卡槽</li>
+<li>9、电源指示灯</li>
+<li>10、显示屏</li>
+<li>11、短接烧录镜像接口</li>
+<li>12、USB-C电源输入接口</li>
+<li>13、风扇</li>
+<li>14、CM4模组接口</li>
 </ul>
-<h2 id="support-1080p60hz-hdmi-input"><strong> Support 1080p60hz HDMI input </strong></h2>
-<p>First in V2.2 version, there is CSI channel switch. This switch is switch 2 csi channels or 4 csi channels. 
-In other versions, the switch is obsolete. Newer keeps the factory state, ignore this switch. Only flip the switch 
-when the device is powered off, otherwise it may cause permanent damage! The four small switches should be up or 
-down at the same time.<br />
-<img alt="Image title" src="../assets/images/BLKVM-CM4/kvm-cm4-switch.png" width="400" /><br />
-The video encoding function of the Raspberry Pi is implemented by the HDMI-to-CSI bridge chip Toshiba TC358743, 
-which supports up to 4 CSI-2 data lanes. The camera interface of Raspberry Pi 4B only supports 2 CSI-2 date 
-lanes(up to 1080P50Hz), Raspberry Pi CM4 can support 4 CSI-2 date lanes(up to 1080P60Hz). Currently, PiKVM 
-only uses two CSI-2 channels.</p>
-<p>1、 find edid file:
+<h2 id="1080p60hz-hdmi"><strong> 支持 1080p60hz HDMI输入</strong></h2>
+<p>在V2.2版本中，这里有一个CSI通道切换器。确认切换器在4通道一侧。再其它版本中，移除了此切换器，默认4通道全部使能。</p>
+<p><img alt="Image title" src="../assets/images/BLKVM-CM4/kvm-cm4-switch.png" width="400" />
+你使用的PiKVM镜像版本不同，当发现不支持1080P60Hz的输入时，请按照下面说明，进行检查和配置
+1、 使用下列命令，打开edid文件:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>rw
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>vim /etc/kvmd/tc358743-edid.hex
 </code></pre></div>
-write the following 1080p 60Hz EDID into the file tc358743-edid.hex.
+删除原文件中的内容，将下列内容写到tc358743-edid.hex文件中.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>00FFFFFFFFFFFF0031D8888800888888
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>1C150103800000780AEE91A3544C9926
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>0F50543FCD0001000101010101010101
@@ -894,13 +888,12 @@ write the following 1080p 60Hz EDID into the file tc358743-edid.hex.
 <a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>00000000000000000000000000000000
 <a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>0000000000000000000000000000001C
 </code></pre></div>
-2、add csi 4 lanes
-Edit /boot/config.txt, modify "dtoverlay=tc358743" to "dtoverlay=tc358743,4lane=1"
+2、增加CSI 4通道配置
+编辑/boot/config.txt, 找到 "dtoverlay=tc358743" 改为 "dtoverlay=tc358743,4lane=1"
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>vim /boot/config.txt
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>ro
 </code></pre></div>
-Now, reboot blikvm, and you can test 1080p 60hz input.</p>
-<p><img alt="" src="https://github.com/ThomasVon2021/pikvm-CM4-Board/blob/main/images/wiki/60hz.jpg" />  </p>
+Now,你可以测试1080P60Hz的视频输入了。</p>
 
               
             </article>
