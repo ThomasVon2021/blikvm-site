@@ -78,6 +78,7 @@ nav:
     - "配置":
         - "烧录镜像": flashing_os.md
         - "OLED显示器": OLED-display.md
+        - "树莓派扩容": Expand_Filesystem.md
     - "配件手册":
         - "ATX用户手册": atx-guide.md
         - "HDMI转CSI & Audio模块用户手册": hdmi-csi-i2s.md

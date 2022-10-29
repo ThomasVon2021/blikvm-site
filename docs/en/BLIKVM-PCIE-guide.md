@@ -80,6 +80,10 @@ BLIKVM PCIe is a PCIe add-in card based on Raspberry Pi CM4 for KVM Over IP. Thi
 ??? info "BLIKVM hardware PCIe version is tested wonderful based on pikvm software."
     <iframe width="560" height="315" src="https://www.youtube.com/embed/0SEGeLFV-Wk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+## **Notes**
+!!! warning "To prevent the CM4 module from contacting the SD card holder, do not remove the insulating tape"
+    ![](assets/images/BLIKVM-PCIe/sd.jpg){width="300"}
+
 ## **List**
 
 ### Product List
