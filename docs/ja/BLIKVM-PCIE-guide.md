@@ -80,6 +80,10 @@ BLIKVM PCIeはRaspberry Pi CM4を使ったKVM Over IPのためのPCIeカード�
 ??? info "BLIKVM PCIeバージョンは、pikvmでテストされています"
     <iframe width="560" height="315" src="https://www.youtube.com/embed/0SEGeLFV-Wk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+## **注意**
+!!! warning "CM4モジュールがSDカードホルダーに接触するしないように、絶縁テープ絶対に剥がさないでください"
+![](assets/images/BLIKVM-PCIe/sd.jpg){width="300"}
+
 ## **部品一覧**
 
 ### 製品に含まれる部品

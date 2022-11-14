@@ -75,7 +75,10 @@ nav:
     - "設定":
         - "OSの書き込み": flashing_os.md
         - "OLED ディスプレイ": OLED-display.md
+        - "ファイルシステムの拡張": Expand_Filesystem.md
     - "アクセサリー":
         - "ATX ガイド": atx-guide.md
         - "HDMI-CSI&I2Sブリッジ": hdmi-csi-i2s.md
         - "USB スプリッタ": usb-splitter-guide.md
+    - "開発":
+        - "イメージの作成": make-image.md
