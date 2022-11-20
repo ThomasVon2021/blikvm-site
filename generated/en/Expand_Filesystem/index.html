@@ -571,9 +571,47 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Expand Filesystem
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Expand Filesystem
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#method-1-use-raspi-config-tool" class="md-nav__link">
+    Method 1: Use raspi-config tool
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#method-2-use-gparted-tool" class="md-nav__link">
+    Method 2: Use GParted tool
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -746,6 +784,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#method-1-use-raspi-config-tool" class="md-nav__link">
+    Method 1: Use raspi-config tool
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#method-2-use-gparted-tool" class="md-nav__link">
+    Method 2: Use GParted tool
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -765,7 +825,8 @@
 
 
 <h1 id="expand-filesystem">Expand Filesystem</h1>
-<p>If you find that the free space of the raspberry pi SD card or eMMC is smaller than the capacity of the actual SD card or eMMC, you need to do the following to expand the raspberry pi.</p>
+<p>If you find that the free space of the raspberry pi SD card or eMMC is smaller than the capacity of the actual SD card or eMMC, you need to do the following to expand the raspberry pi. If you find that the system does not have the raspi config tool, you can use Method 2 (use the GParted partition tool).  </p>
+<h2 id="method-1-use-raspi-config-tool">Method 1: Use raspi-config tool</h2>
 <p><strong>1.</strong> open raspi-config.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo raspi-config
 </code></pre></div>
@@ -776,6 +837,16 @@
 <p><strong>4.</strong> Ok:<br />
 <img alt="IMG_8366" src="../assets/images/expand_filesystem/expand_ok.png" width="300" /></p>
 <p><strong>5.</strong> reboot raspberry.</p>
+<h2 id="method-2-use-gparted-tool">Method 2: Use GParted tool</h2>
+<p><strong>1.</strong> Connect the SD card or EMMc that has burned the image to the computer through USB. Take the GParted partition tool under Linux as an example. Other platforms also have similar partition tools. Open GParted software and select SD card:  <br />
+<img alt="" src="../assets/images/expand_filesystem/gparted01.png" width="300" /></p>
+<p><strong>2.</strong> By observing the partition of the SD card in the above figure, we can find that 2.01GB and 21.87GB of space are unused before and after the sdb3 partition, which is the space we want to expand. Select the sdb3 partition and click Resize.<br />
+<img alt="" src="../assets/images/expand_filesystem/gparted02.png" width="300" />
+<img alt="" src="../assets/images/expand_filesystem/gparted03.png" width="300" /></p>
+<p><strong>3.</strong> You can drag the white partition of sdb3 to the leftmost and rightmost, or fill in 25958 with "Previous Free Space" as "0" and "New Size" as "Maximum Size", and then click Resize in the lower right corner. Then click OK to see that all unused space of sd has been used.<br />
+<img alt="" src="../assets/images/expand_filesystem/gparted04.png" width="300" />
+<img alt="" src="../assets/images/expand_filesystem/gparted05.png" width="300" /></p>
+<p><strong>4.</strong> Insert the SD card into the device and start it.  </p>
 
 
 
