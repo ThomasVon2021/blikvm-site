@@ -6,9 +6,9 @@
 
 ## Загрузка образа
 
-* **[Образ PiKVM (BLIKVM-CM4)](https://drive.google.com/file/d/1wBeygdHefMrdtQUCm6dKgQg1b8D4yIhk/view?usp=sharing)**
-* **[Образ PiKVM (BLIKVM-PCIe)](https://drive.google.com/file/d/1lsZRhSrK3w_OE7MG1ycY6YeiT3jfJS4A/view?usp=sharing)**
-* **[Образ PiKVM (BLIKVM-HAT)](https://mgk9cjip0o.feishu.cn/file/boxcnYAhGhLxaEVOQdSrNiD1Pbg?from=from_copylink)**
+* **[PiKVM image (BLIKVM-CM4)](https://drive.google.com/file/d/1EauTgw3TKsVGRtxka3BcU2O-DRcNZgbE/view?usp=sharing)**
+* **[PiKVM image (BLIKVM-PCIe)](https://drive.google.com/file/d/1EauTgw3TKsVGRtxka3BcU2O-DRcNZgbE/view?usp=sharing)**
+* **[PiKVM image (BLIKVM-HAT)](https://drive.google.com/file/d/1bsronRZoaimy8MLIMhAAoKvtStGXub2O/view?usp=sharing)**
 
 ## Прошивка
 

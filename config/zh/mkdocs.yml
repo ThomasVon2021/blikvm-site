@@ -1,7 +1,7 @@
 site_name: BLIKVM 用户手册
 docs_dir: '../../docs/zh'
 site_dir: '../../generated/zh'
-site_description: Open and cheap DIY IP-KVM on Raspberry Pi
+site_description: Open and cost-effective "KVM over IP". BliKVM comes in 3 different models, BliKVM PCIe, BliKVM HAT and BliKVM CM4, all based on Raspberry Pi.
 site_author: Thomas Von
 theme:
   name: material
