@@ -83,5 +83,7 @@ nav:
         - "ATX guide": atx-guide.md
         - "HDMI to CSI & Audio": hdmi-csi-i2s.md
         - "USB splitter": usb-splitter-guide.md
+    - "Peripheral devices":
+        - "Serial-over-USB": serial_over_usb.md
     - "development":
         - "make image": make-image.md

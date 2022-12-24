@@ -83,3 +83,5 @@ nav:
         - "ATX用户手册": atx-guide.md
         - "HDMI转CSI & Audio模块用户手册": hdmi-csi-i2s.md
         - "USB一分二用户手册": usb-splitter-guide.md
+    - "外围设备":
+        - "串口终端": serial_over_usb.md
