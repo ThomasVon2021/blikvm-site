@@ -17,7 +17,7 @@
     
     
       
-        <title>Expand Filesystem - BLIKVM Handbook</title>
+        <title>KVM Switch - BLIKVM Handbook</title>
       
     
     
@@ -107,7 +107,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#expand-filesystem" class="md-skip">
+        <a href="#hdmi-switch-mannul" class="md-skip">
           Skip to content
         </a>
       
@@ -139,7 +139,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Expand Filesystem
+              KVM Switch
             
           </span>
         </div>
@@ -494,16 +494,14 @@
 
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -560,59 +558,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Expand Filesystem
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../Expand_Filesystem/" class="md-nav__link">
         Expand Filesystem
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#method-1-use-raspi-config-tool" class="md-nav__link">
-    Method 1: Use raspi-config tool
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#method-2-use-gparted-tool" class="md-nav__link">
-    Method 2: Use GParted tool
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -630,14 +580,16 @@
 
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       
       
@@ -710,11 +662,80 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../switch-guide/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          KVM Switch
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         KVM Switch
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    接口示意图
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    软件配置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    控制协议
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    发货清单
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -861,15 +882,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#method-1-use-raspi-config-tool" class="md-nav__link">
-    Method 1: Use raspi-config tool
+  <a href="#introduction" class="md-nav__link">
+    Introduction
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#method-2-use-gparted-tool" class="md-nav__link">
-    Method 2: Use GParted tool
+  <a href="#_1" class="md-nav__link">
+    接口示意图
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    软件配置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    控制协议
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    发货清单
   </a>
   
 </li>
@@ -888,35 +930,155 @@
                 
                   
 
-  <a href="https://github.com/ThomasVon2021/blikvm.git/edit/master/docs/Expand_Filesystem.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/ThomasVon2021/blikvm.git/edit/master/docs/switch-guide.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="expand-filesystem">Expand Filesystem</h1>
-<p>If you find that the free space of the raspberry pi SD card or eMMC is smaller than the capacity of the actual SD card or eMMC, you need to do the following to expand the raspberry pi. If you find that the system does not have the raspi config tool, you can use Method 2 (use the GParted partition tool).  </p>
-<h2 id="method-1-use-raspi-config-tool">Method 1: Use raspi-config tool</h2>
-<p><strong>1.</strong> open raspi-config.
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo raspi-config
-</code></pre></div>
-<strong>2.</strong> choose Advancd Options：<br />
-<img alt="IMG_8366" src="../assets/images/expand_filesystem/advance_option.png" width="300" /></p>
-<p><strong>3.</strong> choose Expand Filesystem：<br />
-<img alt="IMG_8366" src="../assets/images/expand_filesystem/expand.png" width="300" /></p>
-<p><strong>4.</strong> Ok:<br />
-<img alt="IMG_8366" src="../assets/images/expand_filesystem/expand_ok.png" width="300" /></p>
-<p><strong>5.</strong> reboot raspberry.</p>
-<h2 id="method-2-use-gparted-tool">Method 2: Use GParted tool</h2>
-<p><strong>1.</strong> Connect the SD card or EMMc that has burned the image to the computer through USB. Take the GParted partition tool under Linux as an example. Other platforms also have similar partition tools. Open GParted software and select SD card:  <br />
-<img alt="" src="../assets/images/expand_filesystem/gparted01.png" width="300" /></p>
-<p><strong>2.</strong> By observing the partition of the SD card in the above figure, we can find that 2.01GB and 21.87GB of space are unused before and after the sdb3 partition, which is the space we want to expand. Select the sdb3 partition and click Resize.<br />
-<img alt="" src="../assets/images/expand_filesystem/gparted02.png" width="300" />
-<img alt="" src="../assets/images/expand_filesystem/gparted03.png" width="300" /></p>
-<p><strong>3.</strong> You can drag the white partition of sdb3 to the leftmost and rightmost, or fill in 25958 with "Previous Free Space" as "0" and "New Size" as "Maximum Size", and then click Resize in the lower right corner. Then click OK to see that all unused space of sd has been used.<br />
-<img alt="" src="../assets/images/expand_filesystem/gparted04.png" width="300" />
-<img alt="" src="../assets/images/expand_filesystem/gparted05.png" width="300" /></p>
-<p><strong>4.</strong> Insert the SD card into the device and start it.  </p>
+<h1 id="hdmi-switch-mannul"><strong>HDMI Switch Mannul</strong></h1>
+<div class="admonition tip">
+<p class="admonition-title">Switch uses and tests video, supporting BliKVM and PiKVM</p>
+<p><iframe width="560" height="315" src="//player.bilibili.com/player.html?aid=349888644&bvid=BV16R4y1m7Pt&cid=955481186&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe></p>
+</div>
+<h2 id="introduction"><strong>Introduction</strong></h2>
+<p>This switch is a four channel HDMI+USB switch, which supports machine key switching, desktop controller switching, kvm remote switching. Maximum support of the switch itself 4K@60HZ Plug and play, drive free.
+At present, this model has been adapted to PiKVM and BliKVM.</p>
+<div class="admonition note">
+<p class="admonition-title">points for attention</p>
+<ul>
+<li>The switch can be powered directly from the USB input to the computer, that is, the switch can work normally without power supply.</li>
+<li>If the USB power supply of the controlled computer cannot make the switch work, the switch can be powered independently.</li>
+<li>The switch package only provides a USB power cable, but does not provide a power adapter. The customer needs to configure a power adapter (5V).</li>
+</ul>
+</div>
+<h2 id="_1"><strong>接口示意图</strong></h2>
+<div class="admonition info">
+<p class="admonition-title">Front and back interface diagram, the control interface in the right figure is the remote control interface.</p>
+<p><img alt="" src="../assets/images/switch/interface-en1.png" width="600" /></p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Schematic Diagram of Side Interface.</p>
+<p><img alt="" src="../assets/images/switch/interface-en2.png" width="600" /></p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Equipment connection diagram.</p>
+<p><img alt="" src="../assets/images/switch/interface-en3.png" width="600" /></p>
+</div>
+<h2 id="_2"><strong>软件配置</strong></h2>
+<div class="admonition info">
+<p class="admonition-title">If you use the BliKVM software, you do not need to do any configuration. Click <strong>MORE</strong> in the lower left corner, find the BliKVM switch column, and then switch. Note that the flashing blue dot of the corresponding channel indicates that the switch insertion is recognized and is in the current channel. If there is no blue dot, the switch insertion is not recognized。</p>
+<p><img alt="" src="../assets/images/switch/blikvm-soft-switch.png" width="600" /></p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">If you use PiKVM software, please configure it according to the following instructions.</p>
+<ol>
+<li>Log in to PiKVM through SSH. The user name and password are root;</li>
+<li>Uses the <code>rw</code> command on the terminal to change the system to a read-write system;</li>
+<li>Edit <code>/etc/kvmd/override. yaml</code> this file to make it contain the following contents.
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>kvmd:
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    gpio:
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        drivers:
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>            hk:
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>                type: xh_hk4401
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>                device: /dev/ttyUSB0
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        scheme:
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>            ch0_led:
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>                driver: hk
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>                pin: 0
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>                mode: input
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>            ch1_led:
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>                driver: hk
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>                pin: 1
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>                mode: input
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>            ch2_led:
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>                driver: hk
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>                pin: 2
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>                mode: input
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>            ch3_led:
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>                driver: hk
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>                pin: 3
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>                mode: input
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>            ch0_button:
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>                driver: hk
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>                pin: 0
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>                mode: output
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>                switch: false
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>            ch1_button:
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>                driver: hk
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>                pin: 1
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>                mode: output
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>                switch: false
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>            ch2_button:
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>                driver: hk
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>                pin: 2
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>                mode: output
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>                switch: false
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>            ch3_button:
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>                driver: hk
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>                pin: 3
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>                mode: output
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>                switch: false
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>        view:
+<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>            table:
+<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>                - [&quot;#Input 1&quot;, ch0_led, ch0_button]
+<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>                - [&quot;#Input 2&quot;, ch1_led, ch1_button]
+<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>                - [&quot;#Input 3&quot;, ch2_led, ch2_button]
+<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>                - [&quot;#Input 4&quot;, ch3_led, ch3_button]
+</code></pre></div></li>
+<li>Use the <code>ro</code> command on the terminal to reset the system to a read-only system;</li>
+<li>Use 'systemctl restart kvmd' on the terminal to restart the service;</li>
+<li>Enter the PiKVM web interface and click the GPIO menu. You should see 4 inputs, one of which has a green circle to indicate that it is currently selected. Click Other Inputs to change the selected host.
+<img alt="" src="../assets/images/switch/pikvm-soft-switch.png" width="600" /></li>
+</ol>
+</div>
+<h2 id="_3"><strong>控制协议</strong></h2>
+<div class="admonition info">
+<p class="admonition-title">If you want to use the blicube switch on other platforms, please refer to the following protocol</p>
+<ul>
+<li>The communication baud rate is 19200</li>
+<li>The message sent to switch by switching to channel 1 is<strong>SW1\r\nG01gA</strong></li>
+<li>The message sent to switch by switching to channel 2 is<strong>SW2\r\nG02gA</strong></li>
+<li>The message sent to switch by switching to channel 3 is<strong>SW3\r\nG03gA</strong></li>
+<li>The message sent to switch by switching to channel 4 is<strong>SW4\r\nG04gA</strong></li>
+<li>The message returned by the switch for the current channel is:<strong>G01gA</strong>,<strong>G02gA</strong>,<strong>G03gA</strong>,<strong>G04gA</strong></li>
+</ul>
+</div>
+<h2 id="_4"><strong>发货清单</strong></h2>
+<table>
+<thead>
+<tr>
+<th>product</th>
+<th>quantity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KVM Switch(4-channel)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>USB cable</td>
+<td>4</td>
+</tr>
+<tr>
+<td>HDMI(Standard) cable</td>
+<td>4</td>
+</tr>
+<tr>
+<td>USB power cable</td>
+<td>1</td>
+</tr>
+<tr>
+<td>KVM USB cable</td>
+<td>1</td>
+</tr>
+<tr>
+<td>USB desktop control cable</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -942,7 +1104,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../OLED-display/" class="md-footer__link md-footer__link--prev" aria-label="Previous: OLED display" rel="prev">
+        <a href="../usb-splitter-guide/" class="md-footer__link md-footer__link--prev" aria-label="Previous: USB splitter" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -951,20 +1113,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              OLED display
+              USB splitter
             </div>
           </div>
         </a>
       
       
         
-        <a href="../atx-guide/" class="md-footer__link md-footer__link--next" aria-label="Next: ATX guide" rel="next">
+        <a href="../serial_over_usb/" class="md-footer__link md-footer__link--next" aria-label="Next: Serial-over-USB" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              ATX guide
+              Serial-over-USB
             </div>
           </div>
           <div class="md-footer__button md-icon">
