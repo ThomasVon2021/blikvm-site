@@ -20,6 +20,8 @@ channels and four csi channels at the same time.
     * Power supply:3.3V
     * Weight: 10g
 
+!!! warning "Pi 4B only support 1080P50Hz, limited by the number of CSI-2 channels. CM4 support 1080P60HZ, So if you must use 1080P60Hz input, please use CM4 and C790 together."
+
 !!! note "interface"
     ![](assets/images/hdmi-csi-i2s/c790-interface.png){width="400"}  
     C790 has two csi output interface. In fornt of C790, the CSI-2 interface is 15 pin FPC seat, 
