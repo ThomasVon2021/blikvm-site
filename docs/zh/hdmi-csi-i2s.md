@@ -18,6 +18,8 @@ C790是目前最新的版本，解决了所有已知的问题，同是有CSI 2�
     * 供电电压:3.3V
     * 重量: 10g
 
+!!! warning "树莓派4B只支持1080P50Hz(因为4B只有两个CSI-2通道) ,树莓派CM4只支持1080P60Hz,所以如果你的输入设备一定要是1080P60Hz，请同时使用CM4和C790."
+
 !!! note "接口"
     ![](assets/images/hdmi-csi-i2s/c790-interface.png){width="400"}  
     C790有两个CSI输出接口: 接口1，在C790正面，15 pin FPC, 间距1.0 mm;

@@ -63,6 +63,9 @@ The length of the ATX cable is 60CM, you can also use the double female Dupont c
 * 14、CSI-2 date lanes switch
 * 15、CM4 Module Connectors
 
+## **Size**
+12cm x 7cm x 3.5cm
+
 ## ** Support 1080p60hz HDMI input **
 First in V2.2 version, there is CSI channel switch. This switch is switch 2 csi channels or 4 csi channels. 
 In other versions, the switch is obsolete. Newer keeps the factory state, ignore this switch. Only flip the switch 
