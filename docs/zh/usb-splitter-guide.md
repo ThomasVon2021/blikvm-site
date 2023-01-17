@@ -1,8 +1,8 @@
-# USB/PWR Splitter guide
+# USB和电源分线板
 
-## **1. Introduction**
+## **1. 简介**
 
-![image-20220107110102815](assets/images/usb-splitter/usb-splitter.png)
+![image-20220107110102815](assets/images/usb-splitter/usb-splitter.png){width="300"}
 
 The adaptor allows the Raspberry Pi 4 to be used with a Pi USB-C power supply while allowing access to USB OTG data over a separate USB-C connection.
 
@@ -29,10 +29,18 @@ To use the adaptor with the Raspberry Pi 4 you need.
 
 An adaptor of this kind does not fall within the USB specification. It's designed for use with the official Raspberry Pi USB-C power supply and raspberry pi, use with other power supplies/chargers and devices may cause issues/damage.
 
-## **2.Mechanical Diagram**
+## **2.尺寸图**
 
-![image-20220107154909710](assets/images/usb-splitter/usb-splitter-size.png)
+![image-20220107154909710](assets/images/usb-splitter/usb-splitter-size.png){width="300"}
 
-## **3.Test video**
+## **3.测试视频**
 
-[USB splitter](https://www.youtube.com/watch?v=4Od5MjBHbhY)
+!!! info "USB splitter Video"
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/4Od5MjBHbhY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## **4.3D 打印外壳**
+!!! info "A simple snap fit case for the USB splitter."
+    ![](assets/images/usb-splitter/splitter_3d.png){width="300"} 
+    ![](assets/images/usb-splitter/splitter_3d_case.png){width="300"} 
+ 
+[下载文件](https://www.printables.com/model/370776-usb-splitter-case-blicube-blikvm)
