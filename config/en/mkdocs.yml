@@ -83,7 +83,7 @@ nav:
         - "ATX guide": atx-guide.md
         - "HDMI to CSI & Audio": hdmi-csi-i2s.md
         - "USB splitter": usb-splitter-guide.md
-        - "KVM Switch": switch-guide.md
+        - "Multiport KVM over IP": switch-guide.md
     - "Peripheral devices":
         - "Serial-over-USB": serial_over_usb.md
     - "development":

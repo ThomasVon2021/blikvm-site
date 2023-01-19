@@ -1,6 +1,7 @@
 # **HDMI Switch Mannul**
 !!! tip "Switch uses and tests video, supporting BliKVM and PiKVM"
     <iframe width="560" height="315" src="https://www.youtube.com/embed/RQ3KxvUsZv8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## **Introduction**
 This switch is a four channel HDMI+USB switch, which supports machine key switching, desktop controller switching, kvm remote switching. Maximum support of the switch itself 4K@60HZ Plug and play, drive free.
 At present, this model has been adapted to PiKVM and BliKVM.
@@ -8,8 +9,10 @@ At present, this model has been adapted to PiKVM and BliKVM.
     * The switch can be powered directly from the USB input to the computer, that is, the switch can work normally without power supply.
     * If the USB power supply of the controlled computer cannot make the switch work, the switch can be powered independently.
     * The switch package only provides a USB power cable, but does not provide a power adapter. The customer needs to configure a power adapter (5V).
+    * **Desktop controller** can control HDMI switch with USB cable. For customers who do not use KVM, this is another way of switching, when you are sitting next to the device.
 
-## **接口示意图**
+
+## **Interface diagram**
 !!! info "Front and back interface diagram, the control interface in the right figure is the remote control interface."
     ![](assets/images/switch/interface-en1.png){width="600"}
 !!! info "Schematic Diagram of Side Interface."
@@ -17,7 +20,7 @@ At present, this model has been adapted to PiKVM and BliKVM.
 !!! info "Equipment connection diagram."
     ![](assets/images/switch/interface-en3.png){width="600"}
 
-## **软件配置**
+## **Software configuration**
 !!! info "If you use the BliKVM software, you do not need to do any configuration. Click **MORE** in the lower left corner, find the BliKVM switch column, and then switch. Note that the flashing blue dot of the corresponding channel indicates that the switch insertion is recognized and is in the current channel. If there is no blue dot, the switch insertion is not recognized。"
     ![](assets/images/switch/blikvm-soft-switch.png){width="600"}
 
@@ -82,7 +85,7 @@ At present, this model has been adapted to PiKVM and BliKVM.
     6. Enter the PiKVM web interface and click the GPIO menu. You should see 4 inputs, one of which has a green circle to indicate that it is currently selected. Click Other Inputs to change the selected host.
     ![](assets/images/switch/pikvm-soft-switch.png){width="600"}
 
-## **控制协议**
+## **Control protocol**
 !!! info "If you want to use the blicube switch on other platforms, please refer to the following protocol"
     * The communication baud rate is 19200
     * The message sent to switch by switching to channel 1 is**SW1\r\nG01gA**
@@ -93,14 +96,17 @@ At present, this model has been adapted to PiKVM and BliKVM.
 
 
 
-## **发货清单**
+## **Packing list**
 
 | product            |    quantity |
 |----------------------------| ---- |
 | KVM Switch(4-channel)     | 1    |
+| Desktop controller | 1    |
 | USB cable | 4  |
-| HDMI(Standard) cable| 4 |
+| HDMI(Standard) cable| 5 |
 | USB power cable | 1    |
 | KVM USB cable| 1    |
 | USB desktop control cable| 1    |
+
+
 

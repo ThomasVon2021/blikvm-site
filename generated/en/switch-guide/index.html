@@ -17,7 +17,7 @@
     
     
       
-        <title>KVM Switch - BLIKVM Handbook</title>
+        <title>Multiport KVM over IP - BLIKVM Handbook</title>
       
     
     
@@ -139,7 +139,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              KVM Switch
+              Multiport KVM over IP
             
           </span>
         </div>
@@ -674,12 +674,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          KVM Switch
+          Multiport KVM over IP
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        KVM Switch
+        Multiport KVM over IP
       </a>
       
         
@@ -705,29 +705,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    接口示意图
+  <a href="#interface-diagram" class="md-nav__link">
+    Interface diagram
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    软件配置
+  <a href="#software-configuration" class="md-nav__link">
+    Software configuration
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    控制协议
+  <a href="#control-protocol" class="md-nav__link">
+    Control protocol
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    发货清单
+  <a href="#packing-list" class="md-nav__link">
+    Packing list
   </a>
   
 </li>
@@ -889,29 +889,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    接口示意图
+  <a href="#interface-diagram" class="md-nav__link">
+    Interface diagram
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    软件配置
+  <a href="#software-configuration" class="md-nav__link">
+    Software configuration
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    控制协议
+  <a href="#control-protocol" class="md-nav__link">
+    Control protocol
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    发货清单
+  <a href="#packing-list" class="md-nav__link">
+    Packing list
   </a>
   
 </li>
@@ -950,9 +950,10 @@ At present, this model has been adapted to PiKVM and BliKVM.</p>
 <li>The switch can be powered directly from the USB input to the computer, that is, the switch can work normally without power supply.</li>
 <li>If the USB power supply of the controlled computer cannot make the switch work, the switch can be powered independently.</li>
 <li>The switch package only provides a USB power cable, but does not provide a power adapter. The customer needs to configure a power adapter (5V).</li>
+<li><strong>Desktop controller</strong> can control HDMI switch with USB cable. For customers who do not use KVM, this is another way of switching, when you are sitting next to the device.</li>
 </ul>
 </div>
-<h2 id="_1"><strong>接口示意图</strong></h2>
+<h2 id="interface-diagram"><strong>Interface diagram</strong></h2>
 <div class="admonition info">
 <p class="admonition-title">Front and back interface diagram, the control interface in the right figure is the remote control interface.</p>
 <p><img alt="" src="../assets/images/switch/interface-en1.png" width="600" /></p>
@@ -965,7 +966,7 @@ At present, this model has been adapted to PiKVM and BliKVM.</p>
 <p class="admonition-title">Equipment connection diagram.</p>
 <p><img alt="" src="../assets/images/switch/interface-en3.png" width="600" /></p>
 </div>
-<h2 id="_2"><strong>软件配置</strong></h2>
+<h2 id="software-configuration"><strong>Software configuration</strong></h2>
 <div class="admonition info">
 <p class="admonition-title">If you use the BliKVM software, you do not need to do any configuration. Click <strong>MORE</strong> in the lower left corner, find the BliKVM switch column, and then switch. Note that the flashing blue dot of the corresponding channel indicates that the switch insertion is recognized and is in the current channel. If there is no blue dot, the switch insertion is not recognized。</p>
 <p><img alt="" src="../assets/images/switch/blikvm-soft-switch.png" width="600" /></p>
@@ -1032,7 +1033,7 @@ At present, this model has been adapted to PiKVM and BliKVM.</p>
 <img alt="" src="../assets/images/switch/pikvm-soft-switch.png" width="600" /></li>
 </ol>
 </div>
-<h2 id="_3"><strong>控制协议</strong></h2>
+<h2 id="control-protocol"><strong>Control protocol</strong></h2>
 <div class="admonition info">
 <p class="admonition-title">If you want to use the blicube switch on other platforms, please refer to the following protocol</p>
 <ul>
@@ -1044,7 +1045,7 @@ At present, this model has been adapted to PiKVM and BliKVM.</p>
 <li>The message returned by the switch for the current channel is:<strong>G01gA</strong>,<strong>G02gA</strong>,<strong>G03gA</strong>,<strong>G04gA</strong></li>
 </ul>
 </div>
-<h2 id="_4"><strong>发货清单</strong></h2>
+<h2 id="packing-list"><strong>Packing list</strong></h2>
 <table>
 <thead>
 <tr>
@@ -1058,12 +1059,16 @@ At present, this model has been adapted to PiKVM and BliKVM.</p>
 <td>1</td>
 </tr>
 <tr>
+<td>Desktop controller</td>
+<td>1</td>
+</tr>
+<tr>
 <td>USB cable</td>
 <td>4</td>
 </tr>
 <tr>
 <td>HDMI(Standard) cable</td>
-<td>4</td>
+<td>5</td>
 </tr>
 <tr>
 <td>USB power cable</td>
