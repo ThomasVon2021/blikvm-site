@@ -3,13 +3,13 @@
     <iframe width="560" height="315" src="https://www.youtube.com/embed/RQ3KxvUsZv8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## **Introduction**
-This switch is a four channel HDMI+USB switch, which supports machine key switching, desktop controller switching, kvm remote switching. Maximum support of the switch itself 4K@60HZ Plug and play, drive free.
+This switch is a four channel HDMI+USB switch, which supports panel button, desktop controller, kvm remote to switch between computers. Maximum support of the switch itself 4K@60HZ Plug and play, drive free.
 At present, this model has been adapted to PiKVM and BliKVM.
 !!! note "points for attention"
     * The switch can be powered directly from the USB input to the computer, that is, the switch can work normally without power supply.
     * If the USB power supply of the controlled computer cannot make the switch work, the switch can be powered independently.
     * The switch package only provides a USB power cable, but does not provide a power adapter. The customer needs to configure a power adapter (5V).
-    * **Desktop controller** can control HDMI switch with USB cable. For customers who do not use KVM, this is another way of switching, when you are sitting next to the device.
+    * **Desktop controller** can control HDMI switch with USB cable. For customers who do not use KVM, this is another way of switching for easy cable management.
     * HDMI input support up to **4096x2160/60Hz** resolution
 
 
