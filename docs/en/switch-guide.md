@@ -10,6 +10,7 @@ At present, this model has been adapted to PiKVM and BliKVM.
     * If the USB power supply of the controlled computer cannot make the switch work, the switch can be powered independently.
     * The switch package only provides a USB power cable, but does not provide a power adapter. The customer needs to configure a power adapter (5V).
     * **Desktop controller** can control HDMI switch with USB cable. For customers who do not use KVM, this is another way of switching, when you are sitting next to the device.
+    * HDMI input support up to **4096x2160/60Hz** resolution
 
 
 ## **Interface diagram**
@@ -98,15 +99,15 @@ At present, this model has been adapted to PiKVM and BliKVM.
 
 ## **Packing list**
 
-| product            |    quantity |
-|----------------------------| ---- |
-| KVM Switch(4-channel)     | 1    |
-| Desktop controller | 1    |
-| USB cable | 4  |
-| HDMI(Standard) cable| 5 |
-| USB power cable | 1    |
-| KVM USB cable| 1    |
-| USB desktop control cable| 1    |
+| product                   | quantity | note|
+|--------------------       | ----     |-----|
+| KVM Switch(4-channel)     | 1        |110mm * 60mm * 33mm|
+| Desktop controller        | 1        ||
+| USB cable                 | 4        | length: 1.2m|
+| HDMI(Standard) cable      | 5        | length: 1.5m|
+| USB power cable           | 1        | length: 0.8m|
+| KVM USB cable             | 1        | length: 1.5m|
+| USB desktop control cable | 1        | length: 1m |
 
 
 
