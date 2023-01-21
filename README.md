@@ -37,8 +37,34 @@ You can add your language fellow this struct.
         └─images/
 ```
 
+## Establishment of development environment
+If you don't know about mkdocs, please study from <a href="https://squidfunk.github.io/mkdocs-material/getting-started/" target="_blank">mkdocs website</a>. When you follow the website and set up the use environment of mkdocs, you can run the project with the following command to preview:
+```
+mkdocs serve -f config/en/mkdocs.yml
+```
+You can change language path, if you modify chinese part, the command like this:
+```
+mkdocs serve -f config/zh/mkdocs.yml
+```
+If there is no problem with the environment installation, you will see an output similar to the following. You can preview the website by inputting the IP address(eg:http://127.0.0.1:8000/) to the browser.
+```
+(venv) shangbinbin@shangbibindeMBP blikvm-site % mkdocs serve -f config/en/mkdocs.yml
+INFO     -  Building documentation...
+INFO     -  Cleaning site directory
+INFO     -  Documentation built in 1.08 seconds
+INFO     -  [16:56:09] Watching paths for changes: 'docs/en', 'config/en/mkdocs.yml'
+INFO     -  [16:56:09] Serving on http://127.0.0.1:8000/
+INFO     -  [16:56:12] Browser connected: http://127.0.0.1:8000/update/
+```
+When the preview results are confirmed to be correct, you can use the following command to complete the compilation and packaging. Then you can merge your commit by PR.
+```
+bash build.sh
+```
+
 ## Acknowledgments 
 <a href="https://www.mkdocs.org/" target="_blank">mkdcos</a>  
 <a href="https://github.com/nishiku" target="_blank">Masao NISHIKU</a>  
 <a href="https://github.com/GordoNice" target="_blank">Ivan Gordeev</a>
+
+
 

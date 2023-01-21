@@ -77,6 +77,8 @@ nav:
         - "PCIe version":
           - "BLIKVM PCIe guide": BLIKVM-PCIE-guide.md
           - "illustrated instructions": BLIKVM-PCIe-installation.md
+    - "Software":
+        - "Upgrade": update.md
     - "Configure":
         - "Flashing os": flashing_os.md
         - "OLED display": OLED-display.md

@@ -75,6 +75,8 @@ nav:
         - "PCIe版本":
           - "BLIKVM PCIe导览": BLIKVM-PCIE-guide-zh.md
           - "安装说明": BLIKVM-PCIe-installation-zh.md
+    - "软件说明":
+        - "更新软件": update.md
     - "配置":
         - "烧录镜像": flashing_os.md
         - "OLED显示器": OLED-display.md
