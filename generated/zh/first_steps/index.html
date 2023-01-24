@@ -17,7 +17,7 @@
     
     
       
-        <title>烧录镜像 - BLIKVM 用户手册</title>
+        <title>第一步 - BLIKVM 用户手册</title>
       
     
     
@@ -107,7 +107,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#flashing-the-os-image" class="md-skip">
+        <a href="#first-steps" class="md-skip">
           Skip to content
         </a>
       
@@ -139,7 +139,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              烧录镜像
+              第一步
             
           </span>
         </div>
@@ -290,14 +290,16 @@
 
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
       
       
       
@@ -336,11 +338,73 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../first_steps/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          第一步
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         第一步
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#first-power-on" class="md-nav__link">
+    First power on
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-access-to-blikvm" class="md-nav__link">
+    Getting access to BLIKVM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    What's next?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faq-and-troubleshooting" class="md-nav__link">
+    FAQ and Troubleshooting
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -618,16 +682,14 @@
 
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       
       
@@ -656,106 +718,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          烧录镜像
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../flashing_os/" class="md-nav__link">
         烧录镜像
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#download-the-image" class="md-nav__link">
-    Download the image
-  </a>
-  
-    <nav class="md-nav" aria-label="Download the image">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#blikvm-software" class="md-nav__link">
-    BLIKVM software
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#base-on-pikvm-software" class="md-nav__link">
-    Base on PiKVM software
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#flash-the-image" class="md-nav__link">
-    Flash the image
-  </a>
-  
-    <nav class="md-nav" aria-label="Flash the image">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#board-link" class="md-nav__link">
-    Board Link
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#linux-usbboot" class="md-nav__link">
-    Linux usbboot
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#using-rpi-imager-linux-macos-and-windows" class="md-nav__link">
-    Using RPi Imager (Linux, MacOS and Windows)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -978,63 +945,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#download-the-image" class="md-nav__link">
-    Download the image
+  <a href="#first-power-on" class="md-nav__link">
+    First power on
   </a>
-  
-    <nav class="md-nav" aria-label="Download the image">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#blikvm-software" class="md-nav__link">
-    BLIKVM software
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#base-on-pikvm-software" class="md-nav__link">
-    Base on PiKVM software
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#flash-the-image" class="md-nav__link">
-    Flash the image
-  </a>
-  
-    <nav class="md-nav" aria-label="Flash the image">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#board-link" class="md-nav__link">
-    Board Link
+  <a href="#getting-access-to-blikvm" class="md-nav__link">
+    Getting access to BLIKVM
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#linux-usbboot" class="md-nav__link">
-    Linux usbboot
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    What's next?
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#using-rpi-imager-linux-macos-and-windows" class="md-nav__link">
-    Using RPi Imager (Linux, MacOS and Windows)
+      
+        <li class="md-nav__item">
+  <a href="#faq-and-troubleshooting" class="md-nav__link">
+    FAQ and Troubleshooting
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1052,108 +986,61 @@
                 
                   
 
-  <a href="https://github.com/ThomasVon2021/blikvm.git/edit/master/docs/flashing_os.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/ThomasVon2021/blikvm.git/edit/master/docs/first_steps.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="flashing-the-os-image">Flashing the OS image</h1>
+<h1 id="first-steps">First steps</h1>
+<h2 id="first-power-on">First power on</h2>
+<p><strong>Power up the device.</strong></p>
 <div class="admonition warning">
-<p class="admonition-title">Micro-SD Card Requirements</p>
+<p class="admonition-title">Do not turn off the device until it's fully booted for the first time</p>
+<p>After turning on the power, BLIKVM OS will perform the necessary operations on the memory card.</p>
+</div>
+<h2 id="getting-access-to-blikvm">Getting access to BLIKVM</h2>
+<p>By default, BLIKVM receives a dynamic IP address via DHCP.</p>
+<details class="example">
+<summary>Finding BLIKVM in the network</summary>
+<p>To determine the IP address of your BLIKVM, use one of the following methods:</p>
 <ul>
-<li>Minimum <strong>16 Gb</strong></li>
-<li><strong>Class 10</strong> is strongly recommended</li>
+<li><strong>Common way:</strong> Open the web interface of your router and find the list of issued IP addresses there. It depends on the router model.</li>
+<li><strong>Linux-only:</strong> Use command <code>arp-scan --localnet</code>.</li>
+<li><strong>Linux, MacOS, Windows:</strong> Download and run <a href="https://angryip.org">Angry IP Scanner</a>.</li>
+<li><strong>Windows PowerShell:</strong> Use command <code>arp -a</code>.</li>
 </ul>
-</div>
-<h2 id="download-the-image">Download the image</h2>
-<h3 id="blikvm-software">BLIKVM software</h3>
+<p>In order to find your RaspberryPi using the arp commands, you need to look for the following MAC Address's: B827EB, DCA632 or E45F01</p>
+</details>
+<p>For future examples, let's assume that your BLIKVM has received the address <strong>192.168.0.100</strong>, which you have successfully detected using the instructions above. Then your device was assigned a hostname: <strong>blikvm</strong>.</p>
+<details class="example">
+<summary>Access to BLIKVM Web Interface</summary>
+<p>In MOST networks you should be able to reach BLIKVM via any browser with the URL <code>https://192.168.0.100/</code>. Google Chrome (Chromium), Firefox and Safari work best with 0 extensions enabled, if one works but the others do not, this is a browser/extension issue. Its advised you use Private window or Incog mode. Microsoft Edge and Internet Explorer are not supported.</p>
+</details>
+<details class="example">
+<summary>Access to BLIKVM via SSH</summary>
+<p>SSH is the most common remote access method in the Linux world. BLIKVM is accessible via SSH. This method is used to manage the device:</p>
 <ul>
-<li><strong><a href="https://drive.google.com/drive/folders/172ojbO3FRKy5Y6mRnh7Hx5hA7_QmUUIx?usp=sharing">BLIKVM image (Pi )</a></strong></li>
+<li><strong>Linux, MacOS:</strong> Open any terminal application and run: <code>ssh blikvm@192.168.0.100</code>.</li>
+<li><strong>Windows:</strong> Use <a href="https://www.putty.org/">PuTTY</a> for this.</li>
 </ul>
-<h3 id="base-on-pikvm-software">Base on PiKVM software</h3>
+<p><strong>The default <code>blikvm</code> password is <code>blikvm</code>.</strong></p>
+</details>
+<details class="example">
+<summary>OPTIONAL: Update BLIKVM software</summary>
+<p>See <a href="../update/">this page</a>.</p>
+</details>
+<h2 id="whats-next">What's next?</h2>
 <ul>
-<li><strong><a href="https://drive.google.com/file/d/1EauTgw3TKsVGRtxka3BcU2O-DRcNZgbE/view?usp=sharing">PiKVM image (BLIKVM-CM4)</a></strong></li>
-<li><strong><a href="https://drive.google.com/file/d/1jOV68x5F4JzgM1K-kHF1zw3GxdBiYWhg/view?usp=share_link">PiKVM image (BLIKVM-PCIe)</a></strong></li>
-<li><strong><a href="https://mgk9cjip0o.feishu.cn/file/boxcnYAhGhLxaEVOQdSrNiD1Pbg?from=from_copylink">PiKVM image (BLIKVM-HAT)</a></strong></li>
+<li>Explore BLIKVM features using the table of contents on the left.</li>
+<li>Join our <a href="https://discord.com/invite/9Y374gUF6C">Discord</a> to contact the community and developers.</li>
+<li>Check out the <a href="https://github.com/ThomasVon2021/blikvm">GitHub</a> - BLIKVM is a Open Source project!</li>
 </ul>
-<h2 id="flash-the-image">Flash the image</h2>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Ignore request to format your sd card, this step is not nessessary. Choose the most suitable method for you.
-<a href="https://www.youtube.com/watch?v=jp_mF1RknU4">How to flash the eMMC on a Raspberry Pi Compute Module 4</a></p>
-</div>
-<h3 id="board-link">Board Link</h3>
-<p>First, use the jumper cap to short the boot pin.</p>
-<div class="admonition info">
-<p class="admonition-title">If you use BLIKVM CM4 version</p>
-<p>Then connect the data cable to the USB OTG interface. Power on blikvm and observe the act light, the green light is always on.<br />
-<img alt="Image title" src="../assets/images/flash_os/flash_led-300x300.png" width="300" /></p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">If you use BLIKVM PCIe version</p>
-<p>Then connect the data cable to the USB-PC interface. Power on blikvm and observe the ACT and PWR LED isn't light. 
-After initialize EMMC through the usbboot/rpiboot, the ACT and PWR LED light is always on.<br />
-<img alt="Image title" src="../assets/images/flash_os/pcie-flash-boot.jpg" width="300" />
-<img alt="Image title" src="../assets/images/flash_os/pcie_flash_after_rpiboot.jpg" width="300" /></p>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">EMMC knowledge</p>
-<p>If you use raspberry pi computing modules such as CM3 or CM4 EMMC，you can initialize EMMC through the usbboot. Note that the EMMC version cannot directly use the SD card to start the image.
-From this video you can learn how to flash image quickly.<a href="https://www.youtube.com/watch?v=jp_mF1RknU4">How to flash the eMMC on a Raspberry Pi Compute Module 4 video</a></p>
-</div>
-<p><strong>Taking Ubuntu system as an example:</strong></p>
-<h3 id="linux-usbboot">Linux usbboot</h3>
-<p>If you use an Micro-SD Card, you don't need to care about that.
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a># sudo apt-get install libusb-1.0-0-dev  
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a># git clone --depth=1 https://github.com/raspberrypi/usbboot
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a># cd usbboot
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a># make
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a># sudo ./rpiboot
-</code></pre></div>
-If the content shown in the figure below appears, it indicates that EMMC initialization is successful.<br />
-<img alt="Image title" src="../assets/images/flash_os/flash_rpiboot.png" width="300" /></p>
-<h3 id="using-rpi-imager-linux-macos-and-windows">Using RPi Imager (Linux, MacOS and Windows)</h3>
-<ol>
-<li>
-<p>Download and install <strong>the latest version</strong> of <a href="https://github.com/raspberrypi/rpi-imager/releases">RPi Imager</a>.</p>
-</li>
-<li>
-<p>Run RPi Imager:<br />
-<img alt="Image title" src="../assets/images/flash_os/flash_rpi.png" width="300" />  </p>
-</li>
-<li>
-<p>Press <strong>CHOOSE OS</strong> and select <strong>Use custom</strong> image at bottom of the list:<br />
-<img alt="Image title" src="../assets/images/flash_os/flash_choose_os.png" width="300" /></p>
-</li>
-<li>
-<p>After clicking on this item, select the image file (<code>.img.xz</code>), then click <strong>CHOOSE STORAGE</strong>:<br />
-<img alt="Image title" src="../assets/images/flash_os/flash_img.png" width="300" /></p>
-</li>
-<li>
-<p>Insert the memory card into the card reader. Choose the card reader from this list. <strong>Be careful</strong> 
-and choose the right device:   </p>
-<p><img alt="Image title" src="../assets/images/flash_os/flash_storage.png" width="300" /></p>
-</li>
-<li>
-<p>After choosing the memory card, press the <strong>WRITE</strong> button. Confirm the operation when you are asked about it:<br />
-<img alt="Image title" src="../assets/images/flash_os/flash_write.png" width="300" /> </p>
-</li>
-<li>
-<p>Wait for the process to finish. Get yourself a coffee or do some stretching :)  </p>
-</li>
-</ol>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>The process may hang at 99% for a long time, this is okay, just wait for it to complete</p>
-</div>
-<p><img alt="Image title" src="../assets/images/flash_os/flash_wait_process.png" width="300" /></p>
-<p>8.Remove the memory card after successful completion:  </p>
-<p><img alt="Image title" src="../assets/images/flash_os/flash_write_successful.png" width="300" /></p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>If an error occurs during flashing or booting PiKVM, repeat the process.</p>
-</div>
+<hr />
+<h2 id="faq-and-troubleshooting">FAQ and Troubleshooting</h2>
+<p>If you have any questions or run into problems, take a look at the <a href="../faq/">FAQ</a>.
+Seriously, it's really useful! We've probably already found a solution for it :)</p>
+<p>For any other help and support, you can contact us via the <a href="https://discord.com/invite/9Y374gUF6C">Discord chat</a>.</p>
 
 
 
@@ -1179,7 +1066,7 @@ and choose the right device:   </p>
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../update/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 更新软件" rel="prev">
+        <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: BLIKVM介绍" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1188,20 +1075,20 @@ and choose the right device:   </p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              更新软件
+              BLIKVM介绍
             </div>
           </div>
         </a>
       
       
         
-        <a href="../OLED-display/" class="md-footer__link md-footer__link--next" aria-label="Next: OLED显示器" rel="next">
+        <a href="../faq/" class="md-footer__link md-footer__link--next" aria-label="Next: FAQ" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              OLED显示器
+              FAQ
             </div>
           </div>
           <div class="md-footer__button md-icon">

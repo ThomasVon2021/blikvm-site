@@ -67,7 +67,10 @@ markdown_extensions:
 
 nav:
     - "快速开始":
-        - "BLIKVM介绍": index.md
+      - "BLIKVM介绍": index.md
+      - "第一步": first_steps.md
+      - "FAQ": faq.md
+    - "安装说明":    
         - "HAT版本":
           - "BLIKVM HAT导览": BLIKVM-HAT-guide.md
           - "安装说明": BLIHAT-Installation.md

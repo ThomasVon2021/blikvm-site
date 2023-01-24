@@ -68,7 +68,8 @@ markdown_extensions:
 nav:
     - "Getting started":
         - "BLIKVM Overview": index.md
-        - "faq": faq.md
+        - "First steps": first_steps.md
+        - "FAQ": faq.md
     - "Installation instructions":
         - "HAT version":
           - "BLIKVM HAT guide": BLIKVM-HAT-guide.md
