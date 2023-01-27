@@ -1,9 +1,9 @@
 # **HDMI切换器手册**
-!!! tip " switch实际使用和测试视频，支持BliKVM和PiKVM"
+!!! tip " BliKVM-Switch-V1.0实际使用和测试视频，支持BliKVM和PiKVM"
     <iframe width="560" height="315" src="//player.bilibili.com/player.html?aid=349888644&bvid=BV16R4y1m7Pt&cid=955481186&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 ## **简介**
-此switch为四通道HDMI+USB切换器，支持机器按键切换，桌面控制器切换，kvm远程切换，3种切换模式。切换器本身最高支持4K@60HZ的输入，即插即用，免驱动。
-目前此型号在PiKVM和BliKVM上均完成了适配工作。
+BliKVM-Switch-V1.0为四通道HDMI+USB切换器，支持机器按键切换，桌面控制器切换，KVM远程切换，3种切换模式。切换器本身最高支持4K@60HZ的输入，即插即用，免驱动。  
+BliKVM-Switch-V1.0使用和XH-HK4401相同的硬件方案,AG7210 HDMI切换芯片最高支持到4K@60Hz，CH444G USB切换芯片支持USB2.0。不同的是BliKVM-Switch-V1.0配备有KVM USB cable,可以通过KVM USB cable连接BliKVM-Switch-V1.0,实现对KVM端口的选择。BliKVM-Switch-V1.0适配BliKVM和PiKVM。
 !!! note "注意事项"
     * switch可以直接从输入电脑的USB取电，即一般不需要给switch供电，即可正常工作；
     * 若被控电脑的USB供电无法使switch工作，可以对switch进行单独供电使用；
@@ -27,9 +27,9 @@
 !!! info "若您使用的PiKVM软件，请按照下面的说明进行配置"
     1. 通过SSH登陆PiKVM，用户名和密码均为root;
     2. 终端使用`rw`命令将系统改为可读写系统;
-    3. 编辑`/etc/kvmd/override.yaml`此文件，使改文件包含下面的内容.
+    3. 编辑`/etc/KVMd/override.yaml`此文件，使改文件包含下面的内容.
         ```
-        kvmd:
+        KVMd:
             gpio:
                 drivers:
                     hk:
@@ -80,7 +80,7 @@
                         - ["#Input 4", ch3_led, ch3_button]
         ```
     4. 终端使用`ro`命令将系统重新设置为只读系统；
-    5. 终端使用`systemctl restart kvmd`重启服务。
+    5. 终端使用`systemctl restart KVMd`重启服务。
     6. 进入PiKVM web界面，并单击“GPIO”菜单。您应该看到4个输入，其中一个输入有一个绿色圆圈，表示当前已选中。单击其他输入以更改选定的主机。
     ![](assets/images/switch/pikvm-soft-switch.png){width="600"}
 

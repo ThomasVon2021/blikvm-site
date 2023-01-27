@@ -1,10 +1,10 @@
 # **HDMI Switch Mannul**
-!!! tip "Switch uses and tests video, supporting BliKVM and PiKVM"
+!!! tip "BliKVM-Switch-V1.0 uses and tests video, supporting BliKVM and PiKVM"
     <iframe width="560" height="315" src="https://www.youtube.com/embed/RQ3KxvUsZv8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## **Introduction**
-This switch is a four channel HDMI+USB switch, which supports panel button, desktop controller, kvm remote to switch between computers. Maximum support of the switch itself 4K@60HZ Plug and play, drive free.
-At present, this model has been adapted to PiKVM and BliKVM.
+BliKVM-Switch-V1.0 is a four channel HDMI+USB switch, which supports panel button, desktop controller, KVM remote to switch between computers. Maximum support of the switch itself 4K@60HZ Plug and play, drive free.  
+BliKVM-Switch-V1.0 uses the same hardware solution as XH-HK4401, AG7210 HDMI switching chip supports up to 4K@60Hz, CH444G USB switching chip supports USB2.0. The difference is that BliKVM-Switch-V1.0 is equipped with KVM USB cable, which can realize KVM port selection. BliKVM-Switch-V1.0 is compatible with BliKVM and PiKVM.
 !!! note "points for attention"
     * The switch can be powered directly from the USB input to the computer, that is, the switch can work normally without power supply.
     * If the USB power supply of the controlled computer cannot make the switch work, the switch can be powered independently.
@@ -101,13 +101,13 @@ At present, this model has been adapted to PiKVM and BliKVM.
 
 | product                   | quantity | note|
 |--------------------       | ----     |-----|
-| KVM Switch(4-channel)     | 1        |110mm * 60mm * 33mm|
+| HDMI KVM Switch(4-channel)     | 1        |110mm * 60mm * 33mm|
 | Desktop controller        | 1        ||
-| USB cable                 | 4        | length: 1.2m|
+| USB cable of Desktop controller              | 4        | length: 1.2m|
 | HDMI(Standard) cable      | 5        | length: 1.5m|
 | USB power cable           | 1        | length: 0.8m|
-| KVM USB cable             | 1        | length: 1.5m|
-| USB desktop control cable | 1        | length: 1m |
+| USB cable of KVM             | 1        | length: 1.5m|
+| USB cable of Desktop controller | 1        | length: 1m |
 
 
 
