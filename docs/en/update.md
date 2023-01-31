@@ -8,6 +8,9 @@
 !!! info "Common causes of upgrade errors"
     * The device is not connected to the network;
     * Network access to github is limited;
+
+!!! warning "We strongly recommend performing the update while you are in close proximity to the BliKVM hardware you are upgrading.  The reason is if anything goes wrong you can intervene."
+
     
 ## **Web UI update**
 
