@@ -11,6 +11,7 @@ BliKVM-Switch-V1.0 uses the same hardware solution as XH-HK4401, AG7210 HDMI swi
     * The switch package only provides a USB power cable, but does not provide a power adapter. The customer needs to configure a power adapter (5V).
     * **Desktop controller** can control HDMI switch with USB cable. For customers who do not use KVM, this is another way of switching for easy cable management.
     * HDMI input support up to **4096x2160/60Hz** resolution
+    * 4K 60Hz input, the power is about 200 mW.
 
 
 ## **Interface diagram**

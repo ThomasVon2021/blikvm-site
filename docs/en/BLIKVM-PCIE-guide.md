@@ -60,6 +60,12 @@ BLIKVM PCIe is a PCIe add-in card based on Raspberry Pi CM4 for KVM Over IP. Thi
 !!! note "**UART**"
     Connect the serial port to debug your Raspberry Pi CM4.
 
+!!! note "**GTR**"
+    The uart of Raspberry Pi CM4. G for GND, T(GPIO 14) for TXD, R(GPIO 15) for RXD.  
+    ![](assets/images/gpio/uart_gpio.jpg){width="300"}
+    
+
+
 ## **Accessories**
 
 ![BLIKVM_PCIe_main-back](assets/images/BLIKVM-PCIe/accessories.png){width="400"}

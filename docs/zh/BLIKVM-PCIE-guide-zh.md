@@ -17,7 +17,7 @@ BLIKVM PCIe是一款基于树莓派CM4的IPKVM扩展卡，可以安装到PC或�
 **2.组装 BLIKVM** 参考的 [说明文档](./BLIKVM-PCIe-installation-zh.md)
 ??? info "Geerling的测试视频"
     <iframe width="560" height="315" src="https://www.youtube.com/embed/cVWF3u-y-Zg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    
+
 ??? info "Craft Computing: Never Pay For IPMI Again - BliKVM Review"
     <iframe width="560" height="315" src="https://www.youtube.com/embed/Wn5UXY4W6E0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
@@ -60,6 +60,10 @@ BLIKVM PCIe是一款基于树莓派CM4的IPKVM扩展卡，可以安装到PC或�
 !!! note "**串口**"
     Connect the serial port to debug your Raspberry Pi CM4.
     可以通过改串口登陆设备进行调试，一般在在网络链接故障等情况下使用。
+
+!!! note "**GTR**"
+    树莓派CM4的串口. G for GND, T(GPIO 14) for TXD, R(GPIO 15) for RXD.  
+    ![](assets/images/gpio/uart_gpio.jpg){width="300"}
 
 ## **配件**
 
