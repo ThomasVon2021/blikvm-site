@@ -6,11 +6,9 @@
 
 ## Download the image
 ### BLIKVM software
-* **[BLIKVM image (Pi )](https://drive.google.com/drive/folders/172ojbO3FRKy5Y6mRnh7Hx5hA7_QmUUIx?usp=sharing)**
+* **[BLIKVM image (Pi and CM4 )](https://drive.google.com/drive/folders/172ojbO3FRKy5Y6mRnh7Hx5hA7_QmUUIx?usp=sharing)**
 ### Base on PiKVM software
-* **[PiKVM image (BLIKVM-CM4)](https://drive.google.com/file/d/1EauTgw3TKsVGRtxka3BcU2O-DRcNZgbE/view?usp=sharing)**
-* **[PiKVM image (BLIKVM-PCIe)](https://drive.google.com/file/d/1jOV68x5F4JzgM1K-kHF1zw3GxdBiYWhg/view?usp=share_link)**
-* **[PiKVM image (BLIKVM-HAT)](https://mgk9cjip0o.feishu.cn/file/boxcnYAhGhLxaEVOQdSrNiD1Pbg?from=from_copylink)**
+* **[PiKVM image (Pi4B and CM4)](https://drive.google.com/drive/folders/1DcpxSzjbhM7wijaldql2UI4pUyEhOTCJ?usp=share_link)**
 
 ## Flash the image
 
