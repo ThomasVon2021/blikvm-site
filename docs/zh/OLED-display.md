@@ -6,6 +6,9 @@
     # systemctl enable --now kvmd-oled //Enable OLED
     # ro
     ```
+    If the oled still can't work, you need to check whether there has "dtparam=i2c_arm=on" in "/boot/config.txt" file, and whether there has "i2c-dev" in "/etc/modules-load.d/i2c.conf" file. If not, please create and add them.
+    If it still does not work after the above configuration, please burn [the image](./flashing_os.md) provided by blikvm for testing to check whether the OLED hardware is damaged. 
+
 !!! info "BLIKVM CM4 version OLED display"
     The product comes standard with a monochrome OLED display with a resolution of 128x64, and the chip is SSD1306.  
     The user connects the display to the product with the wiring of the display.

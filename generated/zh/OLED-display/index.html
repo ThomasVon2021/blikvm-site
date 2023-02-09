@@ -911,7 +911,9 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a># rw
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a># systemctl enable --now kvmd-oled //Enable OLED
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a># ro
-</code></pre></div></p>
+</code></pre></div>
+If the oled still can't work, you need to check whether there has "dtparam=i2c_arm=on" in "/boot/config.txt" file, and whether there has "i2c-dev" in "/etc/modules-load.d/i2c.conf" file. If not, please create and add them.
+If it still does not work after the above configuration, please burn <a href="../flashing_os/">the image</a> provided by blikvm for testing to check whether the OLED hardware is damaged. </p>
 </div>
 <div class="admonition info">
 <p class="admonition-title">BLIKVM CM4 version OLED display</p>
