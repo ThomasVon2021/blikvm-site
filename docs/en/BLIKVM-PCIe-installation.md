@@ -25,7 +25,7 @@
     ![connect_USB_and_ATX_OK](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/connect_USB_and_ATX_OK.jpg){width="300"}
 
 ## **4.Connect OLED**
-!!! note ""
+!!! note "The OLED you received does not have a bracket installed. Please refer to the picture for installation. In addition, OLED support is made of acrylic material, which needs to be used after removing the protective film on the surface."
     ![connect_OLED](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/connect_OLED.jpg){width="400"}
 
 ## **5.Connect the HDMI cable**
@@ -55,7 +55,7 @@
 
 ## **9.Install the product into the computer case**
 
-!!! note "Disconnect power and wiring, install the product on the motherboard, and reconnect the cables after installation is complete."
+!!! note "Disconnect power and wiring, install the product on the motherboard, and reconnect the cables after installation is complete. The color of ATX cable received in different batches may be different. Please directly refer to the pin definition for connection"
     ![blikvm_in_case](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/blikvm_in_case.jpg){width="300"}
     ![OLED_display_out](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/OLED_display_out.jpg){width="300"}
     ![finish_installation_1](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/finish_installation_1.jpg){width="300"}

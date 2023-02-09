@@ -25,7 +25,7 @@
     ![connect_USB_and_ATX_OK](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/connect_USB_and_ATX_OK.jpg){width="300"}
 
 ## **4.链接OLED显示屏**
-!!! note ""
+!!! note "您收到的OLED是未安装支架的，请参考图片进行安装。另外OLED支架为亚克力材料，需要撕去表面的保护膜后使用。"
     ![connect_OLED](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/connect_OLED.jpg){width="400"}
 
 ## **5.连接HDMI线**
@@ -55,7 +55,7 @@
 
 ## **9.安装BLIKVM PCIe卡到机箱中**
 
-!!! note "断开电源和连接线，先将PCIe卡安装到主板上，然后重新将线缆连接好。"
+!!! note "断开电源和连接线，先将PCIe卡安装到主板上，然后重新将线缆连接好。不同批次收到的ATX线颜色可能不一样，请直接参考引脚定义进行连接。"
     ![blikvm_in_case](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/blikvm_in_case.jpg){width="300"}
     ![OLED_display_out](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/OLED_display_out.jpg){width="300"}
     ![finish_installation_1](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/finish_installation_1.jpg){width="300"}

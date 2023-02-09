@@ -111,7 +111,6 @@ As a first step, we recommend carefully reading our documentation. Most steps to
 
 ??? question "No image from computer with Linux + Awesome WM"
     Sometimes Awesome WM on Linux can't recognize a video output change on a cable. That is, if the cable was first inserted into the monitor, and then you reconnected it to BLIKVM - it may happen that you will not see the image. It seems that the problem is Awesome WM, since for example with KDE, it is not reproducable. If you turn on your workstation with BLIKVM already connected, everything will work fine.
-
     
 
 ## USB problems (keyboard, mouse, mass storage, etc)
@@ -131,6 +130,11 @@ As a first step, we recommend carefully reading our documentation. Most steps to
 
 ??? question "BLIKVM complains about low power warnings"
     * Are you using a "proper" power supply? Not one you hacked together?
-    * Some USB power bricks advertise 5V 2.1A or higher, but can't deliver consistent 5V.  Best to use Raspberry Pi Foundation recommended power supplies.
-    
+    * Some USB power bricks advertise 5V 2.1A or higher, but can't deliver consistent 5V.  Best to use Raspberry Pi Foundation recommended power supplies. It should be 5.1v and 3A DC output.
 
+??? question "When I use the PoE, do I still need to use the power OTG splitter to prevent back power on the machine usb? "
+    * Only HAT version you need to use power OTG splitter to prevent back power. Generally, most hosts computer are protected back power, you do not need to usr power OTG splitter in this case.
+    * BLIKVM-CM4-V2.2 and BLIKVM-PCIe version don't need.
+
+??? question "In some board like BLIKVM-PCIe or BLIKVM-CM4-V2.2 has boot pin, how do I connect?"
+    If you short them, CM4 will not start normally, but will enter the burning image mode. If your hardware version of boot has only two pins, use the jumper cap to connect the two pins as a short circuit. If you do not use the jumper cap or plug it into one pin, CM4 will start normally. If you use three boot pins of the hardware version, use the jumper cap to connect GND and another non-GND pin to indicate short circuit, and plug the jumper cap on the two GND pins or do not use it, CM4 will start normally.
