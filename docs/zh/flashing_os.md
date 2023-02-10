@@ -6,10 +6,10 @@
 
 ## Download the image
 ### BLIKVM software
-* **[BLIKVM image (Pi and CM4 )](https://drive.google.com/drive/folders/172ojbO3FRKy5Y6mRnh7Hx5hA7_QmUUIx?usp=sharing)**
+* **[BLIKVM image (Pi and CM4 )](https://zcwrego195.feishu.cn/drive/folder/fldcn0KhmkuC2DC8nKWcHAMLA6f)**
 
 ### Base on PiKVM software
-* **[PiKVM image (Pi4B and CM4)](https://drive.google.com/drive/folders/1DcpxSzjbhM7wijaldql2UI4pUyEhOTCJ?usp=share_link)**
+* **[PiKVM image (Pi4B and CM4)](https://zcwrego195.feishu.cn/drive/folder/fldcntj64syIznoYuTdRFattP2f)**
 
 ## Flash the image
 
