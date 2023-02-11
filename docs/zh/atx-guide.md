@@ -43,12 +43,16 @@ A-board is connected to B-board through a network cable. The following table is 
 The b-board has an adapted full-height and half-height metal PCI mounting plate, which can be installed on the computer case. The user connects the pins on the B-board to the ATX control interface on the computer motherboard using the color DuPont cables provided with the product.  
 ![3](assets/images/atx/physical_map.png){width="400"}
 
-## **3.Mechanical Diagram**
+!!! info "ATXA-B与电脑主板连接说明"
+    根据电脑主板说明，首先找到主板上ATX功能相关引脚位置，拔下主板已经接好的ATX线，拔下后电脑的电源按钮将失去作用。ATXA-B主板共有两排8PIN引脚，两排引脚功能完全相同使用时无需区分。其中一排引脚用于KVM控制ATX相关功能，另一排引脚接主板上拔下来的ATX杜邦头，保持原有机箱电源按钮功能。根据主板和ATX-B上的具体引脚定义进行每根线的连接，连接关系可以参考下图：  
+    ![](assets/images/atx/ATXA-B-motherborad.png)
+
+## **4.Mechanical Diagram**
 
 ![4](assets/images/atx/4.png)
 
-## **4.Test video**
+## **5.Test video**
 youtube：<a href="https://www.youtube.com/watch?v=gOFdGrVMBU8" target="_blank">ATX</a>
 
-## **5.More link**
+## **6.More link**
 Purchase：<a href="https://www.aliexpress.com/item/1005003761450893.html?spm=a2g0o.store_pc_allProduct.8148356.12.4c8f16b4prvvUV" target="_blank">ATX</a>

@@ -43,12 +43,16 @@ A-board is connected to B-board through a network cable. The following table is 
 The b-board has an adapted full-height and half-height metal PCI mounting plate, which can be installed on the computer case. The user connects the pins on the B-board to the ATX control interface on the computer motherboard using the color DuPont cables provided with the product.  
 ![3](assets/images/atx/physical_map.png){width="400"}
 
-## **3.Mechanical Diagram**
+!!! info "ATXA-B Instructions for connecting to the computer motherboard"
+    According to the instructions of the computer motherboard, first find the position of the ATX function related pins on the motherboard, and then unplug the ATX ray that has been connected to the motherboard. After unplugging, the power button of the computer will lose its function. There are two rows of 8PIN pins on the ATXA-B motherboard. It is unnecessary to distinguish between the two rows of pins when they are used with the same functions. One row of pins is used for KVM to control ATX-related functions, and the other row of pins is connected to the ATX DuPont head unplugged from the main board to maintain the original chassis power button function. Connect each wire according to the specific pin definitions on the motherboard and ATXA-B. See the following figure for the connection relationship：  
+    ![](assets/images/atx/ATXA-B-motherborad.png)
+
+## **4.Mechanical Diagram**
 
 ![4](assets/images/atx/4.png)
 
-## **4.Test video**
+## **5.Test video**
 youtube：<a href="https://www.youtube.com/watch?v=gOFdGrVMBU8" target="_blank">ATX</a>
 
-## **5.More link**
+## **6.More link**
 Purchase：<a href="https://www.aliexpress.com/item/1005003761450893.html?spm=a2g0o.store_pc_allProduct.8148356.12.4c8f16b4prvvUV" target="_blank">ATX</a>
