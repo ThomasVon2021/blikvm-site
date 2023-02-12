@@ -4,12 +4,20 @@
     * Minimum **16 Gb**
     * **Class 10** is strongly recommended
 
+!!! example "为什么软件有BLIKVM和PiKVM两个版本？两个版本有什么区别？我应该选择哪个？我可以用PiKVM官方镜像吗？"
+    * BLIKVM项目诞生之初先研发了硬件，软件直接使用了PiKVM。随着项目的不断进行，BLIKVM自研了自己的全新架构的软件版本，也同时为更深度的和自己的硬件配合做好基础；
+    * BLIKVM和PiKVM最核心的功能对用户来说是一致的，一些细分功能不太一样，如BLIKVM支持多语言；
+    * 需根据您自己使用感受去选择；
+    * 可以使用PiKVM官方镜像，但需要您根据硬件的不同做一些适配，主要涉及到的有屏幕、风扇等，因PiKVM官网镜像一直再更新，所以具体适配情况需根据当时您使用具体遇到的情况再看；
+
 ## Download the image
 ### BLIKVM software
-* **[BLIKVM image (Pi and CM4 )](https://zcwrego195.feishu.cn/drive/folder/fldcn0KhmkuC2DC8nKWcHAMLA6f)**
+!!! info "BLIKVM镜像树莓派4B和CM4共用一个镜像"
+    * **[BLIKVM image ](https://zcwrego195.feishu.cn/drive/folder/fldcn0KhmkuC2DC8nKWcHAMLA6f)** 
 
 ### Base on PiKVM software
-* **[PiKVM image (Pi4B and CM4)](https://zcwrego195.feishu.cn/drive/folder/fldcntj64syIznoYuTdRFattP2f)**
+!!! info "基于PiIKVM的镜像，树莓派4B和CM4不公用一个镜像，进入链接后可看到以各硬件版本(HAT CM4 PCIe)命名的镜像。"
+    * **[PiKVM image ](https://zcwrego195.feishu.cn/drive/folder/fldcntj64syIznoYuTdRFattP2f)**
 
 ## Flash the image
 

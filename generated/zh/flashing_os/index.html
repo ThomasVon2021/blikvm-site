@@ -1066,15 +1066,30 @@
 <li><strong>Class 10</strong> is strongly recommended</li>
 </ul>
 </div>
+<div class="admonition example">
+<p class="admonition-title">为什么软件有BLIKVM和PiKVM两个版本？两个版本有什么区别？我应该选择哪个？我可以用PiKVM官方镜像吗？</p>
+<ul>
+<li>BLIKVM项目诞生之初先研发了硬件，软件直接使用了PiKVM。随着项目的不断进行，BLIKVM自研了自己的全新架构的软件版本，也同时为更深度的和自己的硬件配合做好基础；</li>
+<li>BLIKVM和PiKVM最核心的功能对用户来说是一致的，一些细分功能不太一样，如BLIKVM支持多语言；</li>
+<li>需根据您自己使用感受去选择；</li>
+<li>可以使用PiKVM官方镜像，但需要您根据硬件的不同做一些适配，主要涉及到的有屏幕、风扇等，因PiKVM官网镜像一直再更新，所以具体适配情况需根据当时您使用具体遇到的情况再看；</li>
+</ul>
+</div>
 <h2 id="download-the-image">Download the image</h2>
 <h3 id="blikvm-software">BLIKVM software</h3>
+<div class="admonition info">
+<p class="admonition-title">BLIKVM镜像树莓派4B和CM4共用一个镜像</p>
 <ul>
-<li><strong><a href="https://zcwrego195.feishu.cn/drive/folder/fldcn0KhmkuC2DC8nKWcHAMLA6f">BLIKVM image (Pi and CM4 )</a></strong></li>
+<li><strong><a href="https://zcwrego195.feishu.cn/drive/folder/fldcn0KhmkuC2DC8nKWcHAMLA6f">BLIKVM image </a></strong> </li>
 </ul>
+</div>
 <h3 id="base-on-pikvm-software">Base on PiKVM software</h3>
+<div class="admonition info">
+<p class="admonition-title">基于PiIKVM的镜像，树莓派4B和CM4不公用一个镜像，进入链接后可看到以各硬件版本(HAT CM4 PCIe)命名的镜像。</p>
 <ul>
-<li><strong><a href="https://zcwrego195.feishu.cn/drive/folder/fldcntj64syIznoYuTdRFattP2f">PiKVM image (Pi4B and CM4)</a></strong></li>
+<li><strong><a href="https://zcwrego195.feishu.cn/drive/folder/fldcntj64syIznoYuTdRFattP2f">PiKVM image </a></strong></li>
 </ul>
+</div>
 <h2 id="flash-the-image">Flash the image</h2>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>

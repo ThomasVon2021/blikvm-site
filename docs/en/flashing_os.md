@@ -4,11 +4,20 @@
     * Minimum **16 Gb**
     * **Class 10** is strongly recommended
 
+!!! Example "Why are there two versions of software, BLIKVM and PiKVM? What is the difference between the two versions? Which one should I choose? Can I use the official image of PiKVM?"
+    * At the beginning of the BLIKVM project, the hardware was developed, and the software directly used PiKVM. With the continuous progress of the project, BLIKVM has developed its own software version of new architecture, which also lays the foundation for deeper cooperation with its own hardware;
+    * The core functions of BLIKVM and PiKVM are the same for users. Some subdivision functions are not the same. For example, BLIKVM supports multiple languages;
+    * Select according to your own use experience;
+    * You can use the PiKVM official image, but you need to make some adaptations according to the different hardware, mainly involving screens, fans, etc. Since the PiKVM official image is always updated, the specific adaptations need to be seen according to the specific situation you encounter at that time;
+
 ## Download the image
 ### BLIKVM software
-* **[BLIKVM image (Pi )](https://drive.google.com/drive/folders/172ojbO3FRKy5Y6mRnh7Hx5hA7_QmUUIx?usp=sharing)**
+!!! info "Raspberry 4B and CM4 board use a same BLIKVM software image."
+    * **[BLIKVM image ](https://drive.google.com/drive/folders/172ojbO3FRKy5Y6mRnh7Hx5hA7_QmUUIx?usp=sharing)**
+
 ### Base on PiKVM software
-* **[PiKVM image (Pi4B and CM4)](https://drive.google.com/drive/folders/1DcpxSzjbhM7wijaldql2UI4pUyEhOTCJ?usp=share_link)**
+!!! info "Raspberry 4B and CM4 board use different PiKVM software image. After entering the link, you can see the image named with each hardware version (HAT CM4 PCIe)"
+    * **[PiKVM image](https://drive.google.com/drive/folders/1DcpxSzjbhM7wijaldql2UI4pUyEhOTCJ?usp=share_link)**
 
 ## Flash the image
 

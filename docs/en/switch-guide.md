@@ -30,7 +30,7 @@ BliKVM-Switch-V1.0 uses the same hardware solution as XH-HK4401, AG7210 HDMI swi
 !!! info "If you use PiKVM software, please configure it according to the following instructions."
     1. Log in to PiKVM through SSH. The user name and password are root;
     2. Uses the `rw` command on the terminal to change the system to a read-write system;
-    3. Edit `/etc/kvmd/override. yaml` this file to make it contain the following contents.
+    3. Edit `/etc/kvmd/override. yaml` this file to make it contain the following contents. That is, add after the original content.
         ```
         kvmd:
             gpio:
