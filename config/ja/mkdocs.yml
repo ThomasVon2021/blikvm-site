@@ -48,8 +48,9 @@ extra:
     - name: 日本語
       link: /blikvm/ja/
       lang: ja
-repo_name: blikvm
-repo_url: https://github.com/ThomasVon2021/blikvm.git
+repo_name: blikvm-site
+repo_url: https://github.com/ThomasVon2021/blikvm-site
+edit_uri: edit/master/docs/ja/
 markdown_extensions:
   - attr_list
   - md_in_html
@@ -82,3 +83,7 @@ nav:
         - "USB スプリッタ": usb-splitter-guide.md
     - "開発":
         - "イメージの作成": make-image.md
+plugins:
+  - glightbox
+  - git-revision-date-localized:
+      enable_creation_date: true

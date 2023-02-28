@@ -51,8 +51,9 @@ extra:
     - name: Русский
       link: /blikvm/ru/
       lang: ru
-repo_name: blikvm
-repo_url: https://github.com/ThomasVon2021/blikvm.git
+repo_name: blikvm-site
+repo_url: https://github.com/ThomasVon2021/blikvm-site
+edit_uri: edit/master/docs/ru/
 markdown_extensions:
   - attr_list
   - md_in_html
@@ -82,3 +83,7 @@ nav:
         - "ATX руководство": atx-guide.md
         - "HDMI-CSI и Аудио": hdmi-csi-i2s.md
         - "USB сплиттер": usb-splitter-guide.md
+plugins:
+  - glightbox
+  - git-revision-date-localized:
+      enable_creation_date: true

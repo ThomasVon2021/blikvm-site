@@ -1,940 +1,425 @@
 
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-        <meta name="description" content="Open and cost-effective "KVM over IP". BliKVM comes in 3 different models, BliKVM PCIe, BliKVM HAT and BliKVM CM4, all based on Raspberry Pi.">
-      
-      
-        <meta name="author" content="Thomas Von">
-      
-      
-      <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
-    
-    
-      
-        <title>HDMI-CSI&I2Sブリッジ - BLIKVM ハンドブック</title>
-      
-    
-    
-      <link rel="stylesheet" href="../assets/stylesheets/main.472b142f.min.css">
-      
-        
-        <link rel="stylesheet" href="../assets/stylesheets/palette.08040f6c.min.css">
-        
-      
-      
-  
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-  
-  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 7.775V2.75a.25.25 0 0 1 .25-.25h5.025a.25.25 0 0 1 .177.073l6.25 6.25a.25.25 0 0 1 0 .354l-5.025 5.025a.25.25 0 0 1-.354 0l-6.25-6.25a.25.25 0 0 1-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.75 1.75 0 0 1 1 7.775zM6 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 0 1 .25-.25h8.5a.25.25 0 0 1 .25.25v7.736a.75.75 0 1 0 1.5 0V1.75A1.75 1.75 0 0 0 11.25 0h-8.5A1.75 1.75 0 0 0 1 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 0 0 0-1.5H2.75a.25.25 0 0 1-.25-.25V1.75zM4.75 4a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5zM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75zm11.774 3.537a.75.75 0 0 0-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 0 0-1.062 1.058l1.943 1.95a.75.75 0 0 0 1.055.008l4.557-4.45z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm6.5-.25A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75zM8 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.489 4.489 0 0 1-.563-1.191 3.833 3.833 0 0 1-.05-2.063 4.636 4.636 0 0 1-2.025-.293.75.75 0 1 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.748.748 0 0 1 1.06 0 .75.75 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.404 2.404 0 0 1-.507-.441 3.063 3.063 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.753.753 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768a85.08 85.08 0 0 0-.317-.265c-.814-.68-1.75-1.462-2.692-2.619a3.74 3.74 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm9 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM6.92 6.085c.081-.16.19-.299.34-.398.145-.097.371-.187.74-.187.28 0 .553.087.738.225A.613.613 0 0 1 9 6.25c0 .177-.04.264-.077.318a.956.956 0 0 1-.277.245c-.076.051-.158.1-.258.161l-.007.004a7.728 7.728 0 0 0-.313.195 2.416 2.416 0 0 0-.692.661.75.75 0 0 0 1.248.832.956.956 0 0 1 .276-.245 6.3 6.3 0 0 1 .26-.16l.006-.004c.093-.057.204-.123.313-.195.222-.149.487-.355.692-.662.214-.32.329-.702.329-1.15 0-.76-.36-1.348-.863-1.725A2.76 2.76 0 0 0 8 4c-.631 0-1.155.16-1.572.438-.413.276-.68.638-.849.977a.75.75 0 1 0 1.342.67z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047zM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-.25-5.25a.75.75 0 0 0-1.5 0v2.5a.75.75 0 0 0 1.5 0v-2.5z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.404 12.596a6.5 6.5 0 1 1 9.192-9.192 6.5 6.5 0 0 1-9.192 9.192zM2.344 2.343a8 8 0 1 0 11.313 11.314A8 8 0 0 0 2.343 2.343zM6.03 4.97a.75.75 0 0 0-1.06 1.06L6.94 8 4.97 9.97a.75.75 0 1 0 1.06 1.06L8 9.06l1.97 1.97a.75.75 0 1 0 1.06-1.06L9.06 8l1.97-1.97a.75.75 0 1 0-1.06-1.06L8 6.94 6.03 4.97z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M10.561 1.5a.016.016 0 0 0-.01.004L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.02.02 0 0 0-.004-.009.02.02 0 0 0-.006-.006L10.56 1.5zM9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.25 1.25 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.492 3.492 0 0 1 2.441 0l.999-1a.75.75 0 1 1 1.06 1.061l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.013 5.013 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.684 1.684 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06zM6.173 5h3.654A.173.173 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173zM5.25 6.5a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75h-5.5z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458L5 5.782zM9.5 2.5h-3V6a.75.75 0 0 1-.117.403L4.73 9h6.54L9.617 6.403A.75.75 0 0 1 9.5 6V2.5zm-6.9 9.847L3.775 10.5h8.45l1.175 1.847a.75.75 0 0 1-.633 1.153H3.233a.75.75 0 0 1-.633-1.153z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.75 2.5a.75.75 0 0 0 0 1.5h10.5a.75.75 0 0 0 0-1.5H1.75zm4 5a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5zm0 5a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5zM2.5 7.75a.75.75 0 0 0-1.5 0v6a.75.75 0 0 0 1.5 0v-6z"/></svg>');}</style>
+<!DOCTYPE html>
 
-
-    
-    
-    
-      
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-      
-    
-    
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-    
-      
-
-    
-    
-    
-  </head>
-  
-  
-    
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="None" data-md-color-accent="None">
-  
-    
-    
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-      
-        
-        <a href="#hdmi-csii2s" class="md-skip">
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta 3="" all="" and="" based="" blikvm="" cm4,="" comes="" content="Open and cost-effective " different="" hat="" in="" ip".="" kvm="" models,="" name="description" on="" over="" pcie,="" pi."="" raspberry=""/>
+<meta content="Thomas Von" name="author"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
+<title>HDMI-CSI&amp;I2Sブリッジ - BLIKVM ハンドブック</title>
+<link href="../assets/stylesheets/main.472b142f.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.08040f6c.min.css" rel="stylesheet"/>
+<style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 7.775V2.75a.25.25 0 0 1 .25-.25h5.025a.25.25 0 0 1 .177.073l6.25 6.25a.25.25 0 0 1 0 .354l-5.025 5.025a.25.25 0 0 1-.354 0l-6.25-6.25a.25.25 0 0 1-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.75 1.75 0 0 1 1 7.775zM6 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 0 1 .25-.25h8.5a.25.25 0 0 1 .25.25v7.736a.75.75 0 1 0 1.5 0V1.75A1.75 1.75 0 0 0 11.25 0h-8.5A1.75 1.75 0 0 0 1 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 0 0 0-1.5H2.75a.25.25 0 0 1-.25-.25V1.75zM4.75 4a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5zM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75zm11.774 3.537a.75.75 0 0 0-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 0 0-1.062 1.058l1.943 1.95a.75.75 0 0 0 1.055.008l4.557-4.45z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm6.5-.25A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75zM8 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.489 4.489 0 0 1-.563-1.191 3.833 3.833 0 0 1-.05-2.063 4.636 4.636 0 0 1-2.025-.293.75.75 0 1 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.748.748 0 0 1 1.06 0 .75.75 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.404 2.404 0 0 1-.507-.441 3.063 3.063 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.753.753 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768a85.08 85.08 0 0 0-.317-.265c-.814-.68-1.75-1.462-2.692-2.619a3.74 3.74 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm9 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM6.92 6.085c.081-.16.19-.299.34-.398.145-.097.371-.187.74-.187.28 0 .553.087.738.225A.613.613 0 0 1 9 6.25c0 .177-.04.264-.077.318a.956.956 0 0 1-.277.245c-.076.051-.158.1-.258.161l-.007.004a7.728 7.728 0 0 0-.313.195 2.416 2.416 0 0 0-.692.661.75.75 0 0 0 1.248.832.956.956 0 0 1 .276-.245 6.3 6.3 0 0 1 .26-.16l.006-.004c.093-.057.204-.123.313-.195.222-.149.487-.355.692-.662.214-.32.329-.702.329-1.15 0-.76-.36-1.348-.863-1.725A2.76 2.76 0 0 0 8 4c-.631 0-1.155.16-1.572.438-.413.276-.68.638-.849.977a.75.75 0 1 0 1.342.67z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047zM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-.25-5.25a.75.75 0 0 0-1.5 0v2.5a.75.75 0 0 0 1.5 0v-2.5z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.404 12.596a6.5 6.5 0 1 1 9.192-9.192 6.5 6.5 0 0 1-9.192 9.192zM2.344 2.343a8 8 0 1 0 11.313 11.314A8 8 0 0 0 2.343 2.343zM6.03 4.97a.75.75 0 0 0-1.06 1.06L6.94 8 4.97 9.97a.75.75 0 1 0 1.06 1.06L8 9.06l1.97 1.97a.75.75 0 1 0 1.06-1.06L9.06 8l1.97-1.97a.75.75 0 1 0-1.06-1.06L8 6.94 6.03 4.97z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M10.561 1.5a.016.016 0 0 0-.01.004L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.02.02 0 0 0-.004-.009.02.02 0 0 0-.006-.006L10.56 1.5zM9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.25 1.25 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.492 3.492 0 0 1 2.441 0l.999-1a.75.75 0 1 1 1.06 1.061l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.013 5.013 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.684 1.684 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06zM6.173 5h3.654A.173.173 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173zM5.25 6.5a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75h-5.5z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458L5 5.782zM9.5 2.5h-3V6a.75.75 0 0 1-.117.403L4.73 9h6.54L9.617 6.403A.75.75 0 0 1 9.5 6V2.5zm-6.9 9.847L3.775 10.5h8.45l1.175 1.847a.75.75 0 0 1-.633 1.153H3.233a.75.75 0 0 1-.633-1.153z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.75 2.5a.75.75 0 0 0 0 1.5h10.5a.75.75 0 0 0 0-1.5H1.75zm4 5a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5zm0 5a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5zM2.5 7.75a.75.75 0 0 0-1.5 0v6a.75.75 0 0 0 1.5 0v-6z"/></svg>');}</style>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            
+                .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+                </style><script src="../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="None" data-md-color-primary="None" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#hdmi-csii2s">
           Skip to content
         </a>
-      
-    </div>
-    <div data-md-component="announce">
-      
-    </div>
-    
-    
-      
-
+</div>
+<div data-md-component="announce">
+</div>
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="https://www.blicube.com" title="BLIKVM ハンドブック" class="md-header__button md-logo" aria-label="BLIKVM ハンドブック" data-md-component="logo">
-      
-  <img src="../assets/images/logo.png" alt="logo">
-
-    </a>
-    <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
-    </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="BLIKVM ハンドブック" class="md-header__button md-logo" data-md-component="logo" href="https://www.blicube.com" title="BLIKVM ハンドブック">
+<img alt="logo" src="../assets/images/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
             BLIKVM ハンドブック
           </span>
-        </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
             
-              HDMI-CSI&I2Sブリッジ
+              HDMI-CSI&amp;I2Sブリッジ
             
           </span>
-        </div>
-      </div>
-    </div>
-    
-    
-      <div class="md-header__option">
-        <div class="md-select">
-          
-          <button class="md-header__button md-icon" aria-label="Select language">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"/></svg>
-          </button>
-          <div class="md-select__inner">
-            <ul class="md-select__list">
-              
-                <li class="md-select__item">
-                  <a href="/blikvm/en/" hreflang="en" class="md-select__link">
+</div>
+</div>
+</div>
+<div class="md-header__option">
+<div class="md-select">
+<button aria-label="Select language" class="md-header__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"></path></svg>
+</button>
+<div class="md-select__inner">
+<ul class="md-select__list">
+<li class="md-select__item">
+<a class="md-select__link" href="/blikvm/en/" hreflang="en">
                     English
                   </a>
-                </li>
-              
-                <li class="md-select__item">
-                  <a href="/blikvm/zh/" hreflang="zh" class="md-select__link">
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="/blikvm/zh/" hreflang="zh">
                     中文
                   </a>
-                </li>
-              
-                <li class="md-select__item">
-                  <a href="/blikvm/ja/" hreflang="ja" class="md-select__link">
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="/blikvm/ja/" hreflang="ja">
                     日本語
                   </a>
-                </li>
-              
-            </ul>
-          </div>
-        </div>
-      </div>
-    
-    
-      <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
-          </a>
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
-        </button>
-      </nav>
-      
-        <div class="md-search__suggest" data-md-component="search-suggest"></div>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+</li>
+</ul>
 </div>
-    
-    
-      <div class="md-header__source">
-        <a href="https://github.com/ThomasVon2021/blikvm.git" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    blikvm
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ThomasVon2021/blikvm-site" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    blikvm-site
   </div>
 </a>
-      </div>
-    
-  </nav>
-  
+</div>
+</nav>
 </header>
-    
-    <div class="md-container" data-md-component="container">
-      
-      
-        
-          
-        
-      
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          
-            
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href="https://www.blicube.com" title="BLIKVM ハンドブック" class="md-nav__button md-logo" aria-label="BLIKVM ハンドブック" data-md-component="logo">
-      
-  <img src="../assets/images/logo.png" alt="logo">
-
-    </a>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="BLIKVM ハンドブック" class="md-nav__button md-logo" data-md-component="logo" href="https://www.blicube.com" title="BLIKVM ハンドブック">
+<img alt="logo" src="../assets/images/logo.png"/>
+</a>
     BLIKVM ハンドブック
   </label>
-  
-    <div class="md-nav__source">
-      <a href="https://github.com/ThomasVon2021/blikvm.git" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    blikvm
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ThomasVon2021/blikvm-site" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    blikvm-site
   </div>
 </a>
-    </div>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-      
-
-  
-  
-  
-    
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
-      
-      
-      
-        
-          
-            
-          
-        
-          
-        
-          
-        
-          
-        
-      
-      
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="..">はじめに</a>
-          
-            <label for="__nav_1">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="はじめに" data-md-level="1">
-        <label class="md-nav__title" for="__nav_1">
-          <span class="md-nav__icon md-icon"></span>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="..">はじめに</a>
+<label for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="はじめに" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
           はじめに
         </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" checked>
-      
-      
-      
-        
-          
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_1_2">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1_2" id="__nav_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1_2">
           HAT バージョン
           <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="HAT バージョン" data-md-level="2">
-        <label class="md-nav__title" for="__nav_1_2">
-          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="HAT バージョン" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_1_2">
+<span class="md-nav__icon md-icon"></span>
           HAT バージョン
         </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../BLIKVM-HAT-guide/" class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../BLIKVM-HAT-guide/">
         BLIKVM HAT ガイド
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../BLIHAT-Installation/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../BLIHAT-Installation/">
         組み立てガイド
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../BLIKVM-CM4-guide/" class="md-nav__link">
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../BLIKVM-CM4-guide/">
         BLIKVM CM4 ガイド
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" checked>
-      
-      
-      
-        
-          
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_1_4">
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1_4" id="__nav_1_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1_4">
           PCIe バージョン
           <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="PCIe バージョン" data-md-level="2">
-        <label class="md-nav__title" for="__nav_1_4">
-          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="PCIe バージョン" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_1_4">
+<span class="md-nav__icon md-icon"></span>
           PCIe バージョン
         </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../BLIKVM-PCIE-guide/" class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../BLIKVM-PCIE-guide/">
         BLIKVM PCIe ガイド
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../BLIKVM-PCIe-installation/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../BLIKVM-PCIe-installation/">
         組み立てガイド
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
-      
-      
-      
-        
-          
-        
-          
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_2">
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
           設定
           <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="設定" data-md-level="1">
-        <label class="md-nav__title" for="__nav_2">
-          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="設定" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
           設定
         </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../flashing_os/" class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../flashing_os/">
         OSの書き込み
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../OLED-display/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../OLED-display/">
         OLED ディスプレイ
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Expand_Filesystem/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Expand_Filesystem/">
         ファイルシステムの拡張
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-    
-  
-  
-    
-      
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
-      
-      
-      
-        
-          
-        
-          
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_3">
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
           アクセサリー
           <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="アクセサリー" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="アクセサリー" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
           アクセサリー
         </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../atx-guide/" class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../atx-guide/">
         ATX ガイド
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          HDMI-CSI&I2Sブリッジ
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          HDMI-CSI&amp;I2Sブリッジ
           <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        HDMI-CSI&I2Sブリッジ
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        HDMI-CSI&amp;I2Sブリッジ
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
     はじめに
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
     機能
   </a>
-  
-    <nav class="md-nav" aria-label="機能">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#c790" class="md-nav__link">
+<nav aria-label="機能" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#c790">
     C790
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#c780" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#c780">
     C780
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#c779" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#c779">
     C779
   </a>
-  
 </li>
-        
-      </ul>
-    </nav>
-  
+</ul>
+</nav>
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
     ソフトウェアデモ
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
     パックリスト
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
     テストビデオ
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
     リンク
   </a>
-  
 </li>
-      
-    </ul>
-  
+</ul>
 </nav>
-      
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../usb-splitter-guide/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../usb-splitter-guide/">
         USB スプリッタ
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
-      
-      
-      
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_4">
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
           開発
           <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="開発" data-md-level="1">
-        <label class="md-nav__title" for="__nav_4">
-          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="開発" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
           開発
         </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../make-image/" class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../make-image/">
         イメージの作成
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-  </ul>
+</li>
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
     はじめに
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
     機能
   </a>
-  
-    <nav class="md-nav" aria-label="機能">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#c790" class="md-nav__link">
+<nav aria-label="機能" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#c790">
     C790
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#c780" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#c780">
     C780
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#c779" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#c779">
     C779
   </a>
-  
 </li>
-        
-      </ul>
-    </nav>
-  
+</ul>
+</nav>
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
     ソフトウェアデモ
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
     パックリスト
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
     テストビデオ
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
     リンク
   </a>
-  
 </li>
-      
-    </ul>
-  
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          
-            <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset">
-                
-                  
-
-  <a href="https://github.com/ThomasVon2021/blikvm.git/edit/master/docs/hdmi-csi-i2s.md" title="Edit this page" class="md-content__button md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
-  </a>
-
-
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/ThomasVon2021/blikvm-site/edit/master/docs/ja/hdmi-csi-i2s.md" title="Edit this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
+</a>
 <h1 id="hdmi-csii2s">HDMI-CSI&amp;I2Sブリッジ ガイド</h1>
 <blockquote>
 <p>HDMI信号をCSIとI2Sオーディオに変換します</p>
 </blockquote>
 <h2 id="_1"><strong>はじめに</strong></h2>
 <p>このモジュールは入力されたHDMI信号をCSIとI2Sオーディオに変換します。1080p 60HzのHDMI信号をサポートします。Raspberry Piで動作し、これまで3つのバリエーション(C779, C780, C790)があります。最新版はC790です。C790はHDMIバックパワー問題を解消し、2種のCSIコネクタを持ち4チャンネルに対応します。
-<img alt="" src="../assets/images/hdmi-csi-i2s/c790.png" /></p>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/hdmi-csi-i2s/c790.png"><img alt="" src="../assets/images/hdmi-csi-i2s/c790.png"/></a></p>
 <h2 id="_2"><strong>機能</strong></h2>
 <h3 id="c790"><strong>C790</strong></h3>
 <div class="admonition note">
@@ -953,13 +438,13 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">インターフェイス</p>
-<p><img alt="" src="../assets/images/hdmi-csi-i2s/c790-interface.png" width="400" /><br />
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/hdmi-csi-i2s/c790-interface.png"><img alt="" src="../assets/images/hdmi-csi-i2s/c790-interface.png" width="400"/></a><br/>
 C790は2つのCSI出力インターフェイスを持ちます。C890の表のCSI-2インターフェイスは1mm幅の15ピンFPCケーブル用です。裏のCSI-2インターフェイスは0.5mm幅の22ピンFPCケーブル用です。
-<img alt="" src="../assets/images/hdmi-csi-i2s/c790-i2s-connect.png" width="400" />  </p>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/hdmi-csi-i2s/c790-i2s-connect.png"><img alt="" src="../assets/images/hdmi-csi-i2s/c790-i2s-connect.png" width="400"/></a> </p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">寸法</p>
-<p><img alt="" src="../assets/images/hdmi-csi-i2s/c790-size.png" width="400" />  </p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/hdmi-csi-i2s/c790-size.png"><img alt="" src="../assets/images/hdmi-csi-i2s/c790-size.png" width="400"/></a> </p>
 </div>
 <h3 id="c780"><strong>C780</strong></h3>
 <details class="info">
@@ -990,16 +475,16 @@ C790は2つのCSI出力インターフェイスを持ちます。C890の表のCS
 </details>
 <details class="info">
 <summary>インターフェイス</summary>
-<p><img alt="" src="../assets/images/hdmi-csi-i2s/2-4.png" width="400" />  </p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/hdmi-csi-i2s/2-4.png"><img alt="" src="../assets/images/hdmi-csi-i2s/2-4.png" width="400"/></a> </p>
 <p>オーディオのピン配列は下記の図を参照ください。</p>
-<p><img alt="" src="../assets/images/hdmi-csi-i2s/2-8.png" width="400" /></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/hdmi-csi-i2s/2-8.png"><img alt="" src="../assets/images/hdmi-csi-i2s/2-8.png" width="400"/></a></p>
 </details>
 <details class="info">
 <summary>寸法</summary>
 <p>C780の寸法は数の通りです。2.75mm径の穴が6つあり、M2.5のネジを使用できます。
-<img alt="" src="../assets/images/hdmi-csi-i2s/2-1.png" width="400" /><br />
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/hdmi-csi-i2s/2-1.png"><img alt="" src="../assets/images/hdmi-csi-i2s/2-1.png" width="400"/></a><br/>
 次の図のようにRaspberry Pi Zeroに直接固定できます。そして、基板を切り離すことにより、他のほとんどのRaspberry Piにより設置しやすくなります。</p>
-<p><img alt="" src="../assets/images/hdmi-csi-i2s/2-2.png" width="400" /></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/hdmi-csi-i2s/2-2.png"><img alt="" src="../assets/images/hdmi-csi-i2s/2-2.png" width="400"/></a></p>
 </details>
 <h3 id="c779"><strong>C779</strong></h3>
 <details class="info">
@@ -1018,194 +503,194 @@ C790は2つのCSI出力インターフェイスを持ちます。C890の表のCS
 <details class="info">
 <summary>寸法</summary>
 <p>C779の寸法は数の通りです。2.75mm径の穴が4つあり、M2.5のネジを使用できます。
-<img alt="" src="../assets/images/hdmi-csi-i2s/c779-size.png" width="400" />  </p>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/hdmi-csi-i2s/c779-size.png"><img alt="" src="../assets/images/hdmi-csi-i2s/c779-size.png" width="400"/></a> </p>
 </details>
 <h2 id="_3"><strong>ソフトウェアデモ</strong></h2>
 <p>ここで紹介するのは公式のRaspberry Pi OSでのC790/C780/C779の使い方です。バージョンが異なる場合は使用方法が異なる場合があります。もし、質問がある場合は<a href="https://discord.com/invite/9Y374gUF6C">BLIKVM Discord 
 コミュニティ</a>に参加してください。
 カーネルドライバを利用するために、Raspberry Pi OSは最新の状態にアップデートしてください。Linuxカーネル V5.4以降に幾つかの変更が行われており、ここで説明する使用方法はそれ以降のバージョンに対応しています。“uname -a”コマンドで確認して5.4以前の状態でしたら、実行する前にアップデートを行なってください。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pi@raspberrypi:~ $ uname -a
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Linux raspberrypi 5.10.63-v7l+ #1459 SMP Wed Oct 6 16:41:57 BST 2021 armv7l GNU/Linux
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>pi@raspberrypi:~ $ uname -a
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>Linux raspberrypi 5.10.63-v7l+ #1459 SMP Wed Oct 6 16:41:57 BST 2021 armv7l GNU/Linux
 </code></pre></div></p>
 <div class="admonition note">
 <p class="admonition-title">1. Raspberry Piシステムのアップデートとアップグレード(国によっては時間がかかる可能性があります)</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo apt-get update
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo apt-get upgrade
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>sudo apt-get update
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>sudo apt-get upgrade
 </code></pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">2. カメラモジュールを有効化(Raspberry Pi OS(Bullseye)ではデフォルトで有効化されています)</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo raspi-config
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sudo reboot
+<p><div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>sudo raspi-config
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>sudo reboot
 </code></pre></div>
 ‘Interfacing Options’へ進み、‘Camera’オプションを選択して有効にしください。“Finish”を行なってからRaspberry Piを再起動してください。<strong>忘れずに再起動してください!!</strong></p>
 </div>
 <p>!!! note "3. /boot/config.txtの編集 (sudoが必要です)
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo nano /boot/config.txt
+    <div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>sudo nano /boot/config.txt
 </code></pre></div>
     この行を追加:
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>dtoverlay=tc358743
+    <div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>dtoverlay=tc358743
 </code></pre></div>
     C780,C790のようにオーディオをサポートしてる場合はこの行を追加
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>dtoverlay=tc358743-audio
+    <div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>dtoverlay=tc358743-audio
 </code></pre></div>
     C780やC790のように4データレーンに対応した22ピンコネクタを持つデバイスをRaspberry Pi Compute ModuleのCAM1に接続して使用する場合には、この行を追加すると4データレーンを使用できます:
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>dtoverlay=tc358743,4lane=1
+    <div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>dtoverlay=tc358743,4lane=1
 </code></pre></div></p>
 <div class="admonition note">
 <p class="admonition-title">4. “dmesg | grep cma”コマンドを実行してCMAヒープに割り当てられたメモリを確認してください。最初の行が下記のようになっているかを確認:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>pi@raspberrypi:~ $ dmesg | grep cma
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>[0.000000] cma: Reserved 256 MiB at 0x000000001ec00000
+<p><div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>pi@raspberrypi:~ $ dmesg | grep cma
+<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>[0.000000] cma: Reserved 256 MiB at 0x000000001ec00000
 </code></pre></div>
 もし、割り当てられたメモリが96MBよりも少ない場合には、/boot/cmdline.txtへ下記の設定を追加してください。途中で改行を行わないように注意してください。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>cma=96M
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>cma=96M
 </code></pre></div></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">5. 再起動。設定が成功していると、/dev/video0というデバイスファイルが生成されます。そして、“v4l2-ctl –list-devices”コマンドを実行すると、Unicamというデバイスが確認できるはずです。全てのケーブルを接続してから、Raspberry Piの電源をオンにすると、通常であればC790は緑色のLEDが点灯します。そして、Raspberry Piのターミナルからこれらのコマンドを実行できます:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>pi@raspberrypi:~ $ ls /dev/video0
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>/dev/video0
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>pi@raspberrypi:~ $ v4l2-ctl --list-devices
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>bcm2835-codec-decode (platform:bcm2835-codec):
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    /dev/video10
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    /dev/video11
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>    /dev/video12
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>    /dev/video18
-<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>    /dev/media1
-<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>bcm2835-isp (platform:bcm2835-isp):
-<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>    /dev/video13
-<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>    /dev/video14
-<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>    /dev/video15
-<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>    /dev/video16
-<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>    /dev/media0
-<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>unicam (platform:fe801000.csi):
-<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>    /dev/video0
-<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>    /dev/video1
-<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>    /dev/media2
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>pi@raspberrypi:~ $ ls /dev/video0
+<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>/dev/video0
+<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a>pi@raspberrypi:~ $ v4l2-ctl --list-devices
+<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a>bcm2835-codec-decode (platform:bcm2835-codec):
+<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a>    /dev/video10
+<a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a>    /dev/video11
+<a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a>    /dev/video12
+<a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a>    /dev/video18
+<a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a>    /dev/media1
+<a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a>bcm2835-isp (platform:bcm2835-isp):
+<a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a>    /dev/video13
+<a href="#__codelineno-9-12" id="__codelineno-9-12" name="__codelineno-9-12"></a>    /dev/video14
+<a href="#__codelineno-9-13" id="__codelineno-9-13" name="__codelineno-9-13"></a>    /dev/video15
+<a href="#__codelineno-9-14" id="__codelineno-9-14" name="__codelineno-9-14"></a>    /dev/video16
+<a href="#__codelineno-9-15" id="__codelineno-9-15" name="__codelineno-9-15"></a>    /dev/media0
+<a href="#__codelineno-9-16" id="__codelineno-9-16" name="__codelineno-9-16"></a>unicam (platform:fe801000.csi):
+<a href="#__codelineno-9-17" id="__codelineno-9-17" name="__codelineno-9-17"></a>    /dev/video0
+<a href="#__codelineno-9-18" id="__codelineno-9-18" name="__codelineno-9-18"></a>    /dev/video1
+<a href="#__codelineno-9-19" id="__codelineno-9-19" name="__codelineno-9-19"></a>    /dev/media2
 </code></pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">6. このドライバはユーザーまたはアプリケーションによりコントロールされています。デフォルトではサポートするHDMI信号を決めるためのEDIDはチップには設定されていませんEDIDエディタなどでEDIDファイル(edid.txt)を作成して、デバイスに設定できます。</p>
 <p>edid.txtの例:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>00ffffffffffff005262888800888888
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>1c150103800000780aEE91A3544C9926
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>0F505400000001010101010101010101
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>010101010101011d007251d01e206e28
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>5500c48e2100001e8c0ad08a20e02d10
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>103e9600138e2100001e000000fc0054
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>6f73686962612d4832430a20000000FD
-<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>003b3d0f2e0f1e0a2020202020200100
-<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>020321434e041303021211012021a23c
-<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>3d3e1f2309070766030c00300080E300
-<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>7F8c0ad08a20e02d10103e9600c48e21
-<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>0000188c0ad08a20e02d10103e960013
-<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>8e210000188c0aa01451f01600267c43
-<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>00138e21000098000000000000000000
-<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>00000000000000000000000000000000
-<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>00000000000000000000000000000000
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>00ffffffffffff005262888800888888
+<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>1c150103800000780aEE91A3544C9926
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a>0F505400000001010101010101010101
+<a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a>010101010101011d007251d01e206e28
+<a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a>5500c48e2100001e8c0ad08a20e02d10
+<a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a>103e9600138e2100001e000000fc0054
+<a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a>6f73686962612d4832430a20000000FD
+<a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a>003b3d0f2e0f1e0a2020202020200100
+<a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a>020321434e041303021211012021a23c
+<a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a>3d3e1f2309070766030c00300080E300
+<a href="#__codelineno-10-11" id="__codelineno-10-11" name="__codelineno-10-11"></a>7F8c0ad08a20e02d10103e9600c48e21
+<a href="#__codelineno-10-12" id="__codelineno-10-12" name="__codelineno-10-12"></a>0000188c0ad08a20e02d10103e960013
+<a href="#__codelineno-10-13" id="__codelineno-10-13" name="__codelineno-10-13"></a>8e210000188c0aa01451f01600267c43
+<a href="#__codelineno-10-14" id="__codelineno-10-14" name="__codelineno-10-14"></a>00138e21000098000000000000000000
+<a href="#__codelineno-10-15" id="__codelineno-10-15" name="__codelineno-10-15"></a>00000000000000000000000000000000
+<a href="#__codelineno-10-16" id="__codelineno-10-16" name="__codelineno-10-16"></a>00000000000000000000000000000000
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>cd ~
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>sudo nano edid.txt
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>#上記の例をコピーして保存、終了してください
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>pi@raspberrypi:~ $ v4l2-ctl --set-edid=file=edid.txt --fix-edid-checksums
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>CTA-861 Header
-<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>  IT Formats Underscanned: yes
-<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>  Audio:                   yes
-<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>  YCbCr 4:4:4:             no
-<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>  YCbCr 4:2:2:             no
-<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>
-<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>HDMI Vendor-Specific Data Block
-<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>  Physical Address:        3.0.0.0
-<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>  YCbCr 4:4:4 Deep Color:  no
-<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>  30-bit:                  no
-<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>  36-bit:                  no
-<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>  48-bit:                  no
-<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>
-<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>CTA-861 Video Capability Descriptor
-<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>  RGB Quantization Range:  yes
-<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>  YCC Quantization Range:  no
-<a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>  PT:                      Supports both over- and underscan
-<a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>  IT:                      Supports both over- and underscan
-<a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a>  CE:                      Supports both over- and underscan
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>cd ~
+<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>sudo nano edid.txt
+<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a>#上記の例をコピーして保存、終了してください
+<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a>pi@raspberrypi:~ $ v4l2-ctl --set-edid=file=edid.txt --fix-edid-checksums
+<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a>
+<a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a>CTA-861 Header
+<a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a>  IT Formats Underscanned: yes
+<a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a>  Audio:                   yes
+<a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a>  YCbCr 4:4:4:             no
+<a href="#__codelineno-11-10" id="__codelineno-11-10" name="__codelineno-11-10"></a>  YCbCr 4:2:2:             no
+<a href="#__codelineno-11-11" id="__codelineno-11-11" name="__codelineno-11-11"></a>
+<a href="#__codelineno-11-12" id="__codelineno-11-12" name="__codelineno-11-12"></a>HDMI Vendor-Specific Data Block
+<a href="#__codelineno-11-13" id="__codelineno-11-13" name="__codelineno-11-13"></a>  Physical Address:        3.0.0.0
+<a href="#__codelineno-11-14" id="__codelineno-11-14" name="__codelineno-11-14"></a>  YCbCr 4:4:4 Deep Color:  no
+<a href="#__codelineno-11-15" id="__codelineno-11-15" name="__codelineno-11-15"></a>  30-bit:                  no
+<a href="#__codelineno-11-16" id="__codelineno-11-16" name="__codelineno-11-16"></a>  36-bit:                  no
+<a href="#__codelineno-11-17" id="__codelineno-11-17" name="__codelineno-11-17"></a>  48-bit:                  no
+<a href="#__codelineno-11-18" id="__codelineno-11-18" name="__codelineno-11-18"></a>
+<a href="#__codelineno-11-19" id="__codelineno-11-19" name="__codelineno-11-19"></a>CTA-861 Video Capability Descriptor
+<a href="#__codelineno-11-20" id="__codelineno-11-20" name="__codelineno-11-20"></a>  RGB Quantization Range:  yes
+<a href="#__codelineno-11-21" id="__codelineno-11-21" name="__codelineno-11-21"></a>  YCC Quantization Range:  no
+<a href="#__codelineno-11-22" id="__codelineno-11-22" name="__codelineno-11-22"></a>  PT:                      Supports both over- and underscan
+<a href="#__codelineno-11-23" id="__codelineno-11-23" name="__codelineno-11-23"></a>  IT:                      Supports both over- and underscan
+<a href="#__codelineno-11-24" id="__codelineno-11-24" name="__codelineno-11-24"></a>  CE:                      Supports both over- and underscan
 </code></pre></div></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">7. ドライバは自動的に信号検出を行いません。下記のコマンドを実行してください:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>pi@raspberrypi:~ $ v4l2-ctl --query-dv-timings
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>Active width: 1280
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>Active height: 720
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>Total width: 1650
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>Total height: 750
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>Frame format: progressive
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>Polarities: -vsync -hsync
-<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>Pixelclock: 74250000 Hz (60.00 frames per second)
-<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>Horizontal frontporch: 0
-<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>Horizontal sync: 370
-<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>Horizontal backporch: 0
-<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>Vertical frontporch: 0
-<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>Vertical sync: 30
-<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>Vertical backporch: 0
-<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>Standards: 
-<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>Flags: 
+<p><div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>pi@raspberrypi:~ $ v4l2-ctl --query-dv-timings
+<a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>Active width: 1280
+<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a>Active height: 720
+<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a>Total width: 1650
+<a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a>Total height: 750
+<a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a>Frame format: progressive
+<a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a>Polarities: -vsync -hsync
+<a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a>Pixelclock: 74250000 Hz (60.00 frames per second)
+<a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a>Horizontal frontporch: 0
+<a href="#__codelineno-12-10" id="__codelineno-12-10" name="__codelineno-12-10"></a>Horizontal sync: 370
+<a href="#__codelineno-12-11" id="__codelineno-12-11" name="__codelineno-12-11"></a>Horizontal backporch: 0
+<a href="#__codelineno-12-12" id="__codelineno-12-12" name="__codelineno-12-12"></a>Vertical frontporch: 0
+<a href="#__codelineno-12-13" id="__codelineno-12-13" name="__codelineno-12-13"></a>Vertical sync: 30
+<a href="#__codelineno-12-14" id="__codelineno-12-14" name="__codelineno-12-14"></a>Vertical backporch: 0
+<a href="#__codelineno-12-15" id="__codelineno-12-15" name="__codelineno-12-15"></a>Standards: 
+<a href="#__codelineno-12-16" id="__codelineno-12-16" name="__codelineno-12-16"></a>Flags: 
 </code></pre></div>
 “v4l2-ctl –set-dv-bt-timings”コマンドを実行してタイミングを設定する必要があります。You MUST set the timings via “v4l2-ctl –set-dv-bt-timings”. 検出されたモードのインデックスを指定するか、下記のコマンドを実行します:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>v4l2-ctl --set-dv-bt-timings query
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a>v4l2-ctl --set-dv-bt-timings query
 </code></pre></div>
 検出されたタイミングが選択されます
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>v4l2-ctl -V
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a>v4l2-ctl -V
 </code></pre></div>
 検出された解像度が反映されているはずです。</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">8. このチップは2つのフォーマットをサポートしています。BGR3(デフォルト)とUYVY. BGR3は24bppで、UYVYはYUV4:2:2 16bppです</p>
 <p>CSI-2 2データレーンで使用する場合には、BGR3は最大 1080p30Hz、UYVYは1080p50Hzを使用できます。下記のコマンドでUYVYを選択できます。しかしながら、この設定はアプリケーションが上書きする場合があります。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>v4l2-ctl -v pixelformat=UYVY
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a>v4l2-ctl -v pixelformat=UYVY
 </code></pre></div></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">9. オーディオドライバの確認 / ALSAで利用できます</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>pi@raspberrypi:~ $ arecord -l
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>**** List of CAPTURE Hardware Devices ****
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>card 1: tc358743 [tc358743], device 0: bcm2835-i2s-dir-hifi dir-hifi-0 [bcm2835-i2s-dir-hifi dir-hifi-0]
-<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>  Subdevices: 1/1
-<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>  Subdevice #0: subdevice #0
+<p><div class="highlight"><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a>pi@raspberrypi:~ $ arecord -l
+<a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a>**** List of CAPTURE Hardware Devices ****
+<a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a>card 1: tc358743 [tc358743], device 0: bcm2835-i2s-dir-hifi dir-hifi-0 [bcm2835-i2s-dir-hifi dir-hifi-0]
+<a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a>  Subdevices: 1/1
+<a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a>  Subdevice #0: subdevice #0
 </code></pre></div>
 Note: card 1はTC358743XBGのカード番号が"1"であるという意味です。ただじ、状況によって番号が変わる場合があります。</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">10. GStreamerのインストール</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>sudo apt install gstreamer1.0-tools
+<p><div class="highlight"><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a>sudo apt install gstreamer1.0-tools
 </code></pre></div>
 gstreamer toolのバージョンを確認:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>pi@raspberrypi:~ $ gst-launch-1.0 --version
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>gst-launch-1.0 version 1.18.4
-<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>GStreamer 1.18.4
-<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>http://packages.qa.debian.org/gstreamer1.0
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a>pi@raspberrypi:~ $ gst-launch-1.0 --version
+<a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a>gst-launch-1.0 version 1.18.4
+<a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a>GStreamer 1.18.4
+<a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a>http://packages.qa.debian.org/gstreamer1.0
 </code></pre></div>
 Note:
 バージョンが異なるとコマンドラインの引数が変わる場合があります。ご注意ください。</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">11. gstreamerを使いビデオとオーディオ合わせてを録画する</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>#GStreamer v1.14 command
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>gst-launch-1.0 v4l2src io-mode=5 ! video/x-raw, format=UYVY, framerate=25/1 ! v4l2h264enc output-io-mode=4 ! video/x-h264,profile=high ! h264parse ! queue ! matroskamux name=mux ! filesink location=foo.mkv alsasrc device=hw:1 ! audio/x-raw,rate=48000,channels=2 ! audioconvert ! avenc_aac bitrate=48000 ! aacparse ! queue ! mux.
+<p><div class="highlight"><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a>#GStreamer v1.14 command
+<a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a>gst-launch-1.0 v4l2src io-mode=5 ! video/x-raw, format=UYVY, framerate=25/1 ! v4l2h264enc output-io-mode=4 ! video/x-h264,profile=high ! h264parse ! queue ! matroskamux name=mux ! filesink location=foo.mkv alsasrc device=hw:1 ! audio/x-raw,rate=48000,channels=2 ! audioconvert ! avenc_aac bitrate=48000 ! aacparse ! queue ! mux.
 </code></pre></div>
 出力されるファイルはfoo.mkvです。もし、gstreamerのバージョンが1.8以降なら次のコマンドを試してみてください。そして、’alsasrc 
 device=hw:1’はTC358743のカード番号を示しています。“arecord -l”コマンドで確認してください。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>#The command to recode a video with audio. (GStreamer 1.18.4)
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>gst-launch-1.0 -vvv v4l2src ! &quot;video/x-raw,framerate=30/1,format=UYVY&quot; ! v4l2h264enc extra-controls=&quot;controls,h264_profile=4,h264_level=13,video_bitrate=256000;&quot; ! &quot;video/x-h264,profile=high, level=(string)4.2&quot; ! h264parse ! queue ! matroskamux name=mux ! filesink location=foo.mkv alsasrc device=hw:1 ! audio/x-raw,rate=48000,channels=2 ! audioconvert ! avenc_aac bitrate=48000 ! aacparse ! queue ! mux.
-<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>#The sample command to recode a video without audio. (C779 doesn&#39;t support audio)
-<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>gst-launch-1.0 -vvv v4l2src ! &quot;video/x-raw,framerate=30/1,format=UYVY&quot; ! v4l2h264enc extra-controls=&quot;controls,h264_profile=4,h264_level=13,video_bitrate=256000;&quot; ! &quot;video/x-h264,profile=high, level=(string)4.2&quot; ! h264parse ! queue ! matroskamux name=mux ! filesink location=foo.mkv
-<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>Press CTRL+C to end recording.
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a>#The command to recode a video with audio. (GStreamer 1.18.4)
+<a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a>gst-launch-1.0 -vvv v4l2src ! "video/x-raw,framerate=30/1,format=UYVY" ! v4l2h264enc extra-controls="controls,h264_profile=4,h264_level=13,video_bitrate=256000;" ! "video/x-h264,profile=high, level=(string)4.2" ! h264parse ! queue ! matroskamux name=mux ! filesink location=foo.mkv alsasrc device=hw:1 ! audio/x-raw,rate=48000,channels=2 ! audioconvert ! avenc_aac bitrate=48000 ! aacparse ! queue ! mux.
+<a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a>#The sample command to recode a video without audio. (C779 doesn't support audio)
+<a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a>gst-launch-1.0 -vvv v4l2src ! "video/x-raw,framerate=30/1,format=UYVY" ! v4l2h264enc extra-controls="controls,h264_profile=4,h264_level=13,video_bitrate=256000;" ! "video/x-h264,profile=high, level=(string)4.2" ! h264parse ! queue ! matroskamux name=mux ! filesink location=foo.mkv
+<a href="#__codelineno-20-5" id="__codelineno-20-5" name="__codelineno-20-5"></a>Press CTRL+C to end recording.
 </code></pre></div>
 PS: 実際のHDMI入力信号に合わせて、上記コマンド例のパラメータを変更することを推奨します。フレームレートは‘v4l2-ctl –query-dv-timings’コマンドの結果から取得できます。</p>
-<p><img alt="Image title" src="../assets/images/hdmi-csi-i2s/v4l2-rate.png" width="400" /></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/hdmi-csi-i2s/v4l2-rate.png"><img alt="Image title" src="../assets/images/hdmi-csi-i2s/v4l2-rate.png" width="400"/></a></p>
 <p>上記のHDMIデバイスの例ではフレームレートは60fpsなので、次のコマンドのようにパラメータを変更します。コマンドはビデオのみ録画します:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>gst-launch-1.0 -vvv v4l2src ! &quot;video/x-raw,framerate=60/1,format=UYVY&quot; ! v4l2h264enc extra-controls=&quot;controls,h264_profile=4,h264_level=13,video_bitrate=256000;&quot; ! &quot;video/x-h264,profile=high, level=(string)4.2&quot; ! h264parse ! queue ! matroskamux name=mux ! filesink location=foo.mkv
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a>gst-launch-1.0 -vvv v4l2src ! "video/x-raw,framerate=60/1,format=UYVY" ! v4l2h264enc extra-controls="controls,h264_profile=4,h264_level=13,video_bitrate=256000;" ! "video/x-h264,profile=high, level=(string)4.2" ! h264parse ! queue ! matroskamux name=mux ! filesink location=foo.mkv
 </code></pre></div>
 オーディオと共にビデオを録画します: (ボードがオーディオをサポートしている場合)
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>gst-launch-1.0 -vvv v4l2src ! &quot;video/x-raw,framerate=60/1,format=UYVY&quot; ! v4l2h264enc extra-controls=&quot;controls,h264_profile=4,h264_level=13,video_bitrate=256000;&quot; ! &quot;video/x-h264,profile=high, level=(string)4.2&quot; ! h264parse ! queue ! matroskamux name=mux ! filesink location=foo.mkv alsasrc device=hw:1 ! audio/x-raw,rate=48000,channels=2 ! audioconvert ! avenc_aac bitrate=48000 ! aacparse ! queue ! mux.
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a>gst-launch-1.0 -vvv v4l2src ! "video/x-raw,framerate=60/1,format=UYVY" ! v4l2h264enc extra-controls="controls,h264_profile=4,h264_level=13,video_bitrate=256000;" ! "video/x-h264,profile=high, level=(string)4.2" ! h264parse ! queue ! matroskamux name=mux ! filesink location=foo.mkv alsasrc device=hw:1 ! audio/x-raw,rate=48000,channels=2 ! audioconvert ! avenc_aac bitrate=48000 ! aacparse ! queue ! mux.
 </code></pre></div>
 Note: alsasrc device=hw:1 – “1”はカード番号を示しています。正しいカード番号を設定してください。
 (‘arecord –l’で確認できます。ステップ9を参照してください)</p>
@@ -1213,107 +698,85 @@ Note: alsasrc device=hw:1 – “1”はカード番号を示しています。�
 <h2 id="_4"><strong>パックリスト</strong></h2>
 <details class="info">
 <summary>C790</summary>
-<p><img alt="" src="../assets/images/hdmi-csi-i2s/c790-packing-list.png" width="400" /></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/hdmi-csi-i2s/c790-packing-list.png"><img alt="" src="../assets/images/hdmi-csi-i2s/c790-packing-list.png" width="400"/></a></p>
 </details>
 <h2 id="_5"><strong>テストビデオ</strong></h2>
 <p>C780A テスト : https://www.youtube.com/watch?v=ecqyINoiHNQ</p>
 <p>C780B テスト : https://www.youtube.com/watch?v=nc-hwPT2Uak&amp;t=15s</p>
 <h2 id="_6"><strong>リンク</strong></h2>
-<p>購入：<a href="https://www.aliexpress.com/item/1005002861310912.html?pdp_ext_f=%7B%22sku_id%22:%2212000022635165947%22,%22ship_from%22:%22CN%22%7D&gps-id=pcStoreJustForYou&scm=1007.23125.137358.0&scm_id=1007.23125.137358.0&scm-url=1007.23125.137358.0&pvid=8e29d7e9-f257-4f20-a0b2-c2bff6a048d6&spm=a2g0o.store_pc_home.smartJustForYou_6000897758043.1" target="_blank">C790 &amp; C780</a></p>
-<p>購入：<a href="https://www.aliexpress.com/item/1005003033156483.html?spm=a2g0o.productlist.0.0.36f93cc2DFaouV&algo_pvid=2bfab2d1-a9c7-4c29-9434-2f451401d0e1&algo_exp_id=2bfab2d1-a9c7-4c29-9434-2f451401d0e1-9&pdp_ext_f=%7B%22sku_id%22%3A%2212000023351081819%22%7D" target="_blank">C779</a></p>
-
-
-
-
-
-                
-              </article>
-            </div>
-          
-          
-        </div>
-        
-          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+<p>購入：<a href="https://www.aliexpress.com/item/1005002861310912.html?pdp_ext_f=%7B%22sku_id%22:%2212000022635165947%22,%22ship_from%22:%22CN%22%7D&amp;gps-id=pcStoreJustForYou&amp;scm=1007.23125.137358.0&amp;scm_id=1007.23125.137358.0&amp;scm-url=1007.23125.137358.0&amp;pvid=8e29d7e9-f257-4f20-a0b2-c2bff6a048d6&amp;spm=a2g0o.store_pc_home.smartJustForYou_6000897758043.1" target="_blank">C790 &amp; C780</a></p>
+<p>購入：<a href="https://www.aliexpress.com/item/1005003033156483.html?spm=a2g0o.productlist.0.0.36f93cc2DFaouV&amp;algo_pvid=2bfab2d1-a9c7-4c29-9434-2f451401d0e1&amp;algo_exp_id=2bfab2d1-a9c7-4c29-9434-2f451401d0e1-9&amp;pdp_ext_f=%7B%22sku_id%22%3A%2212000023351081819%22%7D" target="_blank">C779</a></p>
+<hr/>
+<div class="md-source-file">
+<small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 2, 2022</span>
+<br/>
+        Created:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 27, 2022</span>
+</small>
+</div>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
             Back to top
           </a>
-        
-      </main>
-      
-        <footer class="md-footer">
-  
-    
-    <nav class="md-footer__inner md-grid" aria-label="Footer" >
-      
-        
-        <a href="../atx-guide/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ATX ガイド" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: ATX ガイド" class="md-footer__link md-footer__link--prev" href="../atx-guide/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
                 Previous
               </span>
               ATX ガイド
             </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../usb-splitter-guide/" class="md-footer__link md-footer__link--next" aria-label="Next: USB スプリッタ" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
+</div>
+</a>
+<a aria-label="Next: USB スプリッタ" class="md-footer__link md-footer__link--next" href="../usb-splitter-guide/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
                 Next
               </span>
               USB スプリッタ
             </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
   
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
       Material for MkDocs
     </a>
-  
 </div>
-      
-        <div class="md-social">
-  
-    
-    
-    <a href="https://github.com/ThomasVon2021/blikvm-site" target="_blank" rel="noopener" title="Join the translation work" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
-    </a>
-  
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/ThomasVon2021/blikvm-site" rel="noopener" target="_blank" title="Join the translation work">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
 </div>
-      
-    </div>
-  </div>
+</div>
+</div>
 </footer>
-      
-    </div>
-    <div class="md-dialog" data-md-component="dialog">
-      <div class="md-dialog__inner md-typeset"></div>
-    </div>
-    
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.annotate", "navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "navigation.expand", "search.highlight", "search.share", "search.suggest"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
-    
-    
-      <script src="../assets/javascripts/bundle.d6c3db9e.min.js"></script>
-      
-    
-  </body>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "..", "features": ["content.code.annotate", "navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "navigation.expand", "search.highlight", "search.share", "search.suggest"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

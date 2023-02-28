@@ -12,6 +12,7 @@ questions and support!
 | ![ATXA_A](assets/images/atx/ATXA_A.png){width="400"} | ![ATXA_B](assets/images/atx/ATXA_B.png){width="250"} |
 
 ## **2. A-board**
+![2](assets/images/atx/status.png){width="400"}  
  A-board is connected to the Raspberry Pi. The following table is a typical connection method in PiKVM application.
 
 | A-board | RPI4   |
@@ -22,8 +23,7 @@ questions and support!
 | LED HDD | GPIO22 |
 | SW PWR  | GPIO23 |
 | SW RST  | GPIO27 |
-
-![2](assets/images/atx/status.png){width="400"}
+|![](assets/images/atx/raspberry-board.png){width="300"}|![](assets/images/atx/raspberry-gpio.png){width="300"}|  
 
 A-board is connected to B-board through a network cable. The following table is the corresponding relationship between the pin status of A-board and B-board.
 

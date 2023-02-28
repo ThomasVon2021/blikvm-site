@@ -51,8 +51,9 @@ extra:
     - name: Русский
       link: /blikvm/ru/
       lang: ru
-repo_name: blikvm
-repo_url: https://github.com/ThomasVon2021/blikvm.git
+repo_name: blikvm-site
+repo_url: https://github.com/ThomasVon2021/blikvm-site
+edit_uri: edit/master/docs/zh/
 markdown_extensions:
   - attr_list
   - md_in_html
@@ -91,3 +92,7 @@ nav:
         - "switch切换器手册": switch-guide.md
     - "外围设备":
         - "串口终端": serial_over_usb.md
+plugins:
+  - glightbox
+  - git-revision-date-localized:
+      enable_creation_date: true
