@@ -13,7 +13,10 @@
 ## Download the image
 ### BLIKVM software
 !!! info "BLIKVM镜像树莓派4B和CM4共用一个镜像"
-    * **[BLIKVM image ](https://zcwrego195.feishu.cn/drive/folder/fldcn0KhmkuC2DC8nKWcHAMLA6f)** 
+    * **[BLIKVM image ](https://zcwrego195.feishu.cn/drive/folder/fldcn0KhmkuC2DC8nKWcHAMLA6f)**   
+    Web UI风格如下:  
+    ![Image title](assets/images/flash_os/english-web-ui.png){width="300"}
+    ![Image title](assets/images/flash_os/chinese-web-ui.png){width="300"}
 
 ### Base on PiKVM software
 !!! info "基于PiIKVM的镜像，树莓派4B和CM4不公用一个镜像，进入链接后可看到以各硬件版本(HAT CM4 PCIe)命名的镜像。"
