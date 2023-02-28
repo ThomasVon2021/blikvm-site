@@ -23,8 +23,9 @@ By default, BLIKVM receives a dynamic IP address via DHCP.
 
 For future examples, let's assume that your BLIKVM has received the address **192.168.0.100**, which you have successfully detected using the instructions above. Then your device was assigned a hostname: **blikvm**.
 
-??? example "Access to BLIKVM Web Interface"
+??? example "如何登陆web界面"
     In MOST networks you should be able to reach BLIKVM via any browser with the URL `https://192.168.0.100/`. Google Chrome (Chromium), Firefox and Safari work best with 0 extensions enabled, if one works but the others do not, this is a browser/extension issue. Its advised you use Private window or Incog mode. Microsoft Edge and Internet Explorer are not supported.
+    **默认用户名是 admin, 默认密码是 admin**. After logging in, you will get access to the menu with the main functions.
 
 ??? example "Access to BLIKVM via SSH"
     SSH is the most common remote access method in the Linux world. BLIKVM is accessible via SSH. This method is used to manage the device:

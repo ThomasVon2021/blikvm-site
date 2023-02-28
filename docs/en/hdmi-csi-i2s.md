@@ -31,6 +31,9 @@ channels and four csi channels at the same time.
 !!! note "size"
     ![](assets/images/hdmi-csi-i2s/c790-size.png){width="400"}  
 
+!!! note "Install C790 on raspberry pi for reference"
+    ![](assets/images/hdmi-csi-i2s/install_c790_pi4b.png){width="400"} 
+
 ### **C780**
 ??? info "C780A hardware parameters"
     * HDMI input: supports up to 1080P50Hz on raspberry pi(Limited by the number of CSI-2 channels)

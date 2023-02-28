@@ -25,6 +25,7 @@ For future examples, let's assume that your BLIKVM has received the address **19
 
 ??? example "Access to BLIKVM Web Interface"
     In MOST networks you should be able to reach BLIKVM via any browser with the URL `https://192.168.0.100/`. Google Chrome (Chromium), Firefox and Safari work best with 0 extensions enabled, if one works but the others do not, this is a browser/extension issue. Its advised you use Private window or Incog mode. Microsoft Edge and Internet Explorer are not supported.
+    **The default user is admin, the password is also admin**. After logging in, you will get access to the menu with the main functions.
 
 ??? example "Access to BLIKVM via SSH"
     SSH is the most common remote access method in the Linux world. BLIKVM is accessible via SSH. This method is used to manage the device:
