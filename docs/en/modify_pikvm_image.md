@@ -17,21 +17,6 @@
             fan:
                 unix: ''
     ```
-!!! note "make sure /boot/config.txt has the 4lane=1 entry in it for 1080p60hz support"
-    ```
-    # Video and audio
-    dtoverlay=tc358743,4lane=1
-    dtoverlay=tc358743-audio
-    ```
-!!! note "If you use webrtc can't get audio, try to edit /etc/kvmd/janus/janus.plugin.ustreamer.jcfg to add audio support."
-    ```
-    audio: {
-        device = "hw:0,0"
-        tc358743 = "/dev/kvmd-video"
-    }
-    ```
-
-
 
 ## **Check EDID file for 1080P60Hz input**
 !!! note "The function of the EDID file is to set the controlled computer to input according to the expected resolution. Since the image EDID file of PiKVM in different periods does not necessarily meet 1080P60Hz, when you use the CM4 version of hardware, it is found that the default output of the controlled computer is not 1080P60Hz, you can modify /etc/kvmd/tc358743-edid.hex to the following contents"
@@ -54,3 +39,16 @@
     00000000000000000000000000000087
     ```
 
+!!! note "make sure /boot/config.txt has the 4lane=1 entry in it for 1080p60hz support"
+    ```
+    # Video and audio
+    dtoverlay=tc358743,4lane=1
+    dtoverlay=tc358743-audio
+    ```
+!!! note "If you use webrtc can't get audio, try to edit /etc/kvmd/janus/janus.plugin.ustreamer.jcfg to add audio support."
+    ```
+    audio: {
+        device = "hw:0,0"
+        tc358743 = "/dev/kvmd-video"
+    }
+    ```

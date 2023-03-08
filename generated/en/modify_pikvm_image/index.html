@@ -435,40 +435,40 @@
 <a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>            unix: ''
 </code></pre></div>
 </div>
+<h2 id="check-edid-file-for-1080p60hz-input"><strong>Check EDID file for 1080P60Hz input</strong></h2>
+<div class="admonition note">
+<p class="admonition-title">The function of the EDID file is to set the controlled computer to input according to the expected resolution. Since the image EDID file of PiKVM in different periods does not necessarily meet 1080P60Hz, when you use the CM4 version of hardware, it is found that the default output of the controlled computer is not 1080P60Hz, you can modify /etc/kvmd/tc358743-edid.hex to the following contents</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>00FFFFFFFFFFFF005262888800888888
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>1C150103800000780AEE91A3544C9926
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>0F505400000001010101010101010101
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>010101010101011D007251D01E206E28
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>5500C48E2100001E8C0AD08A20E02D10
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>103E9600138E2100001E000000FC0054
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>6F73686962612D4832430A20000000FD
+<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>003B3D0F2E0F1E0A202020202020014F
+<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>020323454F041303021211012021A23C
+<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a>3D3E1F102309070766030C00300080E3
+<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a>007F8C8C0AD08A20E02D10103E9600C4
+<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a>8E210000188C0AD08A20E02D10103E96
+<a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a>00138E210000188C0AA01451F0160026
+<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a>7C4300138E2100009800000000000000
+<a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a>00000000000000000000000000000000
+<a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a>00000000000000000000000000000087
+</code></pre></div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">make sure /boot/config.txt has the 4lane=1 entry in it for 1080p60hz support</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a># Video and audio
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>dtoverlay=tc358743,4lane=1
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>dtoverlay=tc358743-audio
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a># Video and audio
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>dtoverlay=tc358743,4lane=1
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>dtoverlay=tc358743-audio
 </code></pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">If you use webrtc can't get audio, try to edit /etc/kvmd/janus/janus.plugin.ustreamer.jcfg to add audio support.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>audio: {
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>    device = "hw:0,0"
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>    tc358743 = "/dev/kvmd-video"
-<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>}
-</code></pre></div>
-</div>
-<h2 id="check-edid-file-for-1080p60hz-input"><strong>Check EDID file for 1080P60Hz input</strong></h2>
-<div class="admonition note">
-<p class="admonition-title">The function of the EDID file is to set the controlled computer to input according to the expected resolution. Since the image EDID file of PiKVM in different periods does not necessarily meet 1080P60Hz, when you use the CM4 version of hardware, it is found that the default output of the controlled computer is not 1080P60Hz, you can modify /etc/kvmd/tc358743-edid.hex to the following contents</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>00FFFFFFFFFFFF005262888800888888
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>1C150103800000780AEE91A3544C9926
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>0F505400000001010101010101010101
-<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>010101010101011D007251D01E206E28
-<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>5500C48E2100001E8C0AD08A20E02D10
-<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a>103E9600138E2100001E000000FC0054
-<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a>6F73686962612D4832430A20000000FD
-<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a>003B3D0F2E0F1E0A202020202020014F
-<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a>020323454F041303021211012021A23C
-<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a>3D3E1F102309070766030C00300080E3
-<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a>007F8C8C0AD08A20E02D10103E9600C4
-<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a>8E210000188C0AD08A20E02D10103E96
-<a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a>00138E210000188C0AA01451F0160026
-<a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a>7C4300138E2100009800000000000000
-<a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a>00000000000000000000000000000000
-<a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a>00000000000000000000000000000087
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>audio: {
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>    device = "hw:0,0"
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>    tc358743 = "/dev/kvmd-video"
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>}
 </code></pre></div>
 </div>
 <hr/>
