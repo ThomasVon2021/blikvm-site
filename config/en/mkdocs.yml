@@ -85,6 +85,7 @@ nav:
         - "Flashing os": flashing_os.md
         - "OLED display": OLED-display.md
         - "Expand Filesystem": Expand_Filesystem.md
+        - "config for PiKVM OS": modify_pikvm_image.md
     - "Accessories":
         - "ATX guide": atx-guide.md
         - "HDMI to CSI & Audio": hdmi-csi-i2s.md
