@@ -399,7 +399,7 @@
 <h1 id="_1">串口终端连接</h1>
 <p>可以通过串口终端对BliKVM设备进行访问。</p>
 <div class="admonition info">
-<p class="admonition-title">1.硬件连接，您应该使用USB转ttl模块将计算机的USB连接到BliKVM的uart。其中如果你使用的是Hat版本，请注意连接GPIO14和GPIO15这个串口，若是PCIe版本，连接丝印标注的Uart引脚即可</p>
+<p class="admonition-title">1.硬件连接，您应该使用USB转ttl模块将计算机的USB连接到BliKVM的uart。其中如果你使用的是Hat版本，请注意连接GPIO14和GPIO15这个串口，若是PCIe版本，连接丝印标注的<strong>GRT</strong>引脚即可</p>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/serial/rasp4b.png"><img alt="" src="../assets/images/serial/rasp4b.png" width="300"/></a></p>
 </div>
 <div class="admonition info">
@@ -411,6 +411,20 @@
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/serial/putty_conf.png"><img alt="" src="../assets/images/serial/putty_conf.png" width="300"/></a>
 <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/serial/putty_ter01.png"><img alt="" src="../assets/images/serial/putty_ter01.png" width="300"/></a>
 <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/serial/putty_ter02.png"><img alt="" src="../assets/images/serial/putty_ter02.png" width="300"/></a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">如果你的电脑不能正确识别usb转ttl模块，请按照下列步骤对电脑安装驱动</p>
+<ol>
+<li>将usb-a头连接到您的主机（在本例中，它位于windows主机上）。因此，设备管理器将在其他设备中显示一个新的USB串行设备。<br/>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/serial/drive-usb-serial.png"><img alt="" src="../assets/images/serial/drive-usb-serial.png" width="300"/></a></li>
+<li>下载并提取/运行驱动程序。在这个例子中，我下载并提取了ZIP文件。<br/>
+https://learn.sparkfun.com/tutorials/how-to-install-ch340-drivers/all</li>
+<li>更新新USB串行设备的驱动程序，将其指向提取文件的位置，然后单击下一步，然后单击关闭。<br/>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/serial/update-ch430-01.png"><img alt="" src="../assets/images/serial/update-ch430-01.png" width="300"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/serial/update-ch430-02.png"><img alt="" src="../assets/images/serial/update-ch430-02.png" width="300"/></a></li>
+<li>如果一切正确，新的USB串行设备现在应该显示在端口下的USB-serial CH340（COMX）。<br/>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/serial/drive-ch430.png"><img alt="" src="../assets/images/serial/drive-ch430.png" width="300"/></a></li>
+</ol>
 </div>
 <hr/>
 <div class="md-source-file">

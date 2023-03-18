@@ -2,7 +2,7 @@
 
 ## **介绍**
 
-![main1](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_main1.png){width="500"}
+![main1](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_main1.png){width="500"}  
 BLIKVM PCIe是一款基于树莓派CM4的IPKVM扩展卡，可以安装到PC或者服务器的PCIe插槽，完美运行PiKVM项目。主要功能有：HDMI视频采集，键盘鼠标控制，ATX开关机控制，PoE供电，OLED屏幕显示，
 串口终端调试和RTC时钟功能。此PCIe卡配有全高和半高的挡板。 BLIKVM PCIe版本支持blikvm和pikvm的系统镜像。
 
@@ -42,7 +42,10 @@ BLIKVM PCIe是一款基于树莓派CM4的IPKVM扩展卡，可以安装到PC或�
     - **输出电压:** 5 V DC/2.4 A
 
 !!! note "**ATX接口**"
-    改接口通过杜邦线链接被控计算机主板的电源控制接口。ATX功能可以开启或者重启被控计算机。
+    - 改接口通过杜邦线链接被控计算机主板的电源控制接口。ATX功能可以开启或者重启被控计算机。
+    - PCIe板子上的BTN丝印为button的缩写。
+    - 根据电脑主板说明，首先找到主板上ATX功能相关引脚位置，拔下主板已经接好的ATX线，拔下后电脑的电源按钮将失去作用。PCIe主板共有两排8PIN引脚，两排引脚功能完全相同使用时无需区分。其中一排引脚用于KVM控制ATX相关功能，另一排引脚接主板上拔下来的ATX杜邦头，保持原有机箱电源按钮功能。根据主板和PCIe上的具体引脚定义进行每根线的连接，连接关系可以参考下图：  
+    ![](assets/images/BLIKVM-PCIe/atx-cp.png)
     
 !!! note "**OLED显示屏**"
     显示屏分辨率为128x64，主芯片为SSD1306。通过改屏幕可以展示BLIKVM的CPU的温度、IP地址、启动时间等信息。
@@ -58,12 +61,10 @@ BLIKVM PCIe是一款基于树莓派CM4的IPKVM扩展卡，可以安装到PC或�
     时钟芯片为PCF8563，与树莓派CM4的通信方式为I2C。RTC工作需要再安装CR1220电池后。
 
 !!! note "**串口**"
-    Connect the serial port to debug your Raspberry Pi CM4.
     可以通过改串口登陆设备进行调试，一般在在网络链接故障等情况下使用。
-
-!!! note "**GTR**"
     树莓派CM4的串口. G for GND, T(GPIO 14) for TXD, R(GPIO 15) for RXD.  
-    ![](assets/images/gpio/uart_gpio.jpg){width="300"}
+    ![](assets/images/gpio/uart_gpio.jpg){width="300"}   
+    将USB转TTL模块的杜邦头连接到PCIe的**GTR**口，USB转ttl模块与**GTR**接线关系为（黑色线-G, 白色线-T, 绿色线-R）;具体方法可参考[此文档](./serial_over_usb.md)
 
 ## **配件**
 
@@ -75,7 +76,6 @@ BLIKVM PCIe是一款基于树莓派CM4的IPKVM扩展卡，可以安装到PC或�
     当被控计算机不是HDMI输出接口，而是VGA输出接口，请使用该模块完成VGA转HDMI信号转换。
 
 !!! note "**USB转TTL模块**"
-    Connect your computer usb interface with the serial port of BLIKVM to debug your Raspberry Pi CM4.
     通过改模块，可以连接BLIKVM PCIe卡的串口，然后使用串口进入设备进行调试。
 
 !!! note "**风扇**"

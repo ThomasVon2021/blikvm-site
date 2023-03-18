@@ -43,7 +43,10 @@ BLIKVM PCIe is a PCIe add-in card based on Raspberry Pi CM4 for KVM Over IP. Thi
     - **Output power:** 5 V DC/2.4 A
 
 !!! note "**ATX-Connecter**"
-    Connect to power control interface on the motherboard of the controlled computer with DuPont cables. It can turn on, off, and restart the controlled computer.
+    - Connect to power control interface on the motherboard of the controlled computer with DuPont cables. It can turn on, off, and restart the controlled computer.  
+    - The pin is defined on the printing of the PCIe board, **BTN** means button.  
+    - According to the instructions of the computer motherboard, first find the position of the ATX function related pins on the motherboard, and then unplug the ATX ray that has been connected to the motherboard. After unplugging, the power button of the computer will lose its function. There are two rows of 8PIN pins on the PCIe board. It is unnecessary to distinguish between the two rows of pins when they are used with the same functions. One row of pins is used for KVM to control ATX-related functions, and the other row of pins is connected to the ATX DuPont head unplugged from the main board to maintain the original chassis power button function. Connect each wire according to the specific pin definitions on the motherboard and PCIe. See the following figure for the connection relationship：  
+    ![](assets/images/BLIKVM-PCIe/atx-cp.png)
 
 !!! note "**OLED Display**"
     A white OLED display with a resolution of 128x64, and the chip is SSD1306. This display can show the temperature, IP address and other information of the Raspberry Pi.
@@ -58,11 +61,11 @@ BLIKVM PCIe is a PCIe add-in card based on Raspberry Pi CM4 for KVM Over IP. Thi
     The clock chip is PCF8563 that is controlled by your Raspberry Pi CM4 via I2C. The CR1220 battery is installed under the HDMI IN module.
 
 !!! note "**UART**"
-    Connect the serial port to debug your Raspberry Pi CM4.
-
-!!! note "**GTR**"
+    Connect the serial port to debug your Raspberry Pi CM4.  
     The uart of Raspberry Pi CM4. G for GND, T(GPIO 14) for TXD, R(GPIO 15) for RXD.  
-    ![](assets/images/gpio/uart_gpio.jpg){width="300"}
+    ![](assets/images/gpio/uart_gpio.jpg){width="300"}   
+    Connect serial cable wires to G T R connectors on the PCIe board. NOTE: black wire = Ground, whiTe = Tx, and gReen = Rx;
+    For specific methods, please refer to [this document](./serial_over_usb.md).
     
 
 

@@ -106,3 +106,7 @@ plugins:
         - ja
         - ru
         - zh
+  - pdf-export:
+      verbose: true
+      media_type: print
+      enabled_if_env: DISABLE_PDF_EXPORT

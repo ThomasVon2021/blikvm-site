@@ -606,7 +606,12 @@ Fixed HDMI back power issue.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title"><strong>ATX-Connecter</strong></p>
-<p>Connect to power control interface on the motherboard of the controlled computer with DuPont cables. It can turn on, off, and restart the controlled computer.</p>
+<ul>
+<li>Connect to power control interface on the motherboard of the controlled computer with DuPont cables. It can turn on, off, and restart the controlled computer.  </li>
+<li>The pin is defined on the printing of the PCIe board, <strong>BTN</strong> means button.  </li>
+<li>According to the instructions of the computer motherboard, first find the position of the ATX function related pins on the motherboard, and then unplug the ATX ray that has been connected to the motherboard. After unplugging, the power button of the computer will lose its function. There are two rows of 8PIN pins on the PCIe board. It is unnecessary to distinguish between the two rows of pins when they are used with the same functions. One row of pins is used for KVM to control ATX-related functions, and the other row of pins is connected to the ATX DuPont head unplugged from the main board to maintain the original chassis power button function. Connect each wire according to the specific pin definitions on the motherboard and PCIe. See the following figure for the connection relationship：<br/>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/BLIKVM-PCIe/atx-cp.png"><img alt="" src="../assets/images/BLIKVM-PCIe/atx-cp.png"/></a></li>
+</ul>
 </div>
 <div class="admonition note">
 <p class="admonition-title"><strong>OLED Display</strong></p>
@@ -626,12 +631,11 @@ Fixed HDMI back power issue.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title"><strong>UART</strong></p>
-<p>Connect the serial port to debug your Raspberry Pi CM4.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title"><strong>GTR</strong></p>
-<p>The uart of Raspberry Pi CM4. G for GND, T(GPIO 14) for TXD, R(GPIO 15) for RXD.<br/>
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/gpio/uart_gpio.jpg"><img alt="" src="../assets/images/gpio/uart_gpio.jpg" width="300"/></a></p>
+<p>Connect the serial port to debug your Raspberry Pi CM4.<br/>
+The uart of Raspberry Pi CM4. G for GND, T(GPIO 14) for TXD, R(GPIO 15) for RXD.<br/>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/gpio/uart_gpio.jpg"><img alt="" src="../assets/images/gpio/uart_gpio.jpg" width="300"/></a> <br/>
+Connect serial cable wires to G T R connectors on the PCIe board. NOTE: black wire = Ground, whiTe = Tx, and gReen = Rx;
+For specific methods, please refer to <a href="../serial_over_usb/">this document</a>.</p>
 </div>
 <h2 id="accessories"><strong>Accessories</strong></h2>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/BLIKVM-PCIe/accessories.png"><img alt="BLIKVM_PCIe_main-back" src="../assets/images/BLIKVM-PCIe/accessories.png" width="400"/></a></p>
