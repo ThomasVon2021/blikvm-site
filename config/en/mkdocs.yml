@@ -87,6 +87,7 @@ nav:
         - "Expand Filesystem": Expand_Filesystem.md
         - "config for PiKVM OS": modify_pikvm_image.md
         - "Wifi Config": wifi.md
+        - "USB flash Drive": msd.md
     - "Accessories":
         - "ATX guide": atx-guide.md
         - "HDMI to CSI & Audio": hdmi-csi-i2s.md
