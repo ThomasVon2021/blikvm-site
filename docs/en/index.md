@@ -8,7 +8,7 @@ Join our [BLIKVM Discord Community](https://discord.com/invite/9Y374gUF6C) for S
 
 |FEATURE NAME|BliKVM CM4|BliKVM Pi4 HAT|BliKVM PCIe|BliKVM PCIe(PA)|PiKVM V3 HAT|PiKVM V3 HAT (PA)|TinyPilot Voyager 2|
 |-|-|-|-|-|-|-|-|
-|Cost (without tax + shipping)|67$|67$|111$|206$|160$|250$|400$|
+|Cost (without tax + shipping)|67$|95$|111$|206$|160$|250$|400$|
 |Serial Console|No|Yes|Yes|Yes|Yes|Yes|No|
 |ATX controls|Yes|Yes|Yes|Yes|Yes|Yes|No|
 |FAN PWM controls|No|Yes|Yes|Yes|Yes|Yes|No|
