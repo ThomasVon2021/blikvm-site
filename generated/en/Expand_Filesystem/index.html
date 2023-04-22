@@ -329,6 +329,11 @@
     Method 2: Use GParted tool
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#method-3-use-script">
+    Method 3: Use script
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -449,6 +454,11 @@
     Method 2: Use GParted tool
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#method-3-use-script">
+    Method 3: Use script
+  </a>
+</li>
 </ul>
 </nav>
 </div>
@@ -482,6 +492,32 @@
 <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/expand_filesystem/gparted04.png"><img alt="" src="../assets/images/expand_filesystem/gparted04.png" width="300"/></a>
 <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/expand_filesystem/gparted05.png"><img alt="" src="../assets/images/expand_filesystem/gparted05.png" width="300"/></a></p>
 <p><strong>4.</strong> Insert the SD card into the device and start it.  </p>
+<h2 id="method-3-use-script">Method 3: Use script</h2>
+<p>If you are using a PiKVM image, you can run the following script on KVM to automatically expand the space.
+<strong>1.</strong> Log in to the KVM terminal, confirm that the system has read and write permissions, run <code>vim expand. sh</code> on any path, and write the following content to expand.sh
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>#!/bin/bash
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>set -x
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>        if grep -q 'X-kvmd\.otgmsd' /etc/fstab; then
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>                part=$(grep 'X-kvmd\.otgmsd' /etc/fstab | awk '{print $1}')
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>                # shellcheck disable=SC2206
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>                splitted=(${part//=/ })
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>                if [ "${splitted[0]}" == LABEL ]; then
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>                        label=${splitted[1]}
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>                        part=$(blkid -c /dev/null -L "$label")
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>                else
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>                        label=PIMSD
+<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>                fi
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a>                unset splitted
+<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>                disk=/dev/$(lsblk -no pkname "$part")
+<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a>                npart=$(cat "/sys/class/block/${part//\/dev\//}/partition")
+<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a>                umount "$part"
+<a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a>                parted "$disk" -a optimal -s resizepart "$npart" 100%
+<a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a>                yes | mkfs.ext4 -L "$label" -F -m 0 "$part"
+<a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a>                mount "$part"
+<a href="#__codelineno-1-20" id="__codelineno-1-20" name="__codelineno-1-20"></a>                unset disk part npart label
+<a href="#__codelineno-1-21" id="__codelineno-1-21" name="__codelineno-1-21"></a>        fi
+</code></pre></div></p>
+<p><strong>2.</strong> Execute 'bash expand. sh' on the terminal and wait for the execution to complete.</p>
 <hr/>
 <div class="md-source-file">
 <small>

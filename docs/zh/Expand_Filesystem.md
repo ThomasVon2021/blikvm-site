@@ -33,3 +33,31 @@ sudo raspi-config
 
 **4.** 将SD卡插入设备，启动即可。
 
+## 方法三: 使用脚本
+如果你使用的是PiKVM的镜像，可以在KVM上运行下面的脚本，来自动扩大空间。
+**1.** 终端登录到KVM上，确认系统有可读写权限，在任意路径运行`vim expand.sh`,将下面内容写入到expand.sh中.
+```
+#!/bin/bash
+set -x
+        if grep -q 'X-kvmd\.otgmsd' /etc/fstab; then
+                part=$(grep 'X-kvmd\.otgmsd' /etc/fstab | awk '{print $1}')
+                # shellcheck disable=SC2206
+                splitted=(${part//=/ })
+                if [ "${splitted[0]}" == LABEL ]; then
+                        label=${splitted[1]}
+                        part=$(blkid -c /dev/null -L "$label")
+                else
+                        label=PIMSD
+                fi
+                unset splitted
+                disk=/dev/$(lsblk -no pkname "$part")
+                npart=$(cat "/sys/class/block/${part//\/dev\//}/partition")
+                umount "$part"
+                parted "$disk" -a optimal -s resizepart "$npart" 100%
+                yes | mkfs.ext4 -L "$label" -F -m 0 "$part"
+                mount "$part"
+                unset disk part npart label
+        fi
+```
+**2.** 终端执行`bash expand.sh`,等待执行完成即可。
+

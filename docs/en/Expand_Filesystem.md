@@ -31,3 +31,32 @@ sudo raspi-config
 ![](assets/images/expand_filesystem/gparted05.png){width="300"}
 
 **4.** Insert the SD card into the device and start it.  
+
+## Method 3: Use script
+If you are using a PiKVM image, you can run the following script on KVM to automatically expand the space.
+**1.** Log in to the KVM terminal, confirm that the system has read and write permissions, run `vim expand. sh` on any path, and write the following content to expand.sh
+```
+#!/bin/bash
+set -x
+        if grep -q 'X-kvmd\.otgmsd' /etc/fstab; then
+                part=$(grep 'X-kvmd\.otgmsd' /etc/fstab | awk '{print $1}')
+                # shellcheck disable=SC2206
+                splitted=(${part//=/ })
+                if [ "${splitted[0]}" == LABEL ]; then
+                        label=${splitted[1]}
+                        part=$(blkid -c /dev/null -L "$label")
+                else
+                        label=PIMSD
+                fi
+                unset splitted
+                disk=/dev/$(lsblk -no pkname "$part")
+                npart=$(cat "/sys/class/block/${part//\/dev\//}/partition")
+                umount "$part"
+                parted "$disk" -a optimal -s resizepart "$npart" 100%
+                yes | mkfs.ext4 -L "$label" -F -m 0 "$part"
+                mount "$part"
+                unset disk part npart label
+        fi
+```
+
+**2.** Execute 'bash expand. sh' on the terminal and wait for the execution to complete.
