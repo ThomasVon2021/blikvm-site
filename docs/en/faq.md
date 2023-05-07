@@ -118,6 +118,9 @@ As a first step, we recommend carefully reading our documentation. Most steps to
 ??? question "What speed is the USB OTG port?"
     Per the official RPI documentation, this is a limitation of the SoC.  The OTG port is only USB2.0, so is limited to 455 Mbit/s.
 
+??? question "Why can't some keyboard shortcuts of physical keyboards be captured while virtual keyboards can? For example, the  F11 key on a Mac computer cannot be captured."
+    This is because some shortcuts are already in use by the system, such as in macOS, where F11 is assigned to the "Show Desktop" function by default. When you press F11 in a web interface, the KeyboardEvent is first captured by the system, and if a callback is registered in the system, the event will not be passed to the application. To solve this issue, you can disable the system's assigned shortcut or use a virtual keyboard.
+
 
 ## Hardware problems (Wi-Fi, ATX, etc)
 

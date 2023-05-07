@@ -597,6 +597,10 @@ Keep in mind that the more users that are added, the stream if accessed, fps wil
 <summary>What speed is the USB OTG port?</summary>
 <p>Per the official RPI documentation, this is a limitation of the SoC.  The OTG port is only USB2.0, so is limited to 455 Mbit/s.</p>
 </details>
+<details class="question">
+<summary>Why can't some keyboard shortcuts of physical keyboards be captured while virtual keyboards can? For example, the  F11 key on a Mac computer cannot be captured.</summary>
+<p>This is because some shortcuts are already in use by the system, such as in macOS, where F11 is assigned to the "Show Desktop" function by default. When you press F11 in a web interface, the KeyboardEvent is first captured by the system, and if a callback is registered in the system, the event will not be passed to the application. To solve this issue, you can disable the system's assigned shortcut or use a virtual keyboard.</p>
+</details>
 <h2 id="hardware-problems-wi-fi-atx-etc">Hardware problems (Wi-Fi, ATX, etc)</h2>
 <details class="question">
 <summary>If you use PiKVM software, the web UI show <strong>FAN</strong> error!</summary>

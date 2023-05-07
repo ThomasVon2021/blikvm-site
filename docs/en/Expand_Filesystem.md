@@ -16,7 +16,7 @@ sudo raspi-config
 **4.** Ok:  
 ![IMG_8366](assets/images/expand_filesystem/expand_ok.png){width="300"}
 
-**5.** reboot raspberry.
+**5.** Execute the command `resize2fs /dev/mmcblk0p2` in the terminal to see that the SD card has been successfully expanded.
 
 ## Method 2: Use GParted tool
 **1.** Connect the SD card or EMMc that has burned the image to the computer through USB. Take the GParted partition tool under Linux as an example. Other platforms also have similar partition tools. Open GParted software and select SD card:    

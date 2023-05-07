@@ -17,7 +17,7 @@ sudo raspi-config
 **4.** Ok:  
 ![IMG_8366](assets/images/expand_filesystem/expand_ok.png){width="300"}
 
-**5.** 重启树莓派后，即可。
+**5.** 终端执行`resize2fs /dev/mmcblk0p2`此命令即可看到SD卡已经扩容成功。
 
 ## 方法二 使用GParted分区工具
 **1.** 将烧录好镜像的SD卡或者EMMc通过usb接到电脑上，以linux下GParted分区工具为例，其它平台也有类似的分区工具。打开GParted软件，选择SD卡：  

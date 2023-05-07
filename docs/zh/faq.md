@@ -114,11 +114,14 @@ As a first step, we recommend carefully reading our documentation. Most steps to
 
     
 
-## USB problems (keyboard, mouse, mass storage, etc)
+## USB问题 (键盘, 鼠标, U盘等)
 
 ??? question "What speed is the USB OTG port?"
     Per the official RPI documentation, this is a limitation of the SoC.  The OTG port is only USB2.0, so is limited to 455 Mbit/s.
 
+??? question "为什么有一些实体键盘的键盘快捷键不能被捕获，而虚拟键盘的可以?如不能捕获mac电脑的F11按键"
+    因为有一些快捷键已被系统使用，如在 macOS 中，F11 被默认分配给了“显示桌面”功能。当你在web界面按下F11，keyboardevent优先被系统捕获，如果系统里注册了callback，则不会将event传递给应用程序。解决此问题，你可以关闭系统设置的快捷键，或者使用虚拟键盘。
+    
 
 ## Hardware problems (Wi-Fi, ATX, etc)
 
