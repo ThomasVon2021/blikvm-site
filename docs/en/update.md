@@ -24,8 +24,10 @@
 
 !!! info "In the terminal"
     ```
+    rw
     sudo -i
     python3 /opt/bin/blikvm/script/update.py
+    ro
     ```
    Observe the output of the terminal. When you see the message of successful upgrade, the terminal enters reboot, and the reboot takes effect.
 

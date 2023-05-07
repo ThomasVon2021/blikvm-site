@@ -24,8 +24,10 @@
 
 !!! info "ssh进入设备终端"
     ```
+    rw
     sudo -i
     python3 /opt/bin/blikvm/script/update.py
+    ro
     ```
     观察终端输出，当看到升级升级成功消息提醒时，终端输入reboot，重启生效。
 
