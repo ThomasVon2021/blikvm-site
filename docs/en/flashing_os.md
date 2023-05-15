@@ -13,7 +13,7 @@
 ## Download the image
 ### BLIKVM software
 !!! info "Raspberry 4B and CM4 board use a same BLIKVM software image."
-    * **[BLIKVM image ](https://drive.google.com/drive/folders/172ojbO3FRKy5Y6mRnh7Hx5hA7_QmUUIx?usp=sharing)**  
+    * **[BLIKVM image ](https://zcwrego195.feishu.cn/drive/folder/fldcn0KhmkuC2DC8nKWcHAMLA6f)**  
     The web UI style is as follows:  
     ![Image title](assets/images/flash_os/english-web-ui.png){width="300"}
     ![Image title](assets/images/flash_os/chinese-web-ui.png){width="300"}
