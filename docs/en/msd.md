@@ -1,4 +1,6 @@
 # **Mass Storage Drive**
+!!! info "Reinstall the system Video"
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/MDuS3bHsVmc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 BliKVM's USB device simulation feature allows you to remotely mount images on the virtual machine's mass storage drive, making it easy to install or reinstall operating systems and other software. This can be a useful feature for system administrators who need to manage multiple virtual machines remotely. By mounting an image on the mass storage drive, you can quickly and easily set up or configure a new virtual machine without having to physically connect a USB drive or other external storage device.
 

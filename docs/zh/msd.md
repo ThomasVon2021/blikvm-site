@@ -1,5 +1,7 @@
 # **U盘设备模拟**
-
+!!! info "重装系统视频"
+    <iframe src="//player.bilibili.com/player.html?aid=227573682&bvid=BV1yh41177A6&cid=1099326734&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+    
 BliKVM支持U盘设备模拟，通过此功能可以进行远程挂载镜像，进行重装系统。
 
 ## 手动 (不使用Web UI)
