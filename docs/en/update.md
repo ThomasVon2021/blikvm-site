@@ -10,7 +10,21 @@
     * Network access to github is limited;
 
 !!! warning "We strongly recommend performing the update while you are in close proximity to the BliKVM hardware you are upgrading.  The reason is if anything goes wrong you can intervene."
+    * If you are familiar with command-line operations, we recommend manually updating so that you can monitor the command-line status in real time.
+    * If the update is abnormal and the web interface cannot exit the update status, use ssh to the terminal can and restart to recover.
 
+## **Manually run the script to update**
+
+!!! info "In the terminal"
+    ```
+    rw
+    sudo -i
+    cd /opt/bin/blikvm/
+    git pull --rebase
+    python3 /opt/bin/blikvm/script/update.py
+    ro
+    ```
+   Observe the output of the terminal. When you see the message of successful upgrade, the terminal enters reboot, and the reboot takes effect.
     
 ## **Web UI update**
 
@@ -19,16 +33,5 @@
     ![IMG_8366](assets/images/update/update_info.png){width="300"}
     ![IMG_8366](assets/images/update/upgrading.png){width="300"}
     ![IMG_8366](assets/images/update/update_reboot.png){width="300"}
-
-## **Manually run the script to update**
-
-!!! info "In the terminal"
-    ```
-    rw
-    sudo -i
-    python3 /opt/bin/blikvm/script/update.py
-    ro
-    ```
-   Observe the output of the terminal. When you see the message of successful upgrade, the terminal enters reboot, and the reboot takes effect.
 
 

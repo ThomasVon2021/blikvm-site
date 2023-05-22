@@ -315,13 +315,13 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#web">
-    Web界面更新
+<a class="md-nav__link" href="#_3">
+    手动运行脚本更新
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
-    手动运行脚本更新
+<a class="md-nav__link" href="#web">
+    Web界面更新
   </a>
 </li>
 </ul>
@@ -455,13 +455,13 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#web">
-    Web界面更新
+<a class="md-nav__link" href="#_3">
+    手动运行脚本更新
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
-    手动运行脚本更新
+<a class="md-nav__link" href="#web">
+    Web界面更新
   </a>
 </li>
 </ul>
@@ -492,6 +492,22 @@
 </div>
 <div class="admonition warning">
 <p class="admonition-title">我们强烈建议您在靠近要升级的BliKVM硬件时执行更新。原因是，如果出现任何问题，你可以进行干预。</p>
+<ul>
+<li>如果您熟悉命令行操作，建议您手动更新可以实时查看命令行状态。</li>
+<li>若更新异常，web界面无法退出更新状态，可以终端ssh进入kvm后重启恢复。</li>
+</ul>
+</div>
+<h2 id="_3"><strong>手动运行脚本更新</strong></h2>
+<div class="admonition info">
+<p class="admonition-title">ssh进入设备终端</p>
+<p><div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>rw
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>sudo -i
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>cd /opt/bin/blikvm/
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>git pull --rebase
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>python3 /opt/bin/blikvm/script/update.py
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>ro
+</code></pre></div>
+观察终端输出，当看到升级升级成功消息提醒时，终端输入reboot，重启生效。</p>
 </div>
 <h2 id="web"><strong>Web界面更新</strong></h2>
 <div class="admonition info">
@@ -500,16 +516,6 @@
 <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/update/update_info.png"><img alt="IMG_8366" src="../assets/images/update/update_info.png" width="300"/></a>
 <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/update/upgrading.png"><img alt="IMG_8366" src="../assets/images/update/upgrading.png" width="300"/></a>
 <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/update/update_reboot.png"><img alt="IMG_8366" src="../assets/images/update/update_reboot.png" width="300"/></a></p>
-</div>
-<h2 id="_3"><strong>手动运行脚本更新</strong></h2>
-<div class="admonition info">
-<p class="admonition-title">ssh进入设备终端</p>
-<p><div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>rw
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>sudo -i
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>python3 /opt/bin/blikvm/script/update.py
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>ro
-</code></pre></div>
-观察终端输出，当看到升级升级成功消息提醒时，终端输入reboot，重启生效。</p>
 </div>
 <hr/>
 <div class="md-source-file">

@@ -10,7 +10,20 @@
     * 网络访问github受限;
 
 !!! warning "我们强烈建议您在靠近要升级的BliKVM硬件时执行更新。原因是，如果出现任何问题，你可以进行干预。"
+    * 如果您熟悉命令行操作，建议您手动更新可以实时查看命令行状态。
+    * 若更新异常，web界面无法退出更新状态，可以终端ssh进入kvm后重启恢复。
 
+## **手动运行脚本更新**
+!!! info "ssh进入设备终端"
+    ```
+    rw
+    sudo -i
+    cd /opt/bin/blikvm/
+    git pull --rebase
+    python3 /opt/bin/blikvm/script/update.py
+    ro
+    ```
+    观察终端输出，当看到升级升级成功消息提醒时，终端输入reboot，重启生效。
     
 ## **Web界面更新**
 
@@ -20,15 +33,6 @@
     ![IMG_8366](assets/images/update/upgrading.png){width="300"}
     ![IMG_8366](assets/images/update/update_reboot.png){width="300"}
 
-## **手动运行脚本更新**
 
-!!! info "ssh进入设备终端"
-    ```
-    rw
-    sudo -i
-    python3 /opt/bin/blikvm/script/update.py
-    ro
-    ```
-    观察终端输出，当看到升级升级成功消息提醒时，终端输入reboot，重启生效。
 
 
