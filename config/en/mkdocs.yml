@@ -79,6 +79,8 @@ nav:
         - "PCIe version":
           - "BLIKVM PCIe guide": BLIKVM-PCIE-guide.md
           - "illustrated instructions": BLIKVM-PCIe-installation.md
+    - "Network":
+        - "Tailscale VPN": tailscale.md
     - "Software":
         - "Upgrade": update.md
     - "Configure":

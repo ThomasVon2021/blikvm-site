@@ -79,6 +79,8 @@ nav:
         - "PCIe版本":
           - "BLIKVM PCIe导览": BLIKVM-PCIE-guide-zh.md
           - "安装说明": BLIKVM-PCIe-installation-zh.md
+    - "网络":
+        - "Tailscale VPN": tailscale.md
     - "软件说明":
         - "更新软件": update.md
         - "键鼠": hid.md
