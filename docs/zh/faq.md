@@ -100,14 +100,7 @@
     有时这可能是由于BIOS/UEFI的特定问题以及GRUB2与视频的工作方式所导致的。
 
     您可以通过在BIOS中启用**兼容性支持模块（CSM）**来解决此问题，通常位于**引导**选项下。视频模式也位于同一部分。将**视频**模式从**UEFI**切换为**Legacy**。
-
-
-
-??? question "No image from computer with Linux + Awesome WM"
-    Sometimes Awesome WM on Linux can't recognize a video output change on a cable. That is, if the cable was first inserted into the monitor, and then you reconnected it to BLIKVM - it may happen that you will not see the image. It seems that the problem is Awesome WM, since for example with KDE, it is not reproducable. If you turn on your workstation with BLIKVM already connected, everything will work fine.
-
     
-```md
 ??? question "Linux + Awesome WM没有计算机图像"
     有时，在Linux上使用Awesome WM可能无法识别电缆的视频输出更改。也就是说，如果电缆先插入显示器，然后再连接到BLIKVM，可能会导致您看不到图像。这似乎是Awesome WM的问题，因为例如在KDE中，这种情况无法复现。如果您在连接BLIKVM后启动工作站，一切都将正常工作。
 
@@ -128,12 +121,12 @@
     * 如果您的设备无法连接到您设置的Wi-Fi网络，请检查您的Wi-Fi接入点使用的2.4GHz Wi-Fi信道。如果使用了12到14信道（某些国家禁止使用这些信道），请尝试使用1到11之间的信道。
 
 ??? question "BLIKVM显示低电压警告"
-  * 您是否使用了“正确”的电源适配器？而不是自己拼凑的适配器？
-  * 一些USB电源适配器宣传为5V 2.1A或更高，但无法提供稳定的5V电压。最好使用树莓派基金会推荐的电源适配器。其输出应为5.1V和3A直流电压。
+    * 您是否使用了“正确”的电源适配器？而不是自己拼凑的适配器？
+    * 一些USB电源适配器宣传为5V 2.1A或更高，但无法提供稳定的5V电压。最好使用树莓派基金会推荐的电源适配器。其输出应为5.1V和3A直流电压。
 
 ??? question "当我使用PoE时，是否仍然需要使用电源OTG分线器来防止机器USB的反向供电？"
-  * 只有HAT版本需要使用电源OTG分线器来防止反向供电。通常，大多数主机计算机都有反向供电保护，因此在这种情况下不需要使用电源OTG分线器。
-  * BLIKVM-CM4-V2.2和BLIKVM-PCIe版本不需要。
+    * 只有HAT版本需要使用电源OTG分线器来防止反向供电。通常，大多数主机计算机都有反向供电保护，因此在这种情况下不需要使用电源OTG分线器。
+    * BLIKVM-CM4-V2.2和BLIKVM-PCIe版本不需要。
 
 ??? question "在一些像BLIKVM-PCIe或BLIKVM-CM4-V2.2这样的板子上有引导引脚，如何连接？"
-  如果将它们连接短路，CM4将无法正常启动，而将进入烧录映像模式。如果您的硬件版本的引导引脚只有两个引脚，使用跳线帽将这两个引脚连接起来，形成短路。如果您不使用跳线帽或只将其插入一个引脚，CM4将正常启动。如果您使用的是三个引导引脚的硬件版本，请使用跳线帽将GND和另一个非GND引脚连接起来以示短路，并将跳线帽插在两个GND引脚上或不使用跳线帽，CM4将正常启动。
+    如果将它们连接短路，CM4将无法正常启动，而将进入烧录映像模式。如果您的硬件版本的引导引脚只有两个引脚，使用跳线帽将这两个引脚连接起来，形成短路。如果您不使用跳线帽或只将其插入一个引脚，CM4将正常启动。如果您使用的是三个引导引脚的硬件版本，请使用跳线帽将GND和另一个非GND引脚连接起来以示短路，并将跳线帽插在两个GND引脚上或不使用跳线帽，CM4将正常启动。
