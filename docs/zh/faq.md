@@ -1,144 +1,139 @@
-# FAQ & Troubleshooting
+# FAQ & 故障排除
 
-As a first step, we recommend carefully reading our documentation. Most steps to successfully set up your BLIKVM are already described there. If you run into any issues you can check this page which will list common errors. If that still doesn't help you you're welcome to raise an [issue ticket](https://github.com/ThomasVon2021/blikvm/issues) or [join our Discord](https://discord.gg/9Y374gUF6C) for further help.
+作为第一步，我们建议仔细阅读我们的文档。大部分设置BLIKVM所需的步骤已经在文档中描述了。如果您遇到任何问题，您可以查看本页，其中列出了常见错误。如果仍然无法解决问题，欢迎提交[问题反馈](https://github.com/ThomasVon2021/blikvm/issues)或[加入我们的Discord](https://discord.gg/9Y374gUF6C)寻求进一步帮助。
 
-## Common questions
+## 常见问题
 
-??? question "Can I connect multiple servers to a single BLIKVM?"
-    Yes, but it requires additional work to set up. See [this page](switch-guide.md).
+??? question "我可以将多台服务器连接到单个BLIKVM吗？"
+    可以，但需要进行额外的设置工作。请参考[此页面](switch-guide.md)。
 
+??? question "如何在本地网络上通过互联网访问BliKVM？"
+    如果您的路由器具有外部IP地址，您可以使用端口转发来转发80端口(Web),8008端口(mjpeg)，8188端口（webrtc）。在其他情况下，您可以使用出色的免费VPN服务Tailscale。
 
-??? question "How can I get the access to PiKVM in my local network over Internet?"
-    You can use port forwarding for port 443 on your router if it has an external IP address. In all other cases, you can use the excellent free VPN service Tailscale.
+??? question "BLiKVM有多款硬件，如BliKVM V1 CM4、BliKVM V2 PCIe、BliKVM V3 Hat，我应该选哪款？"
+    * 首先各个版本的主要参数对比请参考[此页面](index.md)。
+    * V1和V3属于外置方案，V2属于内置机箱方案。如果您是机箱形式，并且机箱内部有空间，那么毫无疑问选择V2 PCIe版本是较好的选择。
+    * 那么V1和V3两个外置方案如何选择呢，V1基于CM4的方案，集成度更高，有到手可用版本。V3基于树莓派4B方案，所有IO口均引出，可扩展性更强。两者的另一个核心区别就是V1最高支持1080P60Hz输入，V3最高支持1080P50Hz输入。当然同时需要考虑您是已否有CM4或者4B，如果有的话只买对应的底板，性价比更高。
 
+??? question "我可以用BLIKVM进行游戏吗？"
+    不可以，原因如下：
 
-??? question "Can I use BLIKVM for gaming?"
-    No, because:
+    * 对于HDMI-CSI桥接器，总线带宽不足以传输超过1080p60的视频。
+    * 对于HDMI-USB转换器，延迟较高且视频质量较低。
+    * 一般的硬件视频捕获与软件流媒体有所不同，会引入额外的延迟。
 
-    * For HDMI-CSI bridge, bus bandwidth is not enough to transmit more than 1080p60.
-    * For HDMI-USB dongle, high latency and low video quality.
-    * General hardware video capture differs from software streaming and introduces additional latency.
-    
+??? question "BLIKVM支持4K视频吗？"
+    * 对于HDMI-CSI桥接器，不支持。CSI总线的带宽不足以处理如此大量的数据。1080p60是带宽的上限。
+    * 对于USB捕获设备：从技术上讲，是可以的，但它们会降低分辨率以适应USB 2.0的带宽限制，因此流媒体的分辨率不会是4K。
+    * 无论如何，4K实时视频也无法通过网络传输。
 
+??? question "光标/视频延迟是由什么引起的？"
+    图像传输到浏览器或VNC客户端的过程如下：
 
-??? question "Can BLIKVM do 4K video?"
-    * For HDMI-CSI bridge, no. There is not enough bandwidth in the CSI bus for that much data. 1080p60 will max out the bandwidth.
-    * For the USB capture devices: technically yes, they will downsample to something smaller to meet the USB 2.0 bandwidth limitations, so the source may be 4k, but the stream will not.
-    * The 4K real-time video will not fit through the network anyway.
+    `捕获设备 -> 压缩 -> 网络 -> 解压缩 -> 渲染`
 
+    在此过程中，100-200ms的延迟已经非常快速了。但我们正在努力进一步提高速度。
 
-??? question "Where does the cursor/video latency come from?"
-    Here is the chain of transferring an image to your browser or VNC client.
+??? question "BLIKVM支持音频吗？"
+    是的，所有版本都支持音频。
 
-    `Capture device -> Compression -> Network -> Decompression -> Rendering`
+??? question "我可以通过PoE给Pi供电吗？"
+    可以！Hat版本和PCIe版本都支持PoE。
 
-    100-200ms is very, very fast for this. But we are working to speed things up even more.
+## 第一步
 
+??? question "默认密码是什么？如何更改密码？"
+    如果您使用PiKVM，有两种类型的帐户：操作系统帐户和PiKVM（Web界面）帐户。系统帐户`root`可用于SSH/UART访问，密码为`root`。Web界面帐户称为`admin`，密码为`admin`。PiKVM帐户不能用于SSH访问，反之亦然。
 
-??? question "Does BLIKVM support sound?"
-    Yes, all version supported.
-
-
-??? question "Can I power the Pi via PoE?"
-    Yes! Hat and PCIe version supported.
-
-
-## First steps
-
-
-??? question "What is the default password? How do I change it?"
-    If you use PiKVM, there are two types of accounts: OS and PiKVM (web interface) accounts. The system account `root` can be used for SSH/UART access and has the password `root`. The web interface account is called `admin` and has the password `admin`. The PiKVM account cannot be used for SSH access and vice versa.
-
-    To change passwords, use the following commands (under root):
+    要更改密码，请使用以下命令（在root用户下）：
 
     ```bash
-    su -  # If you're in the webterm
-    rw  # Switch filesystem to read-write mode
-    passwd root  # Change OS root password
-    kvmd-htpasswd set admin  # Change web ui admin password
-    ro  # Back to read-only
+    su -  # 如果您在Webterm中
+    rw  # 切换文件系统为读写模式
+    passwd root  # 更改操作系统root密码
+    kvmd-htpasswd set admin  # 更改Web界面管理员密码
+    ro  # 切换回只读模式
     ```
+    如果您使用的是BliKVM，Web界面帐户称为`admin`，密码为`admin`,终端用户名称为`blikvm`，密码为`blikvm`。
 
-??? question "How do I add another user?"
-    If you use PiKVM software, as stated above you need to make 2 accounts, 1 for the shell, the other for the PiKVM Web UI.
-    
+??? question "如何添加另一个用户？"
+    如果您使用PiKVM软件，如上所述，您需要创建2个帐户，一个用于Shell，另一个用于PiKVM Web界面。
+
     ```
-    If you require additional users for PiKVM UI, you can use the following:
+    如果您需要为PiKVM Web界面添加其他用户，可以使用以下命令：
     # rw
     # su -
-    # kvmd-htpasswd set <user> # Adds a new user
-    # kvmd-htpasswd set <user> # Sets the password as long as the user exists
-    # kvmd-htpasswd del <user> # Removes/deletes a user
-    
-    To add a shell/terminal account:
+    # kvmd-htpasswd set <user>  # 添加新用户
+    # kvmd-htpasswd set <user>  # 设置密码（只要用户存在）
+    # kvmd-htpasswd del <user>  # 删除用户
+
+    要添加Shell/终端帐户：
     # rw
     # su -
     # adduser <user>
     # passwd <user>
     ```
-    Keep in mind that the more users that are added, the stream if accessed, fps will drop.
+    请注意，添加的用户越多，访问流媒体时帧率会降低。
 
-   
-## Video problems
+## 视频问题
 
-??? question "BLIKVM does not show the video from the computer at all"
-    * Double-check that the video capture device is connected correctly. For the CSI bridge, this should be exactly the camera port.
-    * Some laptops do not output any signal until you switch the output (usually via the FN + and an F5 key on the keyboard).
-    * Your computer may have turned on sleep mode for the monitor. Move the mouse to turn it off.
-    * For windows you might need to check for the active signal resolution. To change the active signal resolution you have to go to Settings>System>Display>Advanced display settings>Display adapter properties then, click "List All Models" and choose the one you want. Keep trying different Hz settings.
+??? question "BLIKVM根本没有显示来自计算机的视频"
+    * 请仔细检查视频捕获设备的连接情况。对于CSI桥接器，应连接到相机端口。
+    * 有些笔记本电脑在您切换输出之前（通常通过键盘上的FN +和F5键）不会输出任何信号。
+    * 您的计算机可能已经将显示器设置为睡眠模式。移动鼠标以关闭睡眠模式。
+    * 对于Windows系统，您可能需要检查活动信号分辨率。要更改活动信号分辨率，请转到“设置”>“系统”>“显示”>“高级显示设置”>“显示适配器属性”，然后点击“列出所有模式”，选择所需的模式。尝试不同的刷新率设置。
 
+??? question "在已启动的操作系统中可以看到视频，但在BIOS/UEFI中看不到"
+    当使用CSI桥接器时，Intel NUC、GA-H77-DS3H和一些其他设备上会出现此问题。您只需要更改EDID数据，这是CSI桥接器向计算机报告的支持的分辨率信息。
 
-??? question "The video works in the booted OS, but not in the BIOS/UEFI"
-    This problem appears on Intel NUC, GA-H77-DS3H, and some other devices when using a CSI bridge. All you need to do is change the EDID data. This is the information about supported resolutions that the CSI bridge reports to your computer.
+??? question "BIOS/UEFI分辨率出现故障或错误"
+    在某些主板上，BIOS可能以较低的分辨率显示，或出现一些渲染问题/故障，特别是在较新的ASUS主板上。如下图所示：
+    ![图像标题](assets/images/faq/bios_glitch.png){width="400"}
 
+    您可以通过在BIOS中启用**兼容性支持模块（CSM）**来解决此问题，通常位于**引导**选项下。
 
-??? question "Glitchy or wrong BIOS/UEFI resolution"
-    On some motherboards, the BIOS may be displayed at a lower resolution, or with some rendering issues/glitches, specially on newer ASUS ones. Like this:  
-    ![Image title](assets/images/faq/bios_glitch.png){width="400"}    
+    如果您无法或不想启用CSM，您可以尝试连接一个DisplayPort（DP）显示器或[虚拟插头](http://amazon.com/s?k=displayport+dummy+plug)。如果拔掉DP电缆/转接器，问题将重新出现。
 
-    This can be solved by enabling the **Compatibility Support Module (CSM)** in your BIOS, usually under the **Boot** options.
+    如果上述方法都不起作用，请尝试先连接DP电缆，然后启动到BIOS，禁用CSM并关机（不要重新启动）您的计算机。然后，在再次启动到BIOS并启用CSM之前，连接HDMI并再次打开计算机。
 
-    If you can't or don't want to enable the CSM, you can try connecting a DisplayPort (DP) monitor, or a [dummy plug](http://amazon.com/s?k=displayport+dummy+plug). If you remove the DP cable/adapter the bug will reappear.
+??? question "GRUB2中没有视频，但之前和之后都有"
+    有时这可能是由于BIOS/UEFI的特定问题以及GRUB2与视频的工作方式所导致的。
 
-    If none of this works, try connecting the DP cable first, boot into the BIOS, disable the CSM and shutdown (do not restart) your PC. Then, boot into the BIOS and enable the CSM before shutting down your PC. Then connect the HDMI and turn your PC on again.
+    您可以通过在BIOS中启用**兼容性支持模块（CSM）**来解决此问题，通常位于**引导**选项下。视频模式也位于同一部分。将**视频**模式从**UEFI**切换为**Legacy**。
 
-
-??? question "There is no video in GRUB2, but there is before and after"
-    Sometimes this can be caused by the specifics of the BIOS/UEFI and how GRUB2 works with video.
-
-    This can be solved by enabling the **Compatibility Support Module (CSM)** in your BIOS, usually under the **Boot** options. The video mode will be located in the same section. Switch the **Video** mode from **UEFI** to **Legacy**.
 
 
 ??? question "No image from computer with Linux + Awesome WM"
     Sometimes Awesome WM on Linux can't recognize a video output change on a cable. That is, if the cable was first inserted into the monitor, and then you reconnected it to BLIKVM - it may happen that you will not see the image. It seems that the problem is Awesome WM, since for example with KDE, it is not reproducable. If you turn on your workstation with BLIKVM already connected, everything will work fine.
 
     
+```md
+??? question "Linux + Awesome WM没有计算机图像"
+    有时，在Linux上使用Awesome WM可能无法识别电缆的视频输出更改。也就是说，如果电缆先插入显示器，然后再连接到BLIKVM，可能会导致您看不到图像。这似乎是Awesome WM的问题，因为例如在KDE中，这种情况无法复现。如果您在连接BLIKVM后启动工作站，一切都将正常工作。
 
-## USB问题 (键盘, 鼠标, U盘等)
+## USB问题（键盘、鼠标、U盘等）
 
-??? question "What speed is the USB OTG port?"
-    Per the official RPI documentation, this is a limitation of the SoC.  The OTG port is only USB2.0, so is limited to 455 Mbit/s.
+??? question "USB OTG端口的速度是多少？"
+    根据官方的RPI文档，这是SoC的限制。OTG端口只支持USB 2.0，因此速度限制为455 Mbit/s。
 
-??? question "为什么有一些实体键盘的键盘快捷键不能被捕获，而虚拟键盘的可以?如不能捕获mac电脑的F11按键"
-    因为有一些快捷键已被系统使用，如在 macOS 中，F11 被默认分配给了“显示桌面”功能。当你在web界面按下F11，keyboardevent优先被系统捕获，如果系统里注册了callback，则不会将event传递给应用程序。解决此问题，你可以关闭系统设置的快捷键，或者使用虚拟键盘。
-    
+??? question "为什么无法捕获某些实体键盘的键盘快捷键，但可以捕获虚拟键盘的键盘快捷键？例如，无法捕获Mac电脑的F11按键"
+    这是因为一些快捷键已经被操作系统使用了，例如在 macOS 中，F11 被默认分配给了“显示桌面”的功能。当您在Web界面按下F11时，键盘事件首先被操作系统捕获，如果操作系统注册了回调函数，键盘事件将不会传递给应用程序。要解决此问题，您可以关闭操作系统设置中的快捷键，或者使用虚拟键盘。
 
-## Hardware problems (Wi-Fi, ATX, etc)
+## 硬件问题（Wi-Fi、ATX等）
 
-??? question "If you use PiKVM software, the web UI show **FAN** error!"
-    * Because the fan model used by BLIKVM hardware is different from that of PIKVM hardware, viewing the fan status through the web interface may fail in the latest system of pikvm. However, this will not affect the normal operation of BLIKVM fan. Therefore, when using the PIKVM image, as long as you ensure that the [install script](https://github.com/ThomasVon2021/blikvm/tree/master/package/kvmd-fan) displays OK, it means that the update of the kvmd fan program is successful. The threshold temperature set by the default program is 60 degrees Celsius. When the CPU temperature is detected to exceed 60 degrees Celsius, the fan will start rotating at 85% speed. If you want to modify the threshold temperature and speed, you can modify the kvmd-fan.py script, and then re-execute install.sh.
+??? question "如果使用PiKVM软件，Web界面显示**FAN**错误！"
+    * 由于BLIKVM硬件使用的风扇型号与PIKVM硬件不同，因此在pikvm的最新系统中，通过Web界面查看风扇状态可能会失败。但这不会影响BLIKVM风扇的正常运行。因此，在使用PIKVM镜像时，只要确保[安装脚本](https://github.com/ThomasVon2021/blikvm/tree/master/package/kvmd-fan)显示OK，就表示kvmd风扇程序的更新成功。默认程序设置的温度阈值为摄氏60度。当检测到CPU温度超过60摄氏度时，风扇将以85%的速度开始旋转。如果要修改温度阈值和速度，可以修改kvmd-fan.py脚本，然后重新执行install.sh。
 
-??? question "I can't connect to Wi-Fi at all!"
-    * If your device is unable to connect to the Wi-Fi network that you have set up, check the 2.4 GHz Wi-Fi channel used by your Wi-Fi access point. 
-      If channels 12 to 14 are used (some countries have banned these channels) try to use a channel between 1 and 11.
+??? question "我根本无法连接到Wi-Fi！"
+    * 如果您的设备无法连接到您设置的Wi-Fi网络，请检查您的Wi-Fi接入点使用的2.4GHz Wi-Fi信道。如果使用了12到14信道（某些国家禁止使用这些信道），请尝试使用1到11之间的信道。
 
-??? question "BLIKVM complains about low power warnings"
-    * Are you using a "proper" power supply? Not one you hacked together?
-    * Some USB power bricks advertise 5V 2.1A or higher, but can't deliver consistent 5V.  Best to use Raspberry Pi Foundation recommended power supplies. It should be 5.1v and 3A DC output.
+??? question "BLIKVM显示低电压警告"
+  * 您是否使用了“正确”的电源适配器？而不是自己拼凑的适配器？
+  * 一些USB电源适配器宣传为5V 2.1A或更高，但无法提供稳定的5V电压。最好使用树莓派基金会推荐的电源适配器。其输出应为5.1V和3A直流电压。
 
-??? question "When I use the PoE, do I still need to use the power OTG splitter to prevent back power on the machine usb? "
-    * Only HAT version you need to use power OTG splitter to prevent back power. Generally, most hosts computer are protected back power, you do not need to usr power OTG splitter in this case.
-    * BLIKVM-CM4-V2.2 and BLIKVM-PCIe version don't need.
+??? question "当我使用PoE时，是否仍然需要使用电源OTG分线器来防止机器USB的反向供电？"
+  * 只有HAT版本需要使用电源OTG分线器来防止反向供电。通常，大多数主机计算机都有反向供电保护，因此在这种情况下不需要使用电源OTG分线器。
+  * BLIKVM-CM4-V2.2和BLIKVM-PCIe版本不需要。
 
-??? question "In some board like BLIKVM-PCIe or BLIKVM-CM4-V2.2 has boot pin, how do I connect?"
-    If you short them, CM4 will not start normally, but will enter the burning image mode. If your hardware version of boot has only two pins, use the jumper cap to connect the two pins as a short circuit. If you do not use the jumper cap or plug it into one pin, CM4 will start normally. If you use three boot pins of the hardware version, use the jumper cap to connect GND and another non-GND pin to indicate short circuit, and plug the jumper cap on the two GND pins or do not use it, CM4 will start normally.
+??? question "在一些像BLIKVM-PCIe或BLIKVM-CM4-V2.2这样的板子上有引导引脚，如何连接？"
+  如果将它们连接短路，CM4将无法正常启动，而将进入烧录映像模式。如果您的硬件版本的引导引脚只有两个引脚，使用跳线帽将这两个引脚连接起来，形成短路。如果您不使用跳线帽或只将其插入一个引脚，CM4将正常启动。如果您使用的是三个引导引脚的硬件版本，请使用跳线帽将GND和另一个非GND引脚连接起来以示短路，并将跳线帽插在两个GND引脚上或不使用跳线帽，CM4将正常启动。

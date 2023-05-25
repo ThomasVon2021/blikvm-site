@@ -518,7 +518,15 @@
 </details>
 <details class="question">
 <summary>How can I get the access to PiKVM in my local network over Internet?</summary>
-<p>You can use port forwarding for port 443 on your router if it has an external IP address. In all other cases, you can use the excellent free VPN service Tailscale.</p>
+<p>If your router has an external IP address, you can use port forwarding to forward port 80 (Web), port 8008 (mjpeg), and port 8188 (webrtc) In all other cases, you can use the excellent free VPN service Tailscale.</p>
+</details>
+<details class="question">
+<summary>Which BLiKVM hardware version should I choose, such as BLiKVM V1 CM4, BLiKVM V2 PCIe, and BLiKVM V3 Hat?</summary>
+<ul>
+<li>First, please refer to <a href="../">this page</a> for a comparison of the main parameters of each version.</li>
+<li>V1 and V3 are external solutions, while V2 is an internal chassis solution. If you have a chassis and there is space inside, choosing the V2 PCIe version would be a better option.</li>
+<li>So how do you choose between the external solutions V1 and V3? V1 is based on the CM4 platform, with higher integration and ready-to-use versions available. V3 is based on the Raspberry Pi 4B platform, with all IO ports exposed and greater expandability. Another key difference is that V1 supports up to 1080P60Hz input, while V3 supports up to 1080P50Hz input. Of course, you also need to consider whether you already have a CM4 or 4B, as purchasing the corresponding baseboard would offer better cost-effectiveness.</li>
+</ul>
 </details>
 <details class="question">
 <summary>Can I use BLIKVM for gaming?</summary>
