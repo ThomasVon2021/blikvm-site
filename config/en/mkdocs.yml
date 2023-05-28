@@ -83,6 +83,8 @@ nav:
         - "Tailscale VPN": tailscale.md
     - "Software":
         - "Upgrade": update.md
+        - "keyboard": hid.md
+        - "RTC clock": rtc.md
     - "Configure":
         - "Flashing os": flashing_os.md
         - "OLED display": OLED-display.md

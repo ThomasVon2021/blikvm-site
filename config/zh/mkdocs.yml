@@ -84,6 +84,7 @@ nav:
     - "软件说明":
         - "更新软件": update.md
         - "键鼠": hid.md
+        - "RTC时钟": rtc.md
     - "配置":
         - "烧录镜像": flashing_os.md
         - "OLED显示器": OLED-display.md
