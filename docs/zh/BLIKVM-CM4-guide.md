@@ -6,7 +6,6 @@
 ## **安装要求**
 !!! note "如果你购买的是需自己组装的版本（不是plug-n-play版本），你需要自己准备以下设备"
     * 树莓派CM4，最小1Gb RAM.
-    * MicroSD card (至少16Gb, class 10 recommended).
     * USB-C转USB-A线缆.
     * HDMI线缆.
     * 网线.

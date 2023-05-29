@@ -320,6 +320,11 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#blikvm-v2-pcie-and-blikvm-v3-hat-pcf8563">
+    BliKVM V2 PCIe and BliKVM V3 Hat - pcf8563
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#blikvm-v4-pcf8563">
     BliKVM V4 - pcf8563
   </a>
@@ -445,6 +450,11 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#blikvm-v2-pcie-and-blikvm-v3-hat-pcf8563">
+    BliKVM V2 PCIe and BliKVM V3 Hat - pcf8563
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#blikvm-v4-pcf8563">
     BliKVM V4 - pcf8563
   </a>
@@ -461,10 +471,10 @@
 </a>
 <h1 id="rtc"><strong>RTC时钟</strong></h1>
 <p>RTC（Real-Time Clock，实时时钟）的作用是提供设备或系统的实时时间和日期信息。它是一个独立的时钟芯片或模块，具有自己的电源，可以在设备关闭或断电时仍然保持时间的准确性。因国际快递电池不方便邮寄问题，出厂硬件无电池，需用户自己购买(纽扣电池型号CR1220)。BliKVM不同硬件版本上使用的RTC时钟型号不完全一样，使用方法也略有不同。</p>
-<h2 id="blikvm-v4-pcf8563"><strong>BliKVM V4 - pcf8563</strong></h2>
+<h2 id="blikvm-v2-pcie-and-blikvm-v3-hat-pcf8563"><strong>BliKVM V2 PCIe and BliKVM V3 Hat - pcf8563</strong></h2>
 <div class="admonition info">
 <p class="admonition-title">1. 检查i2c总线上是否正常识别到了pcf8563 RTC时钟硬件，pcf8563的i2c地址是x51，本节所有命令均需在root权限下，执行下面的命令能正确查看到x51即证明rtc时钟已被i2c总线正确识别到。</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>root@mangopimcore:~# i2cdetect -y 0
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>root@mangopimcore:~# i2cdetect -y 1
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>00:                         -- -- -- -- -- -- -- --
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -478,18 +488,49 @@
 </div>
 <div class="admonition info">
 <p class="admonition-title">2. 向Linux 系统的i2c子系统注册一个新的i2c设备，该设备的型号是 pcf8563，设备的i2c地址为 0x51。再使用<code>ls /dev | grep rtc</code>命令查看是否正确出现rtc1设备，出现即注册成功。</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>echo pcf8563 0x51 &gt; /sys/class/i2c-adapter/i2c-0/new_device
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>echo pcf8563 0x51 &gt; /sys/class/i2c-adapter/i2c-1/new_device
 </code></pre></div>
 </div>
 <div class="admonition info">
 <p class="admonition-title">3. 将当前系统时间设置为rtc时钟时间。</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>hwclock -f /dev/rtc1 -w
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>hwclock -f /dev/rtc0 -w
 </code></pre></div>
 </div>
 <div class="admonition info">
 <p class="admonition-title">4. 从rtc时钟读取时间，如果能读取到时间即表明rtc模块正常。</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>root@mangopimcore:~# hwclock -f /dev/rtc1 -r
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>root@mangopimcore:~# hwclock -f /dev/rtc0 -r
 <a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>2023-05-28 05:04:08.679152-02:30
+</code></pre></div>
+</div>
+<h2 id="blikvm-v4-pcf8563"><strong>BliKVM V4 - pcf8563</strong></h2>
+<div class="admonition info">
+<p class="admonition-title">1. 检查i2c总线上是否正常识别到了pcf8563 RTC时钟硬件，pcf8563的i2c地址是x51，本节所有命令均需在root权限下，执行下面的命令能正确查看到x51即证明rtc时钟已被i2c总线正确识别到。</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>root@mangopimcore:~# i2cdetect -y 0
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>    0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>00:                         -- -- -- -- -- -- -- --
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a>30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a>40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a>50: -- 51 -- -- -- -- -- -- -- -- -- -- -- -- -- --
+<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a>60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a>70: -- -- -- -- -- -- -- --
+</code></pre></div>
+</div>
+<div class="admonition info">
+<p class="admonition-title">2. 向Linux 系统的i2c子系统注册一个新的i2c设备，该设备的型号是 pcf8563，设备的i2c地址为 0x51。再使用<code>ls /dev | grep rtc</code>命令查看是否正确出现rtc1设备，出现即注册成功。</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>echo pcf8563 0x51 &gt; /sys/class/i2c-adapter/i2c-0/new_device
+</code></pre></div>
+</div>
+<div class="admonition info">
+<p class="admonition-title">3. 将当前系统时间设置为rtc时钟时间。</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>hwclock -f /dev/rtc1 -w
+</code></pre></div>
+</div>
+<div class="admonition info">
+<p class="admonition-title">4. 从rtc时钟读取时间，如果能读取到时间即表明rtc模块正常。</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>root@mangopimcore:~# hwclock -f /dev/rtc1 -r
+<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>2023-05-28 05:04:08.679152-02:30
 </code></pre></div>
 </div>
 <hr/>

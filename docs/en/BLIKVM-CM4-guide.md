@@ -6,7 +6,6 @@
 ## **Installation requirements**
 !!! note "If you have an assembly kit, you will need the following things"
     * Raspberry CM4 with 1Gb RAM or more.
-    * MicroSD card (at least 16Gb, class 10 recommended).
     * USB-C to USB-A cable.
     * HDMI cable.
     * Straight Ethernet cable (for the ATX board connection).
