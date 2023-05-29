@@ -26,6 +26,12 @@
 
 ## **4.链接OLED显示屏**
 !!! note "您收到的OLED是未安装支架的，请参考图片进行安装。另外OLED支架为亚克力材料，需要撕去表面的保护膜后使用。"
+    ![connect_OLED](assets/images/BLIKVM-PCIe/oled/install-oled01.png){width="300"}
+    ![connect_OLED](assets/images/BLIKVM-PCIe/oled/install-oled02.png){width="300"}
+    ![connect_OLED](assets/images/BLIKVM-PCIe/oled/install-oled03.png){width="300"}
+    ![connect_OLED](assets/images/BLIKVM-PCIe/oled/install-oled04.png){width="300"}
+    ![connect_OLED](assets/images/BLIKVM-PCIe/oled/install-oled05.png){width="300"}  
+    上面的就是安装步骤，未撕膜的效果，实际使用请撕去保护膜，效果如下：  
     ![connect_OLED](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/connect_OLED.jpg){width="400"}
 
 ## **5.连接HDMI线**

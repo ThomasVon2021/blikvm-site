@@ -26,6 +26,12 @@
 
 ## **4.Connect OLED**
 !!! note "The OLED you received does not have a bracket installed. Please refer to the picture for installation. In addition, OLED support is made of acrylic material, which needs to be used after removing the protective film on the surface."
+    ![connect_OLED](assets/images/BLIKVM-PCIe/oled/install-oled01.png){width="300"}
+    ![connect_OLED](assets/images/BLIKVM-PCIe/oled/install-oled02.png){width="300"}
+    ![connect_OLED](assets/images/BLIKVM-PCIe/oled/install-oled03.png){width="300"}
+    ![connect_OLED](assets/images/BLIKVM-PCIe/oled/install-oled04.png){width="300"}
+    ![connect_OLED](assets/images/BLIKVM-PCIe/oled/install-oled05.png){width="300"}  
+    The above is the installation steps, and the effect of not tearing the film is as follows. In actual use, please remove the protective film.    
     ![connect_OLED](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/connect_OLED.jpg){width="400"}
 
 ## **5.Connect the HDMI cable**
