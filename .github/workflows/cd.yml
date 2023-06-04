@@ -10,7 +10,7 @@ jobs:
     steps:
       # check out the repository
       - name: Checkout    
-        uses: actions/checkout@v2.5.0    
+        uses: actions/checkout@v2  
 
 
       - name: deploy file to server
