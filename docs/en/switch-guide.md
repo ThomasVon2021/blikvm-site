@@ -23,7 +23,7 @@ BliKVM-Switch-V1.0 uses the same hardware solution as XH-HK4401, AG7210 HDMI swi
     ![](assets/images/switch/interface-en3.png){width="600"}
 
 ## **Software configuration**
-!!! info "If you use the BliKVM software, you do not need to do any configuration. Click **MORE** in the lower left corner, find the BliKVM switch column, and then switch. Note that the flashing blue dot of the corresponding channel indicates that the switch insertion is recognized and is in the current channel. If there is no blue dot, the switch insertion is not recognized。"
+!!! info "If you are using BliKVM software and have powered on the switch and connected the cables before starting BliKVM, no additional configuration is needed. BliKVM will automatically detect the switch when it starts. If automatic detection fails, you can manually specify the switch device. First, confirm the device descriptor name of the switch by using the terminal, such as `/dev/ttyUSB0`. Then, edit the `switch_handle` field in `/usr/bin/blikvm/package.json` and assign `/dev/ttyUSB0` to it. Afterward, restart BliKVM. Click **MORE** in the lower left corner, find the BliKVM switch column, and then switch. Note that the flashing blue dot of the corresponding channel indicates that the switch insertion is recognized and is in the current channel. If there is no blue dot, the switch insertion is not recognized。"
     ![](assets/images/switch/blikvm-soft-switch.png){width="600"}
 
 

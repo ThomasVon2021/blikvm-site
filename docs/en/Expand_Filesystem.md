@@ -3,6 +3,7 @@
 If you find that the free space of the raspberry pi SD card or eMMC is smaller than the capacity of the actual SD card or eMMC, you need to do the following to expand the raspberry pi. If you find that the system does not have the raspi config tool, you can use Method 2 (use the GParted partition tool).  
 
 ## Method 1: Use raspi-config tool
+If you are using a mirror after June 2023 and have added a third read-write partition, this method is no longer applicable. Please refer to method 2 and method 3.
 **1.** open raspi-config.
 ```
 sudo raspi-config
@@ -33,7 +34,27 @@ sudo raspi-config
 **4.** Insert the SD card into the device and start it.  
 
 ## Method 3: Use script
-If you are using a PiKVM image, you can run the following script on KVM to automatically expand the space.
+- If you are using a BliKVM image, you can run the following script on KVM to automatically expand the space.
+**1.** Log in to the KVM terminal, confirm that the system has read and write permissions, run `vim expand. sh` on any path, and write the following content to expand.sh
+```
+#!/bin/bash
+set -x
+
+resize_mmcblk0p3() {
+  echo "Resizing mmcblk0p3 partition..."
+  parted /dev/mmcblk0 resizepart 3 100%
+  resize2fs /dev/mmcblk0p3
+  echo "mmcblk0p3 partition resized successfully."
+}
+
+echo "Starting partition resizing..."
+
+resize_mmcblk0p3
+
+echo "Partition resizing completed."
+```
+
+- If you are using a PiKVM image, you can run the following script on KVM to automatically expand the space.
 **1.** Log in to the KVM terminal, confirm that the system has read and write permissions, run `vim expand. sh` on any path, and write the following content to expand.sh
 ```
 #!/bin/bash

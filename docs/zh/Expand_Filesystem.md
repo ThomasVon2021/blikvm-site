@@ -4,6 +4,7 @@
 如果你发现系统并无raspi-config工具，则可使用方法二（使用GParted分区工具）。
 
 ## 方法一 使用raspi-config工具
+如果你使用的2023年6月份后的镜像，因增加了第三个可读写的分区，此方法已经不适用，请参考方案二和方案三。
 **1.** 打开raspi-config系统配置工具
 ```
 sudo raspi-config
@@ -34,7 +35,29 @@ sudo raspi-config
 **4.** 将SD卡插入设备，启动即可。
 
 ## 方法三: 使用脚本
-如果你使用的是PiKVM的镜像，可以在KVM上运行下面的脚本，来自动扩大空间。
+- 如果你使用的是BliKVM镜像，可以在KVM上运行下面的脚本，来自动扩大空间。
+**1.** 终端登录到KVM上，确认系统有可读写权限，在任意路径运行`vim expand.sh`,将下面内容写入到expand.sh中. 
+```
+#!/bin/bash
+set -x
+
+resize_mmcblk0p3() {
+  echo "Resizing mmcblk0p3 partition..."
+  parted /dev/mmcblk0 resizepart 3 100%
+  resize2fs /dev/mmcblk0p3
+  echo "mmcblk0p3 partition resized successfully."
+}
+
+echo "Starting partition resizing..."
+
+resize_mmcblk0p3
+
+echo "Partition resizing completed."
+```
+
+**2.** 终端执行`bash expand.sh`,等待执行完成即可。
+
+- 如果你使用的是PiKVM的镜像，可以在KVM上运行下面的脚本，来自动扩大空间。
 **1.** 终端登录到KVM上，确认系统有可读写权限，在任意路径运行`vim expand.sh`,将下面内容写入到expand.sh中.
 ```
 #!/bin/bash
