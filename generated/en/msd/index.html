@@ -501,10 +501,10 @@
 <p class="admonition-title">1) The following four paths should exist for using the Mass Storage Drive feature in BliKVM.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>/usr/bin/blikvm/ventoy-1.0.88
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>/usr/bin/blikvm/kvmd-msd.sh
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>/opt/bin/msd/user    
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>/opt/bin/msd/ventoy
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>/mnt/msd/user    
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>/mnt/msd/ventoy
 </code></pre></div>
-<p>The <code>/opt/bin/msd/user</code> path is particularly important as it is used to store the images that will be mounted on the virtual machine's mass storage drive. If you are using the latest official image of BliKVM and it is fully configured, these paths should already exist and you won't need to check. However, if you have installed BliKVM manually or modified the configuration, it's a good idea to confirm that these paths exist before proceeding.</p>
+<p>The <code>/mnt/msd/user</code> path is particularly important as it is used to store the images that will be mounted on the virtual machine's mass storage drive. If you are using the latest official image of BliKVM and it is fully configured, these paths should already exist and you won't need to check. However, if you have installed BliKVM manually or modified the configuration, it's a good idea to confirm that these paths exist before proceeding.</p>
 </div>
 <div class="admonition info">
 <p class="admonition-title">2) When you log in to BliKVM using SSH, you may find that some system directories and files are read-only, which can prevent you from making changes to the system. By executing the <code>sudo rw</code> command, you can temporarily switch the system permission to writable, allowing you to make changes to the system files.</p>
@@ -512,7 +512,7 @@
 <div class="admonition info">
 <p class="admonition-title">3) The <code>scp</code> command is used to securely copy files between remote and local hosts. In this case, we are using <code>scp</code> to copy an ISO file from our local PC to the BliKVM device so that we can mount it on the virtual machine's mass storage drive.</p>
 <p>Here's an example command:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>scp /path/to/local/iso blikvm@xxx.xxx.xxx.xxx:/opt/bin/msd/user/
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>scp /path/to/local/iso blikvm@xxx.xxx.xxx.xxx:/mnt/msd/user/
 </code></pre></div>
 <p>Replace /path/to/local/iso with the path to your ISO file on your local PC and xxx.xxx.xxx.xxx with the IP address of your BliKVM device. You will also need to enter the password for the BliKVM user when prompted.</p>
 </div>
@@ -520,12 +520,12 @@
 <p class="admonition-title">Please note that this is just one way to upload the ISO file to the specified path.</p>
 </div>
 <div class="admonition info">
-<p class="admonition-title">4) After you have copied the ISO file to the /opt/bin/msd/user/ directory on the BliKVM device, you need to execute the make command to create the virtual USB mass storage drive with the ISO file.</p>
+<p class="admonition-title">4) After you have copied the ISO file to the /mnt/msd/user/ directory on the BliKVM device, you need to execute the make command to create the virtual USB mass storage drive with the ISO file.</p>
 <p>Here's how you can do it:</p>
-<p>If the /opt/bin/msd/user directory contains only one ISO file, run the following command:</p>
+<p>If the /mnt/msd/user directory contains only one ISO file, run the following command:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>sudo bash /usr/bin/blikvm/kvmd-msd.sh make
 </code></pre></div>
-<p>If the /opt/bin/msd/user directory contains multiple ISO files, run the following command, replacing xxx.iso with the name of the ISO file you want to use:</p>
+<p>If the /mnt/msd/user directory contains multiple ISO files, run the following command, replacing xxx.iso with the name of the ISO file you want to use:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>sudo bash /usr/bin/blikvm/kvmd-msd.sh make xxx.iso
 </code></pre></div>
 </div>

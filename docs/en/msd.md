@@ -12,11 +12,11 @@ Note: the size of the MSD is limited by the size of your sd card or eMMC module.
     ```
     /usr/bin/blikvm/ventoy-1.0.88
     /usr/bin/blikvm/kvmd-msd.sh
-    /opt/bin/msd/user    
-    /opt/bin/msd/ventoy
+    /mnt/msd/user    
+    /mnt/msd/ventoy
     ```
 
-    The `/opt/bin/msd/user` path is particularly important as it is used to store the images that will be mounted on the virtual machine's mass storage drive. If you are using the latest official image of BliKVM and it is fully configured, these paths should already exist and you won't need to check. However, if you have installed BliKVM manually or modified the configuration, it's a good idea to confirm that these paths exist before proceeding.
+    The `/mnt/msd/user` path is particularly important as it is used to store the images that will be mounted on the virtual machine's mass storage drive. If you are using the latest official image of BliKVM and it is fully configured, these paths should already exist and you won't need to check. However, if you have installed BliKVM manually or modified the configuration, it's a good idea to confirm that these paths exist before proceeding.
 
 !!! info "2) When you log in to BliKVM using SSH, you may find that some system directories and files are read-only, which can prevent you from making changes to the system. By executing the `sudo rw` command, you can temporarily switch the system permission to writable, allowing you to make changes to the system files."
 
@@ -25,24 +25,24 @@ Note: the size of the MSD is limited by the size of your sd card or eMMC module.
     Here's an example command:
 
     ```
-    scp /path/to/local/iso blikvm@xxx.xxx.xxx.xxx:/opt/bin/msd/user/
+    scp /path/to/local/iso blikvm@xxx.xxx.xxx.xxx:/mnt/msd/user/
     ```
 
     Replace /path/to/local/iso with the path to your ISO file on your local PC and xxx.xxx.xxx.xxx with the IP address of your BliKVM device. You will also need to enter the password for the BliKVM user when prompted.
 
 !!! warning "Please note that this is just one way to upload the ISO file to the specified path."
 
-!!! info "4) After you have copied the ISO file to the /opt/bin/msd/user/ directory on the BliKVM device, you need to execute the make command to create the virtual USB mass storage drive with the ISO file."
+!!! info "4) After you have copied the ISO file to the /mnt/msd/user/ directory on the BliKVM device, you need to execute the make command to create the virtual USB mass storage drive with the ISO file."
 
     Here's how you can do it:
 
-    If the /opt/bin/msd/user directory contains only one ISO file, run the following command:
+    If the /mnt/msd/user directory contains only one ISO file, run the following command:
 
     ```
     sudo bash /usr/bin/blikvm/kvmd-msd.sh make
     ```
 
-    If the /opt/bin/msd/user directory contains multiple ISO files, run the following command, replacing xxx.iso with the name of the ISO file you want to use:
+    If the /mnt/msd/user directory contains multiple ISO files, run the following command, replacing xxx.iso with the name of the ISO file you want to use:
 
     ```
     sudo bash /usr/bin/blikvm/kvmd-msd.sh make xxx.iso

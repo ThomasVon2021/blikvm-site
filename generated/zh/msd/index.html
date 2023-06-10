@@ -480,8 +480,8 @@
 <p class="admonition-title">1. 确认系统存在下面4个路径。如果你使用的是最新的BliKVM镜像，无需进行检查。其中/opt/bin/msd/user路径用于存放系统镜像。</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>/usr/bin/blikvm/ventoy-1.0.88
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>/usr/bin/blikvm/kvmd-msd.sh
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>/opt/bin/msd/user    
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>/opt/bin/msd/ventoy
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>/mnt/msd/user    
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>/mnt/msd/ventoy
 </code></pre></div>
 </div>
 <div class="admonition info">
@@ -491,7 +491,7 @@
 </div>
 <div class="admonition info">
 <p class="admonition-title">3. 在你控制端的电脑，可以在终端使用下列命令，将iso镜像文件拷贝到BliKVM镜像的指定路径下。</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>    scp ***.iso blikvm@xxx.xxx.xxx.xxx:/opt/bin/msd/user/
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>    scp ***.iso blikvm@xxx.xxx.xxx.xxx:/mnt/msd/user/
 </code></pre></div>
 </div>
 <div class="admonition warning">
@@ -500,10 +500,10 @@
 <div class="admonition info">
 <p class="admonition-title">4. 通过使用下列两种命令中的一个，将镜像拷贝到模拟的U盘中。U盘默认大小设置的为5GB，如果你需要更大的空间，你需要修改kvmd-msd.sh脚本。</p>
 <ul>
-<li>如果 /opt/bin/msd/user 路径下只有一个镜像文件, 你可以直接使用此命令. 
+<li>如果 /mnt/msd/user 路径下只有一个镜像文件, 你可以直接使用此命令. 
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>    sudo bash /usr/bin/blikvm/kvmd-msd.sh make
 </code></pre></div></li>
-<li>如果 /opt/bin/msd/user 路径下有不止一个镜像文件, 你可以使用下列文件指定. <strong>xxx.iso</strong> 表示镜像的名称.
+<li>如果 /mnt/msd/user 路径下有不止一个镜像文件, 你可以使用下列文件指定. <strong>xxx.iso</strong> 表示镜像的名称.
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>    sudo bash /usr/bin/blikvm/kvmd-msd.sh make xxx.iso
 </code></pre></div></li>
 </ul>

@@ -1,7 +1,7 @@
 # **U盘设备模拟**
 !!! info "重装系统视频"
     <iframe src="//player.bilibili.com/player.html?aid=227573682&bvid=BV1yh41177A6&cid=1099326734&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-    
+
 BliKVM支持U盘设备模拟，通过此功能可以进行远程挂载镜像，进行重装系统。
 
 ## 手动 (不使用Web UI)
@@ -10,8 +10,8 @@ BliKVM支持U盘设备模拟，通过此功能可以进行远程挂载镜像，�
     ```
 	/usr/bin/blikvm/ventoy-1.0.88
 	/usr/bin/blikvm/kvmd-msd.sh
-	/opt/bin/msd/user    
-	/opt/bin/msd/ventoy
+	/mnt/msd/user    
+	/mnt/msd/ventoy
     ```
 
 !!! info "2. 通过SSH登陆到BliKVM终端，用户名和密码均为blikvm，通过rw命令，使只读系统变为可写系统。"
@@ -21,16 +21,16 @@ BliKVM支持U盘设备模拟，通过此功能可以进行远程挂载镜像，�
 
 !!! info "3. 在你控制端的电脑，可以在终端使用下列命令，将iso镜像文件拷贝到BliKVM镜像的指定路径下。"
     ```
-        scp ***.iso blikvm@xxx.xxx.xxx.xxx:/opt/bin/msd/user/
+        scp ***.iso blikvm@xxx.xxx.xxx.xxx:/mnt/msd/user/
     ```	
 !!! warning "当然，你也可以通过其他任何你熟悉的方式将iso镜像文件拷贝到指定路径下。"
 	
 !!! info "4. 通过使用下列两种命令中的一个，将镜像拷贝到模拟的U盘中。U盘默认大小设置的为5GB，如果你需要更大的空间，你需要修改kvmd-msd.sh脚本。"
-    - 如果 /opt/bin/msd/user 路径下只有一个镜像文件, 你可以直接使用此命令. 
+    - 如果 /mnt/msd/user 路径下只有一个镜像文件, 你可以直接使用此命令. 
     ```
         sudo bash /usr/bin/blikvm/kvmd-msd.sh make
     ```
-    - 如果 /opt/bin/msd/user 路径下有不止一个镜像文件, 你可以使用下列文件指定. **xxx.iso** 表示镜像的名称.
+    - 如果 /mnt/msd/user 路径下有不止一个镜像文件, 你可以使用下列文件指定. **xxx.iso** 表示镜像的名称.
     ```
        	sudo bash /usr/bin/blikvm/kvmd-msd.sh make xxx.iso
     ```
