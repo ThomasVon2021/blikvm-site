@@ -147,3 +147,11 @@ As a first step, we recommend carefully reading our documentation. Most steps to
 
 ??? question "In some board like BLIKVM-PCIe or BLIKVM-CM4-V2.2 has boot pin, how do I connect?"
     If you short them, CM4 will not start normally, but will enter the burning image mode. If your hardware version of boot has only two pins, use the jumper cap to connect the two pins as a short circuit. If you do not use the jumper cap or plug it into one pin, CM4 will start normally. If you use three boot pins of the hardware version, use the jumper cap to connect GND and another non-GND pin to indicate short circuit, and plug the jumper cap on the two GND pins or do not use it, CM4 will start normally.
+
+## Web problems
+
+??? question "What ports does BliKVM OS occupy, and how should it be forwarded when using a public server?"
+    * The web interface uses the HTTP protocol and occupies port 80.
+    * If you are using hardware versions V1, V2, or V3 with web-rtc transmission, the port is 8188.
+    * If you are using hardware version V4 with MJPEG transmission, the port is 8008.
+    * Please note that the ports cannot be modified; only port forwarding can be configured.

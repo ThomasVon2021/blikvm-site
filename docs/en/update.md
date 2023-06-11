@@ -25,6 +25,17 @@
     ro
     ```
    Observe the output of the terminal. When you see the message of successful upgrade, the terminal enters reboot, and the reboot takes effect.
+
+!!! warning "If you are unable to update successfully due to network issues, you can download the latest release.tar.gz package on another PC with a stable network connection and follow the instructions below for installation."
+    SSH into the device terminal and use `tar -zxvf release.tar.gz` to extract the release.tar.gz file.
+    ```
+    rw
+    sudo -i
+    cd /your release path/
+    python3 install_release.py --releasepath=./
+    ro
+    ```
+    You can compare the versions before and after in /usr/bin/blikvm/package.json. If you have upgraded to the specified version, the installation is successful, and you can reboot for the changes to take effect.
     
 ## **Web UI update**
 

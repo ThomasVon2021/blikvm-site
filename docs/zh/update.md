@@ -24,6 +24,17 @@
     ro
     ```
     观察终端输出，当看到升级升级成功消息提醒时，终端输入reboot，重启生效。
+
+!!! warning "若您因网络原因，一直无法更新成功，可以采用在其它网络ok的PC上下载最新的release.tar.gz包，然后按照以下命令进行安装。"
+    ssh进入设备终端，并使用`tar -zxvf release.tar.gz`解压release.tar.gz。
+    ```
+    rw
+    sudo -i
+    cd /your release path/
+    python3 install_release.py --releasepath=./
+    ro 
+    ```
+    可以观察/usr/bin/blikvm/package.json前后的版本对比，若升级到了指定版本，则成功，重启生效。
     
 ## **Web界面更新**
 
