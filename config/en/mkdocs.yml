@@ -81,6 +81,7 @@ nav:
           - "illustrated instructions": BLIKVM-PCIe-installation.md
     - "Network":
         - "Tailscale VPN": tailscale.md
+        - "Set Static IP ": static_ip.md
     - "Software":
         - "Upgrade": update.md
         - "keyboard": hid.md

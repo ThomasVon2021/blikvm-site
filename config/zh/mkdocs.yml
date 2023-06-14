@@ -81,6 +81,7 @@ nav:
           - "安装说明": BLIKVM-PCIe-installation-zh.md
     - "网络":
         - "Tailscale VPN": tailscale.md
+        - "设置静态IP": static_ip.md
     - "软件说明":
         - "更新软件": update.md
         - "键鼠": hid.md
