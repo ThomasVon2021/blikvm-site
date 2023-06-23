@@ -100,6 +100,8 @@ nav:
         - "switch切换器手册": switch-guide.md
     - "外围设备":
         - "串口终端": serial_over_usb.md
+    - "开发者":
+        - "制作镜像": make-image.md
 plugins:
   - glightbox
   - git-revision-date-localized:

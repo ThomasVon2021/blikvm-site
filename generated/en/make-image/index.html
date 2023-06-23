@@ -34,7 +34,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#config-auto-expand">
+<a class="md-skip" href="#make-your-own-image">
           Skip to content
         </a>
 </div>
@@ -431,26 +431,9 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          make image
-          <span class="md-nav__icon md-icon"></span>
-</label>
 <a class="md-nav__link md-nav__link--active" href="./">
         make image
       </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#config-auto-expand">
-    Config auto expand
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -464,17 +447,6 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#config-auto-expand">
-    Config auto expand
-  </a>
-</li>
-</ul>
 </nav>
 </div>
 </div>
@@ -484,45 +456,27 @@
 <a class="md-content__button md-icon" href="https://github.com/ThomasVon2021/blikvm-site/edit/master/docs/en/make-image.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
-<h1>make image</h1>
-<h2 id="config-auto-expand">Config auto expand</h2>
-<p>Before make image.
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo vim /boot/cmdline.txt
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>##  Add after rootwait
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>quiet init=/usr/lib/raspberrypi-sys-mods/firstboot
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>## it may be like: console=serial0,115200 console=tty1 root=PARTUUID=b1214a26-02 rootfstype=ext4 fsck.repair=yes rootwait quiet init=/usr/lib/raspberrypi-sys-mods/firstboot
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>## add resize2fs_once file
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>sudo vim /etc/init.d/resize2fs_once
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>## Add the following to the resize2fs_once file
-<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>
-<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>#!/bin/sh
-<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>### BEGIN INIT INFO
-<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a># Provides:          resize2fs_once
-<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a># Required-Start:
-<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a># Required-Stop:
-<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a># Default-Start: 3
-<a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a># Default-Stop:
-<a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a># Short-Description: Resize the root filesystem to fill partition
-<a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a># Description:
-<a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a>### END INIT INFO
-<a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a>. /lib/lsb/init-functions
-<a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a>case "$1" in
-<a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a>  start)
-<a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a>    log_daemon_msg "Starting resize2fs_once"
-<a href="#__codelineno-0-25" id="__codelineno-0-25" name="__codelineno-0-25"></a>    ROOT_DEV=$(findmnt / -o source -n) &amp;&amp;
-<a href="#__codelineno-0-26" id="__codelineno-0-26" name="__codelineno-0-26"></a>    resize2fs $ROOT_DEV &amp;&amp;
-<a href="#__codelineno-0-27" id="__codelineno-0-27" name="__codelineno-0-27"></a>    update-rc.d resize2fs_once remove &amp;&amp;
-<a href="#__codelineno-0-28" id="__codelineno-0-28" name="__codelineno-0-28"></a>    rm /etc/init.d/resize2fs_once &amp;&amp;
-<a href="#__codelineno-0-29" id="__codelineno-0-29" name="__codelineno-0-29"></a>    log_end_msg $?
-<a href="#__codelineno-0-30" id="__codelineno-0-30" name="__codelineno-0-30"></a>    ;;
-<a href="#__codelineno-0-31" id="__codelineno-0-31" name="__codelineno-0-31"></a>  *)
-<a href="#__codelineno-0-32" id="__codelineno-0-32" name="__codelineno-0-32"></a>    echo "Usage: $0 start" &gt;&amp;2
-<a href="#__codelineno-0-33" id="__codelineno-0-33" name="__codelineno-0-33"></a>    exit 3
-<a href="#__codelineno-0-34" id="__codelineno-0-34" name="__codelineno-0-34"></a>    ;;
-<a href="#__codelineno-0-35" id="__codelineno-0-35" name="__codelineno-0-35"></a>esac
+<h1 id="make-your-own-image">Make your own image</h1>
+<p>When you have made modifications to an image and want to create your own image, you can follow the steps below on Linux to create a minimal image.</p>
+<ol>
+<li>
+<p>Firstly, use the <code>gparted</code> software to open the SD card of the image you want to create. Use <code>gparted</code> to partition the unused space and set it as unallocated. This ensures that this portion of empty space without any valid content is not included in the image creation.
+   <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/make-image/gparted.png"><img alt="Image title" src="../assets/images/make-image/gparted.png" width="400"/></a></p>
+</li>
+<li>
+<p>Next, use the <code>fdisk</code> command to view the size of the available space, as shown in the following image, which is 10151935.
+   <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/make-image/fdisk.png"><img alt="Image title" src="../assets/images/make-image/fdisk.png" width="400"/></a></p>
+</li>
+<li>
+<p>Then, use the <code>dd</code> command to write to an empty img file. Set the <code>count</code> value to be greater than the size of the volume end obtained from <code>fdisk</code> by at least 1.
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>touch blikvm-armbian-v4-20230623.img
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>sudo dd if=/dev/sdb of=./blikvm-armbian-v4-20230623.img bs=512 count=10151936
 </code></pre></div></p>
+</li>
+<li>
+<p>Wait for the <code>dd</code> command to finish executing.</p>
+</li>
+</ol>
 <hr/>
 <div class="md-source-file">
 <small>

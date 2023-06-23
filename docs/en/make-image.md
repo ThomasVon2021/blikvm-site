@@ -1,41 +1,18 @@
+# Make your own image
 
-## Config auto expand
-Before make image.
+When you have made modifications to an image and want to create your own image, you can follow the steps below on Linux to create a minimal image.
+
+1. Firstly, use the `gparted` software to open the SD card of the image you want to create. Use `gparted` to partition the unused space and set it as unallocated. This ensures that this portion of empty space without any valid content is not included in the image creation.
+   ![Image title](assets/images/make-image/gparted.png){width="400"}
+
+2. Next, use the `fdisk` command to view the size of the available space, as shown in the following image, which is 10151935.
+   ![Image title](assets/images/make-image/fdisk.png){width="400"}
+
+3. Then, use the `dd` command to write to an empty img file. Set the `count` value to be greater than the size of the volume end obtained from `fdisk` by at least 1.
 ```
-sudo vim /boot/cmdline.txt
-##  Add after rootwait
-quiet init=/usr/lib/raspberrypi-sys-mods/firstboot
-## it may be like: console=serial0,115200 console=tty1 root=PARTUUID=b1214a26-02 rootfstype=ext4 fsck.repair=yes rootwait quiet init=/usr/lib/raspberrypi-sys-mods/firstboot
-
-## add resize2fs_once file
-sudo vim /etc/init.d/resize2fs_once
-
-## Add the following to the resize2fs_once file
-
-#!/bin/sh
-### BEGIN INIT INFO
-# Provides:          resize2fs_once
-# Required-Start:
-# Required-Stop:
-# Default-Start: 3
-# Default-Stop:
-# Short-Description: Resize the root filesystem to fill partition
-# Description:
-### END INIT INFO
-. /lib/lsb/init-functions
-case "$1" in
-  start)
-    log_daemon_msg "Starting resize2fs_once"
-    ROOT_DEV=$(findmnt / -o source -n) &&
-    resize2fs $ROOT_DEV &&
-    update-rc.d resize2fs_once remove &&
-    rm /etc/init.d/resize2fs_once &&
-    log_end_msg $?
-    ;;
-  *)
-    echo "Usage: $0 start" >&2
-    exit 3
-    ;;
-esac
-
+touch blikvm-armbian-v4-20230623.img
+sudo dd if=/dev/sdb of=./blikvm-armbian-v4-20230623.img bs=512 count=10151936
 ```
+
+4. Wait for the `dd` command to finish executing.
+
