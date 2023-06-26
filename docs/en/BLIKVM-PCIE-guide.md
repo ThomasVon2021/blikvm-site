@@ -31,7 +31,7 @@ BLIKVM PCIe is a PCIe add-in card based on Raspberry Pi CM4 for KVM Over IP. Thi
     Fixed HDMI back power issue.
 
 !!! note "**USB-PC**"
-    There are two USB-PC ports on the product, and users can choose any USB-PC port.
+    The BLIKVM PCIe card provides two USB interfaces, one is PC-IN (type c interface) and the other is USB-PC2 (pin interface). The purpose of these two interfaces is to connect to the USB of the controlled computer, used to control the mouse and keyboard. At the same time, only one interface can be used. The purpose of designing two interfaces is to directly use USB PC2 when the user's PC host has a row pin USB interface, which will make the wiring more concise.
 
 !!! note "**POWER-IN**"
     When using PoE power supply, there is no need to connect the PWR-IN port. When not using PoE power supply, connect the PWR-IN port to a standard 5V/3A USB power supply.
