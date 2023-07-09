@@ -39,7 +39,9 @@ BLIKVM是一款开源软件的KVM专业设备，目前有3个版本，CM4 Board,
 * 账号密码认证
 
 ## **Guide**
-[1.BLIKVM CM4 版本 ](./BLIKVM-CM4-guide.md)  
-[2.BLIKVM HAT 版本 ](./BLIKVM-HAT-guide.md)   
-[3.BLIKVM PCIE 版本 ](./BLIKVM-PCIE-guide-zh.md)   
+[1.BliKVM v1 CM4 版本 ](./BLIKVM-CM4-guide.md) 
+[2.BliKVM v2 PCIe 版本 ](./BLIKVM-PCIE-guide-zh.md)  
+[3.BliKVM v3 HAT 版本 ](./BLIKVM-HAT-guide.md)  
+[4.BliKVM v4 版本 ](./BliKVM-v4-guide.md)   
+  
 

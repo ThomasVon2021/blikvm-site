@@ -12,7 +12,7 @@
 
 ## Download the image
 ### BLIKVM software
-!!! info "BLIKVM镜像树莓派4B和CM4共用一个镜像"
+!!! info "BLIKVM镜像,其中"
     * **[BLIKVM image ](https://zcwrego195.feishu.cn/drive/folder/fldcn0KhmkuC2DC8nKWcHAMLA6f)**   
     Web UI风格如下:  
     ![Image title](assets/images/flash_os/english-web-ui.png){width="300"}

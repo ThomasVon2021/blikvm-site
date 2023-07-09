@@ -5,7 +5,7 @@
     3. PiKVM OS为arch linux；
     4. BLIKVM OS树莓派系列为debian系统，H616系列为armbian系统；
 
-## **在树莓派debian系统上使用raspi-config进行wifi链接**
+## **v1，v2，v3硬件使用的为树莓派debian系统，使用raspi-config进行wifi链接**
 
 1. 登录ssh,命令: ssh blikvm@ip
 2. 系统重加载为可写, 命令: rw
@@ -18,4 +18,23 @@
 9. 这时会回到步骤4的界面,按tab键选择<Finish>,回车
 10. 查看是否连上wifi, 命令: ifconfig wlan0 ,如果看到获取到ip就是已经连上了
 11. 将系统挂载为只读, 命令: ro
+
+## **v4硬件使用的为armbian系统，使用armbian-config**
+
+1. 登录ssh,命令: ssh blikvm@ip，登录到 Armbian 系统。
+2. 输入以下命令以启动 `armbian-config` 工具：
+   ```
+   sudo armbian-config
+   ```
+3. 在 `armbian-config` 菜单中，使用方向键和回车键导航和选择选项。
+4. 使用方向键向下滚动到 "Network" 选项，并按回车键进入子菜单。
+5. 在 "Network" 子菜单中，选择 "Wireless" 选项并按回车键进入 Wi-Fi 配置菜单。
+6. 在 Wi-Fi 配置菜单中，选择 "Connect to Wi-Fi" 选项并按回车键进入 Wi-Fi 连接设置。
+7. `armbian-config` 将列出可用的无线网络接口和已配置的网络。选择要连接的无线网络接口并按回车键。
+8. `armbian-config` 将显示可用的 Wi-Fi 网络列表。使用方向键选择要连接的 Wi-Fi 网络并按回车键。
+9. 如果 Wi-Fi 网络受到密码保护，`armbian-config` 将提示您输入 Wi-Fi 密码。输入密码并按回车键。
+10. 等待片刻，Armbian 系统将尝试连接到指定的 Wi-Fi 网络。如果连接成功，您将在屏幕上看到相应的消息。
+11. 退出 `armbian-config` 工具。
+
+请注意，上述步骤中的菜单选项和配置可能会根据不同版本的 Armbian 系统略有不同。确保根据您的系统版本和配置进行相应的操作。
 
