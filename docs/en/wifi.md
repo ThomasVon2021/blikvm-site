@@ -5,7 +5,7 @@
     3. PiKVM OS is arch linux;
     4. BLIKVM OS raspberry pi series is debian system, and H616 series is armbian system;
 
-## **Use raspi-config for wifi configure on raspberry pi debian system**
+## **v1 v2 v3 use raspi-config for wifi configure on raspberry pi debian system**
 
 1. Log in to ssh, command: ssh blikvm@ip
 2. The system is reloaded as writable. Command: rw
@@ -19,3 +19,21 @@
 10. Check whether to connect to wifi. Command: ifconfig wlan0. If you see the ip obtained, you are connected
 11. Mount the system as read-only. Command: ro
 
+## **v4 Hardware using Armbian System with armbian-config**
+
+1. Log in via SSH using the command: `ssh blikvm@ip` to access the Armbian system.
+2. Enter the following command to launch the `armbian-config` tool:
+```
+sudo armbian-config
+```
+3. In the `armbian-config` menu, navigate and select options using the arrow keys and press Enter.
+4. Scroll down to the "Network" option using the arrow keys and press Enter to enter the submenu.
+5. In the "Network" submenu, select the "Wireless" option and press Enter to enter the Wi-Fi configuration menu.
+6. In the Wi-Fi configuration menu, select the "Connect to Wi-Fi" option and press Enter to enter the Wi-Fi connection setup.
+7. `armbian-config` will list the available wireless interfaces and already configured networks. Select the wireless interface you want to connect to and press Enter.
+8. `armbian-config` will display the list of available Wi-Fi networks. Use the arrow keys to select the Wi-Fi network you want to connect to and press Enter.
+9. If the Wi-Fi network is password-protected, `armbian-config` will prompt you to enter the Wi-Fi password. Enter the password and press Enter.
+10. Wait for a moment while the Armbian system attempts to connect to the specified Wi-Fi network. If the connection is successful, you will see a corresponding message on the screen.
+11. Exit the `armbian-config` tool.
+
+Please note that the menu options and configurations mentioned above may vary slightly depending on the specific version of the Armbian system. Make sure to follow the appropriate steps based on your system version and configuration.
