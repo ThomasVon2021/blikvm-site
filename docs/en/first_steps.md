@@ -56,7 +56,7 @@ BliKVM storage cards in versions v1, v2, and v3 are mounted in read-only mode. T
 
 
 ## What's next?
-* Set up internet access using [Port Forwarding](./port_forwarding.md) or [Tailscale VPN](./tailscale.md).
+* Set up internet access using [Port Forwarding](./port-forwarding.md) or [Tailscale VPN](./tailscale.md).
 * Explore BLIKVM features using the table of contents on the left.
 * Join our [Discord](https://discord.com/invite/9Y374gUF6C) to contact the community and developers.
 * Check out the [GitHub](https://github.com/ThomasVon2021/blikvm) - BLIKVM is a Open Source project!

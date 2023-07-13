@@ -71,12 +71,12 @@ nav:
         - "BLIKVM Overview": index.md
         - "BliKVM v4 Allwinner guide": BliKVM-v4-guide.md
         - "BliKVM v3 HAT guide": BLIKVM-HAT-guide.md
-        - "BliKVM v2 PCIe guide": BLIKVM-PCIE-guide-zh.md
+        - "BliKVM v2 PCIe guide": BLIKVM-PCIE-guide.md
         - "BliKVM v1 CM4 guide": BLIKVM-CM4-guide.md
         - "First steps": first_steps.md
         - "FAQ": faq.md
     - "Network":
-        - "port forward": port-forwarding.md
+        - "Port forwarding": port-forwarding.md
         - "Tailscale VPN": tailscale.md
         - "Set Static IP ": static_ip.md
         - "Wifi Config": wifi.md
