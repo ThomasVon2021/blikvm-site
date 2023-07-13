@@ -179,6 +179,26 @@
           Getting started
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../BliKVM-v4-guide/">
+        BliKVM v4 guide
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../BLIKVM-HAT-guide/">
+        BliKVM v3 HAT guide
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../BLIKVM-PCIE-guide-zh.md">
+        BliKVM v2 PCIe guide
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../BLIKVM-CM4-guide/">
+        BliKVM v1 CM4 guide
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
@@ -205,6 +225,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#note-on-blikvm-os-terminal-usage">
+    Note on BliKVM OS Terminal Usage
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#whats-next">
     What's next?
   </a>
@@ -228,85 +253,20 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2">
-          Installation instructions
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-label="Installation instructions" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_2">
-<span class="md-nav__icon md-icon"></span>
-          Installation instructions
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2_1" id="__nav_2_1" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_1">
-          HAT version
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-label="HAT version" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_1">
-<span class="md-nav__icon md-icon"></span>
-          HAT version
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../BLIKVM-HAT-guide/">
-        BLIKVM HAT guide
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../BLIHAT-Installation/">
-        illustrated instructions
-      </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../BLIKVM-CM4-guide/">
-        BLIKVM CM4 guide
-      </a>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_3">
-          PCIe version
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-label="PCIe version" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_3">
-<span class="md-nav__icon md-icon"></span>
-          PCIe version
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../BLIKVM-PCIE-guide/">
-        BLIKVM PCIe guide
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../BLIKVM-PCIe-installation/">
-        illustrated instructions
-      </a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3">
           Network
           <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Network" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_3">
+<label class="md-nav__title" for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
           Network
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../port-forwarding/">
+        port forward
+      </a>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../tailscale/">
         Tailscale VPN
@@ -317,19 +277,24 @@
         Set Static IP 
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../wifi/">
+        Wifi Config
+      </a>
+</li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4">
-          Software
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+          Function
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Software" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_4">
+<nav aria-label="Function" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
-          Software
+          Function
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -347,21 +312,6 @@
         RTC clock
       </a>
 </li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_5">
-          Configure
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-label="Configure" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_5">
-<span class="md-nav__icon md-icon"></span>
-          Configure
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../flashing_os/">
         Flashing os
@@ -378,13 +328,8 @@
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../modify_pikvm_image/">
-        config for PiKVM OS
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../wifi/">
-        Wifi Config
+<a class="md-nav__link" href="../serial_over_usb/">
+        Serial-over-USB
       </a>
 </li>
 <li class="md-nav__item">
@@ -396,13 +341,38 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
-<label class="md-nav__link" for="__nav_6">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+          Installation instructions
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Installation instructions" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Installation instructions
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../BLIHAT-Installation/">
+        v3 HAT illustrated instructions
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../BLIKVM-PCIe-installation/">
+        v2 PCIe illustrated instructions
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
           Accessories
           <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Accessories" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_6">
+<label class="md-nav__title" for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
           Accessories
         </label>
@@ -431,33 +401,13 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
-<label class="md-nav__link" for="__nav_7">
-          Peripheral devices
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-label="Peripheral devices" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_7">
-<span class="md-nav__icon md-icon"></span>
-          Peripheral devices
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../serial_over_usb/">
-        Serial-over-USB
-      </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8" id="__nav_8" type="checkbox"/>
-<label class="md-nav__link" for="__nav_8">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
           development
           <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="development" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_8">
+<label class="md-nav__title" for="__nav_6">
 <span class="md-nav__icon md-icon"></span>
           development
         </label>
@@ -465,6 +415,11 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../make-image/">
         make image
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../modify_pikvm_image/">
+        config for PiKVM OS
       </a>
 </li>
 </ul>
@@ -495,6 +450,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#note-on-blikvm-os-terminal-usage">
+    Note on BliKVM OS Terminal Usage
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#whats-next">
     What's next?
   </a>
@@ -522,39 +482,60 @@
 <p>After turning on the power, BLIKVM OS will perform the necessary operations on the memory card.</p>
 </div>
 <h2 id="getting-access-to-blikvm">Getting access to BLIKVM</h2>
-<p>By default, BLIKVM receives a dynamic IP address via DHCP.</p>
+<p>By default, BliKVM receives a dynamic IP address via DHCP. The IP address will be displayed on the BliKVM monitor. If you are using DIY hardware without a monitor, use the following tips:</p>
 <details class="example">
-<summary>Finding BLIKVM in the network</summary>
-<p>To determine the IP address of your BLIKVM, use one of the following methods:</p>
+<summary>Finding BliKVM in the network</summary>
+<p>You can determine the IP address of BliKVM using the following methods:</p>
 <ul>
-<li><strong>Common way:</strong> Open the web interface of your router and find the list of issued IP addresses there. It depends on the router model.</li>
-<li><strong>Linux-only:</strong> Use command <code>arp-scan --localnet</code>.</li>
-<li><strong>Linux, MacOS, Windows:</strong> Download and run <a href="https://angryip.org">Angry IP Scanner</a>.</li>
-<li><strong>Windows PowerShell:</strong> Use command <code>arp -a</code>.</li>
+<li><strong>Common Method:</strong> Access the web interface of your router and look for the allocated IP address list. The specific method depends on the router model.</li>
+<li><strong>Linux Only:</strong> Use the command <code>arp-scan --localnet</code>.</li>
+<li><strong>Linux, macOS, Windows:</strong> Download and run <a href="https://angryip.org">Angry IP Scanner</a>.</li>
+<li><strong>Windows PowerShell:</strong> Use the command <code>arp -a</code>.</li>
 </ul>
-<p>In order to find your RaspberryPi using the arp commands, you need to look for the following MAC Address's: B827EB, DCA632 or E45F01</p>
 </details>
-<p>For future examples, let's assume that your BLIKVM has received the address <strong>192.168.0.100</strong>, which you have successfully detected using the instructions above. Then your device was assigned a hostname: <strong>blikvm</strong>.</p>
+<p>In the example below, let's assume your BliKVM has obtained the address <strong>192.168.0.100</strong>, and you have successfully found that address using the instructions above.</p>
 <details class="example">
-<summary>Access to BLIKVM Web Interface</summary>
-<p>In MOST networks you should be able to reach BLIKVM via any browser with the URL <code>https://192.168.0.100/</code>. Google Chrome (Chromium), Firefox and Safari work best with 0 extensions enabled, if one works but the others do not, this is a browser/extension issue. Its advised you use Private window or Incog mode. Microsoft Edge and Internet Explorer are not supported.
-<strong>The default user is admin, the password is also admin</strong>. After logging in, you will get access to the menu with the main functions.</p>
+<summary>Accessing BliKVM Web Interface</summary>
+<p>In <em>most</em> networks, you can access BliKVM in any browser using the following URL: <code>http://192.168.0.100/</code>. Google Chrome (Chromium), Firefox, and Safari work best with no extensions enabled. If one works and the other does not, it may be an issue with the browser or extensions. It is recommended to use a private browsing window or incognito mode. Internet Explorer and early versions of Microsoft Edge (non-Chromium version) are not supported.</p>
+<p><strong>The default username is <code>admin</code>, and the password is also <code>admin</code>.</strong> Once logged in, you will have access to the main menu with essential functions. You can change system settings and passwords using the web interface's account management feature.</p>
 </details>
+<div class="admonition warning">
+<p class="admonition-title">Note about accessing BliKVM web via http, not https</p>
+</div>
 <details class="example">
-<summary>Access to BLIKVM via SSH</summary>
-<p>SSH is the most common remote access method in the Linux world. BLIKVM is accessible via SSH. This method is used to manage the device:</p>
+<summary>Accessing BliKVM via SSH</summary>
+<p>SSH is the most common method for remote access in the Linux world. You can access BliKVM via SSH. This method is used for managing the device:</p>
 <ul>
-<li><strong>Linux, MacOS:</strong> Open any terminal application and run: <code>ssh blikvm@192.168.0.100</code>.</li>
-<li><strong>Windows:</strong> Use <a href="https://www.putty.org/">PuTTY</a> for this.</li>
+<li><strong>Linux, macOS:</strong> Open any terminal application and run: <code>ssh blikvm@192.168.0.100</code>.</li>
+<li><strong>Windows:</strong> Use <a href="https://www.putty.org/">PuTTY</a> for the operation.</li>
 </ul>
-<p><strong>The default <code>blikvm</code> password is <code>blikvm</code>.</strong></p>
+<p><strong>The default <code>blikvm</code> user password is <code>blikvm</code>.</strong>
+You can use <code>sudo -i</code> to obtain root privileges.</p>
 </details>
 <details class="example">
-<summary>OPTIONAL: Update BLIKVM software</summary>
-<p>See <a href="../update/">this page</a>.</p>
+<summary>Optional: Updating BliKVM Software</summary>
+<p>This section is not mandatory and should only be performed if you are next to the BliKVM for recovery purposes. Refer to the <a href="../update/">Software Update Guide</a> for instructions.</p>
 </details>
+<h2 id="note-on-blikvm-os-terminal-usage">Note on BliKVM OS Terminal Usage</h2>
+<p>Some configuration changes must be made under the <code>root</code> user (i.e., administrator).</p>
+<div class="admonition tip">
+<p class="admonition-title">Obtaining Root Privileges</p>
+<ul>
+<li>If you are logged in via SSH, use <code>sudo -i</code> to obtain root privileges.</li>
+</ul>
+</div>
+<p>BliKVM storage cards in versions v1, v2, and v3 are mounted in read-only mode. This protects the file system from being corrupted in the event of a sudden power outage. To edit any files and make changes, you need to remount the file system in read-write mode. You can determine the current mode by checking if <code>ro</code> or <code>rw</code> is displayed in the terminal.</p>
+<div class="admonition tip">
+<p class="admonition-title">Enabling Write Mode</p>
+<ul>
+<li>To enable write mode, run the command <code>rw</code>.</li>
+<li>To disable write mode, run the command <code>ro</code>.</li>
+<li>If you receive a "Device is busy" message, execute the <code>reboot</code> command.</li>
+</ul>
+</div>
 <h2 id="whats-next">What's next?</h2>
 <ul>
+<li>Set up internet access using <a href="./port_forwarding.md">Port Forwarding</a> or <a href="../tailscale/">Tailscale VPN</a>.</li>
 <li>Explore BLIKVM features using the table of contents on the left.</li>
 <li>Join our <a href="https://discord.com/invite/9Y374gUF6C">Discord</a> to contact the community and developers.</li>
 <li>Check out the <a href="https://github.com/ThomasVon2021/blikvm">GitHub</a> - BLIKVM is a Open Source project!</li>
@@ -569,7 +550,7 @@ Seriously, it's really useful! We've probably already found a solution for it :)
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 28, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 13, 2023</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 24, 2023</span>
@@ -585,7 +566,7 @@ Seriously, it's really useful! We've probably already found a solution for it :)
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: BLIKVM Overview" class="md-footer__link md-footer__link--prev" href=".." rel="prev">
+<a aria-label="Previous: BliKVM v1 CM4 guide" class="md-footer__link md-footer__link--prev" href="../BLIKVM-CM4-guide/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -594,7 +575,7 @@ Seriously, it's really useful! We've probably already found a solution for it :)
 <span class="md-footer__direction">
                 Previous
               </span>
-              BLIKVM Overview
+              BliKVM v1 CM4 guide
             </div>
 </div>
 </a>

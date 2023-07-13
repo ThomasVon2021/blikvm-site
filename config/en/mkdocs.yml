@@ -69,39 +69,37 @@ markdown_extensions:
 nav:
     - "Getting started":
         - "BLIKVM Overview": index.md
+        - "BliKVM v4 guide": BliKVM-v4-guide.md
+        - "BliKVM v3 HAT guide": BLIKVM-HAT-guide.md
+        - "BliKVM v2 PCIe guide": BLIKVM-PCIE-guide-zh.md
+        - "BliKVM v1 CM4 guide": BLIKVM-CM4-guide.md
         - "First steps": first_steps.md
         - "FAQ": faq.md
-    - "Installation instructions":
-        - "HAT version":
-          - "BLIKVM HAT guide": BLIKVM-HAT-guide.md
-          - "illustrated instructions": BLIHAT-Installation.md
-        - "BLIKVM CM4 guide": BLIKVM-CM4-guide.md
-        - "PCIe version":
-          - "BLIKVM PCIe guide": BLIKVM-PCIE-guide.md
-          - "illustrated instructions": BLIKVM-PCIe-installation.md
     - "Network":
+        - "port forward": port-forwarding.md
         - "Tailscale VPN": tailscale.md
         - "Set Static IP ": static_ip.md
-    - "Software":
+        - "Wifi Config": wifi.md
+    - "Function":
         - "Upgrade": update.md
         - "keyboard": hid.md
         - "RTC clock": rtc.md
-    - "Configure":
         - "Flashing os": flashing_os.md
         - "OLED display": OLED-display.md
         - "Expand Filesystem": Expand_Filesystem.md
-        - "config for PiKVM OS": modify_pikvm_image.md
-        - "Wifi Config": wifi.md
+        - "Serial-over-USB": serial_over_usb.md 
         - "USB flash Drive": msd.md
+    - "Installation instructions":
+        - "v3 HAT illustrated instructions": BLIHAT-Installation.md
+        - "v2 PCIe illustrated instructions": BLIKVM-PCIe-installation.md
     - "Accessories":
         - "ATX guide": atx-guide.md
         - "HDMI to CSI & Audio": hdmi-csi-i2s.md
         - "USB splitter": usb-splitter-guide.md
         - "Multiport KVM over IP": switch-guide.md
-    - "Peripheral devices":
-        - "Serial-over-USB": serial_over_usb.md
     - "development":
         - "make image": make-image.md
+        - "config for PiKVM OS": modify_pikvm_image.md
 plugins:
   - glightbox
   - git-revision-date-localized:

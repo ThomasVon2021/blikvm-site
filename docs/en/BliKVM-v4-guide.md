@@ -1,6 +1,11 @@
 # **BliKVM v4**
 
-BliKVM v4 is a ready-to-use, plug-and-play KVM-over-IP device that offers a convenient solution for remote server or workstation management for professional users. It is based on Linux and is completely open source. With BliKVM, you can easily power on/off, restart the computer, configure UEFI/BIOS settings, and perform operating system reinstallations using emulated high-capacity storage devices. BliKVM emulates a keyboard, mouse, and display, all of which can be accessed through a web browser, ensuring a seamless user experience. Its hardware-level access guarantees independence from specific remote ports, protocols, or services, making it a highly flexible and reliable remote management solution!
+![](assets/images/v4/BliKVM-v4-front.png){width="300"}
+![](assets/images/v4/BliKVM-v4-back.png){width="300"} 
+
+BliKVM v4 is a production-ready, plug and play KVM-over-IP device that offers professional users a convenient solution **for remote server or workstation management**. It is based on Linux and fully open source. With BliKVM, you can easily **power on/off, restart your computer, configure UEFI/BIOS settings, and perform OS reinstallation using an emulated Mass Storage Device**. BliKVM simulates a keyboard, mouse, and monitor, all accessible through a web browser, ensuring a seamless user experience. **Its hardware-level access guarantees independence from specific remote ports, protocols, or services**, making it a highly flexible and reliable remote management solution for professionals!
+
+* [BliKVM V4 Datasheet](./Datasheet-BliKVM-v4.md)
 
 ## Installation Requirements
 !!! note "In addition to the v4 kit, you will need the following equipment:"
