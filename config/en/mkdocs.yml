@@ -69,7 +69,7 @@ markdown_extensions:
 nav:
     - "Getting started":
         - "BLIKVM Overview": index.md
-        - "BliKVM v4 guide": BliKVM-v4-guide.md
+        - "BliKVM v4 Allwinner guide": BliKVM-v4-guide.md
         - "BliKVM v3 HAT guide": BLIKVM-HAT-guide.md
         - "BliKVM v2 PCIe guide": BLIKVM-PCIE-guide-zh.md
         - "BliKVM v1 CM4 guide": BLIKVM-CM4-guide.md

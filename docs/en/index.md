@@ -44,7 +44,8 @@ Join our [BLIKVM Discord Community](https://discord.com/invite/9Y374gUF6C) for S
 * Wake-on-LAN  
 
 ## **Guide**
-[1.BLIKVM CM4 version ](./BLIKVM-CM4-guide.md)  
-[2.BLIKVM HAT version ](./BLIKVM-HAT-guide.md)   
-[3.BLIKVM PCIE version ](./BLIKVM-PCIE-guide.md)   
+[1.BLIKVM v1 CM4 version ](./BLIKVM-CM4-guide.md)     
+[2.BLIKVM v2 PCIE version ](./BLIKVM-PCIE-guide.md)    
+[3.BLIKVM v3 HAT version ](./BLIKVM-HAT-guide.md) 
+[4.BliKVM v4 Allwinner version ](./BliKVM-v4-guide.md)   
 

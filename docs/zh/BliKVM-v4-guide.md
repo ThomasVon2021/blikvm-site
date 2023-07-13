@@ -1,4 +1,4 @@
-# **BliKVM v4**
+# **BliKVM v4 Allwinner**
 
 ![](assets/images/v4/BliKVM-v4-front.png){width="300"}
 ![](assets/images/v4/BliKVM-v4-back.png){width="300"}  
@@ -12,6 +12,9 @@ BliKVM v4是一款生产就绪、即插即用的 KVM-over-IP 设备，为专业�
     * HDMI 线缆(至少一根)，若您同时需要使用HDMI环出接口，则需要2根；
     * 网线（结合您需求自备）,使用ATX开关机功能需一根，使用网线上网功能需一根；
     * USB-C转USB-A线缆一根（用于鼠标和键盘数据传输）.
+
+!!! info "BliKVM v4 拆箱，连接，使用参考视频"
+    <iframe src="//player.bilibili.com/player.html?aid=488438623&bvid=BV1NN41127g9&cid=1195577253&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 ## **安装步骤**
 **1.** 打开v4套件包装，根据下面所示的连接示意图，将BliKVM和被控计算机连接起来；
