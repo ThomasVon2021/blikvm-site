@@ -12,7 +12,7 @@
 
 ## Download the image
 ### BLIKVM software
-!!! info "Raspberry 4B and CM4 board use a same BLIKVM software image."
+!!! info "You can find BliKVM v1 CM4, v2 PCIe, v3 HAT, v4 Allwinner BLIKVM software image, v1 v2 v3 use a same image."
     * **[BLIKVM image ](https://zcwrego195.feishu.cn/drive/folder/fldcn0KhmkuC2DC8nKWcHAMLA6f)**  
     The web UI style is as follows:  
     ![Image title](assets/images/flash_os/english-web-ui.png){width="300"}

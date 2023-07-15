@@ -42,7 +42,7 @@ As a first step, we recommend carefully reading our documentation. Most steps to
 
 
 ??? question "Does BLIKVM support sound?"
-    Yes, all version supported.
+    BliKVM v1 CM4, v2 PCIe, v3 HAT version supported， v4 Allwinner not support now.
 
 
 ??? question "Can I power the Pi via PoE?"

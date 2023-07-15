@@ -35,7 +35,7 @@
     在此过程中，100-200ms的延迟已经非常快速了。但我们正在努力进一步提高速度。
 
 ??? question "BLIKVM支持音频吗？"
-    是的，所有版本都支持音频。
+    BliKVM v1 CM4, v2 PCIe, v3 HAT版本支持， v4 Allwinner版本不支持。
 
 ??? question "我可以通过PoE给Pi供电吗？"
     可以！Hat版本和PCIe版本都支持PoE。

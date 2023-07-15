@@ -12,7 +12,7 @@
 
 ## Download the image
 ### BLIKVM software
-!!! info "BLIKVM镜像,其中"
+!!! info "You可以从下面的链接中下载BliKVM v1 CM4, v2 PCIe, v3 HAT, v4 Allwinner的BliKVM镜像, v1 v2 v3使用同一个镜像。"
     * **[BLIKVM image ](https://zcwrego195.feishu.cn/drive/folder/fldcn0KhmkuC2DC8nKWcHAMLA6f)**   
     Web UI风格如下:  
     ![Image title](assets/images/flash_os/english-web-ui.png){width="300"}

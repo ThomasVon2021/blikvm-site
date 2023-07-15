@@ -34,3 +34,16 @@ Please refer to the [ATX Connection Guide](./atx.md).
 
 ## **Video Mode**
 v4 supports a maximum video input of 4K30Hz, and the default transmission resolution is 1920x1080.
+
+### Product List
+
+| BLIKVM v4 Allwinner version            | 1    |
+| -------------------------------------- | ---- |
+| BLIKVM v4                | 1    |
+| WiFi Antenna                | 1    |
+| ATX adapter board                | 1    |
+| ATX Dupont Cables 8pin Male to Male 60cm | 1    |
+| ATX Dupont Cables 8pin Male to Female 60cm | 1    |
+| 1U Rack Mounting Ears               | 2   |
+| M2.5x5 Screws               | 8   |
+| Silicone Bumper Pellets              | 1   |
