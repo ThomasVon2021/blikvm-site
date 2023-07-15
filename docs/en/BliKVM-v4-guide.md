@@ -7,6 +7,21 @@ BliKVM v4 is a production-ready, plug and play KVM-over-IP device that offers pr
 
 * [BliKVM V4 Datasheet](./Datasheet-BliKVM-v4.md)
 
+## Features
+- **Video capture** (HDMI, support 4K@30Hz input)
+- **Keyboard forwarding**
+- **Mouse forwarding**
+- **HDMI video loop through**
+- **ATX** Control the server power using ATX functions
+- **Fullscreen mode**
+- Access via **Web UI**
+- Support **multi language** switching
+- Support **PoE & DC**
+- Support **WiFi**
+- **Serial** console port
+- 1.33 inch **color** display
+- **Real Time Clock (RTC)**  
+
 ## Installation Requirements
 !!! note "In addition to the v4 kit, you will need the following equipment:"
     * Power adapter (5V 3A, USB-A port, or 12V 2A DC port). If you plan to use PoE (Power over Ethernet) or if the USB ports on your controlled computers provide sufficient power, a separate power adapter is not required.
