@@ -310,13 +310,13 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#upload-images-manually-without-web-ui">
-    Upload images manually (without Web UI)
+<a class="md-nav__link" href="#web-ui">
+    Web UI
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#upload-images-through-web-ui">
-    Upload images through Web UI
+<a class="md-nav__link" href="#upload-images-manually-without-web-ui">
+    Upload images manually (without Web UI)
   </a>
 </li>
 </ul>
@@ -425,13 +425,13 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#upload-images-manually-without-web-ui">
-    Upload images manually (without Web UI)
+<a class="md-nav__link" href="#web-ui">
+    Web UI
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#upload-images-through-web-ui">
-    Upload images through Web UI
+<a class="md-nav__link" href="#upload-images-manually-without-web-ui">
+    Upload images manually (without Web UI)
   </a>
 </li>
 </ul>
@@ -451,93 +451,71 @@
 </div>
 <p>BliKVM's USB device simulation feature allows you to remotely mount images on the virtual machine's mass storage drive, making it easy to install or reinstall operating systems and other software. This can be a useful feature for system administrators who need to manage multiple virtual machines remotely. By mounting an image on the mass storage drive, you can quickly and easily set up or configure a new virtual machine without having to physically connect a USB drive or other external storage device.</p>
 <p>Note: the size of the MSD is limited by the size of your sd card or eMMC module.</p>
+<h2 id="web-ui">Web UI</h2>
+<p>Currently, except for uploading images that are not yet supported, all other tasks can be completed through the web UI
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/msd/web-ui.png"><img alt="" src="../assets/images/msd/web-ui.png"/></a></p>
 <h2 id="upload-images-manually-without-web-ui">Upload images manually (without Web UI)</h2>
-<div class="admonition info">
-<p class="admonition-title">1) The following four paths should exist for using the Mass Storage Drive feature in BliKVM.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>/usr/bin/blikvm/ventoy-1.0.88
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>/usr/bin/blikvm/kvmd-msd.sh
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>/mnt/msd/user    
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>/mnt/msd/ventoy
-</code></pre></div>
-<p>The <code>/mnt/msd/user</code> path is particularly important as it is used to store the images that will be mounted on the virtual machine's mass storage drive. If you are using the latest official image of BliKVM and it is fully configured, these paths should already exist and you won't need to check. However, if you have installed BliKVM manually or modified the configuration, it's a good idea to confirm that these paths exist before proceeding.</p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">2) When you log in to BliKVM using SSH, you may find that some system directories and files are read-only, which can prevent you from making changes to the system. By executing the <code>sudo rw</code> command, you can temporarily switch the system permission to writable, allowing you to make changes to the system files.</p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">3) The <code>scp</code> command is used to securely copy files between remote and local hosts. In this case, we are using <code>scp</code> to copy an ISO file from our local PC to the BliKVM device so that we can mount it on the virtual machine's mass storage drive.</p>
-<p>Here's an example command:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>scp /path/to/local/iso blikvm@xxx.xxx.xxx.xxx:/mnt/msd/user/
-</code></pre></div>
-<p>Replace /path/to/local/iso with the path to your ISO file on your local PC and xxx.xxx.xxx.xxx with the IP address of your BliKVM device. You will also need to enter the password for the BliKVM user when prompted.</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Please note that this is just one way to upload the ISO file to the specified path.</p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">4) After you have copied the ISO file to the /mnt/msd/user/ directory on the BliKVM device, you need to execute the make command to create the virtual USB mass storage drive with the ISO file.</p>
-<p>Here's how you can do it:</p>
-<p>If the /mnt/msd/user directory contains only one ISO file, run the following command:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>sudo bash /usr/bin/blikvm/kvmd-msd.sh make
-</code></pre></div>
-<p>If the /mnt/msd/user directory contains multiple ISO files, run the following command, replacing xxx.iso with the name of the ISO file you want to use:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>sudo bash /usr/bin/blikvm/kvmd-msd.sh make xxx.iso
-</code></pre></div>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Note</p>
-<ul>
-<li>The default size of the virtual USB mass storage drive is 5GB. If your ISO file is larger than 5GB, you may need to modify the <code>kvmd-msd.sh</code> script to increase the size of the virtual drive.</li>
-<li>The copy process can take some time, especially if the ISO file is large or if you have a slow network connection. Please be patient and wait for the process to complete</li>
-</ul>
-</div>
-<div class="admonition info">
-<p class="admonition-title">5) Follow this step to expand the size of the USB flash drive. Here's the original instruction with minor edits for clarity</p>
-<p>If you want to expand the size of the USB flash drive, find the following line in the kvmd-msd.sh script:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>sudo dd if=/dev/zero of=ventoy.img bs=1M count=5120 status=progress;
-</code></pre></div>
-<p>To change the size, modify the count value, which is currently set to 5120. For example, if you want to increase the size to 10GB, change it to count=10240. Save the file after making changes."</p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">6) Use the following command to connect the BliKVM device to the MSD</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>sudo bash  /usr/bin/blikvm/kvmd-msd.sh conn
-</code></pre></div>
-</div>
-<div class="admonition info">
-<p class="admonition-title">7) Use the following command to disconnect the BliKVM device to the MSD</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>sudo bash  /usr/bin/blikvm/kvmd-msd.sh disconn
-</code></pre></div>
-</div>
-<div class="admonition info">
-<p class="admonition-title">8) Use the following command to disconnect the BliKVM device to remove the MSD</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>sudo bash  /usr/bin/blikvm/kvmd-msd.sh clean
-</code></pre></div>
-</div>
-<div class="admonition info">
-<p class="admonition-title">9) Now you need to put the system back into read-only mode by executing the <code>sudo ro</code> command.</p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">10) This step involves restarting the PC through the web interface, entering the BIOS settings, and modifying the boot priority to set the BliKVM USB as the first boot option.</p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">11) After completing the previous steps, you can now select the desired operating system and proceed with the installation process. Here are the general steps you can follow</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>a) Power on the BliKVM device.
-<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>b) Enter the BIOS by pressing the corresponding key during startup (usually F2 or Del).
-<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a>c) Set the BliKVM USB as the first boot option.
-<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a>d) Save and exit the BIOS.
-<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a>e) Wait for the BliKVM device to boot from the BliKVM USB.
-<a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a>f) Follow the on-screen instructions to select the desired operating system and configure the installation options.
-<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a>g) When prompted, select the partition where you want to install the operating system.
-<a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a>h) Format the partition if necessary.
-<a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a>i) Proceed with the installation process and wait for it to complete.
-<a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a>j) Once the installation is finished, you can disconnect the blikvm USB and boot from the newly installed operating system.
-</code></pre></div>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Note that the specific steps may vary depending on the operating system you are installing and the installation process itself. It's always a good idea to refer to the installation documentation or seek assistance if you encounter any issues.</p>
-</div>
-<h2 id="upload-images-through-web-ui">Upload images through Web UI</h2>
-<p>Under development</p>
+<ol>
+<li>
+<p>Confirm that the following four paths exist. If you are using the official latest image of blikvm, and it is fully configured, there is no need to check.
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>    /usr/bin/blikvm/ventoy-1.0.88
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    /usr/bin/blikvm/kvmd-msd.sh
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    /mnt/msd/user    
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    /mnt/msd/ventoy
+</code></pre></div></p>
+</li>
+<li>
+<p>SSH logs in to blikvm, executes the rw command, and changes the system permission to writable.
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>    rw
+</code></pre></div></p>
+</li>
+<li>
+<p>In your PC ,use scp cmd send iso file to kvm board. 
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>    scp ***.iso blikvm@xxx.xxx.xxx.xxx:/mnt/msd/user/
+</code></pre></div></p>
+</li>
+<li>
+<p>excute msd cmd.wait until excute end. </p>
+</li>
+<li>If you don't use option paramter：</li>
+<li>The default size of the USB flash disk is 5GB.</li>
+<li>The default filename is scan /mnt/msd/user dir.</li>
+<li>The default msd name is ventoy.
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>    sudo bash /usr/bin/blikvm/kvmd-msd.sh -c make
+</code></pre></div></li>
+<li>If your iso is large than 5GB.You can specify the optional parameter - s xxx, xxx is the Size.</li>
+<li>If you need specify iso ,you can use -f xxx.iso. </li>
+<li>If you want to specify the msd name, you can use -n xxx. 
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>    sudo bash /usr/bin/blikvm/kvmd-msd.sh -c make -s 5 -n ventoy -f xxx.iso
+</code></pre></div></li>
+<li>
+<p>Tips: cp progress slowly, Please be patient. </p>
+</li>
+<li>
+<p>If you want to excute other cmd, you can use other option. c option contains :  make/conn/disconn/clean</p>
+</li>
+<li>
+<p>connect msd
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>    sudo bash  /usr/bin/blikvm/kvmd-msd.sh -c conn
+</code></pre></div></p>
+</li>
+<li>
+<p>disconnect msd
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>    sudo bash  /usr/bin/blikvm/kvmd-msd.sh -c disconn
+</code></pre></div></p>
+</li>
+<li>
+<p>clean msd
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>    sudo bash  /usr/bin/blikvm/kvmd-msd.sh -c clean
+</code></pre></div></p>
+</li>
+<li>
+<p>throuht web restart PC, enter BIOS, modify boot priority,set blikvm USB first.</p>
+</li>
+<li>
+<p>according to step, select operate system , format partition and install system.</p>
+</li>
+</ol>
 <hr/>
 <div class="md-source-file">
 <small>

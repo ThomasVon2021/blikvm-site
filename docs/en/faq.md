@@ -155,3 +155,8 @@ As a first step, we recommend carefully reading our documentation. Most steps to
     * If you are using hardware versions V1, V2, or V3 with web-rtc transmission, the port is 8188.
     * If you are using hardware version V4 with MJPEG transmission, the port is 8008.
     * Please note that the ports cannot be modified; only port forwarding can be configured.
+
+## Raspberry problem
+
+??? question "Can I use both the CM4 version with EMMC and the SD card at the same time?"
+    No, you can't, When designing the CM4 hardware, several pins of the SD card are only valid in the lite version. You can find instructions on the official website of Raspberry Pi.
