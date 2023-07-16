@@ -1,22 +1,23 @@
 
 
-# BliKVM v4 Datasheet
+# BliKVM v4 ALLwinner (H616 SOC)
 
  ![Main](assets/images/v4/Datasheet-BliKVM-v4.assets/Main.png){width="400"}
-
+ 
+BliKVM is a production-ready, plug and play KVM-over-IP device that offers professional users a convenient solution **for remote server or workstation management**. It is based on Linux and fully open source. With BliKVM, you can easily **power on/off, restart your computer, configure UEFI/BIOS settings, and perform OS reinstallation using an emulated Mass Storage Device**. BliKVM simulates a keyboard, mouse, and monitor, all accessible through a web browser, ensuring a seamless user experience. **Its hardware-level access guarantees independence from specific remote ports, protocols, or services**, making it a highly flexible and reliable remote management solution for professionals!
 
 ## Connectivity diagram
 
 ![Interface-Layout-Diagram](assets/images/v4/Datasheet-BliKVM-v4.assets/Interface-Layout-Diagram.png)
 
-| 1 | USB 2.0 port 1              | 10   | Antenna interface             |
+| 1 | USB 2.0 port             | 10   | Antenna interface             |
 | ----- | ------------------------------- | ---- | ----------------------------- |
-| 1 | USB 2.0 port 1              | 10   | Antenna interface             |
+| 1 | USB 2.0 port              | 10   | Antenna interface             |
 | 2     | Power Input 5V 3A & UART        | 11   | RJ45 100M Ethernet port & PoE |
-| 3     | RJ45 ATX control port           | 12   | Display 1.33 inch TFT         |
-| 4     | HDMI video Loop through port | 13   | Power LED (red)             |
+| 3     | RJ45 ATX control port           | 12   | Display 1.33 inch LCD         |
+| 4     | HDMI video loop through port | 13   | Power LED (red)             |
 | 5     | USB-PC port                     | 14   | User defined button SW1       |
-| 6     | Power Input 12V 2A              | 15   | ACT LED (green) |
+| 6     | Power Input 12V 2A 5.5*2.1mm    | 15   | ACT LED (green) |
 | 7     | HDMI video input port           | 16 | Display ON/OFF button         |
 | 8     | HDMI input status LED (green)  | 17   | Micro SD card slot            |
 | 9     | HDMI output status LED (yellow) |      |                               |
@@ -30,11 +31,11 @@
 | **Power**                   |                                                              |
 | 5V 3A                       | 5V port, USB-PC port                                         |
 | 12V 2A                      | 12V port                                                     |
-| PoE                         | Power over Ethernet (IEEE802.3af compliant)  48Vdc           |
+| PoE                         | Power over Ethernet (IEEE802.3af compliant)  48V DC          |
 |                             |                                                              |
 | **Connectivity/Interfaces** |                                                              |
 | HDMI-IN                     | HDMI video input port                                        |
-| HDMI-OUT                    | HDMI video Loop through port                                 |
+| HDMI-OUT                    | HDMI video loop through port                                 |
 | USB-PC                      | Keyboard, mouse, mass storage, and other external device emulation) |
 | ATX                         | Turn on/off or restart the controlled computer               |
 | WiFi&BT                     | IEEE802.11 b/g/n + BLE4.2                                    |
@@ -43,7 +44,7 @@
 |                             |                                                              |
 | **Displays and indicators** |                                                              |
 | LED indicators              | Power LED, ACT LED， HDMI input status LED (green)， HDMI output status LED (yellow) |
-| TFT display                 | TFT 240x240 1.33 inch                                        |
+| LCD display                 | LCD 240x240 1.33 inch                                        |
 | User defined button         | SW1                                                          |
 | Buzzer                      | Find me                                                      |
 |                             |                                                              |
