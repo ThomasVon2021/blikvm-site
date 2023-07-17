@@ -12,7 +12,6 @@ BliKVM is a production-ready, plug and play KVM-over-IP device that offers profe
 
 | 1 | USB 2.0 port             | 10   | Antenna interface             |
 | ----- | ------------------------------- | ---- | ----------------------------- |
-| 1 | USB 2.0 port              | 10   | Antenna interface             |
 | 2     | Power Input 5V 3A & UART        | 11   | RJ45 100M Ethernet port & PoE |
 | 3     | RJ45 ATX control port           | 12   | Display 1.33 inch LCD         |
 | 4     | HDMI video loop through port | 13   | Power LED (red)             |

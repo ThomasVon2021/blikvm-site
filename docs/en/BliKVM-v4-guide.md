@@ -52,9 +52,8 @@ v4 supports a maximum video input of 4K30Hz, and the default transmission resolu
 
 ### Product List
 
-| BLIKVM v4 Allwinner version            | 1    |
+| BLIKVM v4              | 1    |
 | -------------------------------------- | ---- |
-| BLIKVM v4                | 1    |
 | WiFi Antenna                | 1    |
 | ATX adapter board                | 1    |
 | ATX Dupont Cables 8pin Male to Male 60cm | 1    |
