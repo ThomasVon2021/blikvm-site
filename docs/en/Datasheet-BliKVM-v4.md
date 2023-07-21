@@ -1,6 +1,6 @@
 
 
-# BliKVM v4 ALLwinner (H616 SOC)
+# BliKVM v4 Allwinner (H616 SOC)
 
  ![Main](assets/images/v4/Datasheet-BliKVM-v4.assets/Main.png){width="400"}
  
@@ -37,12 +37,12 @@ BliKVM is a production-ready, plug and play KVM-over-IP device that offers profe
 | HDMI-OUT                    | HDMI video loop through port                                 |
 | USB-PC                      | Keyboard, mouse, mass storage, and other external device emulation) |
 | ATX                         | Turn on/off or restart the controlled computer               |
-| WiFi&BT                     | IEEE802.11 b/g/n + BLE4.2                                    |
+| WiFi & Bluetooth            | IEEE802.11 b/g/n + BLE4.2                                    |
 | Micro SD card slot          | Persistent storage for OS and your data                      |
 | 5V port                     | 5V 3A power or serial console management port                |
 |                             |                                                              |
 | **Displays and indicators** |                                                              |
-| LED indicators              | Power LED, ACT LED， HDMI input status LED (green)， HDMI output status LED (yellow) |
+| LED indicators              | Power LED, ACT LED, HDMI input status LED (green)， HDMI output status LED (yellow) |
 | LCD display                 | LCD 240x240 1.33 inch                                        |
 | User defined button         | SW1                                                          |
 | Buzzer                      | Find me                                                      |
