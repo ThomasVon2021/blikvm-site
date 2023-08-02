@@ -89,6 +89,7 @@ nav:
         - "Expand Filesystem": Expand_Filesystem.md
         - "Serial-over-USB": serial_over_usb.md 
         - "USB flash Drive": msd.md
+        - "HDMI EDID": edid.md
     - "Installation instructions":
         - "v3 HAT illustrated instructions": BLIHAT-Installation.md
         - "v2 PCIe illustrated instructions": BLIKVM-PCIe-installation.md

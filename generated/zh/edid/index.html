@@ -9,7 +9,7 @@
 <meta content="Thomas Von" name="author"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
-<title>RTC时钟 - BLIKVM 用户手册</title>
+<title>HDMI EDID设置 - BLIKVM 用户手册</title>
 <link href="../assets/stylesheets/main.472b142f.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.08040f6c.min.css" rel="stylesheet"/>
 <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 7.775V2.75a.25.25 0 0 1 .25-.25h5.025a.25.25 0 0 1 .177.073l6.25 6.25a.25.25 0 0 1 0 .354l-5.025 5.025a.25.25 0 0 1-.354 0l-6.25-6.25a.25.25 0 0 1-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.75 1.75 0 0 1 1 7.775zM6 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 0 1 .25-.25h8.5a.25.25 0 0 1 .25.25v7.736a.75.75 0 1 0 1.5 0V1.75A1.75 1.75 0 0 0 11.25 0h-8.5A1.75 1.75 0 0 0 1 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 0 0 0-1.5H2.75a.25.25 0 0 1-.25-.25V1.75zM4.75 4a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5zM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75zm11.774 3.537a.75.75 0 0 0-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 0 0-1.062 1.058l1.943 1.95a.75.75 0 0 0 1.055.008l4.557-4.45z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm6.5-.25A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75zM8 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.489 4.489 0 0 1-.563-1.191 3.833 3.833 0 0 1-.05-2.063 4.636 4.636 0 0 1-2.025-.293.75.75 0 1 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.748.748 0 0 1 1.06 0 .75.75 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.404 2.404 0 0 1-.507-.441 3.063 3.063 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.753.753 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768a85.08 85.08 0 0 0-.317-.265c-.814-.68-1.75-1.462-2.692-2.619a3.74 3.74 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm9 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM6.92 6.085c.081-.16.19-.299.34-.398.145-.097.371-.187.74-.187.28 0 .553.087.738.225A.613.613 0 0 1 9 6.25c0 .177-.04.264-.077.318a.956.956 0 0 1-.277.245c-.076.051-.158.1-.258.161l-.007.004a7.728 7.728 0 0 0-.313.195 2.416 2.416 0 0 0-.692.661.75.75 0 0 0 1.248.832.956.956 0 0 1 .276-.245 6.3 6.3 0 0 1 .26-.16l.006-.004c.093-.057.204-.123.313-.195.222-.149.487-.355.692-.662.214-.32.329-.702.329-1.15 0-.76-.36-1.348-.863-1.725A2.76 2.76 0 0 0 8 4c-.631 0-1.155.16-1.572.438-.413.276-.68.638-.849.977a.75.75 0 1 0 1.342.67z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047zM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-.25-5.25a.75.75 0 0 0-1.5 0v2.5a.75.75 0 0 0 1.5 0v-2.5z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.404 12.596a6.5 6.5 0 1 1 9.192-9.192 6.5 6.5 0 0 1-9.192 9.192zM2.344 2.343a8 8 0 1 0 11.313 11.314A8 8 0 0 0 2.343 2.343zM6.03 4.97a.75.75 0 0 0-1.06 1.06L6.94 8 4.97 9.97a.75.75 0 1 0 1.06 1.06L8 9.06l1.97 1.97a.75.75 0 1 0 1.06-1.06L9.06 8l1.97-1.97a.75.75 0 1 0-1.06-1.06L8 6.94 6.03 4.97z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M10.561 1.5a.016.016 0 0 0-.01.004L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.02.02 0 0 0-.004-.009.02.02 0 0 0-.006-.006L10.56 1.5zM9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.25 1.25 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.492 3.492 0 0 1 2.441 0l.999-1a.75.75 0 1 1 1.06 1.061l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.013 5.013 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.684 1.684 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06zM6.173 5h3.654A.173.173 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173zM5.25 6.5a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75h-5.5z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458L5 5.782zM9.5 2.5h-3V6a.75.75 0 0 1-.117.403L4.73 9h6.54L9.617 6.403A.75.75 0 0 1 9.5 6V2.5zm-6.9 9.847L3.775 10.5h8.45l1.175 1.847a.75.75 0 0 1-.633 1.153H3.233a.75.75 0 0 1-.633-1.153z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.75 2.5a.75.75 0 0 0 0 1.5h10.5a.75.75 0 0 0 0-1.5H1.75zm4 5a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5zm0 5a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5zM2.5 7.75a.75.75 0 0 0-1.5 0v6a.75.75 0 0 0 1.5 0v-6z"/></svg>');}</style>
@@ -34,7 +34,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#rtc">
+<a class="md-skip" href="#edid">
           Skip to content
         </a>
 </div>
@@ -58,7 +58,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              RTC时钟
+              HDMI EDID设置
             
           </span>
 </div>
@@ -269,33 +269,10 @@
         键鼠
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          RTC时钟
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rtc/">
         RTC时钟
       </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#blikvm-v2-pcie-and-blikvm-v3-hat-pcf8563">
-    BliKVM V2 PCIe and BliKVM V3 Hat - pcf8563
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#blikvm-v4-pcf8563">
-    BliKVM V4 - pcf8563
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../flashing_os/">
@@ -322,10 +299,43 @@
         串口终端
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../edid/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          HDMI EDID设置
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
         HDMI EDID设置
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#edid-1080p60hz">
+    EDID 例子 1080P60Hz
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#edid-1080p50hz">
+    EDID 例子 1080P50Hz
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#edid-720p60hz">
+    EDID 例子 720P60Hz
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#edid_1">
+    自定义EDID
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -430,13 +440,23 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#blikvm-v2-pcie-and-blikvm-v3-hat-pcf8563">
-    BliKVM V2 PCIe and BliKVM V3 Hat - pcf8563
+<a class="md-nav__link" href="#edid-1080p60hz">
+    EDID 例子 1080P60Hz
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#blikvm-v4-pcf8563">
-    BliKVM V4 - pcf8563
+<a class="md-nav__link" href="#edid-1080p50hz">
+    EDID 例子 1080P50Hz
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#edid-720p60hz">
+    EDID 例子 720P60Hz
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#edid_1">
+    自定义EDID
   </a>
 </li>
 </ul>
@@ -446,82 +466,98 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ThomasVon2021/blikvm-site/edit/master/docs/zh/rtc.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ThomasVon2021/blikvm-site/edit/master/docs/zh/edid.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
-<h1 id="rtc"><strong>RTC时钟</strong></h1>
-<p>RTC（Real-Time Clock，实时时钟）的作用是提供设备或系统的实时时间和日期信息。它是一个独立的时钟芯片或模块，具有自己的电源，可以在设备关闭或断电时仍然保持时间的准确性。因国际快递电池不方便邮寄问题，出厂硬件无电池，需用户自己购买(纽扣电池型号CR1220)。BliKVM不同硬件版本上使用的RTC时钟型号不完全一样，使用方法也略有不同。</p>
-<h2 id="blikvm-v2-pcie-and-blikvm-v3-hat-pcf8563"><strong>BliKVM V2 PCIe and BliKVM V3 Hat - pcf8563</strong></h2>
-<div class="admonition info">
-<p class="admonition-title">1. 检查i2c总线上是否正常识别到了pcf8563 RTC时钟硬件，pcf8563的i2c地址是x51，本节所有命令均需在root权限下，执行下面的命令能正确查看到x51即证明rtc时钟已被i2c总线正确识别到。</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>root@mangopimcore:~# i2cdetect -y 1
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>00:                         -- -- -- -- -- -- -- --
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>50: -- 51 -- -- -- -- -- -- -- -- -- -- -- -- -- --
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>70: -- -- -- -- -- -- -- --
-</code></pre></div>
+<h1 id="edid">EDID</h1>
+<p>EDID文件在BliKVM中的作用是告诉被控计算机期望输出的HDMI分辨率，即如何使用的是1080P60Hz的EDID，若被控计算机支持输出此分辨率，被控计算机就会按1080P60Hz输出。另外通过EDID还可以屏蔽声音，修改显示器型号，名字，厂商等信息。通常情况下，您不需要更改它，但有时，例如对于奇怪的 UEFI/BIOS，可能需要更改它。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>BliKVM v1 v2 v3使用的为CSI视频采集方案，支持EDID设置，v4使用的是USB视频采集方案，不支持EDID设置；</li>
+<li>其中v3 HAT受树莓派4B只有2通道CSI限制，最高只能采集1080P50Hz的视频输入，因此若对v3设置1080P60Hz的EDID，v3会无法捕获到图像；</li>
+<li>如果你使用的是PiKVM OS，可以参照<a href="https://docs.pikvm.org/edid/">此链接</a>进行修改;</li>
+<li>如果你使用的是BliKVM OS，EDID文件在<code>/usr/bin/blikvm/edid.txt</code>,打开此文件，替换下面你想要分辨率的EDID文件即可；</li>
+</ul>
 </div>
-<div class="admonition info">
-<p class="admonition-title">2. 向Linux 系统的i2c子系统注册一个新的i2c设备，该设备的型号是 pcf8563，设备的i2c地址为 0x51。再使用<code>ls /dev | grep rtc</code>命令查看是否正确出现rtc1设备，出现即注册成功。</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>echo pcf8563 0x51 &gt; /sys/class/i2c-adapter/i2c-1/new_device
+<h2 id="edid-1080p60hz">EDID 例子 1080P60Hz</h2>
+<p>下面的edid适用于v1和v2硬件。 </p>
+<details class="example">
+<summary>1920x1080 60Hz, 带音频</summary>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>00FFFFFFFFFFFF0031D8888800888888
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>1C150103800000780AEE91A3544C9926
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>0F50543FCD0001000101010101010101
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>010101010101011D007251D01E206E28
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>5500C48E2100001E8C0AD08A20E02D10
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>103E9600138E2100001E000000FC0050
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>694B564D0A20202020202020000000FD
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>003B3D0F2E0F1E0A202020202020013C
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>02031E434F041303021211012021A23C
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>3D3E1F1066030C00300080E2007F8C0A
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>D08A20E02D10103E9600C48E21000018
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>8C0AD08A20E02D10103E9600138E2100
+<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>00189729A0D051842230509816009A01
+<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>11000018000000000000000000000000
+<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>00000000000000000000000000000000
+<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a>0000000000000000000000000000001C
 </code></pre></div>
-</div>
-<div class="admonition info">
-<p class="admonition-title">3. 将当前系统时间设置为rtc时钟时间。</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>hwclock -f /dev/rtc0 -w
+</details>
+<h2 id="edid-1080p50hz">EDID 例子 1080P50Hz</h2>
+<p>下面的edid适用于v1、v2、v3硬件，尤其当希望v3 HAT捕获1080P分辨率时可以使用它。</p>
+<details class="example">
+<summary>1920x1080 50Hz, 带音频</summary>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>00ffffffffffff005262888800888888
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>1c150103800000780aEE91A3544C9926
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>0F505400000001010101010101010101
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>010101010101011d007251d01e206e28
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>5500c48e2100001e8c0ad08a20e02d10
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>103e9600138e2100001e000000fc0054
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>6f73686962612d4832430a20000000FD
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>003b3d0f2e0f1e0a202020202020014f
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>020321434e041303021211012021a23c
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>3d3e1f2309070766030c00300080E300
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>7F8c0ad08a20e02d10103e9600c48e21
+<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>0000188c0ad08a20e02d10103e960013
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a>8e210000188c0aa01451f01600267c43
+<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>00138e21000098000000000000000000
+<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a>00000000000000000000000000000000
+<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a>00000000000000000000000000000028
 </code></pre></div>
-</div>
-<div class="admonition info">
-<p class="admonition-title">4. 从rtc时钟读取时间，如果能读取到时间即表明rtc模块正常。</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>root@mangopimcore:~# hwclock -f /dev/rtc0 -r
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>2023-05-28 05:04:08.679152-02:30
+</details>
+<h2 id="edid-720p60hz">EDID 例子 720P60Hz</h2>
+<p>下面的edid适用于v1、v2、v3硬件。</p>
+<details class="example">
+<summary>1280x720 60Hz, 带音频</summary>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>00ffffffffffff005262888800888888
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>1c150103800000780aEE91A3544C9926
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>0F505400000001010101010101010101
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>010101010101011d007251d01e206e28
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>5500c48e2100001e8c0ad08a20e02d10
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>103e9600138e2100001e000000fc0054
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>6f73686962612d4832430a20000000FD
+<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>003b3d0f2e0f1e0a2020202020200100
+<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>020321434e041303021211012021a23c
+<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a>3d3e1f2309070766030c00300080E300
+<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a>7F8c0ad08a20e02d10103e9600c48e21
+<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a>0000188c0ad08a20e02d10103e960013
+<a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a>8e210000188c0aa01451f01600267c43
+<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a>00138e21000098000000000000000000
+<a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a>00000000000000000000000000000000
+<a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a>00000000000000000000000000000000
 </code></pre></div>
-</div>
-<h2 id="blikvm-v4-pcf8563"><strong>BliKVM V4 - pcf8563</strong></h2>
-<div class="admonition info">
-<p class="admonition-title">1. 检查i2c总线上是否正常识别到了pcf8563 RTC时钟硬件，pcf8563的i2c地址是x51，本节所有命令均需在root权限下，执行下面的命令能正确查看到x51即证明rtc时钟已被i2c总线正确识别到。</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>root@mangopimcore:~# i2cdetect -y 0
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>    0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>00:                         -- -- -- -- -- -- -- --
-<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a>30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a>40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a>50: -- 51 -- -- -- -- -- -- -- -- -- -- -- -- -- --
-<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a>60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a>70: -- -- -- -- -- -- -- --
-</code></pre></div>
-</div>
-<div class="admonition info">
-<p class="admonition-title">2. 向Linux 系统的i2c子系统注册一个新的i2c设备，该设备的型号是 pcf8563，设备的i2c地址为 0x51。再使用<code>ls /dev | grep rtc</code>命令查看是否正确出现rtc1设备，出现即注册成功。</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>echo pcf8563 0x51 &gt; /sys/class/i2c-adapter/i2c-0/new_device
-</code></pre></div>
-</div>
-<div class="admonition info">
-<p class="admonition-title">3. 将当前系统时间设置为rtc时钟时间。</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>hwclock -f /dev/rtc1 -w
-</code></pre></div>
-</div>
-<div class="admonition info">
-<p class="admonition-title">4. 从rtc时钟读取时间，如果能读取到时间即表明rtc模块正常。</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>root@mangopimcore:~# hwclock -f /dev/rtc1 -r
-<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>2023-05-28 05:04:08.679152-02:30
-</code></pre></div>
-</div>
+</details>
+<h2 id="edid_1">自定义EDID</h2>
+<p>最好使用第三方工具来编辑EDID，比如推荐的高级<a href="https://www.analogway.com/emea/products/software-tools/aw-edid-editor">AW EDID Editor</a>（Windows环境下运行良好，也可在wine中使用）或者<a href="https://sourceforge.net/projects/wxedid">wxEDID</a>。这两个编辑器都可以处理二进制的EDID格式。
+使用这些工具，您可以像编辑文件一样修改EDID信息，类似于更改身份证信息。通过编辑EDID，您可以调整显示器的参数和特性，以适应不同的使用需求，从而获得更好的显示效果。</p>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 29, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 2, 2023</span>
 <br/>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 28, 2023</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 2, 2023</span>
 </small>
 </div>
 </article>
@@ -534,7 +570,7 @@
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: 键鼠" class="md-footer__link md-footer__link--prev" href="../hid/" rel="prev">
+<a aria-label="Previous: 串口终端" class="md-footer__link md-footer__link--prev" href="../serial_over_usb/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -543,17 +579,17 @@
 <span class="md-footer__direction">
                 Previous
               </span>
-              键鼠
+              串口终端
             </div>
 </div>
 </a>
-<a aria-label="Next: 烧录镜像" class="md-footer__link md-footer__link--next" href="../flashing_os/" rel="next">
+<a aria-label="Next: v3 HAT安装说明" class="md-footer__link md-footer__link--next" href="../BLIHAT-Installation/" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
                 Next
               </span>
-              烧录镜像
+              v3 HAT安装说明
             </div>
 </div>
 <div class="md-footer__button md-icon">

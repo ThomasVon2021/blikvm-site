@@ -89,6 +89,7 @@ nav:
         - "存储卡扩容": Expand_Filesystem.md
         - "U盘驱动": msd.md
         - "串口终端": serial_over_usb.md
+        - "HDMI EDID设置": edid.md
     - "安装说明":    
         - "v3 HAT安装说明": BLIHAT-Installation.md
         - "v2 PCIe安装说明": BLIKVM-PCIe-installation-zh.md
