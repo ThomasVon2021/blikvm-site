@@ -75,6 +75,10 @@ C790是目前最新的版本，解决了所有已知的问题，同是有CSI 2�
     尺寸如下图所示. 有4个直径为2。75mm的孔位用于安装，安装螺钉可以选择M2.5。
     ![](assets/images/hdmi-csi-i2s/c779-size.png){width="400"}  
 
+## **CSI接口定义**
+其中C779，C780A只有15PIN引脚，C780B只有22PIN引脚，C790同时有15和22PIN引脚。
+![](assets/images/hdmi-csi-i2s/interface.png){width="400"} 
+
 ## **软件使用demo**
 下文中的软件使用方法跟你使用的树莓派镜像版本有关，可能存在不同。如果你有任何疑问，请加入
 [BLIKVM Discord 社区](https://discord.com/invite/9Y374gUF6C)获得支持、解答和新闻。 

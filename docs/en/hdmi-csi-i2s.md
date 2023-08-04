@@ -82,6 +82,10 @@ channels and four csi channels at the same time.
     which are suitable for M2.5 screws.  
     ![](assets/images/hdmi-csi-i2s/c779-size.png){width="400"}  
 
+## **CSI Interface Definitions**
+The CSI (Camera Serial Interface) interfaces C779 and C780A have 15 pins each, while the C780B interface has 22 pins. The C790 interface is unique as it supports both 15 and 22 PIN configurations.
+![](assets/images/hdmi-csi-i2s/interface.png){width="400"} 
+
 ## **Software demo**
 The use guide of C790/C780/C779 depends on the official Raspberry Pi OS version you are using. 
 Different versions have different usage methods. If you have some questions, Join our [BLIKVM Discord 
