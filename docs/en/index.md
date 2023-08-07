@@ -6,23 +6,31 @@ CD-ROM or Flash Drive. Here you will find comprehensive information about all as
 Join our [BLIKVM Discord Community](https://discord.com/invite/9Y374gUF6C) for Support, FAQ & News!
 ![Image title](assets/images/version_all.png)
 
-|FEATURE NAME|BliKVM CM4|BliKVM Pi4 HAT|BliKVM PCIe|BliKVM PCIe(PA)|
+|FEATURE|BliKVM v1 CM4|BliKVM v2 PCIe|BliKVM v3 HAT|BliKVM v4 H616|
 |-|-|-|-|-|
+|SOC|Raspberry CM4|Raspberry CM4|Raspberry 4B|Allwinner H616|
+|Supported resolutions|1920x1080@60Hz|1920x1080@60Hz|1920x1080@50Hz|3840x2160@30Hz|
+|HDMI Capture|TC358743|TC358743|TC358743|MS2131|
+|HDMI Loop Through|No|No|No|Yes|
+|POE|No|Yes|Yes|Yes|
+|DC-IN|No|No|No|Yes|
+|USB-C Power|Yes|Yes|Yes|Yes|
+|USB Power/Data Splitter|Yes|Yes(external)|Yes|Yes|
 |Serial Console|No|Yes|Yes|Yes|
 |ATX controls|Yes|Yes|Yes|Yes|
-|FAN PWM controls|No|Yes|Yes|Yes|
-|OLED|128x64|128x32|128x64|128x64|
-|POE|No|Yes|Yes|Yes|
-|Real Time Clock (pcf8563)|ds1307|Yes|Yes|Yes|
-|USB Power/Data Splitter|Yes(built-in)|Yes (external)|Yes(built-in)|Yes(built-in)|
-|TC358743 CSI Video capture|Yes|Yes|Yes|Yes|Yes|Yes| Yes|
-|Case|Yes (steel - black)|Yes (steel - blue and black)|No|No|
-|Dedicated software devs|Yes|Yes|Yes|Yes|
-|Dedicated support|Yes|Yes|Yes|Yes|
-|Pi4 or CM4 2GB Included|No|No|No|Yes|
+|BIOS controls|Yes|Yes|Yes|Yes|
+|Open source system|Yes|Yes|Yes|Yes|
+|Reinstall the controlled computer system|Yes|Yes|Yes|Yes|
+|FAN|Yes(Not support PWM controls)|Yes|Yes|Optional(default with heat sink)|
+|Display Module|OLED 128x64 white|OLED 128x32 white|OLED 128x64 white|LCD 240x240 color|
+|Real Time Clock|Yes(DS1307)|Yes(PCF8563)|Yes(PCF8563)|Yes(PCF8563)|
+|Case|Metallic Black|No|Metallic Black White Blue Orange(1U rack compatible)|Metallic Black(1U rack compatible)|
+|Buzzer|No|No|No|Yes|
+|Custom button|No|No|No|Yes|
+|Software update|Yes|Yes|Yes|Yes|
 |32GB SD Card|Yes (OS included)|Yes (OS included)|Yes (OS included)|Yes (OS included)|
 |HDMI backpower mitigation|No|Yes|Yes|Yes|
-|HDMI Passthru EDID dongle|No|Yes|Yes|Yes|
+|Professional technical support|Yes|Yes|Yes|Yes|
 
 
 

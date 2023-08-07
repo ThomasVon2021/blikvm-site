@@ -5,24 +5,31 @@ BLIKVM是一款开源软件的KVM专业设备，目前有3个版本，CM4 Board,
 [Discord](https://discord.com/invite/9Y374gUF6C) 群组和来自全世界的爱好者和用户进行交流，获得技术支持，常见问题解答和新闻等。
 ![Image title](assets/images/version_all.png)
 
-|FEATURE NAME|BliKVM CM4|BliKVM Pi4 HAT|BliKVM PCIe|BliKVM PCIe(PA)|PiKVM V3 HAT|PiKVM V3 HAT (PA)|TinyPilot Voyager 2|
-|-|-|-|-|-|-|-|-|
-|Cost (without tax + shipping)|67$|95$|111$|206$|160$|250$|400$|
-|Serial Console|No|Yes|Yes|Yes|Yes|Yes|No|
-|ATX controls|Yes|Yes|Yes|Yes|Yes|Yes|No|
-|FAN PWM controls|No|Yes|Yes|Yes|Yes|Yes|No|
-|OLED|128x64|128x32|128x64|128x64|128x32|128x32|No|
-|POE|No|Yes|Yes|Yes|No, but you can use poe splitter|No, but you can use poe splitter|No (optional $59)|
-|Real Time Clock (pcf8563)|ds1307|Yes|Yes|Yes|Yes|Yes|No|
-|USB Power/Data Splitter|Yes(built-in)|Yes (external)|Yes(built-in)|Yes(built-in)|Yes(built-in)|Yes(built-in)|Yes(built-in)|
-|TC358743 CSI Video capture|Yes|Yes|Yes|Yes|Yes|Yes| Yes|
-|Case|Yes (steel - black)|Yes (steel - blue and black)|No|No|No|Yes (steel - black)|Yes (3d print black)|
-|Dedicated software devs|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
-|Dedicated support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
-|Pi4 or CM4 2GB Included|No|No|No|Yes|No|Yes|Yes|
-|32GB SD Card|No|Yes (OS included)|Yes (OS included)|Yes (OS included)|No|Yes (OS included)|Yes (OS included)|
-|HDMI backpower mitigation|No|Yes|Yes|Yes|Yes|Yes|No|
-|HDMI Passthru EDID dongle|No|Yes|Yes|Yes|No|No|No|
+|功能|BliKVM v1 CM4|BliKVM v2 PCIe|BliKVM v3 HAT|BliKVM v4 H616|
+|-|-|-|-|-|
+|SOC|树莓派CM4| 树莓派CM4|树莓派4B|全志H616|
+|支持输入的最高分辨率| 1920x1080@60Hz|1920x1080@60Hz|1920x1080@50Hz|3840x2160@30Hz|
+|HDMI采集芯片|TC358743|TC358743|TC358743|MS2131|
+|HDMI环出|无|无|无|有|
+|PoE供电|不支持|支持|支持|支持|
+|DC供电|不支持|不支持|不支持|支持|
+|USB-C供电|支持|支持|支持|支持|
+|USB电源/数据分离器|有|有(额外模块)|有|有|
+|串口终端|不支持|支持|支持|支持|
+|ATX开关机控制|支持|支持|支持|支持|
+|BIOS控制|支持|支持|支持|支持|
+|系统开源|支持|支持|支持|支持|
+|重装被控电脑系统|支持|支持|支持|支持|
+|风扇|有(不支持调速)|有|有|可配(默认配散热片)|
+|屏幕种类|OLED 128x64 白色|OLED 128x64 白色|OLED 128x32 白色|LCD 240x240 彩色|
+|RTC时钟|有(DS1307)|有(PCF8563)|有(PCF8563)|有(PCF8563)|
+|外壳|金属黑|无|金属黑蓝橘白(1U机架兼容)|金属黑(1U机架兼容)|
+|蜂鸣器|无|无|无|有|
+|自定义按钮|无|无|无|有|
+|软件升级|支持|支持|支持|支持|
+|32GB SD卡|有(含OS)|有(含OS)|有(含OS)|有(含OS)|
+|解决HDMI反向供电问题|未解决|已解决|已解决|已解决|
+|专业技术支持|有|有|有|有|
 
 ## **功能**
 * HDMI视频采集 (最高支持1080P 60Hz)  
