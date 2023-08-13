@@ -1,9 +1,9 @@
-# PiKVM image Modify for blikvm hardware
+# Modifying PiKVM image to work with BliKVM hardware
 
 !!! warning "Because the blikvm hardware implementation scheme and PiKVM hardware implementation scheme are not exactly the same, you need to modify some errors through the following configuration for the official image of PiKVM. Of course, you can use the [configured image](./flashing_os.md)."
 
-## **fan config**
-!!! info "Because BLIKVM fan hardware different with PiKVM, you need to replace the control fan script first. The following default starting fan temperature is 40 degrees Celsius"
+## **Fan config**
+!!! info "Since BliKVM's fan hardware is different to PiKVM's, you need to replace the control fan script first. The following default starting fan temperature is 40 degrees Celsius"
     ```
     su -
     rw

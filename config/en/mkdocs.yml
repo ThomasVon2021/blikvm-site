@@ -1,4 +1,4 @@
-site_name: BLIKVM Handbook
+site_name: BliKVM Handbook
 docs_dir: '../../docs/en'
 site_dir: '../../generated/en'
 site_description: Open and cost-effective "KVM over IP". BliKVM comes in 3 different models, BliKVM PCIe, BliKVM HAT and BliKVM CM4, all based on Raspberry Pi.
@@ -84,7 +84,7 @@ nav:
         - "Upgrade": update.md
         - "keyboard": hid.md
         - "RTC clock": rtc.md
-        - "Flashing os": flashing_os.md
+        - "Flasing OS": flashing_os.md
         - "OLED display": OLED-display.md
         - "Expand Filesystem": Expand_Filesystem.md
         - "Serial-over-USB": serial_over_usb.md 
@@ -101,6 +101,7 @@ nav:
     - "development":
         - "make image": make-image.md
         - "config for PiKVM OS": modify_pikvm_image.md
+        - "v4 dev guide": Dev-BliKVM-v4-Allwinner.md
 plugins:
   - glightbox
   - git-revision-date-localized:

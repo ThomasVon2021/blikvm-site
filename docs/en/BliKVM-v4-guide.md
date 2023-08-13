@@ -50,7 +50,7 @@ Please refer to the [ATX Connection Guide](./atx.md).
 ## **Video Mode**
 v4 supports a maximum video input of 4K30Hz, and the default transmission resolution is 1920x1080.
 
-### Product List
+## Product List
 
 | BLIKVM v4              | 1    |
 | -------------------------------------- | ---- |
@@ -61,3 +61,6 @@ v4 supports a maximum video input of 4K30Hz, and the default transmission resolu
 | 1U Rack Mounting Ears               | 2   |
 | M2.5x5 Screws               | 8   |
 | Silicone Bumper Pellets              | 1   |
+
+## Dev 
+If you want to develop or port software on v4 hardware yourself, you can refer to this [hardware resource description](./Dev-BliKVM-v4-Allwinner.md).
