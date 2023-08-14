@@ -73,35 +73,35 @@ nav:
         - "BliKVM v3 HAT guide": BLIKVM-HAT-guide.md
         - "BliKVM v2 PCIe guide": BLIKVM-PCIE-guide.md
         - "BliKVM v1 CM4 guide": BLIKVM-CM4-guide.md
-        - "First steps": first_steps.md
+        - "First Steps": first_steps.md
         - "FAQ": faq.md
     - "Network":
-        - "Port forwarding": port-forwarding.md
+        - "Port Forwarding": port-forwarding.md
         - "Tailscale VPN": tailscale.md
         - "Set Static IP ": static_ip.md
         - "Wifi Config": wifi.md
     - "Function":
         - "Upgrade": update.md
-        - "keyboard": hid.md
+        - "Keyboard": hid.md
         - "RTC clock": rtc.md
-        - "Flasing OS": flashing_os.md
-        - "OLED display": OLED-display.md
+        - "Flashing OS": flashing_os.md
+        - "OLED Display": OLED-display.md
         - "Expand Filesystem": Expand_Filesystem.md
         - "Serial-over-USB": serial_over_usb.md 
-        - "USB flash Drive": msd.md
+        - "MSD": msd.md
         - "HDMI EDID": edid.md
     - "Installation instructions":
         - "v3 HAT illustrated instructions": BLIHAT-Installation.md
         - "v2 PCIe illustrated instructions": BLIKVM-PCIe-installation.md
     - "Accessories":
-        - "ATX guide": atx-guide.md
+        - "ATX Guide": atx-guide.md
         - "HDMI to CSI & Audio": hdmi-csi-i2s.md
-        - "USB splitter": usb-splitter-guide.md
-        - "Multiport KVM over IP": switch-guide.md
-    - "development":
-        - "make image": make-image.md
-        - "config for PiKVM OS": modify_pikvm_image.md
-        - "v4 dev guide": Dev-BliKVM-v4-Allwinner.md
+        - "USB Splitter": usb-splitter-guide.md
+        - "Multiport KVM-over-IP": switch-guide.md
+    - "Development":
+        - "Make Image": make-image.md
+        - "Config for PiKVM OS": modify_pikvm_image.md
+        - "v4 Allwinner Dev Guide": Dev-BliKVM-v4-Allwinner.md
 plugins:
   - glightbox
   - git-revision-date-localized:
