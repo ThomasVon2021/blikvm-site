@@ -109,3 +109,37 @@ ro
 Now, reboot blikvm, and you can test 1080p 60hz input.
 
 ![](https://github.com/ThomasVon2021/pikvm-CM4-Board/blob/main/images/wiki/60hz.jpg)  
+
+## Product List
+
+| BLIKVM v1 excluding CM4              |     |
+| ------------------------------------ | ---- |
+| Case              | 1    |
+| PCB                | 1    |
+| Fan               | 1    |
+| SD card 32G| 1    |
+| ATX Dupont Cables | 1    |
+| OLED              | 1   |
+
+| BLIKVM v1 including CM4102000              |     |
+| ------------------------------------ | ---- |
+| Case              | 1    |
+| PCB                | 1    |
+| CM4102000                | 1    |
+| Fan               | 1    |
+| SD card 32G| 1    |
+| ATX Dupont Cables | 1    |
+| OLED              | 1   |
+| WiFi antenna              | 1   |
+
+| BLIKVM v1 including CM4002000              |     |
+| ------------------------------------ | ---- |
+| Case              | 1    |
+| PCB                | 1    |
+| CM4002000                | 1    |
+| Fan               | 1    |
+| SD card 32G| 1    |
+| ATX Dupont Cables | 1    |
+| WiFi antenna              | 1   |
+
+
