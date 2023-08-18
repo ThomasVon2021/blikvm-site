@@ -3,6 +3,8 @@
 !!! info "BLIKVM-CM4-V2.2 Video"
     <iframe width="560" height="315" src="https://www.youtube.com/embed/2av-JFFkF6I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+* [BliKVM v1 Datasheet](./Product-Datasheet-BliKVM-v1-RPI-CM4.md)
+
 ## **Installation requirements**
 !!! note "If you have an assembly kit, you will need the following things"
     * Raspberry CM4 with 1Gb RAM or more.
