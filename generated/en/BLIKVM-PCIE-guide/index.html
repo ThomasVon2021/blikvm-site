@@ -215,6 +215,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#features">
+    Features
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#basic-setup">
     Basic setup
   </a>
@@ -494,6 +499,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#features">
+    Features
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#basic-setup">
     Basic setup
   </a>
@@ -565,6 +575,22 @@
 <li>CR1220 coin cell battery.</li>
 </ul>
 </div>
+<h2 id="features">Features</h2>
+<ul>
+<li><strong>Video capture</strong> (HDMI, support 1080P@60Hz input)</li>
+<li><strong>Keyboard forwarding</strong></li>
+<li><strong>Mouse forwarding</strong></li>
+<li><strong>Mass Storage Drive</strong></li>
+<li><strong>ATX</strong> Control the server power using ATX functions</li>
+<li><strong>Fullscreen mode</strong></li>
+<li>Access via <strong>Web UI</strong></li>
+<li>Support <strong>multi language</strong> switching</li>
+<li>Support <strong>PoE</strong> </li>
+<li><strong>Serial</strong> console port</li>
+<li><strong>OLED</strong> display</li>
+<li><strong>Real Time Clock (RTC)</strong> </li>
+<li><strong>PWM Fan</strong> </li>
+</ul>
 <h2 id="basic-setup"><strong>Basic setup</strong></h2>
 <p><strong>1.</strong> <a href="../flashing_os/">If you have an assembly kit, Flash the memory card or eMMC </a> <br/>
 <strong>2.Build BLIKVM</strong> according to the <a href="../BLIKVM-PCIe-installation/">illustrated instructions</a>:</p>
@@ -582,6 +608,42 @@
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/BLIKVM-PCIe/BLIKVM_PCIe_main-define.png"><img alt="BLIKVM_PCIe_main-define" src="../assets/images/BLIKVM-PCIe/BLIKVM_PCIe_main-define.png" width="300"/></a>
 <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/BLIKVM-PCIe/BLIKVM_PCIe_main-back.png"><img alt="BLIKVM_PCIe_main-back" src="../assets/images/BLIKVM-PCIe/BLIKVM_PCIe_main-back.png" width="300"/></a></p>
 </div>
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th>OTG port</th>
+<th>6</th>
+<th>OLED Display</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>USB-PC port</td>
+<td>7</td>
+<td>FAN</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Power Input 5V 3A</td>
+<td>8</td>
+<td>BOOT</td>
+</tr>
+<tr>
+<td>4</td>
+<td>RJ45 100M Ethernet port &amp; PoE</td>
+<td>9</td>
+<td>REAL TIME CLOCK(RTC)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>ATX control port</td>
+<td>10</td>
+<td>UART port</td>
+</tr>
+</tbody>
+</table>
 <div class="admonition note">
 <p class="admonition-title"><strong>HDMI IN</strong></p>
 <p>The bridge chip is Toshiba TC358743, which supports both video and audio(I2S), and the highest input resolution is 1080p@60fps.

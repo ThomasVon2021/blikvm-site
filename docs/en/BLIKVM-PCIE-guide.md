@@ -12,6 +12,21 @@ BLIKVM PCIe is a PCIe add-in card based on Raspberry Pi CM4 for KVM Over IP. Thi
     * PoE-sourcing equipment or 5V/3A USB adapter.
     * CR1220 coin cell battery.
 
+## Features
+- **Video capture** (HDMI, support 1080P@60Hz input)
+- **Keyboard forwarding**
+- **Mouse forwarding**
+- **Mass Storage Drive**
+- **ATX** Control the server power using ATX functions
+- **Fullscreen mode**
+- Access via **Web UI**
+- Support **multi language** switching
+- Support **PoE** 
+- **Serial** console port
+- **OLED** display
+- **Real Time Clock (RTC)**  
+- **PWM Fan**  
+
 ## **Basic setup**
 **1.** [If you have an assembly kit, Flash the memory card or eMMC ](./flashing_os.md)   
 **2.Build BLIKVM** according to the [illustrated instructions](./BLIKVM-PCIe-installation.md):
@@ -25,6 +40,13 @@ BLIKVM PCIe is a PCIe add-in card based on Raspberry Pi CM4 for KVM Over IP. Thi
 !!! note "hardware feature list"
     ![BLIKVM_PCIe_main-define](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_main-define.png){width="300"}
     ![BLIKVM_PCIe_main-back](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_main-back.png){width="300"}
+
+| 1 | OTG port           | 6   | OLED Display |
+| --| -------------------| --- | ------------------ |
+| 2 | USB-PC port        | 7   | FAN |
+| 3 | Power Input 5V 3A        | 8 | BOOT |
+| 4 | RJ45 100M Ethernet port & PoE | 9  | REAL TIME CLOCK(RTC) |
+| 5 | ATX control port         | 10  | UART port|
 
 !!! note "**HDMI IN**"
     The bridge chip is Toshiba TC358743, which supports both video and audio(I2S), and the highest input resolution is 1080p@60fps.

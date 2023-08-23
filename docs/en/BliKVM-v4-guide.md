@@ -29,6 +29,12 @@ BliKVM v4 is a production-ready, plug and play KVM-over-IP device that offers pr
     * Ethernet cable(s) (provide based on your requirements). One cable is required for using the ATX power switch function, and one cable is required for using the Ethernet connection.
     * USB-C to USB-A cable (for mouse and keyboard data transmission).
 
+!!! warning "Terminal Upgrade Notice!"
+    Before upgrading, execute the following command, otherwise, after running apt-get update and apt-get upgrade, the image will fail to start.
+    ```
+    apt-mark hold linux-dtb-edge-sunxi64 linux-image-edge-sunxi64
+    ```
+
  info "Video Guide: Unpacking and connecting case step by step"
     <iframe width="560" height="315" src="https://www.youtube.com/embed/aRVzbb_g-UQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 

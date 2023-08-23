@@ -25,7 +25,7 @@
     * **Linux、MacOS、Windows：** 下载并运行 [Angry IP Scanner](https://angryip.org)。
     * **Windows PowerShell：** 使用命令 `arp -a`。
 
-在下面的示例中，让我们假设您的PiKVM已获得地址 **192.168.0.100**，您已经成功使用上述指示找到了该地址。
+在下面的示例中，让我们假设您的BliKVM已获得地址 **192.168.0.100**，您已经成功使用上述指示找到了该地址。
 
 ??? example "访问BliKVM Web界面"
     在*大多数*网络中，您可以在任何浏览器中使用以下URL访问BliKVM：`http://192.168.0.100/`。Google Chrome（Chromium）、Firefox和Safari与启用0个扩展的情况下效果最佳，如果其中一个可以正常工作而另一个无法正常工作，则可能是浏览器/扩展的问题。建议您使用私密浏览窗口或无痕模式。不支持Internet Explorer和早期版本的Microsoft Edge（非Chromium版本）。

@@ -48,21 +48,18 @@ The length of the ATX cable is 60CM, you can also use the double female Dupont c
 ## **Hardware Features**
 ![Image title](assets/images/BLKVM-CM4/blikvm-cm4-hardware-features.png)
 
-* 1、HDMI IN port with I2S
-* 2、ATX controller interface (power on/off, reboot control, PWR and HDD ACT LEDs)
-* 3、USB3.0 port x 2
-* 4、USB-C OTG
-* 5、Real Time Clock (RTC)
-* 6、Gigabit Ethernet
-* 7、Activity LED
-* 8、Micro SD Card socket
-* 9、Power LED
-* 10、I2C display connector
-* 11、nRPI_BOOT Jumper
-* 12、USB-C power input
-* 13、FAN connector 5V
-* 14、CSI-2 date lanes switch
-* 15、CM4 Module Connectors
+1. Video capture (HDMI, support 1080P@60Hz input)
+2. Keyboard forwarding
+3. Mouse forwarding
+4. Mass Storage Drive
+5. ATX Control the server power using ATX functions
+6. Fullscreen mode
+7. Access via Web UI
+8. Support multi language switching
+9. Support WiFi(optional)
+10. OLED display
+11. Real Time Clock (RTC)
+
 
 ## **Size**
 12cm x 7cm x 3.5cm

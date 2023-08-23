@@ -10,6 +10,7 @@ BliKVM v4是一款生产就绪、即插即用的 KVM-over-IP 设备，为专业�
 - **视频捕获** (HDMI,最高支持4K@30Hz输入)
 - **键盘转发**
 - **鼠标转发**
+- **虚拟U盘(重装系统)**
 - **HDMI视频环出**
 - **ATX** 使用 ATX 功能控制服务器电源
 - **全屏模式**
@@ -28,6 +29,11 @@ BliKVM v4是一款生产就绪、即插即用的 KVM-over-IP 设备，为专业�
     * 网线（结合您需求自备）,使用ATX开关机功能需一根，使用网线上网功能需一根；
     * USB-C转USB-A线缆一根（用于鼠标和键盘数据传输）.
 
+!!! warning "升级注意！"
+    在升级前，需执行下面命令，否则apt-get update 和 apt-get upgrade后镜像会无法启动
+    ```
+    apt-mark hold linux-dtb-edge-sunxi64 linux-image-edge-sunxi64
+    ```
 !!! info "BliKVM v4 拆箱，连接，使用参考视频"
     <iframe src="//player.bilibili.com/player.html?aid=488438623&bvid=BV1NN41127g9&cid=1195577253&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
@@ -49,7 +55,7 @@ BliKVM v4是一款生产就绪、即插即用的 KVM-over-IP 设备，为专业�
 ## **视频模式**
 v4最高支持4K30Hz的视频输入，传输分辨率默认为1920x1080。
 
-### 发货清单
+## **发货清单**
 
 | BLIKVM v4 Allwinner版本            | 1    |
 | -------------------------------------- | ---- |
@@ -61,7 +67,4 @@ v4最高支持4K30Hz的视频输入，传输分辨率默认为1920x1080。
 | 1U安装挂耳             | 2   |
 | M2.5x5螺丝               | 8   |
 | 硅胶防撞粒              | 1   |
-
-
-
 
