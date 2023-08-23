@@ -210,6 +210,11 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#features">
+    Features
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#installation-requirements">
     Installation requirements
   </a>
@@ -220,18 +225,8 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#atx-connection">
-    ATX connection
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#hardware-features">
-    Hardware Features
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#size">
-    Size
+<a class="md-nav__link" href="#wi-fi-antenna-connection">
+    Wi-Fi Antenna Connection
   </a>
 </li>
 <li class="md-nav__item">
@@ -242,6 +237,11 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#product-list">
     Product List
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#buy-link">
+    Buy link
   </a>
 </li>
 </ul>
@@ -460,6 +460,11 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#features">
+    Features
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#installation-requirements">
     Installation requirements
   </a>
@@ -470,18 +475,8 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#atx-connection">
-    ATX connection
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#hardware-features">
-    Hardware Features
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#size">
-    Size
+<a class="md-nav__link" href="#wi-fi-antenna-connection">
+    Wi-Fi Antenna Connection
   </a>
 </li>
 <li class="md-nav__item">
@@ -492,6 +487,11 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#product-list">
     Product List
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#buy-link">
+    Buy link
   </a>
 </li>
 </ul>
@@ -506,11 +506,28 @@
 </a>
 <h1 id="blikvm-cm4-version-guide">BLIKVM-CM4 version guide</h1>
 <div class="admonition info">
-<p class="admonition-title">BLIKVM-CM4-V2.2 Video</p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/2av-JFFkF6I" title="YouTube video player" width="560"></iframe></p>
+<p class="admonition-title">Geerling: Engineering Test video</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/3OPd7svT3bE" title="YouTube video player" width="560"></iframe> </p>
 </div>
+<p>BliKVM v1 is a production-ready, plug and play KVM-over-IP device that offers professional users a convenient solution <strong>for remote server or workstation management</strong>. It is based on Linux and fully open source. With BliKVM, you can easily <strong>power on/off, restart your computer, configure UEFI/BIOS settings, and perform OS reinstallation using an emulated Mass Storage Device</strong>. BliKVM simulates a keyboard, mouse, and monitor, all accessible through a web browser, ensuring a seamless user experience. <strong>Its hardware-level access guarantees independence from specific remote ports, protocols, or services</strong>, making it a highly flexible and reliable remote management solution for professionals!</p>
 <ul>
 <li><a href="../Product-Datasheet-BliKVM-v1-RPI-CM4/">BliKVM v1 Datasheet</a></li>
+</ul>
+<h2 id="features">Features</h2>
+<ul>
+<li><strong>Video capture</strong> (HDMI, support 1080P@60Hz input)</li>
+<li><strong>Keyboard forwarding</strong></li>
+<li><strong>Mouse forwarding</strong></li>
+<li><strong>Mass Storage Drive</strong></li>
+<li><strong>ATX</strong> Control the server power using ATX functions</li>
+<li><strong>Fullscreen mode</strong></li>
+<li>Access via <strong>Web UI</strong></li>
+<li>Support <strong>multi language</strong> switching</li>
+<li>Support <strong>PoE</strong></li>
+<li><strong>Serial</strong> console port</li>
+<li><strong>OLED</strong> display</li>
+<li><strong>Real Time Clock (RTC)</strong> </li>
+<li><strong>PWM FAN</strong> </li>
 </ul>
 <h2 id="installation-requirements"><strong>Installation requirements</strong></h2>
 <div class="admonition note">
@@ -529,15 +546,16 @@
 fixed in a later version.</p>
 </div>
 <h2 id="basic-setup"><strong>Basic setup</strong></h2>
-<p><strong>1.</strong> <a href="../flashing_os/">Flash the memory card or eMMC </a> </p>
-<p><strong>2.Build BLIKVM</strong> according to the video instruction or review the instructions:</p>
+<p><strong>1.</strong> The SD card preloaded with the factory default image does not require burning. If you need to reflash the system or for DIY purposes, you can follow<a href="../flashing_os/">Flash the memory card or eMMC </a> </p>
+<p><strong>2.</strong> If you have a non-plug version, refer to the video and instructions below for device installation:<br/>
+1. Use the provided screwdriver to open the metal casing and remove the PCB motherboard.<br/>
+2. Install the CM4 onto the PCB motherboard, ensuring that the two rows of card slots are aligned. Apply the thermal conductive silicone pad onto the CM4 main chip to facilitate heat dissipation using the metal casing.
+The fan is not connected by default as the metal casing provides sufficient heat dissipation. Depending on your CM4 version, selectively install the Wi-Fi antenna.<br/>
+3. Reassemble the PCB motherboard and the metal casing to complete the installation.<br/>
+4. Please note that translations might vary depending on context and specific terminology used in technical instructions.  </p>
 <details class="info">
 <summary>Video Guide: Metal case step by step</summary>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/aehOawHklGE" title="YouTube video player" width="560"></iframe></p>
-</details>
-<details class="info">
-<summary>Geerling: Engineering Test video</summary>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/3OPd7svT3bE" title="YouTube video player" width="560"></iframe> </p>
 </details>
 <details class="info">
 <summary>Ortimo: BLIKVM with Raspberry PI CM4 16GB EMMC setup</summary>
@@ -551,68 +569,37 @@ There should be no USB hub between BLIKVM and the computer, as some UEFI/BIOS ca
 BLIKVM supports 1080p60Hz or lower about HDMI source.</li>
 <li>Connect Ethernet to the network and PWR IN to the BLIKVM power supply.</li>
 </ul>
-<h2 id="atx-connection"><strong>ATX connection</strong></h2>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/BLKVM-CM4/ATX-interface.png"><img alt="Image title" src="../assets/images/BLKVM-CM4/ATX-interface.png" width="400"/></a></p>
+<p><strong>4.</strong> <strong>ATX connection</strong>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/BLKVM-CM4/ATX-interface.png"><img alt="Image title" src="../assets/images/BLKVM-CM4/ATX-interface.png" width="400"/></a></p>
 <p>To manage the power of your computer, you will connect CN-ATX port to the computer.The user can use the ATX cable 
 provided with the product to connect the product and the motherboard ATX switch of the controlled computer. 
 The length of the ATX cable is 60CM, you can also use the double female Dupont cables.</p>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/BLKVM-CM4/atx-cable-computer.png"><img alt="Image title" src="../assets/images/BLKVM-CM4/atx-cable-computer.png" width="400"/></a></p>
-<h2 id="hardware-features"><strong>Hardware Features</strong></h2>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/BLKVM-CM4/blikvm-cm4-hardware-features.png"><img alt="Image title" src="../assets/images/BLKVM-CM4/blikvm-cm4-hardware-features.png"/></a></p>
-<ol>
-<li>Video capture (HDMI, support 1080P@60Hz input)</li>
-<li>Keyboard forwarding</li>
-<li>Mouse forwarding</li>
-<li>Mass Storage Drive</li>
-<li>ATX Control the server power using ATX functions</li>
-<li>Fullscreen mode</li>
-<li>Access via Web UI</li>
-<li>Support multi language switching</li>
-<li>Support WiFi(optional)</li>
-<li>OLED display</li>
-<li>Real Time Clock (RTC)</li>
-</ol>
-<h2 id="size"><strong>Size</strong></h2>
-<p>12cm x 7cm x 3.5cm</p>
+<div class="admonition warning">
+<p class="admonition-title">To accommodate ATX control boards with Ethernet ports, v1 has a dedicated ATX expansion kit available. This kit enables customers to connect the ATX board installed on the chassis panel directly using an Ethernet cable.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/BLKVM-CM4/v1-atx01.jpg"><img alt="Image title" src="../assets/images/BLKVM-CM4/v1-atx01.jpg" width="300"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/BLKVM-CM4/v1-atx02.jpg"><img alt="Image title" src="../assets/images/BLKVM-CM4/v1-atx02.jpg" width="300"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/BLKVM-CM4/v1-atx03.jpg"><img alt="Image title" src="../assets/images/BLKVM-CM4/v1-atx03.jpg" width="300"/></a></p>
+</div>
+<p><strong>5.</strong> After all the connecting cables are properly set up, power on the BliKVM until the display screen shows an image, indicating that the device has successfully started.</p>
+<p><strong>6.</strong> Read the <a href="../first_steps/"><strong>"First Steps"</strong> guide</a> carefully. It provides instructions on how to find the device on the network, how to log in, change passwords, and more. Follow the steps described there and then return to this page.</p>
+<div class="admonition warning">
+<p class="admonition-title">As BliKVM v1 also supports PiKVM OS, if your v1 comes with PiKVM as the factory OS, please refer to the documentation for web usage [instructions] (https://docs.pikvm.org/).</p>
+</div>
+<p><strong>7.</strong> <strong>Try managing your computer using the BliKVM web interface.</strong> Make sure you can see the image and that the keyboard and mouse are working properly. If you encounter any issues, check out our <a href="../faq/">FAQ</a> (it's very helpful). If you find no solution there, seek support in our <a href="https://discord.com/invite/9Y374gUF6C">Discord chat room</a>.</p>
+<p><strong>8.</strong> You can explore other pages in the wiki to discover more features of BliKVM. Enjoy your experience!</p>
+<h2 id="wi-fi-antenna-connection"><strong>Wi-Fi Antenna Connection</strong></h2>
+<div class="admonition info">
+<p class="admonition-title">If your CM4 has Wi-Fi functionality, open the metal casing of v1 and attach the Wi-Fi antenna from the package to the IPX interface on the CM4, as shown by the red box in the diagram below; the installation location on the casing for the antenna is defined as position 11 in the interface layout diagram.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/BLKVM-CM4/v1-wifi-interface.png"><img alt="Image title" src="../assets/images/BLKVM-CM4/v1-wifi-interface.png" width="300"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/BLKVM-CM4/Interface-Layout-Diagram.png"><img alt="Image title" src="../assets/images/BLKVM-CM4/Interface-Layout-Diagram.png"/></a></p>
+</div>
 <h2 id="support-1080p60hz-hdmi-input"><strong> Support 1080p60hz HDMI input </strong></h2>
 <p>First in V2.2 version, there is CSI channel switch. This switch is switch 2 csi channels or 4 csi channels. 
 In other versions, the switch is obsolete. Newer keeps the factory state, ignore this switch. Only flip the switch 
 when the device is powered off, otherwise it may cause permanent damage! The four small switches should be up or 
 down at the same time.<br/>
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/BLKVM-CM4/kvm-cm4-switch.png"><img alt="Image title" src="../assets/images/BLKVM-CM4/kvm-cm4-switch.png" width="400"/></a><br/>
-The video encoding function of the Raspberry Pi is implemented by the HDMI-to-CSI bridge chip Toshiba TC358743, 
-which supports up to 4 CSI-2 data lanes. The camera interface of Raspberry Pi 4B only supports 2 CSI-2 date 
-lanes(up to 1080P50Hz), Raspberry Pi CM4 can support 4 CSI-2 date lanes(up to 1080P60Hz). Currently, PiKVM 
-only uses two CSI-2 channels.</p>
-<p>1、 find edid file:
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>rw
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>vim /etc/kvmd/tc358743-edid.hex
-</code></pre></div>
-write the following 1080p 60Hz EDID into the file tc358743-edid.hex.
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>00FFFFFFFFFFFF0031D8888800888888
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>1C150103800000780AEE91A3544C9926
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>0F50543FCD0001000101010101010101
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>010101010101011D007251D01E206E28
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>5500C48E2100001E8C0AD08A20E02D10
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>103E9600138E2100001E000000FC0050
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>694B564D0A20202020202020000000FD
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>003B3D0F2E0F1E0A202020202020013C
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>02031E434F041303021211012021A23C
-<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>3D3E1F1066030C00300080E2007F8C0A
-<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>D08A20E02D10103E9600C48E21000018
-<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>8C0AD08A20E02D10103E9600138E2100
-<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a>00189729A0D051842230509816009A01
-<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>11000018000000000000000000000000
-<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a>00000000000000000000000000000000
-<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a>0000000000000000000000000000001C
-</code></pre></div>
-2、add csi 4 lanes
-Edit /boot/config.txt, modify "dtoverlay=tc358743" to "dtoverlay=tc358743,4lane=1"
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>vim /boot/config.txt
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>ro
-</code></pre></div>
-Now, reboot blikvm, and you can test 1080p 60hz input.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://github.com/ThomasVon2021/pikvm-CM4-Board/blob/main/images/wiki/60hz.jpg"><img alt="" src="https://github.com/ThomasVon2021/pikvm-CM4-Board/blob/main/images/wiki/60hz.jpg"/></a> </p>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/BLKVM-CM4/kvm-cm4-switch.png"><img alt="Image title" src="../assets/images/BLKVM-CM4/kvm-cm4-switch.png" width="400"/></a> </p>
 <h2 id="product-list">Product List</h2>
 <table>
 <thead>
@@ -728,12 +715,14 @@ Now, reboot blikvm, and you can test 1080p 60hz input.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="buy-link"><strong>Buy link</strong></h2>
+<p><a href="https://de.aliexpress.com/item/1005003262886521.html?gatewayAdapt=glo2deu">v1 buy</a></p>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 18, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 23, 2023</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 4, 2022</span>
