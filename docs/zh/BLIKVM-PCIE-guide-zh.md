@@ -12,6 +12,23 @@ BLIKVM PCIe是一款基于树莓派CM4的IPKVM扩展卡，可以安装到PC或�
     * PoE供电设备或5V/3A USB供电设备.
     * CR1220 纽扣电池.
 
+## 功能
+- **视频捕获** (HDMI,最高支持1080P@60Hz输入)
+- **键盘转发**
+- **鼠标转发**
+- **虚拟U盘(重装系统)**
+- **ATX** 使用 ATX 功能控制服务器电源
+- **全屏模式**
+- 通过 **Web UI** 访问
+- 支持 **多语言** 切换
+- 支持**PoE**供电
+- 支持串口终端
+- 支持 **WiFi**（可选）
+- **OLED** 屏幕
+- **实时时钟 (RTC)**  
+- PWM风扇
+
+
 ## **快速安装说明**
 **1.** [如果你购买的是需要自己组装的版本，烧录系统镜像参考请点击此处 ](./flashing_os.md)   
 **2.组装 BLIKVM** 参考的 [说明文档](./BLIKVM-PCIe-installation-zh.md)
@@ -25,6 +42,15 @@ BLIKVM PCIe是一款基于树莓派CM4的IPKVM扩展卡，可以安装到PC或�
 !!! note "硬件接口清单"
     ![BLIKVM_PCIe_main-define](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_main-define.png){width="300"}
     ![BLIKVM_PCIe_main-back](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_main-back.png){width="300"}
+
+| 1 | HDMI 视频输入端口           | 2   | USB-PC 端口  |
+| --| -------------------| --- | ------------------ |
+| 1 | HDMI 视频输入端口    | 2   | USB-PC 端口  |
+| 3 | 供电口 5V 3A         | 4   | RJ45 100M 网口 & PoE |
+| 5 | ATX控制端口       | 6 | OLED 显示屏接口 |
+| 7 | PWM 风扇 | 8  | BOOT |
+| 9 | RTC时钟  | 10  | 串行终端端口|
+| 11 |  USB-PC端口       |   | |
 
 !!! note "**HDMI IN**"
     使用东芝的TC358743作为HDMI的桥接芯片，同时支持视频和音频采集，支持视频输入最高分辨率为1080P60Hz。
