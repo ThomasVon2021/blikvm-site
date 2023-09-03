@@ -456,8 +456,18 @@
 </div>
 <p>BliKVM支持U盘设备模拟，通过此功能可以进行远程挂载镜像，进行重装系统。</p>
 <h2 id="web-ui">Web UI</h2>
-<p>当前除上传镜像还不支持外，其它均可通过web ui完成。
+<p>msd虚拟U盘入口为:
 <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/msd/web-ui.png"><img alt="" src="../assets/images/msd/web-ui.png"/></a></p>
+<div class="admonition warning">
+<p class="admonition-title">使用web上传镜像和制作启动盘，均是同步线程，上传镜像退出MSD的UI界面后，下次再选择相同镜像可断点续传。制作启动盘推出后不可断点重做，需重新开始。</p>
+<ul>
+<li>上传镜像默认路径为/mnt/upload,若出现上传失败，删除为成功的缓存文件，可手动删除此文件夹；</li>
+<li>因部分镜像文件大小较大，采取上传镜像方案为切片上传和合并，合并过程不能断点重来，切记等待合并完成后(时间较长)，再进入下一步；  </li>
+<li>制作启动盘也很为两个步骤，制作虚拟U盘，将选择的iso镜像拷贝到制作好的虚拟U盘里，两个步骤均有进度，请等两者进度均100%后再点击下一步按钮。 
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/msd/progress.png"><img alt="" src="../assets/images/msd/progress.png" width="300"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/msd/merger.png"><img alt="" src="../assets/images/msd/merger.png" width="300"/></a> </li>
+</ul>
+</div>
 <h2 id="web-ui_1">手动 (不使用Web UI)</h2>
 <div class="admonition info">
 <p class="admonition-title">1. 确认系统存在下面4个路径。如果你使用的是最新的BliKVM镜像，无需进行检查。其中/opt/bin/msd/user路径用于存放系统镜像。</p>

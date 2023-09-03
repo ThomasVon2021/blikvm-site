@@ -24,12 +24,12 @@ BliKVM v4是一款生产就绪、即插即用的 KVM-over-IP 设备，为专业�
 
 ## **安装要求**
 !!! note "除v4套件外，您还需自备以下设备"
-    * 电源适配器（5V 3A, USB-A端口或12V 2ADC端口）,若你计划使用PoE供电，或者所的被控计算机USB口有充足的供电能力，则也不需要单独的电源适配器；
+    * 电源适配器（5V 3A, USB-C端口或12V 2ADC端口）,若你计划使用PoE供电，或者所的被控计算机USB口有充足的供电能力，则也不需要单独的电源适配器；
     * HDMI 线缆(至少一根)，若您同时需要使用HDMI环出接口，则需要2根；
     * 网线（结合您需求自备）,使用ATX开关机功能需一根，使用网线上网功能需一根；
     * USB-C转USB-A线缆一根（用于鼠标和键盘数据传输）.
 
-!!! warning "升级注意！"
+!!! warning "终端升级注意！"
     在升级前，需执行下面命令，否则apt-get update 和 apt-get upgrade后镜像会无法启动
     ```
     apt-mark hold linux-dtb-edge-sunxi64 linux-image-edge-sunxi64

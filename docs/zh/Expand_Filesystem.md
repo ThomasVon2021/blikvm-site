@@ -37,6 +37,7 @@ sudo raspi-config
 ## 方法三: 使用脚本
 - 如果你使用的是BliKVM镜像，可以在KVM上运行下面的脚本，来自动扩大空间。
 **1.** 终端登录到KVM上，确认系统有可读写权限，在任意路径运行`vim expand.sh`,将下面内容写入到expand.sh中. 
+如果你是v1,v2,v3版本，请使用下面内容：
 ```
 #!/bin/bash
 set -x
@@ -54,7 +55,23 @@ resize_mmcblk0p3
 
 echo "Partition resizing completed."
 ```
+如果你是v4版本，请使用下面内容：
+```
+#!/bin/bash
+set -x
 
+resize_mmcblk0p1() {
+  echo "Resizing mmcblk0p1 partition..."
+  parted /dev/mmcblk0 resizepart 1 100%
+  resize2fs /dev/mmcblk0p1
+  echo "mmcblk0p1 partition resized successfully."
+}
+
+echo "Starting partition resizing..."
+
+resize_mmcblk0p1
+echo "Partition resizing completed."
+```
 **2.** 终端执行`bash expand.sh`,等待执行完成即可。
 
 - 如果你使用的是PiKVM的镜像，可以在KVM上运行下面的脚本，来自动扩大空间。

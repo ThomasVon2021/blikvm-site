@@ -35,7 +35,8 @@ sudo raspi-config
 
 ## Method 3: Use script
 - If you are using a BliKVM image, you can run the following script on KVM to automatically expand the space.
-**1.** Log in to the KVM terminal, confirm that the system has read and write permissions, run `vim expand. sh` on any path, and write the following content to expand.sh
+**1.** Log in to the KVM terminal, confirm that the system has read and write permissions, run `vim expand. sh` on any path, and write the following content to expand.sh.  
+If your hardwawre is v1,v2 or v3, use:
 ```
 #!/bin/bash
 set -x
@@ -51,6 +52,23 @@ echo "Starting partition resizing..."
 
 resize_mmcblk0p3
 
+echo "Partition resizing completed."
+```
+If your hardwawre is v4, use:
+```
+#!/bin/bash
+set -x
+
+resize_mmcblk0p1() {
+  echo "Resizing mmcblk0p1 partition..."
+  parted /dev/mmcblk0 resizepart 1 100%
+  resize2fs /dev/mmcblk0p1
+  echo "mmcblk0p1 partition resized successfully."
+}
+
+echo "Starting partition resizing..."
+
+resize_mmcblk0p1
 echo "Partition resizing completed."
 ```
 

@@ -9,6 +9,22 @@ ATX adapter,PoE, OLED and RTC. The product has a customized metal case to dissip
 for the HAT. The product can be easily installed on a standard 1U rack. The product is currently perfectly compatible
 with blikvm image and pikvm image.  
  ![Image title](assets/images/BLIKVM-HAT/case.png){width="300"}  
+
+ ## Features
+- **Video capture** (HDMI, support 1080P@50Hz input)
+- **Keyboard forwarding**
+- **Mouse forwarding**
+- **Mass Storage Drive**
+- **ATX** Control the server power using ATX functions
+- **Fullscreen mode**
+- Access via **Web UI**
+- Support **multi language** switching
+- Support **PoE**
+- **Serial** console port
+- **OLED** display
+- **Real Time Clock (RTC)**  
+- **PWM FAN**  
+
 ## **Installation requirements**
 !!! note "If you have an assembly kit, you will need the following things"
     * Raspberry Pi 4B with 1Gb RAM or more.

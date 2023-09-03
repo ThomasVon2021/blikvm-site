@@ -497,8 +497,10 @@
 <p><strong>4.</strong> 将SD卡插入设备，启动即可。</p>
 <h2 id="_3">方法三: 使用脚本</h2>
 <ul>
-<li>如果你使用的是BliKVM镜像，可以在KVM上运行下面的脚本，来自动扩大空间。
+<li>
+<p>如果你使用的是BliKVM镜像，可以在KVM上运行下面的脚本，来自动扩大空间。
 <strong>1.</strong> 终端登录到KVM上，确认系统有可读写权限，在任意路径运行<code>vim expand.sh</code>,将下面内容写入到expand.sh中. 
+如果你是v1,v2,v3版本，请使用下面内容：
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>#!/bin/bash
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>set -x
 <a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
@@ -514,35 +516,52 @@
 <a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a>resize_mmcblk0p3
 <a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>
 <a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a>echo "Partition resizing completed."
-</code></pre></div></li>
-</ul>
-<p><strong>2.</strong> 终端执行<code>bash expand.sh</code>,等待执行完成即可。</p>
-<ul>
-<li>如果你使用的是PiKVM的镜像，可以在KVM上运行下面的脚本，来自动扩大空间。
-<strong>1.</strong> 终端登录到KVM上，确认系统有可读写权限，在任意路径运行<code>vim expand.sh</code>,将下面内容写入到expand.sh中.
+</code></pre></div>
+如果你是v4版本，请使用下面内容：
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>#!/bin/bash
 <a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>set -x
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>        if grep -q 'X-kvmd\.otgmsd' /etc/fstab; then
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>                part=$(grep 'X-kvmd\.otgmsd' /etc/fstab | awk '{print $1}')
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>                # shellcheck disable=SC2206
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>                splitted=(${part//=/ })
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>                if [ "${splitted[0]}" == LABEL ]; then
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>                        label=${splitted[1]}
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>                        part=$(blkid -c /dev/null -L "$label")
-<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a>                else
-<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a>                        label=PIMSD
-<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a>                fi
-<a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a>                unset splitted
-<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a>                disk=/dev/$(lsblk -no pkname "$part")
-<a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a>                npart=$(cat "/sys/class/block/${part//\/dev\//}/partition")
-<a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a>                umount "$part"
-<a href="#__codelineno-2-17" id="__codelineno-2-17" name="__codelineno-2-17"></a>                parted "$disk" -a optimal -s resizepart "$npart" 100%
-<a href="#__codelineno-2-18" id="__codelineno-2-18" name="__codelineno-2-18"></a>                yes | mkfs.ext4 -L "$label" -F -m 0 "$part"
-<a href="#__codelineno-2-19" id="__codelineno-2-19" name="__codelineno-2-19"></a>                mount "$part"
-<a href="#__codelineno-2-20" id="__codelineno-2-20" name="__codelineno-2-20"></a>                unset disk part npart label
-<a href="#__codelineno-2-21" id="__codelineno-2-21" name="__codelineno-2-21"></a>        fi
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>resize_mmcblk0p1() {
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>  echo "Resizing mmcblk0p1 partition..."
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>  parted /dev/mmcblk0 resizepart 1 100%
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>  resize2fs /dev/mmcblk0p1
+<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>  echo "mmcblk0p1 partition resized successfully."
+<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>}
+<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a>
+<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a>echo "Starting partition resizing..."
+<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a>
+<a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a>resize_mmcblk0p1
+<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a>echo "Partition resizing completed."
 </code></pre></div>
-<strong>2.</strong> 终端执行<code>bash expand.sh</code>,等待执行完成即可。</li>
+<strong>2.</strong> 终端执行<code>bash expand.sh</code>,等待执行完成即可。</p>
+</li>
+<li>
+<p>如果你使用的是PiKVM的镜像，可以在KVM上运行下面的脚本，来自动扩大空间。
+<strong>1.</strong> 终端登录到KVM上，确认系统有可读写权限，在任意路径运行<code>vim expand.sh</code>,将下面内容写入到expand.sh中.
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>#!/bin/bash
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>set -x
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>        if grep -q 'X-kvmd\.otgmsd' /etc/fstab; then
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>                part=$(grep 'X-kvmd\.otgmsd' /etc/fstab | awk '{print $1}')
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>                # shellcheck disable=SC2206
+<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>                splitted=(${part//=/ })
+<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a>                if [ "${splitted[0]}" == LABEL ]; then
+<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>                        label=${splitted[1]}
+<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>                        part=$(blkid -c /dev/null -L "$label")
+<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a>                else
+<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a>                        label=PIMSD
+<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a>                fi
+<a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a>                unset splitted
+<a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a>                disk=/dev/$(lsblk -no pkname "$part")
+<a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a>                npart=$(cat "/sys/class/block/${part//\/dev\//}/partition")
+<a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a>                umount "$part"
+<a href="#__codelineno-3-17" id="__codelineno-3-17" name="__codelineno-3-17"></a>                parted "$disk" -a optimal -s resizepart "$npart" 100%
+<a href="#__codelineno-3-18" id="__codelineno-3-18" name="__codelineno-3-18"></a>                yes | mkfs.ext4 -L "$label" -F -m 0 "$part"
+<a href="#__codelineno-3-19" id="__codelineno-3-19" name="__codelineno-3-19"></a>                mount "$part"
+<a href="#__codelineno-3-20" id="__codelineno-3-20" name="__codelineno-3-20"></a>                unset disk part npart label
+<a href="#__codelineno-3-21" id="__codelineno-3-21" name="__codelineno-3-21"></a>        fi
+</code></pre></div>
+<strong>2.</strong> 终端执行<code>bash expand.sh</code>,等待执行完成即可。</p>
+</li>
 </ul>
 <hr/>
 <div class="md-source-file">
