@@ -13,7 +13,7 @@ The entrance to the MSD virtual USB drive is as follows:
 !!! warning "Using the web to upload images and create bootable drives are both synchronous processes. If you exit the MSD UI interface after uploading an image, you can resume the upload from where it left off the next time you select the same image. However, once you exit the bootable drive creation process, you cannot resume it; you will need to start over."
     - The default upload path for images is /mnt/upload. If an upload fails, you can manually delete the cache files that were not successfully uploaded.
     - Due to the large size of some image files, image uploads are divided into slices and then merged. The merging process cannot be resumed, so please ensure you wait for the merge to complete (which may take some time) before proceeding to the next step.  
-    - Creating a bootable drive involves two steps: creating a virtual USB drive and copying the selected ISO image into the created virtual USB drive. Both steps have progress indicators. Please wait until both steps show 100% progress before clicking the next button.
+    - Creating a bootable drive involves two steps: creating a virtual USB drive and copying the selected ISO image into the created virtual USB drive. Both steps have progress indicators. Please wait until both steps show 100% progress before clicking the next button.   
     ![](assets/images/msd/progress.png){width="300"}
     ![](assets/images/msd/merger.png){width="300"}  
 

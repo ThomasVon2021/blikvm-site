@@ -90,6 +90,7 @@ nav:
         - "Serial-over-USB": serial_over_usb.md 
         - "MSD": msd.md
         - "HDMI EDID": edid.md
+        - "User Manager": user-manager.md
     - "Installation instructions":
         - "v3 HAT illustrated instructions": BLIHAT-Installation.md
         - "v2 PCIe illustrated instructions": BLIKVM-PCIe-installation.md
