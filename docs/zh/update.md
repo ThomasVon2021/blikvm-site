@@ -14,30 +14,26 @@
     * 若更新异常，web界面无法退出更新状态，可以终端ssh进入kvm后重启恢复。
 
 ## **手动运行脚本更新**
-!!! info "ssh进入设备终端"
+!!! info "ssh进入设备终端。若当前系统终端可以看到ro关键字，为只读系统，需使用`rw`让系统为可写权限。"
     ```
-    rw
     sudo -i
     cd /opt/bin/blikvm/
     git pull --rebase
     python3 /opt/bin/blikvm/script/update.py
-    ro
     ```
     观察终端输出，当看到升级升级成功消息提醒时，终端输入reboot，重启生效。
 
 !!! warning "若您因网络原因，一直无法更新成功，可以采用在其它网络ok的PC上下载最新的release.tar.gz包，然后按照以下命令进行安装。"
     ssh进入设备终端，并使用`tar -zxvf release.tar.gz`解压release.tar.gz。
     ```
-    rw
     sudo -i
     cd /your release path/
     python3 install_release.py --releasepath=./
-    ro 
     ```
     可以观察/usr/bin/blikvm/package.json前后的版本对比，若升级到了指定版本，则成功，重启生效。
     
 ## **Web界面更新**
-
+!!! warning "当前web升级功能暂时关闭，请使用命令行更新"
 !!! info "点击更多选项按钮后，找到**检查更新**按钮并点击,若发现可用版本，会出现下图中的弹框，点击**OK**,即进入升级，升级过程中web界面暂时不可操作。通过手动刷新页面，查看目前更新状态。当出现更新成功的消息提醒时，即表示更新已成功，点击重启按钮，新版本软件就会生效。"
     ![IMG_8366](assets/images/update/update_button.png){width="300"}
     ![IMG_8366](assets/images/update/update_info.png){width="300"}

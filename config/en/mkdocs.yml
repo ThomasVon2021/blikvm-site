@@ -91,6 +91,7 @@ nav:
         - "MSD": msd.md
         - "HDMI EDID": edid.md
         - "User Manager": user-manager.md
+        - "Wake-on-LAN": wake-on-lan.md
     - "Installation instructions":
         - "v3 HAT illustrated instructions": BLIHAT-Installation.md
         - "v2 PCIe illustrated instructions": BLIKVM-PCIe-installation.md
