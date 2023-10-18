@@ -503,13 +503,18 @@
 观察终端输出，当看到升级升级成功消息提醒时，终端输入reboot，重启生效。</p>
 </div>
 <div class="admonition warning">
-<p class="admonition-title">若您因网络原因，一直无法更新成功，可以采用在其它网络ok的PC上下载最新的release.tar.gz包，然后按照以下命令进行安装。</p>
-<p>ssh进入设备终端，并使用<code>tar -zxvf release.tar.gz</code>解压release.tar.gz。
+<p class="admonition-title">若您因网络原因，一直无法更新成功，可以采用在其它网络ok的PC上下载最新的release包，然后按照以下命令进行安装。</p>
+<ul>
+<li>下载地址: https://github.com/ThomasVon2021/blikvm/releases</li>
+<li>其中v1 v2 v3硬件使用 release.tar.gz</li>
+<li>v4硬件使用 release-h616-v4.tar.gz
+ssh进入设备终端，并使用<code>tar -zxvf release.tar.gz</code>解压release.tar.gz。
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>sudo -i
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>cd /your release path/
 <a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>python3 install_release.py --releasepath=./
 </code></pre></div>
-可以观察/usr/bin/blikvm/package.json前后的版本对比，若升级到了指定版本，则成功，重启生效。</p>
+可以观察/usr/bin/blikvm/package.json前后的版本对比，若升级到了指定版本，则成功，重启生效。</li>
+</ul>
 </div>
 <h2 id="web"><strong>Web界面更新</strong></h2>
 <div class="admonition warning">
@@ -527,7 +532,7 @@
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 11, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 22, 2023</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 21, 2023</span>

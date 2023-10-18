@@ -25,6 +25,9 @@
    Observe the output of the terminal. When you see the message of successful upgrade, the terminal enters reboot, and the reboot takes effect.
 
 !!! warning "If you are unable to update successfully due to network issues, you can download the latest release.tar.gz package on another PC with a stable network connection and follow the instructions below for installation."
+    - download address: https://github.com/ThomasVon2021/blikvm/releases
+    - v1 v2 v3 hardware use release.tar.gz
+    - v4 hardware use release-h616-v4.tar.gz
     SSH into the device terminal and use `tar -zxvf release.tar.gz` to extract the release.tar.gz file.
     ```
     rw

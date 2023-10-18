@@ -23,7 +23,10 @@
     ```
     观察终端输出，当看到升级升级成功消息提醒时，终端输入reboot，重启生效。
 
-!!! warning "若您因网络原因，一直无法更新成功，可以采用在其它网络ok的PC上下载最新的release.tar.gz包，然后按照以下命令进行安装。"
+!!! warning "若您因网络原因，一直无法更新成功，可以采用在其它网络ok的PC上下载最新的release包，然后按照以下命令进行安装。"
+    - 下载地址: https://github.com/ThomasVon2021/blikvm/releases
+    - 其中v1 v2 v3硬件使用 release.tar.gz
+    - v4硬件使用 release-h616-v4.tar.gz
     ssh进入设备终端，并使用`tar -zxvf release.tar.gz`解压release.tar.gz。
     ```
     sudo -i
