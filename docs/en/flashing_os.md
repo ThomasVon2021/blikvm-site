@@ -29,6 +29,7 @@
     [How to flash the eMMC on a Raspberry Pi Compute Module 4](https://www.youtube.com/watch?v=jp_mF1RknU4)
 
 ### Board Link
+If you use CM4 with eMMC(Like CM4102016). You can use v1 or v2 board to flash. If your CM4 don't have eMMC, your device use SD card. You don't need look this. Just flash to SD card .
 First, use the jumper cap to short the boot pin.
 !!! info "If you use BLIKVM CM4 version"
     Then connect the data cable to the USB OTG interface. Power on blikvm and observe the act light, the green light is always on.  

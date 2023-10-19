@@ -29,7 +29,7 @@
     [How to flash the eMMC on a Raspberry Pi Compute Module 4](https://www.youtube.com/watch?v=jp_mF1RknU4)
 
 ### Board Link
-First, use the jumper cap to short the boot pin.
+如果你使用的CM4是含eMMC的版本，如CM4102016型号。你可以使用v1和v2硬件直接对CM4的eMMC进行烧录。如果你的CM4不带eMMC，而是使用SD卡，你则不需要看此章节。首先在blikvm硬件上对CM4的eMMC进行烧录，你需要先短接boot引脚。
 !!! info "If you use BLIKVM CM4 version"
     Then connect the data cable to the USB OTG interface. Power on blikvm and observe the act light, the green light is always on.  
     ![Image title](assets/images/flash_os/flash_led-300x300.png){width="300"}
