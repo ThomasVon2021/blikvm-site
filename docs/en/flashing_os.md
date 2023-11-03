@@ -60,7 +60,7 @@ If you use an Micro-SD Card, you can skip the following steps and go to the next
 # sudo ./rpiboot
 ```
 
-If the content in the figure below appears, that indicates that the eMMC initialization went successfully. The next step is now to flash the image to your eMMC chip.
+If the content in the figure below appears, that indicates that the eMMC initialization went successfully. The next step is to flash the image to your eMMC chip.
 ![Image title](assets/images/flash_os/flash_rpiboot.png){width="300"}
 
 ### Flash the Image (Linux, MacOS and Windows)
