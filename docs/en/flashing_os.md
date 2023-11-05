@@ -19,6 +19,7 @@
     ![Image title](assets/images/flash_os/chinese-web-ui.png){width="300"}
 
 ### Base on PiKVM software
+
 !!! info "Raspberry 4B and CM4 board use different PiKVM software image. After entering the link, you can see the image named with each hardware version (HAT CM4 PCIe)"
     * **[PiKVM image](https://drive.google.com/drive/folders/1DcpxSzjbhM7wijaldql2UI4pUyEhOTCJ?usp=share_link)**
 
@@ -29,8 +30,8 @@
     [How to flash the eMMC on a Raspberry Pi Compute Module 4](https://www.youtube.com/watch?v=jp_mF1RknU4)
 
 ### Board Link
-If you use CM4 with eMMC(Like CM4102016). You can use v1 or v2 board to flash. If your CM4 don't have eMMC, your device use SD card. You don't need look this. Just flash to SD card .
-First, use the jumper cap to short the boot pin.
+If you use a CM4 with eMMC (like the CM4102016). You can use the v1 or v2 board to flash the eMMC. If your CM4 don't have eMMC, your device can just use a SD card to boot from. You don't need to look into this any further. Just flash to the SD card instead.
+First, use the jumper cap to short the boot pin (allowing you flash the EMMC memory).
 !!! info "If you use BLIKVM CM4 version"
     Then connect the data cable to the USB OTG interface. Power on blikvm and observe the act light, the green light is always on.  
     ![Image title](assets/images/flash_os/flash_led-300x300.png){width="300"}
@@ -41,23 +42,30 @@ First, use the jumper cap to short the boot pin.
     ![Image title](assets/images/flash_os/pcie_flash_after_rpiboot.jpg){width="300"}
     
 !!! tip "EMMC knowledge"
-    If you use raspberry pi computing modules such as CM3 or CM4 EMMC，you can initialize EMMC through the usbboot. Note that the EMMC version cannot directly use the SD card to start the image.
-    From this video you can learn how to flash image quickly.[How to flash the eMMC on a Raspberry Pi Compute Module 4 video](https://www.youtube.com/watch?v=jp_mF1RknU4)
+    If you use Raspberry Pi compute modules such as CM3 eMMC or CM4 eMMC version，you can initialize eMMC through the [usbboot](https://github.com/raspberrypi/usbboot) project. Note that the eMMC board version **cannot** use the SD card to boot the image.
+    Instead, you need to flash the eMMC storage by using the usbboot project that emulates USB Mass Storage Device (MSD).
+    From this video you can learn how-to flash the image quickly. [How to flash the eMMC on a Raspberry Pi Compute Module 4 video](https://www.youtube.com/watch?v=jp_mF1RknU4)
 
 **Taking Ubuntu system as an example:**
-###  Linux usbboot
-If you use an Micro-SD Card, you don't need to care about that.
+
+### Linux usbboot
+
+If you use an Micro-SD Card, you can skip the following steps and go to the next chapter down below.
+
 ```
-# sudo apt-get install libusb-1.0-0-dev  
+# sudo apt install git libusb-1.0-0-dev pkg-config build-essential
 # git clone --depth=1 https://github.com/raspberrypi/usbboot
 # cd usbboot
 # make
 # sudo ./rpiboot
 ```
-If the content shown in the figure below appears, it indicates that EMMC initialization is successful.  
+
+If the content in the figure below appears, that indicates that the eMMC initialization went successfully. The next step is to flash the image to your eMMC chip.
 ![Image title](assets/images/flash_os/flash_rpiboot.png){width="300"}
 
-### Using RPi Imager (Linux, MacOS and Windows)
+### Flash the Image (Linux, MacOS and Windows)
+
+We are using the "RPi Imager" application to flash the image in this example.
 
 1. Download and install **the latest version** of [RPi Imager](https://github.com/raspberrypi/rpi-imager/releases).
 
@@ -70,7 +78,7 @@ If the content shown in the figure below appears, it indicates that EMMC initial
 4. After clicking on this item, select the image file (`.img.xz`), then click **CHOOSE STORAGE**:  
 ![Image title](assets/images/flash_os/flash_img.png){width="300"}
 
-5. Insert the memory card into the card reader. Choose the card reader from this list. **Be careful** 
+5. Insert the memory card into the card reader. Choose the card reader from this list (or eMMC flash storage, in case you are using a Raspberry Pi Compute module with a eMMC chip). **Be careful** 
 and choose the right device:   
 
     ![Image title](assets/images/flash_os/flash_storage.png){width="300"}
