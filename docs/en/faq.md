@@ -53,14 +53,14 @@ As a first step, we recommend carefully reading our documentation. Most steps to
 
 
 ??? question "What is the default password? How do I change it?"
-    If you use PiKVM, there are two types of accounts: OS and PiKVM (web interface) accounts. The system account `root` can be used for SSH/UART access and has the password `root`. The web interface account is called `admin` and has the password `admin`. The PiKVM account cannot be used for SSH access and vice versa.
+    If you use PiKVM, there are two types of accounts: OS and PiKVM (web interface) accounts. The system account `blikvm` can be used for SSH/UART access and has the password `blikvm`. The web interface account is called `admin` and has the password `admin`. The PiKVM account cannot be used for SSH access and vice versa.
 
-    To change passwords, use the following commands (under root):
+    To change passwords, use the following commands (become the root user):
 
     ```bash
     su -  # If you're in the webterm
     rw  # Switch filesystem to read-write mode
-    passwd root  # Change OS root password
+    passwd blikvm  # Change blikvm user password
     kvmd-htpasswd set admin  # Change web ui admin password
     ro  # Back to read-only
     ```
@@ -70,19 +70,19 @@ As a first step, we recommend carefully reading our documentation. Most steps to
     
     ```
     If you require additional users for PiKVM UI, you can use the following:
-    # rw
     # su -
+    # rw
     # kvmd-htpasswd set <user> # Adds a new user
     # kvmd-htpasswd set <user> # Sets the password as long as the user exists
     # kvmd-htpasswd del <user> # Removes/deletes a user
     
     To add a shell/terminal account:
-    # rw
     # su -
+    # rw
     # adduser <user>
     # passwd <user>
     ```
-    Keep in mind that the more users that are added, the stream if accessed, fps will drop.
+    Keep in mind that the more users that are added and accessing the screen stream at the same time, the FPS will drop.
 
    
 ## Video problems
