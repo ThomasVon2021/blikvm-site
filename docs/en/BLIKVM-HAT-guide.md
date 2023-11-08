@@ -23,7 +23,26 @@ with blikvm image and pikvm image.
 - **Serial** console port
 - **OLED** display
 - **Real Time Clock (RTC)**  
-- **PWM FAN**  
+- **PWM FAN**
+
+  ## Interface
+  ***
+- HAT part:
+1. HDMI IN
+2. ATX Port
+3. OLED
+4. PoE jumper
+***
+- Raspberry 4B part:
+5. SD CARD
+6. ACT LED
+7. PWR LED
+8. USB-PC
+9. HDMI 0
+10. HDMI 1
+11. A/V
+12. ETH(1000M) & PoE
+13. 2xUSB2.0 Port & 2xUSB3.0Port
 
 ## **Installation requirements**
 !!! note "If you have an assembly kit, you will need the following things"
