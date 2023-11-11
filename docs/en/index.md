@@ -1,8 +1,8 @@
 # BLIKVM Overview
-BLIKVM is an open-source KVM, it has three versions: CM4 Board, Raspberry HAT, PCIE Board. 
+BLIKVM is an open-source KVM, it has four versions: v1 CM4,  v2 PCIe, v3 HAT, v4 Allwinner. 
 This device helps to manage servers or workstations remotely, regardless of the health of the operating system or 
 whether one is installed. You can fix any problem, configure the BIOS, and even reinstall the OS using the virtual 
-CD-ROM or Flash Drive. Here you will find comprehensive information about all aspects of the operation of BLIKVM. 
+CD-ROM or Flash Drive. Unlike software-based remote management, you don't need to install any software on the controlled computer for non-intrusive control. Here you will find comprehensive information about all aspects of the operation of BLIKVM. 
 Join our [BLIKVM Discord Community](https://discord.com/invite/9Y374gUF6C) for Support, FAQ & News!
 ![Image title](assets/images/version_all.png)
 
