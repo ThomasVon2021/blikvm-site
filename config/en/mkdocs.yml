@@ -78,6 +78,7 @@ nav:
     - "Network":
         - "Port Forwarding": port-forwarding.md
         - "Tailscale VPN": tailscale.md
+        - "ZeroTier VPN": zerotier.md
         - "Set Static IP ": static_ip.md
         - "Wifi Config": wifi.md
     - "Function":
