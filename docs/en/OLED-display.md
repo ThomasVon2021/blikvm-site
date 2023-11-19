@@ -1,27 +1,16 @@
 # OLED display 
-!!! abstract "Follow the method below to enable OLED."
-    If you use PiKVM official image, log in to PiKVM and run these commands:
-    ```
-    # rw
-    # systemctl enable --now kvmd-oled //Enable OLED
-    # ro
-    ```
-    If the oled still can't work, you need to check whether there has "dtparam=i2c_arm=on" in "/boot/config.txt" file, and whether there has "i2c-dev" in "/etc/modules-load.d/i2c.conf" file. If not, please create and add them.
-    If it still does not work after the above configuration, please burn [the image](./flashing_os.md) provided by blikvm for testing to check whether the OLED hardware is damaged.  
 
-!!! info "BLIKVM CM4 version OLED display"
-    The product comes standard with a monochrome OLED display with a resolution of 128x64, and the chip is SSD1306.  
-    The user connects the display to the product with the wiring of the display.
+Due to the potential issues like screen burn-in during prolonged OLED usage, the display follows the following logic: upon initial startup, it defaults to continuous display for 300 minutes, followed by a 5-minute interval display. This approach significantly enhances the screen's overall lifespan.  
 
-    ![Image title](assets/images/oled/BLIKVM-CM4-oled.png){width="300"}
+To customize this behavior, you can locate the following configuration in the "/usr/bin/blikvm/package.json" file. Modify the values of "restart_show_time" and "interval_display_time" in minutes to achieve different control effects.
 
-    The module is connected to CM4 through the I^2^C interface. The wiring definition is shown in the following table. 
-    This is a library for the monochrome OLEDs based on [SSD1306 drivers.](https://github.com/adafruit/Adafruit_SSD1306)
+```
+"oled":{
+    "oled_enable": 1,
+    "restart_show_time": 300,
+    "interval_display_time": 5
+}
+```
 
-    | Display(SSD1306) | CM4               |
-    | ---------------- | ----------------- |
-    | GND              | GND               |
-    | VCC              | 3.3V              |
-    | SCL              | GPIO3(SCL1,I^2^C) |
-    | SDA              | GPIO2(SDA1,I^2^C) |
+
 

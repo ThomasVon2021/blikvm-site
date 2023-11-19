@@ -61,6 +61,21 @@
 | 尺寸             | 100 (L) x 134 (W) x 44.4 (H) mm           |
 | 重量             | 0.45 kg                                   |
 
+!!! info "BLIKVM CM4版本 OLED显示屏"
+    该产品标配一块分辨率为128x64的单色OLED显示屏，芯片型号为SSD1306。
+    用户通过显示屏的布线将其连接到产品。
+    ![图像标题](assets/images/oled/BLIKVM-CM4-oled.png){width="300"}
+    该模块通过I^2^C接口连接到CM4。布线定义如下表所示。
+    这是一个基于[SSD1306驱动](https://github.com/adafruit/Adafruit_SSD1306)的单色OLED库。
+
+    | Display(SSD1306) | CM4               |
+    | ---------------- | ----------------- |
+    | GND              | GND               |
+    | VCC              | 3.3V              |
+    | SCL              | GPIO3(SCL1,I^2^C) |
+    | SDA              | GPIO2(SDA1,I^2^C) |
+
+
 ## 外形尺寸
 
 ![Dimensions](assets/images/v4/Datasheet-BliKVM-v4.assets/Dimensions.png){width="400"}

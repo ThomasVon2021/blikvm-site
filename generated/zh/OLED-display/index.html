@@ -426,51 +426,15 @@
 <a class="md-content__button md-icon" href="https://github.com/ThomasVon2021/blikvm-site/edit/master/docs/zh/OLED-display.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
-<h1 id="oled-display">OLED display</h1>
-<div class="admonition abstract">
-<p class="admonition-title">Follow the method below to enable OLED.</p>
-<p>If you use PiKVM image, log in to PiKVM and run these commands:
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a># rw
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a># systemctl enable --now kvmd-oled //Enable OLED
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a># ro
-</code></pre></div>
-If the oled still can't work, you need to check whether there has "dtparam=i2c_arm=on" in "/boot/config.txt" file, and whether there has "i2c-dev" in "/etc/modules-load.d/i2c.conf" file. If not, please create and add them.
-If it still does not work after the above configuration, please burn <a href="../flashing_os/">the image</a> provided by blikvm for testing to check whether the OLED hardware is damaged. </p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">BLIKVM CM4 version OLED display</p>
-<p>The product comes standard with a monochrome OLED display with a resolution of 128x64, and the chip is SSD1306.<br/>
-The user connects the display to the product with the wiring of the display.
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/oled/BLIKVM-CM4-oled.png"><img alt="Image title" src="../assets/images/oled/BLIKVM-CM4-oled.png" width="300"/></a>
-The module is connected to CM4 through the I^2^C interface. The wiring definition is shown in the following table. 
-This is a library for the monochrome OLEDs based on <a href="https://github.com/adafruit/Adafruit_SSD1306">SSD1306 drivers.</a></p>
-<table>
-<thead>
-<tr>
-<th>Display(SSD1306)</th>
-<th>CM4</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>GND</td>
-<td>GND</td>
-</tr>
-<tr>
-<td>VCC</td>
-<td>3.3V</td>
-</tr>
-<tr>
-<td>SCL</td>
-<td>GPIO3(SCL1,I^2^C)</td>
-</tr>
-<tr>
-<td>SDA</td>
-<td>GPIO2(SDA1,I^2^C)</td>
-</tr>
-</tbody>
-</table>
-</div>
+<h1 id="oled-display"><strong>OLED display</strong></h1>
+<p>由于OLED长期运行，会出现烧屏等问题，故OLED有以下逻辑，首次启动时，默认会连续显示300分钟,然后间隔5分钟显示一次，从而大大增加屏幕的生命周期。<br/>
+你可以在/usr/bin/blikvm/package.json配置文件中，找到下面配置，通过修改restart_show_time和interval_display_time时间，达到不同的控制效果，单位为分钟。
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>"oled":{
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    "oled_enable": 1,
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    "restart_show_time": 300,
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    "interval_display_time": 5
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>}
+</code></pre></div></p>
 <hr/>
 <div class="md-source-file">
 <small>

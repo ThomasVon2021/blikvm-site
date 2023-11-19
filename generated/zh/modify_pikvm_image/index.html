@@ -424,6 +424,11 @@
     2. EDID文件更换
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-oled">
+    2. OLED启用
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -452,6 +457,11 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#2-edid">
     2. EDID文件更换
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-oled">
+    2. OLED启用
   </a>
 </li>
 </ul>
@@ -520,6 +530,17 @@
 <a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>    tc358743 = "/dev/kvmd-video"
 <a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>}
 </code></pre></div>
+</div>
+<h2 id="2-oled">2. <strong>OLED启用</strong></h2>
+<div class="admonition abstract">
+<p class="admonition-title">PiKVM镜像，按照下面的方法启用OLED。</p>
+<p>如果您使用PiKVM镜像，请登录到PiKVM并运行以下命令：
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a># rw
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a># systemctl enable --now kvmd-oled //启用OLED
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a># ro
+</code></pre></div>
+如果OLED仍然无法工作，您需要检查"/boot/config.txt"文件中是否有"dtparam=i2c_arm=on"，以及"/etc/modules-load.d/i2c.conf"文件中是否有"i2c-dev"。如果没有，请创建并添加它们。
+如果在上述配置之后仍然无法工作，请刻录<a href="../flashing_os/">blikvm提供的测试镜像</a>来检查OLED硬件是否损坏。</p>
 </div>
 <hr/>
 <div class="md-source-file">

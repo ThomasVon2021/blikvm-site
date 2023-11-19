@@ -1,25 +1,12 @@
-# OLED display 
-!!! abstract "Follow the method below to enable OLED."
-    If you use PiKVM image, log in to PiKVM and run these commands:
-    ```
-    # rw
-    # systemctl enable --now kvmd-oled //Enable OLED
-    # ro
-    ```
-    If the oled still can't work, you need to check whether there has "dtparam=i2c_arm=on" in "/boot/config.txt" file, and whether there has "i2c-dev" in "/etc/modules-load.d/i2c.conf" file. If not, please create and add them.
-    If it still does not work after the above configuration, please burn [the image](./flashing_os.md) provided by blikvm for testing to check whether the OLED hardware is damaged. 
+# **OLED display**
 
-!!! info "BLIKVM CM4 version OLED display"
-    The product comes standard with a monochrome OLED display with a resolution of 128x64, and the chip is SSD1306.  
-    The user connects the display to the product with the wiring of the display.
-    ![Image title](assets/images/oled/BLIKVM-CM4-oled.png){width="300"}
-    The module is connected to CM4 through the I^2^C interface. The wiring definition is shown in the following table. 
-    This is a library for the monochrome OLEDs based on [SSD1306 drivers.](https://github.com/adafruit/Adafruit_SSD1306)
-
-    | Display(SSD1306) | CM4               |
-    | ---------------- | ----------------- |
-    | GND              | GND               |
-    | VCC              | 3.3V              |
-    | SCL              | GPIO3(SCL1,I^2^C) |
-    | SDA              | GPIO2(SDA1,I^2^C) |
+由于OLED长期运行，会出现烧屏等问题，故OLED有以下逻辑，首次启动时，默认会连续显示300分钟,然后间隔5分钟显示一次，从而大大增加屏幕的生命周期。  
+你可以在/usr/bin/blikvm/package.json配置文件中，找到下面配置，通过修改restart_show_time和interval_display_time时间，达到不同的控制效果，单位为分钟。
+```
+"oled":{
+    "oled_enable": 1,
+    "restart_show_time": 300,
+    "interval_display_time": 5
+}
+```
 

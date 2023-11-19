@@ -54,3 +54,13 @@ EDID文件作用为，设置被控计算机按照期望的分辨率进行输入�
         tc358743 = "/dev/kvmd-video"
     }
     ```
+## 2. **OLED启用**
+!!! abstract "PiKVM镜像，按照下面的方法启用OLED。"
+    如果您使用PiKVM镜像，请登录到PiKVM并运行以下命令：
+    ```
+    # rw
+    # systemctl enable --now kvmd-oled //启用OLED
+    # ro
+    ```
+    如果OLED仍然无法工作，您需要检查"/boot/config.txt"文件中是否有"dtparam=i2c_arm=on"，以及"/etc/modules-load.d/i2c.conf"文件中是否有"i2c-dev"。如果没有，请创建并添加它们。
+    如果在上述配置之后仍然无法工作，请刻录[blikvm提供的测试镜像](./flashing_os.md)来检查OLED硬件是否损坏。

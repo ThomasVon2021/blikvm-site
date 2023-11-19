@@ -65,6 +65,22 @@ BliKVM is a production-ready, plug and play KVM-over-IP device that offers profe
 | Size                        | 100 (L) x 134 (W) x 44.4 (H) mm                              |
 | Weight                      | 0.45 kg                                                      |
 
+!!! info "BLIKVM CM4 version OLED display"
+    The product comes standard with a monochrome OLED display with a resolution of 128x64, and the chip is SSD1306.  
+    The user connects the display to the product with the wiring of the display.
+
+    ![Image title](assets/images/oled/BLIKVM-CM4-oled.png){width="300"}
+
+    The module is connected to CM4 through the I^2^C interface. The wiring definition is shown in the following table. 
+    This is a library for the monochrome OLEDs based on [SSD1306 drivers.](https://github.com/adafruit/Adafruit_SSD1306)
+
+    | Display(SSD1306) | CM4               |
+    | ---------------- | ----------------- |
+    | GND              | GND               |
+    | VCC              | 3.3V              |
+    | SCL              | GPIO3(SCL1,I^2^C) |
+    | SDA              | GPIO2(SDA1,I^2^C) |
+
 ## Dimensions Schematic Diagram
 
 ![Dimensions](assets/images/v4/Datasheet-BliKVM-v4.assets/Dimensions.png){width="400"}

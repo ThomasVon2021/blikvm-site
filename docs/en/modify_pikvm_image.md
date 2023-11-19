@@ -54,3 +54,13 @@
         tc358743 = "/dev/kvmd-video"
     }
     ```
+## **OLED**
+!!! abstract "Follow the method below to enable OLED."
+    If you use PiKVM official image, log in to PiKVM and run these commands:
+    ```
+    # rw
+    # systemctl enable --now kvmd-oled //Enable OLED
+    # ro
+    ```
+    If the oled still can't work, you need to check whether there has "dtparam=i2c_arm=on" in "/boot/config.txt" file, and whether there has "i2c-dev" in "/etc/modules-load.d/i2c.conf" file. If not, please create and add them.
+    If it still does not work after the above configuration, please burn [the image](./flashing_os.md) provided by blikvm for testing to check whether the OLED hardware is damaged.  
