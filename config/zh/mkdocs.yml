@@ -78,6 +78,7 @@ nav:
     - "网络":
         - "端口转发": port-forwarding.md
         - "Tailscale VPN": tailscale.md
+        - "Zerotier VPN": zerotier.md
         - "设置静态IP": static_ip.md
         - "Wifi配置": wifi.md
     - "功能说明":
