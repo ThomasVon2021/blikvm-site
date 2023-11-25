@@ -432,7 +432,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="oled-display">OLED display</h1>
-<p>Due to the potential issues like screen burn-in during prolonged OLED usage, the display follows the following logic: upon initial startup, it defaults to continuous display for 300 minutes, followed by a 5-minute interval display. This approach significantly enhances the screen's overall lifespan.  </p>
+<p>Due to prolonged operation, issues such as screen burn-in may occur with the OLED. Therefore, the OLED has the following logic: upon initial startup, oled_enable is set to 1 by default, meaning the OLED screen will remain constantly on. If oled_enable is set to 0, the screen will display every 5 minutes after the device has been running for 300 minutes, significantly extending the screen's lifespan.</p>
 <p>To customize this behavior, you can locate the following configuration in the "/usr/bin/blikvm/package.json" file. Modify the values of "restart_show_time" and "interval_display_time" in minutes to achieve different control effects.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>"oled":{
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    "oled_enable": 1,
@@ -445,7 +445,7 @@
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 9, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 19, 2023</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 10, 2022</span>

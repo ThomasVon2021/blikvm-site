@@ -1,6 +1,6 @@
 # OLED display 
 
-Due to the potential issues like screen burn-in during prolonged OLED usage, the display follows the following logic: upon initial startup, it defaults to continuous display for 300 minutes, followed by a 5-minute interval display. This approach significantly enhances the screen's overall lifespan.  
+Due to prolonged operation, issues such as screen burn-in may occur with the OLED. Therefore, the OLED has the following logic: upon initial startup, oled_enable is set to 1 by default, meaning the OLED screen will remain constantly on. If oled_enable is set to 0, the screen will display every 5 minutes after the device has been running for 300 minutes, significantly extending the screen's lifespan.
 
 To customize this behavior, you can locate the following configuration in the "/usr/bin/blikvm/package.json" file. Modify the values of "restart_show_time" and "interval_display_time" in minutes to achieve different control effects.
 
