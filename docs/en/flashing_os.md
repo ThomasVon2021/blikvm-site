@@ -11,6 +11,9 @@
     * You can use the PiKVM official image, but you need to make some adaptations according to the different hardware, mainly involving screens, fans, etc. Since the PiKVM official image is always updated, the specific adaptations need to be seen according to the specific situation you encounter at that time;
 
 ## Download the image
+
+!!! info "Currently, BLIKVM OS is available for all versions, while PiKVM OS is only provided for v1, v2, and v3. Users who need to run PiKVM on v4 can join the Discord group for support."
+
 ### BLIKVM software
 !!! info "You can find BliKVM v1 CM4, v2 PCIe, v3 HAT, v4 Allwinner BLIKVM software image, v1 v2 v3 use a same image."
     * **[BLIKVM image ](https://zcwrego195.feishu.cn/drive/folder/fldcn0KhmkuC2DC8nKWcHAMLA6f)**  

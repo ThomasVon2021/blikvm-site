@@ -11,6 +11,9 @@
     * 可以使用PiKVM官方镜像，但需要您根据硬件的不同做一些适配，主要涉及到的有屏幕、风扇等，因PiKVM官网镜像一直再更新，所以具体适配情况需根据当时您使用具体遇到的情况再看；
 
 ## Download the image
+
+!!! info "目前BLIKVM os全版本提供，pikvm os目前只提供了v1 v2 v3，需要v4上运行PiKVM的用户可以加入discord群获得支持。"
+
 ### BLIKVM software
 !!! info "You可以从下面的链接中下载BliKVM v1 CM4, v2 PCIe, v3 HAT, v4 Allwinner的BliKVM镜像, v1 v2 v3使用同一个镜像。"
     * **[BLIKVM image ](https://zcwrego195.feishu.cn/drive/folder/fldcn0KhmkuC2DC8nKWcHAMLA6f)**   
