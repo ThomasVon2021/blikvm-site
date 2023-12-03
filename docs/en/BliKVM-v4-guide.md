@@ -68,7 +68,7 @@ v4 supports a maximum video input of 4K30Hz, and the default transmission resolu
 | M2.5x5 Screws               | 8   |
 | Silicone Bumper Pellets              | 1   |
 
-## Serial Console Access via the 5V Port
+## **Serial Console Access via the 5V Port**
 
 The 5V port can be used both for power supply and serial console access at the same time. There is an onboard CH341-based USB to UART converter present inside BliKVM v4 which is connected to UART0 of the [mCore-H616 SoC](https://linux-sunxi.org/H616), so you can connect a USB port of a PC to the 5V port without an external UART and a USB-C to dupont adapter.
 
