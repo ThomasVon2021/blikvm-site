@@ -161,3 +161,6 @@ ATX模块通过杜邦线和电脑的主板连接。ATX模块配有全高和半�
 | HDMI 线缆                    | 1    |
 | PoE供电设备 or 5V/3A USB 电源适配器 | 1    |
 | CR1220纽扣电池                 | 1    |
+
+## **购买链接**
+[v3淘宝地址](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-24390589055.18.25da4adfmEV9JL&id=676852578588)

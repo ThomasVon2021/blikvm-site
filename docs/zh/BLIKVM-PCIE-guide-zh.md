@@ -162,3 +162,6 @@ BLIKVM PCIe是一款基于树莓派CM4的IPKVM扩展卡，可以安装到PC或�
 | 十字套筒               | 1    |
 | 十字螺丝刀              | 1    |
 备注：由于树莓派CM4一直紧缺，到手即用版本中CM4版本可能会更换为eMMC版本，此中情况下将不带SD卡。
+
+## **购买链接**
+[v2淘宝地址](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-24390589055.16.25da4adfmEV9JL&id=679753758084)

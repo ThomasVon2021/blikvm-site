@@ -105,6 +105,7 @@ nav:
         - "Make Image": make-image.md
         - "Config for PiKVM OS": modify_pikvm_image.md
         - "v4 Allwinner Dev Guide": Dev-BliKVM-v4-Allwinner.md
+        - "http API": dev_api.md
 plugins:
   - glightbox
   - git-revision-date-localized:

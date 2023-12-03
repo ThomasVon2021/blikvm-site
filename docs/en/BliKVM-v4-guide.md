@@ -70,3 +70,6 @@ v4 supports a maximum video input of 4K30Hz, and the default transmission resolu
 
 ## Dev 
 If you want to develop or port software on v4 hardware yourself, you can refer to this [hardware resource description](./Dev-BliKVM-v4-Allwinner.md).
+
+## **Buy link**
+[v4 buy](https://www.aliexpress.com/item/1005005859415746.html?spm=5261.ProductManageOnline.0.0.346d2ddbm8cDsR)

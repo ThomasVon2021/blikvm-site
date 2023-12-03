@@ -184,3 +184,6 @@ The case can be easily installed on a standard 1U rack.
 | HDMI cable                                  | 1    |
 | PoE-sourcing equipment or 5V/3A USB adapter | 1    |
 | CR1220 coin cell battery                    | 1    |
+
+## **Buy link**
+[v3 buy](https://www.aliexpress.com/item/1005004377930400.html?spm=5261.ProductManageOnline.0.0.346d2ddbm8cDsR)

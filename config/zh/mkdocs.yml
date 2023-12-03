@@ -104,6 +104,7 @@ nav:
     - "开发者":
         - "制作镜像": make-image.md
         - "配置PiKVM OS": modify_pikvm_image.md
+        - "http API": dev_api.md
 plugins:
   - glightbox
   - git-revision-date-localized:
