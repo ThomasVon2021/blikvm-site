@@ -1,5 +1,7 @@
 # **API**
 
+!!! warning "申明: 此API为实验性的，任何时候都有可能被改变!"
+
 此文档为BLIKVM OS的http API开发手册，若您有新的API需求不在此文档中，可以在github中提pr获得支持。请求URL中的kvmip需根据你kvm的ip实际替换。
 
 ### **登录认证**

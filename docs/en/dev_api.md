@@ -1,5 +1,7 @@
 # **API**
 
+!!! warning "DISCLAIMER: This API is experimental and subject to change at any moment!"
+
 This document is the HTTP API development manual for BLIKVM OS. If you have new API requirements not covered in this document, you can submit a pull request on GitHub to seek support. Please replace the kvmip in the request URL with the actual IP address of your KVM.
 
 ### **Authentication**
