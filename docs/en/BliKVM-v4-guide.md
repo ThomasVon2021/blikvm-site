@@ -68,5 +68,35 @@ v4 supports a maximum video input of 4K30Hz, and the default transmission resolu
 | M2.5x5 Screws               | 8   |
 | Silicone Bumper Pellets              | 1   |
 
+## Serial Console Access via the 5V Port
+
+The 5V port can be used both for power supply and serial console access at the same time. There is an onboard CH341-based USB to UART converter present inside BliKVM v4 which is connected to UART0 of the [mCore-H616 SoC](https://linux-sunxi.org/H616), so you can connect a USB port of a PC to the 5V port without an external UART and a USB-C to dupont adapter.
+
+!!! warning "PC USB port current output"
+    Be careful when trying to use the 5V port because a PC USB port alone may not be able to provide 3A (5V) which is a documented requirement for the board to work. Either use a 12V 2A DC port at the same time as using the 5V port for serial communication without a [USB Splitter](https://wiki.blicube.com/blikvm/en/usb-splitter-guide/) board, or use the splitter board to split out the VCC pin and use a separate 5V 3A power supply to provide power to the 5V port's VCC pin. Likewise, when disconnecting a cable from the 12V 2A DC port while BliKVM is powered on, make sure to disconnect the cable from the 5V port first (because that will become the power source for BliKVM v4 after the 12V 2A source is disconnected unless a splitter is used).
+
+You should see something like this in your host kernel log (if you are using a Linux-based OS) when attaching a USB cable to the 5V port of BliKVM v4:
+    ```
+    usb 1-1.2: new full-speed USB device number 12 using xhci_hcd
+    usb 1-1.2: New USB device found, idVendor=1a86, idProduct=7523, bcdDevice=81.34
+    usb 1-1.2: New USB device strings: Mfr=0, Product=2, SerialNumber=0
+    usb 1-1.2: Product: USB Serial
+    ch341 1-1.2:1.0: ch341-uart converter detected
+    usb 1-1.2: ch341-uart converter now attached to ttyUSB0
+    ```
+
+Accessing this port can then be done using [GNU screen](https://www.gnu.org/software/screen/) or [TIO](https://github.com/tio/tio):
+    ```
+    tio /dev/ttyUSB0
+    mangopimcore login: blikvm
+    # ...
+    ```
+
+If you need to check how much data is received over UART0 you can do this by looking at the counters exposed via proc as follows (the rx counter should increase when the data is sent from an external host if the built-in USB to UART converter is working properly):
+    ```
+    root@mangopimcore:~# grep '0: uart' /proc/tty/driver/serial
+    0: uart:16550A mmio:0x05000000 irq:284 tx:20306 rx:40 pe:1 RTS|DTR
+    ```
+
 ## Dev 
 If you want to develop or port software on v4 hardware yourself, you can refer to this [hardware resource description](./Dev-BliKVM-v4-Allwinner.md).
