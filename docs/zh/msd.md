@@ -67,4 +67,34 @@ msd虚拟U盘入口为:
 !!! info "8. 一切正确的话，此时你可以在一个PC系统里看到你模拟出的U盘。通过WEB重启的你的PC，然后使用快捷键（很多电脑是按F2）进入BIOS，修改boot启动优先级，将模拟出的U盘设备优先级设置在最前面。"		
 
 
-!!! info "9. 根据bios系统提示，保存重启，即可进行ventoy的引导界面进行重装系统。"		
+!!! info "9. 根据bios系统提示，保存重启，即可进行ventoy的引导界面进行重装系统。"	
+
+## 通用U盘
+传递通用文件，注意文件名需命名为英文，中文会乱码。  conn， disconn, clean命令针对通用U盘依旧有效。
+### 制作通用U盘
+-s后跟的是制作通用U盘的大小，单位为Gb，容量越大，制作时间越长，请结合实际情况设置。 -t 必须为other
+```
+sudo bash /usr/bin/blikvm/kvmd-msd.sh -c make -s 4 -t other
+```
+### 文件从用户电脑==》KVM==》被控电脑
+
+1. 首先你需要将文件从用户控制电脑发送到kvm
+```
+scp xxx blikvm@xxxx:/mnt/msd/user/
+```
+2. 将文件同步到被控电脑，并连接上电脑
+```
+sudo bash /usr/bin/blikvm/kvmd-msd.sh -c forward
+```
+后面有需要新的内容从用户电脑，传递到被控电脑，重复第1和第2步即可
+
+### 文件从被控电脑==》KVM==用户电脑
+1. 首先在被控电脑上将文件拷贝到模拟的虚拟U盘里，然后执行下面的指令，将文件拷贝到kvm的/mnt/msd/user/目录下
+```
+sudo bash /usr/bin/blikvm/kvmd-msd.sh -c rever
+```
+2. 将文件从kvm拷贝到用户电脑
+```
+scp blikvm@xxxx:/mnt/msd/user/*  .
+```
+   
