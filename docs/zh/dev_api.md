@@ -29,8 +29,9 @@
 
 ### **mjepg图像**
 此API用于在图像模式为mjepg的模式下，拿到mjpeg的视屏流。   
-
-- 请求URL: `http://kvmip:8008/stream?advance_headers=1`  
+- 请求URL: `http://kvmip:8008/stream` 
+此API用于在图像模式为mjepg的模式下，拿到mjpeg的一帧图片。 
+- 请求URL: `http://kvmip:8008/snapshot`  
 - 请求方法: GET
 
 ### **键盘**  

@@ -30,7 +30,11 @@ The response is as follows; if the status is not 1, the authentication has faile
 ### **mjepg video**
 This API is used to obtain the MJPEG video stream when the image mode is set to MJPEG.  
 
-- Request URL: `http://kvmip:8008/stream?advance_headers=1`  
+- Request URL: `http://kvmip:8008/stream`  
+
+This API is used to capture a frame of MJPEG in image mode.
+
+- Request URL: `http://kvmip:8008/snapshot`  
 - Request Method: GET
 
 ### **keyboard**  
