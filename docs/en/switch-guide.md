@@ -15,7 +15,7 @@ BliKVM-Switch-V1.0 uses the same hardware solution as XH-HK4401, AG7210 HDMI swi
 
 
 ## **Interface diagram**
-!!! info "Front and back interface diagram, the control interface in the right figure is the remote control interface."
+!!! info "Front and back interface diagram, the control interface in the right figure is the remote control interface.A cable with one end being USB-A and the other end being micro USB, labeled with the word "KVM," serves as the control cable. The micro USB end is connected to the control interface of the switch, while the USB-A end is connected to the USB port of the KVM."
     ![](assets/images/switch/interface-en1.png){width="600"}
 !!! info "Schematic Diagram of Side Interface."
     ![](assets/images/switch/interface-en2.png){width="600"}

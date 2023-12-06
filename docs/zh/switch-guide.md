@@ -12,9 +12,12 @@ BliKVM-Switch-V1.0使用和XH-HK4401相同的硬件方案,AG7210 HDMI切换芯�
     * HDMI输入最高支持**4096x2160/60Hz**；
     * 4K 60Hz的HDMI输入, 功率大概是200mW;
 
+
+
 ## **接口示意图**
-!!! info "正面和反面接口示意图，右侧图中的control接口即为远程控制接口"
+!!! info "正面和反面接口示意图，右侧图中的control接口即为远程控制接口, 一头为USB-A，另一头为micro usb并且标签带有kvm字样的线，为控制线，其中micro usb口与switch的control接口连接，USB-A接口与KVM的USB口连接。"
     ![](assets/images/switch/interface-zh1.png){width="600"}
+
 !!! info "侧面接口示意图"
     ![](assets/images/switch/interface-zh2.png){width="600"}
 !!! info "设备连接示意图"
