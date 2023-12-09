@@ -27,12 +27,33 @@
 }
 ```
 
+### **ATX开关机**
+此API用于控制目标设备开关机，和重启。
+- 请求URL: `http://kvmip/atx`  
+- 请求方法: POST  
+- 请求体: JSON 格式:  
+1. 其中cmd为128为开关机(即开机的情况下模拟的为短按关机，关机的情况下为短按开机);  
+2. 192为强制关机(模拟长按强制关机);  
+3. cmd为8表示重启。如:    
+```
+{
+    "cmd": 128
+}
+```
+响应结果如下，若status不为1，则失败。
+```
+{
+    "status": 1,
+    "info": "success",
+}
+```
+
+
 ### **mjepg图像**
-此API用于在图像模式为mjepg的模式下，拿到mjpeg的视屏流。   
-- 请求URL: `http://kvmip:8008/stream` 
-此API用于在图像模式为mjepg的模式下，拿到mjpeg的一帧图片。 
-- 请求URL: `http://kvmip:8008/snapshot`  
-- 请求方法: GET
+此API用于在图像模式为mjepg的模式下，拿到mjpeg的视屏流。     
+- 请求URL: `http://kvmip:8008/stream` ，此API用于在图像模式为mjepg的模式下，拿到mjpeg的一帧图片。   
+- 请求URL: `http://kvmip:8008/snapshot`    
+- 请求方法: GET 
 
 ### **键盘**  
 
