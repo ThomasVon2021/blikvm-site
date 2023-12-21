@@ -7,6 +7,9 @@ BliKVM v4 is a production-ready, plug and play KVM-over-IP device that offers pr
 
 * [BliKVM V4 Datasheet](./Datasheet-BliKVM-v4.md)
 
+??? info "Craft Computing: Goodbye IPMI - Blicube BliKVM V4 Review"
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/HG7g3Qrupcw?si=KvejpwTAwTwckO3q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## Features
 - **Video capture** (HDMI, support 4K@30Hz input)
 - **Keyboard forwarding**
@@ -21,6 +24,9 @@ BliKVM v4 is a production-ready, plug and play KVM-over-IP device that offers pr
 - **Serial** console port
 - 1.33 inch **color** display
 - **Real Time Clock (RTC)**  
+
+??? info "HDMI input supported resolution types"
+    ![](assets/images/v4/v4-hdmi.jpg){width="300"} 
 
 ## Installation Requirements
 !!! note "In addition to the v4 kit, you will need the following equipment:"
@@ -70,7 +76,7 @@ v4 supports a maximum video input of 4K30Hz, and the default transmission resolu
 
 ## **Serial Console Access via the 5V Port**
 
-The 5V port can be used both for power supply and serial console access at the same time. There is an onboard CH341-based USB to UART converter present inside BliKVM v4 which is connected to UART0 of the [mCore-H616 SoC](https://linux-sunxi.org/H616), so you can connect a USB port of a PC to the 5V port without an external UART and a USB-C to dupont adapter.
+The 5V port can be used both for power supply and serial console access at the same time. The default baud rate is 115200. There is an onboard CH341-based USB to UART converter present inside BliKVM v4 which is connected to UART0 of the [mCore-H616 SoC](https://linux-sunxi.org/H616), so you can connect a USB port of a PC to the 5V port without an external UART and a USB-C to dupont adapter.
 
 !!! warning "PC USB port current output"
     Be careful when trying to use the 5V port because a PC USB port alone may not be able to provide 3A (5V) which is a documented requirement for the board to work. Either use a 12V 2A DC port at the same time as using the 5V port for serial communication without a [USB Splitter](https://wiki.blicube.com/blikvm/en/usb-splitter-guide/) board, or use the splitter board to split out the VCC pin and use a separate 5V 3A power supply to provide power to the 5V port's VCC pin. Likewise, when disconnecting a cable from the 12V 2A DC port while BliKVM is powered on, make sure to disconnect the cable from the 5V port first (because that will become the power source for BliKVM v4 after the 12V 2A source is disconnected unless a splitter is used).

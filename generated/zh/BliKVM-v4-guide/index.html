@@ -526,6 +526,10 @@ BliKVM v4是一款生产就绪、即插即用的 KVM-over-IP 设备，为专业�
 <ul>
 <li><a href="../Datasheet-BliKVM-v4/">BliKVM V4 Datasheet</a></li>
 </ul>
+<details class="info">
+<summary>Craft Computing: Goodbye IPMI - Blicube BliKVM V4 测评</summary>
+<p><iframe allowfullscreen="true" border="0" frameborder="no" framespacing="0" scrolling="no" src="//player.bilibili.com/player.html?aid=410062899&amp;bvid=BV1cG411k7Cs&amp;cid=1374719019&amp;p=1"> </iframe></p>
+</details>
 <h2 id="_1">功能特点</h2>
 <ul>
 <li><strong>视频捕获</strong> (HDMI,最高支持4K@30Hz输入)</li>
@@ -543,6 +547,10 @@ BliKVM v4是一款生产就绪、即插即用的 KVM-over-IP 设备，为专业�
 <li>1.33英寸 <strong>彩色</strong> 屏幕</li>
 <li><strong>实时时钟 (RTC)</strong> </li>
 </ul>
+<details class="info">
+<summary>HDMI支持的分辨率类型</summary>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/v4/v4-hdmi.jpg"><img alt="" src="../assets/images/v4/v4-hdmi.jpg" width="300"/></a> </p>
+</details>
 <h2 id="_2"><strong>安装要求</strong></h2>
 <div class="admonition note">
 <p class="admonition-title">除v4套件外，您还需自备以下设备</p>
@@ -618,7 +626,7 @@ BliKVM v4是一款生产就绪、即插即用的 KVM-over-IP 设备，为专业�
 </tbody>
 </table>
 <h2 id="5v"><strong>通过5V端口访问串行控制台</strong></h2>
-<p>5V端口可以同时用于供电和串行控制台访问。BliKVM v4内部有一个基于CH341的USB到UART转换器，它连接到<a href="https://linux-sunxi.org/H616">mCore-H616 SoC</a>的UART0，所以你可以将PC的USB端口连接到5V端口，无需外部UART和USB-C到杜邦适配器。</p>
+<p>5V端口可以同时用于供电和串行控制台访问，默认波特率为115200。BliKVM v4内部有一个基于CH341的USB到UART转换器，它连接到<a href="https://linux-sunxi.org/H616">mCore-H616 SoC</a>的UART0，所以你可以将PC的USB端口连接到5V端口，无需外部UART和USB-C到杜邦适配器。</p>
 <div class="admonition warning">
 <p class="admonition-title">PC USB端口电流输出</p>
 <p>尝试使用5V端口时要小心，因为单独的PC USB端口可能无法提供3A（5V），这是板卡工作的要求。可以同时使用12V 2A DC端口供电和5V端口进行串行通信，无需<a href="https://wiki.blicube.com/blikvm/en/usb-splitter-guide/">USB分线器板</a>。或者使用分线器板分离出VCC引脚，并使用单独的5V 3A电源为5V端口的VCC引脚供电。同样，当BliKVM通电时从12V 2A DC端口断开电缆时，要确保先从5V端口断开电缆（因为在12V 2A电源断开后，除非使用了分线器，否则5V端口将成为BliKVM v4的电源）。</p>

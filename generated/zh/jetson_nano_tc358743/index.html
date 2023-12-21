@@ -9,7 +9,7 @@
 <meta content="Thomas Von" name="author"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
-<title>BliKVM v4 Allwinner guide - BliKVM Handbook</title>
+<title>在jstson nano上使用C790 - BLIKVM 用户手册</title>
 <link href="../assets/stylesheets/main.472b142f.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.08040f6c.min.css" rel="stylesheet"/>
 <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 7.775V2.75a.25.25 0 0 1 .25-.25h5.025a.25.25 0 0 1 .177.073l6.25 6.25a.25.25 0 0 1 0 .354l-5.025 5.025a.25.25 0 0 1-.354 0l-6.25-6.25a.25.25 0 0 1-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.75 1.75 0 0 1 1 7.775zM6 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 0 1 .25-.25h8.5a.25.25 0 0 1 .25.25v7.736a.75.75 0 1 0 1.5 0V1.75A1.75 1.75 0 0 0 11.25 0h-8.5A1.75 1.75 0 0 0 1 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 0 0 0-1.5H2.75a.25.25 0 0 1-.25-.25V1.75zM4.75 4a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5zM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75zm11.774 3.537a.75.75 0 0 0-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 0 0-1.062 1.058l1.943 1.95a.75.75 0 0 0 1.055.008l4.557-4.45z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm6.5-.25A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75zM8 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.489 4.489 0 0 1-.563-1.191 3.833 3.833 0 0 1-.05-2.063 4.636 4.636 0 0 1-2.025-.293.75.75 0 1 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.748.748 0 0 1 1.06 0 .75.75 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.404 2.404 0 0 1-.507-.441 3.063 3.063 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.753.753 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768a85.08 85.08 0 0 0-.317-.265c-.814-.68-1.75-1.462-2.692-2.619a3.74 3.74 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm9 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM6.92 6.085c.081-.16.19-.299.34-.398.145-.097.371-.187.74-.187.28 0 .553.087.738.225A.613.613 0 0 1 9 6.25c0 .177-.04.264-.077.318a.956.956 0 0 1-.277.245c-.076.051-.158.1-.258.161l-.007.004a7.728 7.728 0 0 0-.313.195 2.416 2.416 0 0 0-.692.661.75.75 0 0 0 1.248.832.956.956 0 0 1 .276-.245 6.3 6.3 0 0 1 .26-.16l.006-.004c.093-.057.204-.123.313-.195.222-.149.487-.355.692-.662.214-.32.329-.702.329-1.15 0-.76-.36-1.348-.863-1.725A2.76 2.76 0 0 0 8 4c-.631 0-1.155.16-1.572.438-.413.276-.68.638-.849.977a.75.75 0 1 0 1.342.67z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047zM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-.25-5.25a.75.75 0 0 0-1.5 0v2.5a.75.75 0 0 0 1.5 0v-2.5z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.404 12.596a6.5 6.5 0 1 1 9.192-9.192 6.5 6.5 0 0 1-9.192 9.192zM2.344 2.343a8 8 0 1 0 11.313 11.314A8 8 0 0 0 2.343 2.343zM6.03 4.97a.75.75 0 0 0-1.06 1.06L6.94 8 4.97 9.97a.75.75 0 1 0 1.06 1.06L8 9.06l1.97 1.97a.75.75 0 1 0 1.06-1.06L9.06 8l1.97-1.97a.75.75 0 1 0-1.06-1.06L8 6.94 6.03 4.97z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M10.561 1.5a.016.016 0 0 0-.01.004L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.02.02 0 0 0-.004-.009.02.02 0 0 0-.006-.006L10.56 1.5zM9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.25 1.25 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.492 3.492 0 0 1 2.441 0l.999-1a.75.75 0 1 1 1.06 1.061l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.013 5.013 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.684 1.684 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06zM6.173 5h3.654A.173.173 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173zM5.25 6.5a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75h-5.5z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458L5 5.782zM9.5 2.5h-3V6a.75.75 0 0 1-.117.403L4.73 9h6.54L9.617 6.403A.75.75 0 0 1 9.5 6V2.5zm-6.9 9.847L3.775 10.5h8.45l1.175 1.847a.75.75 0 0 1-.633 1.153H3.233a.75.75 0 0 1-.633-1.153z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.75 2.5a.75.75 0 0 0 0 1.5h10.5a.75.75 0 0 0 0-1.5H1.75zm4 5a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5zm0 5a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5zM2.5 7.75a.75.75 0 0 0-1.5 0v6a.75.75 0 0 0 1.5 0v-6z"/></svg>');}</style>
@@ -34,7 +34,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#blikvm-v4-allwinner">
+<a class="md-skip" href="#jstson-nanoc790">
           Skip to content
         </a>
 </div>
@@ -42,7 +42,7 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="BliKVM Handbook" class="md-header__button md-logo" data-md-component="logo" href="https://www.blicube.com" title="BliKVM Handbook">
+<a aria-label="BLIKVM 用户手册" class="md-header__button md-logo" data-md-component="logo" href="https://www.blicube.com" title="BLIKVM 用户手册">
 <img alt="logo" src="../assets/images/logo.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -52,13 +52,13 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            BliKVM Handbook
+            BLIKVM 用户手册
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              BliKVM v4 Allwinner guide
+              在jstson nano上使用C790
             
           </span>
 </div>
@@ -149,10 +149,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="BliKVM Handbook" class="md-nav__button md-logo" data-md-component="logo" href="https://www.blicube.com" title="BliKVM Handbook">
+<a aria-label="BLIKVM 用户手册" class="md-nav__button md-logo" data-md-component="logo" href="https://www.blicube.com" title="BLIKVM 用户手册">
 <img alt="logo" src="../assets/images/logo.png"/>
 </a>
-    BliKVM Handbook
+    BLIKVM 用户手册
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/ThomasVon2021/blikvm-site" title="Go to repository">
@@ -165,101 +165,48 @@
 </a>
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="..">Getting started</a>
+<a href="..">快速开始</a>
 <label for="__nav_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-label="Getting started" class="md-nav" data-md-level="1">
+<nav aria-label="快速开始" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_1">
 <span class="md-nav__icon md-icon"></span>
-          Getting started
+          快速开始
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          BliKVM v4 Allwinner guide
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
-        BliKVM v4 Allwinner guide
+<li class="md-nav__item">
+<a class="md-nav__link" href="../BliKVM-v4-guide/">
+        BliKVM v4 Allwinner导览
       </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#features">
-    Features
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#installation-requirements">
-    Installation Requirements
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#installation-steps">
-    Installation Steps
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#video-mode">
-    Video Mode
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#product-list">
-    Product List
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#serial-console-access-via-the-5v-port">
-    Serial Console Access via the 5V Port
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#dev">
-    Dev
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#buy-link">
-    Buy link
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BLIKVM-HAT-guide/">
-        BliKVM v3 HAT guide
+        BliKVM v3 HAT导览
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../BLIKVM-PCIE-guide/">
-        BliKVM v2 PCIe guide
+<a class="md-nav__link" href="../BLIKVM-PCIE-guide-zh/">
+        BliKVM v2 PCIe导览
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BLIKVM-CM4-guide/">
-        BliKVM v1 CM4 guide
+        BliKVM v1 CM4导览
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../first_steps/">
-        First Steps
+        第一步
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../faq/">
-        FAQ
+        常见问题解答
       </a>
 </li>
 </ul>
@@ -268,18 +215,18 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2">
-          Network
+          网络
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Network" class="md-nav" data-md-level="1">
+<nav aria-label="网络" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
-          Network
+          网络
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../port-forwarding/">
-        Port Forwarding
+        端口转发
       </a>
 </li>
 <li class="md-nav__item">
@@ -289,17 +236,17 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../zerotier/">
-        ZeroTier VPN
+        Zerotier VPN
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../static_ip/">
-        Set Static IP 
+        设置静态IP
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../wifi/">
-        Wifi Config
+        Wifi配置
       </a>
 </li>
 </ul>
@@ -308,63 +255,63 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
 <label class="md-nav__link" for="__nav_3">
-          Function
+          功能说明
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Function" class="md-nav" data-md-level="1">
+<nav aria-label="功能说明" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
-          Function
+          功能说明
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../update/">
-        Upgrade
+        更新软件
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../hid/">
-        Keyboard
+        视频&amp;键鼠
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../rtc/">
-        RTC clock
+        RTC时钟
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../flashing_os/">
-        Flashing OS
+        烧录镜像
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../OLED-display/">
-        OLED Display
+        OLED显示器
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../Expand_Filesystem/">
-        Expand Filesystem
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../serial_over_usb/">
-        Serial-over-USB
+        存储卡扩容
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../msd/">
-        MSD
+        U盘驱动
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../serial_over_usb/">
+        串口终端
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../edid/">
-        HDMI EDID
+        HDMI EDID设置
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../user-manager/">
-        User Manager
+        修改账号密码
       </a>
 </li>
 <li class="md-nav__item">
@@ -378,23 +325,23 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4">
-          Installation instructions
+          安装说明
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Installation instructions" class="md-nav" data-md-level="1">
+<nav aria-label="安装说明" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
-          Installation instructions
+          安装说明
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BLIHAT-Installation/">
-        v3 HAT illustrated instructions
+        v3 HAT安装说明
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../BLIKVM-PCIe-installation/">
-        v2 PCIe illustrated instructions
+<a class="md-nav__link" href="../BLIKVM-PCIe-installation-zh/">
+        v2 PCIe安装说明
       </a>
 </li>
 </ul>
@@ -403,33 +350,33 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
 <label class="md-nav__link" for="__nav_5">
-          Accessories
+          配件手册
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Accessories" class="md-nav" data-md-level="1">
+<nav aria-label="配件手册" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
-          Accessories
+          配件手册
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../atx-guide/">
-        ATX Guide
+        ATX用户手册
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../hdmi-csi-i2s/">
-        HDMI to CSI &amp; Audio
+        HDMI转CSI &amp; Audio模块用户手册
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../usb-splitter-guide/">
-        USB Splitter
+        USB一分二用户手册
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../switch-guide/">
-        Multiport KVM-over-IP
+        switch切换器手册
       </a>
 </li>
 </ul>
@@ -438,28 +385,23 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
 <label class="md-nav__link" for="__nav_6">
-          Development
+          开发者
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Development" class="md-nav" data-md-level="1">
+<nav aria-label="开发者" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_6">
 <span class="md-nav__icon md-icon"></span>
-          Development
+          开发者
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../make-image/">
-        Make Image
+        制作镜像
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../modify_pikvm_image/">
-        Config for PiKVM OS
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../Dev-BliKVM-v4-Allwinner/">
-        v4 Allwinner Dev Guide
+        配置PiKVM OS
       </a>
 </li>
 <li class="md-nav__item">
@@ -479,196 +421,90 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#features">
-    Features
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#installation-requirements">
-    Installation Requirements
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#installation-steps">
-    Installation Steps
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#video-mode">
-    Video Mode
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#product-list">
-    Product List
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#serial-console-access-via-the-5v-port">
-    Serial Console Access via the 5V Port
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#dev">
-    Dev
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#buy-link">
-    Buy link
-  </a>
-</li>
-</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ThomasVon2021/blikvm-site/edit/master/docs/en/BliKVM-v4-guide.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ThomasVon2021/blikvm-site/edit/master/docs/zh/jetson_nano_tc358743.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
-<h1 id="blikvm-v4-allwinner"><strong>BliKVM v4 Allwinner</strong></h1>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/v4/BliKVM-v4-front.png"><img alt="" src="../assets/images/v4/BliKVM-v4-front.png" width="300"/></a>
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/v4/BliKVM-v4-back.png"><img alt="" src="../assets/images/v4/BliKVM-v4-back.png" width="300"/></a> </p>
-<p>BliKVM v4 is a production-ready, plug and play KVM-over-IP device that offers professional users a convenient solution <strong>for remote server or workstation management</strong>. It is based on Linux and fully open source. With BliKVM, you can easily <strong>power on/off, restart your computer, configure UEFI/BIOS settings, and perform OS reinstallation using an emulated Mass Storage Device</strong>. BliKVM simulates a keyboard, mouse, and monitor, all accessible through a web browser, ensuring a seamless user experience. <strong>Its hardware-level access guarantees independence from specific remote ports, protocols, or services</strong>, making it a highly flexible and reliable remote management solution for professionals!</p>
-<ul>
-<li><a href="../Datasheet-BliKVM-v4/">BliKVM V4 Datasheet</a></li>
-</ul>
-<details class="info">
-<summary>Craft Computing: Goodbye IPMI - Blicube BliKVM V4 Review</summary>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/HG7g3Qrupcw?si=KvejpwTAwTwckO3q" title="YouTube video player" width="560"></iframe></p>
-</details>
-<h2 id="features">Features</h2>
-<ul>
-<li><strong>Video capture</strong> (HDMI, support 4K@30Hz input)</li>
-<li><strong>Keyboard forwarding</strong></li>
-<li><strong>Mouse forwarding</strong></li>
-<li><strong>HDMI video loop through</strong></li>
-<li><strong>ATX</strong> Control the server power using ATX functions</li>
-<li><strong>Fullscreen mode</strong></li>
-<li>Access via <strong>Web UI</strong></li>
-<li>Support <strong>multi language</strong> switching</li>
-<li>Support <strong>PoE &amp; DC</strong></li>
-<li>Support <strong>WiFi</strong></li>
-<li><strong>Serial</strong> console port</li>
-<li>1.33 inch <strong>color</strong> display</li>
-<li><strong>Real Time Clock (RTC)</strong> </li>
-</ul>
-<details class="info">
-<summary>HDMI input supported resolution types</summary>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/v4/v4-hdmi.jpg"><img alt="" src="../assets/images/v4/v4-hdmi.jpg" width="300"/></a> </p>
-</details>
-<h2 id="installation-requirements">Installation Requirements</h2>
-<div class="admonition note">
-<p class="admonition-title">In addition to the v4 kit, you will need the following equipment:</p>
-<ul>
-<li>Power adapter (5V 3A, USB-C port, or 12V 2A DC port). If you plan to use PoE (Power over Ethernet) or if the USB ports on your controlled computers provide sufficient power, a separate power adapter is not required.</li>
-<li>HDMI cables (at least one). If you also need to use the HDMI loop-out interface, you will need two cables.</li>
-<li>Ethernet cable(s) (provide based on your requirements). One cable is required for using the ATX power switch function, and one cable is required for using the Ethernet connection.</li>
-<li>USB-C to USB-A cable (for mouse and keyboard data transmission).</li>
-</ul>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Terminal Upgrade Notice!</p>
-<p>Before upgrading, execute the following command, otherwise, after running apt-get update and apt-get upgrade, the image will fail to start.
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>apt-mark hold linux-dtb-edge-sunxi64 linux-image-edge-sunxi64
+<h1 id="jstson-nanoc790">在jstson nano上使用C790</h1>
+<p>C779 C780 C790全部适用此文档，本文测试底板为jetson nano b01，若你其它底板有一些设计到跟板子型号相关的步骤，需要对应改变，请注意。</p>
+<p>现在内核源码
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>wget  https://developer.nvidia.com/embedded/l4t/r32_release_v7.2/sources/t210/public_sources.tbz2
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>tar -xf public_sources.tbz2  Linux_for_Tegra/source/public/kernel_src.tbz2 --strip-components=3
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>tar xf kernel_src.tbz2
+</code></pre></div>
+根据仓库里的目录结构进行文件替换，要全部替换
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>.
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>└── jetson_tc358743-main
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>    ├── hardware
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>    │   └── nvidia
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>    │       └── platform
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>    │           └── t210
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>    │               ├── batuu
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>    │               │   └── kernel-dts
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>    │               │       └── tegra210-p3448-0003-p3542-0000.dts
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>    │               └── porg
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>    │                   └── kernel-dts
+<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>    │                       ├── Makefile
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a>    │                       ├── porg-platforms
+<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>    │                       │   ├── tegra210-dual-tc358743.dtsi
+<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a>    │                       │   ├── tegra210-porg-dual-tc358743.dtsi
+<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a>    │                       │   ├── tegra210-porg-tc358743.dtsi
+<a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a>    │                       │   └── tegra210-tc358743.dtsi
+<a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a>    │                       ├── tegra210-p3448-0000-p3449-0000-b00.dts
+<a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a>    │                       ├── tegra210-p3448-all-p3449-0000-camera-tc358743-dual.dts
+<a href="#__codelineno-1-20" id="__codelineno-1-20" name="__codelineno-1-20"></a>    │                       └── tegra210-p3448-common-tc358743.dts
+<a href="#__codelineno-1-21" id="__codelineno-1-21" name="__codelineno-1-21"></a>    ├── kernel
+<a href="#__codelineno-1-22" id="__codelineno-1-22" name="__codelineno-1-22"></a>    │   └── kernel-4.9
+<a href="#__codelineno-1-23" id="__codelineno-1-23" name="__codelineno-1-23"></a>    │       ├── drivers
+<a href="#__codelineno-1-24" id="__codelineno-1-24" name="__codelineno-1-24"></a>    │       │   └── media
+<a href="#__codelineno-1-25" id="__codelineno-1-25" name="__codelineno-1-25"></a>    │       │       └── i2c
+<a href="#__codelineno-1-26" id="__codelineno-1-26" name="__codelineno-1-26"></a>    │       │           ├── tc358743.c
+<a href="#__codelineno-1-27" id="__codelineno-1-27" name="__codelineno-1-27"></a>    │       │           └── tc358743_regs.h
+<a href="#__codelineno-1-28" id="__codelineno-1-28" name="__codelineno-1-28"></a>    │       └── include
+<a href="#__codelineno-1-29" id="__codelineno-1-29" name="__codelineno-1-29"></a>    │           └── media
+<a href="#__codelineno-1-30" id="__codelineno-1-30" name="__codelineno-1-30"></a>    │               └── i2c
+<a href="#__codelineno-1-31" id="__codelineno-1-31" name="__codelineno-1-31"></a>    │                   └── tc358743.h
+<a href="#__codelineno-1-32" id="__codelineno-1-32" name="__codelineno-1-32"></a>    └── README.md
 </code></pre></div></p>
-</div>
-<p>info "Video Guide: Unpacking and connecting case step by step"
-    <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/aRVzbb_g-UQ" title="YouTube video player" width="560"></iframe></p>
-<h2 id="installation-steps"><strong>Installation Steps</strong></h2>
-<p><strong>1.</strong> Open the v4 kit package and connect the BliKVM to the controlled computer according to the connection diagram shown below:
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/v4/v4-Connection-Diagram.png"><img alt="" src="../assets/images/v4/v4-Connection-Diagram.png"/></a></p>
-<p><strong>ATX Connection</strong>
-Please refer to the <a href="../atx/">ATX Connection Guide</a>.</p>
-<p><strong>2.</strong> Once all the cables are connected, power on the BliKVM. Wait until the display shows the interface, indicating that the device has started up successfully.</p>
-<p><strong>3.</strong> Read the <a href="../first_steps/"><strong>"First Steps"</strong> guide</a> carefully. It provides instructions on how to find the device on the network, how to log in, change passwords, and more. Follow the steps described there and then return to this page.</p>
-<p><strong>4.</strong> <strong>Try managing your computer using the BliKVM web interface.</strong> Make sure you can see the image and that the keyboard and mouse are working properly. If you encounter any issues, check out our <a href="../faq/">FAQ</a> (it's very helpful). If you find no solution there, seek support in our <a href="https://discord.com/invite/9Y374gUF6C">Discord chat room</a>.</p>
-<p><strong>5.</strong> You can explore other pages in the wiki to discover more features of BliKVM. Enjoy your experience!</p>
-<h2 id="video-mode"><strong>Video Mode</strong></h2>
-<p>v4 supports a maximum video input of 4K30Hz, and the default transmission resolution is 1920x1080.</p>
-<h2 id="product-list">Product List</h2>
-<table>
-<thead>
-<tr>
-<th>BLIKVM v4</th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>WiFi Antenna</td>
-<td>1</td>
-</tr>
-<tr>
-<td>ATX adapter board</td>
-<td>1</td>
-</tr>
-<tr>
-<td>ATX Dupont Cables 8pin Male to Male 60cm</td>
-<td>1</td>
-</tr>
-<tr>
-<td>ATX Dupont Cables 8pin Male to Female 60cm</td>
-<td>1</td>
-</tr>
-<tr>
-<td>1U Rack Mounting Ears</td>
-<td>2</td>
-</tr>
-<tr>
-<td>M2.5x5 Screws</td>
-<td>8</td>
-</tr>
-<tr>
-<td>Silicone Bumper Pellets</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-<h2 id="serial-console-access-via-the-5v-port"><strong>Serial Console Access via the 5V Port</strong></h2>
-<p>The 5V port can be used both for power supply and serial console access at the same time. The default baud rate is 115200. There is an onboard CH341-based USB to UART converter present inside BliKVM v4 which is connected to UART0 of the <a href="https://linux-sunxi.org/H616">mCore-H616 SoC</a>, so you can connect a USB port of a PC to the 5V port without an external UART and a USB-C to dupont adapter.</p>
-<div class="admonition warning">
-<p class="admonition-title">PC USB port current output</p>
-<p>Be careful when trying to use the 5V port because a PC USB port alone may not be able to provide 3A (5V) which is a documented requirement for the board to work. Either use a 12V 2A DC port at the same time as using the 5V port for serial communication without a <a href="https://wiki.blicube.com/blikvm/en/usb-splitter-guide/">USB Splitter</a> board, or use the splitter board to split out the VCC pin and use a separate 5V 3A power supply to provide power to the 5V port's VCC pin. Likewise, when disconnecting a cable from the 12V 2A DC port while BliKVM is powered on, make sure to disconnect the cable from the 5V port first (because that will become the power source for BliKVM v4 after the 12V 2A source is disconnected unless a splitter is used).</p>
-</div>
-<p>You should see something like this in your host kernel log (if you are using a Linux-based OS) when attaching a USB cable to the 5V port of BliKVM v4:
-    <div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>usb 1-1.2: new full-speed USB device number 12 using xhci_hcd
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>usb 1-1.2: New USB device found, idVendor=1a86, idProduct=7523, bcdDevice=81.34
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>usb 1-1.2: New USB device strings: Mfr=0, Product=2, SerialNumber=0
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>usb 1-1.2: Product: USB Serial
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>ch341 1-1.2:1.0: ch341-uart converter detected
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>usb 1-1.2: ch341-uart converter now attached to ttyUSB0
+<p>交叉编译链下载,后面make时，你需要指定编译链
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>wget http://releases.linaro.org/components/toolchain/binaries/7.3-2018.05/aarch64-linux-gnu/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu.tar.xz
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>tar xf gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu.tar.xz
 </code></pre></div></p>
-<p>Accessing this port can then be done using <a href="https://www.gnu.org/software/screen/">GNU screen</a> or <a href="https://github.com/tio/tio">TIO</a>:
-    <div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>tio /dev/ttyUSB0
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>mangopimcore login: blikvm
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a># ...
+<p>进入到kernel/kernel-4.9/，先配置再编译，
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>make ARCH=arm64 tegra_defconfig menuconfig
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>Device Drivers &gt; Multimedia Support &gt; I2C Encoders, decoders, sensors and other helper chips
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>Toshiba TC358743 decoder should be * (press y or space on the option)
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>
+<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>grep -i tc358743 .config #checking if its really enabled  
+<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a>
+<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>make ARCH=arm64 CROSS_COMPILE=/root/work/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu- -j4
 </code></pre></div></p>
-<p>If you need to check how much data is received over UART0 you can do this by looking at the counters exposed via proc as follows (the rx counter should increase when the data is sent from an external host if the built-in USB to UART converter is working properly):
-    <div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>root@mangopimcore:~# grep '0: uart' /proc/tty/driver/serial
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>0: uart:16550A mmio:0x05000000 irq:284 tx:20306 rx:40 pe:1 RTS|DTR
-</code></pre></div></p>
-<h2 id="dev">Dev</h2>
-<p>If you want to develop or port software on v4 hardware yourself, you can refer to this <a href="../Dev-BliKVM-v4-Allwinner/">hardware resource description</a>.</p>
-<h2 id="buy-link"><strong>Buy link</strong></h2>
-<p><a href="https://www.aliexpress.com/item/1005005859415746.html?spm=5261.ProductManageOnline.0.0.346d2ddbm8cDsR">v4 buy</a></p>
+<p>将编译出来的Image和dtb文件分别拷贝到nano的系统的下面路径下,若你的载板不是B01，需要更换对应的dtb文件，dtb文件与你的板子型号对应关系，可以查找 <a href="https://wiki.veye.cc/index.php/VEYE_CS_Camera_for_Jetson_TX2#DTB_file_corresponds_to_Jetson_boards">wiki</a> </p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>kernel/kernel-4.9/arch/arm64/boot/Image ==&gt; /boot/Image
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>kernel/kernel-4.9/arch/arm64/boot/dts/tegra210-p3448-0000-p3449-0000-b00.dtb ==&gt;  /boot/veyecam/
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>#其中你的nano路径如果不存在veyecam文件夹，先创建
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>sudo mkdir /boot/veyecam/
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>sudo cp &lt;path to your dtb dir&gt;/&lt;DTB file name&gt; /boot/veyecam/ -f
+</code></pre></div>
+<p>先备份 extlinux.conf 文件，然后编辑/boot/extlinux/extlinux.conf文件，在该文件下增加：
+FDT /boot/veyecam/<dtb file="" name="">
+注意<dtb file="" name="">为你版本编译出来的dtb实际文件名，
+重启后生效</dtb></dtb></p>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 3, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 6, 2023</span>
 <br/>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 13, 2023</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 5, 2023</span>
 </small>
 </div>
 </article>
@@ -680,34 +516,6 @@ Please refer to the <a href="../atx/">ATX Connection Guide</a>.</p>
           </a>
 </main>
 <footer class="md-footer">
-<nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: BLIKVM Overview" class="md-footer__link md-footer__link--prev" href=".." rel="prev">
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
-</div>
-<div class="md-footer__title">
-<div class="md-ellipsis">
-<span class="md-footer__direction">
-                Previous
-              </span>
-              BLIKVM Overview
-            </div>
-</div>
-</a>
-<a aria-label="Next: BliKVM v3 HAT guide" class="md-footer__link md-footer__link--next" href="../BLIKVM-HAT-guide/" rel="next">
-<div class="md-footer__title">
-<div class="md-ellipsis">
-<span class="md-footer__direction">
-                Next
-              </span>
-              BliKVM v3 HAT guide
-            </div>
-</div>
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
-</div>
-</a>
-</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-copyright">
@@ -719,7 +527,7 @@ Please refer to the <a href="../atx/">ATX Connection Guide</a>.</p>
     </a>
 </div>
 <div class="md-social">
-<a class="md-social__link" href="https://github.com/ThomasVon2021/blikvm-site" rel="noopener" target="_blank" title="Join the translation work">
+<a class="md-social__link" href="https://github.com/ThomasVon2021/blikvm-site" rel="noopener" target="_blank" title="加入到翻译工作中">
 <svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
 </a>
 </div>

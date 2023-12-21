@@ -800,9 +800,11 @@ to select the currently detected timings.
 </code></pre></div>
 should now reflect the resolution detected.</p>
 </div>
-<p>!!! note "8. 芯片支持两种格式(BGR3和UYVY)，BGR3像素深度为24bpp，UYVY为YUV4:2:2 16bpp。如果使用CSI 2通道，BGR3格式最大支持1080P30Hz的输入，使用UYVY则最大支持1080P60Hz的输入。使用下面命令设置为UYVY格式。
-    <div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a>v4l2-ctl -v pixelformat=UYVY
-</code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">8. 芯片支持两种格式(BGR3和UYVY)，BGR3像素深度为24bpp，UYVY为YUV4:2:2 16bpp。如果使用CSI 2通道，BGR3格式最大支持1080P30Hz的输入，使用UYVY则最大支持1080P60Hz的输入。使用下面命令设置为UYVY格式。</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a>v4l2-ctl -v pixelformat=UYVY
+</code></pre></div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">9. 使用下列命令，检查音频硬件和驱动是否正常</p>
 <p><div class="highlight"><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a>pi@raspberrypi:~ $ arecord -l
@@ -816,6 +818,8 @@ Note: card 1: tc358743意味着音频相关硬件已被正确加载，注意这�
 <div class="admonition note">
 <p class="admonition-title">10. 安装GStreamer工具.</p>
 <p><div class="highlight"><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a>sudo apt install gstreamer1.0-tools
+<a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a>sudo apt-get install gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly gstreamer1.0-plugins-bad
+<a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a>sudo apt-get install gstreamer1.0-plugins-base
 </code></pre></div>
 检查gstreamer工具版本:
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a>pi@raspberrypi:~ $ gst-launch-1.0 --version
@@ -865,7 +869,7 @@ Note: alsasrc device=hw:1 – “1” means the audio card number, You must chan
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 4, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 21, 2023</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 5, 2022</span>
