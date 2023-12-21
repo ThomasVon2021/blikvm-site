@@ -221,7 +221,7 @@ Linux raspberrypi 5.10.63-v7l+ #1459 SMP Wed Oct 6 16:41:57 BST 2021 armv7l GNU/
     ```
     should now reflect the resolution detected.
 
-!!! note "8. 芯片支持两种格式(BGR3和UYVY)，BGR3像素深度为24bpp，UYVY为YUV4:2:2 16bpp。如果使用CSI 2通道，BGR3格式最大支持1080P30Hz的输入，使用UYVY则最大支持1080P60Hz的输入。使用下面命令设置为UYVY格式。
+!!! note "8. 芯片支持两种格式(BGR3和UYVY)，BGR3像素深度为24bpp，UYVY为YUV4:2:2 16bpp。如果使用CSI 2通道，BGR3格式最大支持1080P30Hz的输入，使用UYVY则最大支持1080P60Hz的输入。使用下面命令设置为UYVY格式。"
     ```
     v4l2-ctl -v pixelformat=UYVY
     ```
@@ -238,6 +238,8 @@ Linux raspberrypi 5.10.63-v7l+ #1459 SMP Wed Oct 6 16:41:57 BST 2021 armv7l GNU/
 !!! note "10. 安装GStreamer工具."
     ```
     sudo apt install gstreamer1.0-tools
+    sudo apt-get install gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly gstreamer1.0-plugins-bad
+    sudo apt-get install gstreamer1.0-plugins-base
     ```
     检查gstreamer工具版本:
     ```
