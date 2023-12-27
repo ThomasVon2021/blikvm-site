@@ -86,7 +86,7 @@ Hat配有金属外壳，用于保护和散热。Hat可以被安装到1U的机架
 ![Image title](assets/images/BLIKVM-HAT/specification.png){width="600"}
 
 ??? note "**HDMI 输入**"
-    使用Toshiba TC358743为HDMI转换的主芯片，同时支持视频和声音的采集，支持视频最高输入为1080P60Hz.解决了HDMI反向供电问题。
+    使用Toshiba TC358743为HDMI转换的主芯片，同时支持视频和声音的采集，支持视频最高输入为1080P50Hz.解决了HDMI反向供电问题。
 
 ??? note "**CN-ATX**"
     CN-ATX接口通过网线连接ATX模块，用来控制被控电脑的开机、关机、和重启操作。
@@ -161,3 +161,6 @@ ATX模块通过杜邦线和电脑的主板连接。ATX模块配有全高和半�
 | HDMI 线缆                    | 1    |
 | PoE供电设备 or 5V/3A USB 电源适配器 | 1    |
 | CR1220纽扣电池                 | 1    |
+
+## **购买链接**
+[v3淘宝地址](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-24390589055.18.25da4adfmEV9JL&id=676852578588)

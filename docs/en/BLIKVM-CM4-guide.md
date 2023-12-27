@@ -16,11 +16,10 @@ BliKVM v1 is a production-ready, plug and play KVM-over-IP device that offers pr
 - **Fullscreen mode**
 - Access via **Web UI**
 - Support **multi language** switching
-- Support **PoE**
 - **Serial** console port
 - **OLED** display
 - **Real Time Clock (RTC)**  
-- **PWM FAN**  
+- **FAN**  
 
 ## **Installation requirements**
 !!! note "If you have an assembly kit, you will need the following things"

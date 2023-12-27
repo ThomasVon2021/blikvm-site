@@ -83,7 +83,7 @@ nav:
         - "Wifi配置": wifi.md
     - "功能说明":
         - "更新软件": update.md
-        - "键鼠": hid.md
+        - "视频&键鼠": hid.md
         - "RTC时钟": rtc.md
         - "烧录镜像": flashing_os.md
         - "OLED显示器": OLED-display.md
@@ -104,6 +104,7 @@ nav:
     - "开发者":
         - "制作镜像": make-image.md
         - "配置PiKVM OS": modify_pikvm_image.md
+        - "http API": dev_api.md
 plugins:
   - glightbox
   - git-revision-date-localized:

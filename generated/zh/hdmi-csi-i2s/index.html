@@ -271,7 +271,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../hid/">
-        键鼠
+        视频&amp;键鼠
       </a>
 </li>
 <li class="md-nav__item">
@@ -471,6 +471,11 @@
         配置PiKVM OS
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../dev_api/">
+        http API
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -554,8 +559,12 @@
 </a>
 <h1 id="hdmicsii2s">HDMI转CSI&amp;I2S模块手册</h1>
 <blockquote>
-<p>将HDMI信号转换成CSI视频信号和I2S音频信号.</p>
+<p>将HDMI信号转换成CSI视频信号和I2S音频信号, 目前全平台支持(zero, Pi3B, Pi4B, CM4, Pi5B),其中最高采集分辨率不仅仅取决于HDMI转CSI转换板，同时也取决于你使用的树莓派硬件版本，树莓派硬件版目前主要分两个系列，最高支持1080P60Hz，和最高支持1080P50Hz。</p>
 </blockquote>
+<ul>
+<li>最高支持1080P60Hz的Pi版本(CM3，CM4，Pi5B)</li>
+<li>最高支持1080P50Hz的Pi版本(zero, zero2, Pi3B, Pi4B等)</li>
+</ul>
 <h2 id="_1"><strong>简介</strong></h2>
 <p>此模块将HDMI信号转换成CSI视频信号和I2S音频信号，最高支持1080P60Hz的视频输入，在树莓派上工作的很好，目前共有3个版本(C779、C780、C790).
 C790是目前最新的版本，解决了所有已知的问题，同是有CSI 2通道和4通道接口，I2S音频接口，修复了HDMI反向供电问题。
@@ -650,7 +659,7 @@ C790有两个CSI输出接口: 接口1，在C790正面，15 pin FPC, 间距1.0 mm
 </details>
 <details class="info">
 <summary>尺寸</summary>
-<p>尺寸如下图所示. 有4个直径为2。75mm的孔位用于安装，安装螺钉可以选择M2.5。
+<p>尺寸如下图所示. 有4个直径为2.75mm的孔位用于安装，安装螺钉可以选择M2.5。
 <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/hdmi-csi-i2s/c779-size.png"><img alt="" src="../assets/images/hdmi-csi-i2s/c779-size.png" width="400"/></a> </p>
 </details>
 <h2 id="csi"><strong>CSI接口定义</strong></h2>
@@ -675,11 +684,15 @@ C790有两个CSI输出接口: 接口1，在C790正面，15 pin FPC, 间距1.0 mm
 <a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>sudo reboot
 </code></pre></div>
 移动光标到‘Interfacing Options’，然后按Enter键进入。然后选择‘Camera’选项，按Enter键进入后，使能相机。然后选择“Finish”后，
-选择“reboot”。<strong>重启非常终于!!</strong></p>
+选择“reboot”。<strong>重启非常重要!!</strong></p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">3. 编辑 /boot/config.txt (需要sudo权限)</p>
-<p><div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>sudo nano /boot/config.txt
+<details class="warning">
+<summary>由于Pi5B取消了硬编码器，下面软件使用方法在Pi平台目前分为两个部分，Pi5B配置，和其它Pi平台配置。</summary>
+</details>
+<details class="note">
+<summary>在zero, zero2,Pi3B,Pi4B等平台HDMI转CSI模块测试demo参考</summary>
+<p>编辑 /boot/config.txt (需要sudo权限)
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>sudo nano /boot/config.txt
 </code></pre></div>
 添加下面的内容
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>dtoverlay=tc358743
@@ -689,19 +702,15 @@ C790有两个CSI输出接口: 接口1，在C790正面，15 pin FPC, 间距1.0 mm
 </code></pre></div>
 如果你是用树莓派计算模组(CM3、CM4)，可以通过下列配置，使能CSI的4个通道。
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>dtoverlay=tc358743,4lane=1
-</code></pre></div></p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">4. 使用“dmesg | grep cma”检查分配给CMA堆的内存量，终端出现的第一行内容应该如下所示</p>
-<p><div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>pi@raspberrypi:~ $ dmesg | grep cma
+</code></pre></div>
+使用“dmesg | grep cma”检查分配给CMA堆的内存量，终端出现的第一行内容应该如下所示:
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>pi@raspberrypi:~ $ dmesg | grep cma
 <a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>[0.000000] cma: Reserved 256 MiB at 0x000000001ec00000
 </code></pre></div>
 如果显示少于96MB，编辑/boot/cmdline.txt，添加下面一行。
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>cma=96M
-</code></pre></div></p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">5. 重启树莓派，如果配置成功，你将会看到/dev/video0设备描述符出现。可以使用“v4l2-ctl –list-devices” 命令列出所有的video描述符。再将树莓派与模块正确连接后，树莓派上电，你可以看到C790模块上有一个绿色灯常亮，然后可以按照下面的命令，检查是否已经正常出现了video0。</p>
+</code></pre></div>
+重启树莓派，如果配置成功，你将会看到/dev/video0设备描述符出现。可以使用“v4l2-ctl –list-devices” 命令列出所有的video描述符。再将树莓派与模块正确连接后，树莓派上电，你可以看到C790模块上有一个绿色灯常亮，然后可以按照下面的命令，检查是否已经正常出现了video0。
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>pi@raspberrypi:~ $ ls /dev/video0
 <a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>/dev/video0
 <a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a>pi@raspberrypi:~ $ v4l2-ctl --list-devices
@@ -722,10 +731,8 @@ C790有两个CSI输出接口: 接口1，在C790正面，15 pin FPC, 间距1.0 mm
 <a href="#__codelineno-9-18" id="__codelineno-9-18" name="__codelineno-9-18"></a>    /dev/video1
 <a href="#__codelineno-9-19" id="__codelineno-9-19" name="__codelineno-9-19"></a>    /dev/media2
 </code></pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">6. 默认没有加载EDID,如果你有EDID编辑器，你可以自己编辑你所需要的分辨率，或者使用下面提供的EDID分辨率（720p60hz）。</p>
-<p><div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>00ffffffffffff005262888800888888
+默认没有加载EDID,如果你有EDID编辑器，你可以自己编辑你所需要的分辨率，或者使用下面提供的EDID分辨率（720p60hz）。
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>00ffffffffffff005262888800888888
 <a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>1c150103800000780aEE91A3544C9926
 <a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a>0F505400000001010101010101010101
 <a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a>010101010101011d007251d01e206e28
@@ -766,11 +773,9 @@ C790有两个CSI输出接口: 接口1，在C790正面，15 pin FPC, 间距1.0 mm
 <a href="#__codelineno-11-22" id="__codelineno-11-22" name="__codelineno-11-22"></a>  PT:                      Supports both over- and underscan
 <a href="#__codelineno-11-23" id="__codelineno-11-23" name="__codelineno-11-23"></a>  IT:                      Supports both over- and underscan
 <a href="#__codelineno-11-24" id="__codelineno-11-24" name="__codelineno-11-24"></a>  CE:                      Supports both over- and underscan
-</code></pre></div></p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">7. 驱动程序不会自动切换到检测到的分辨率。是用下列命令检查目前HDMI的输入</p>
-<p><div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>pi@raspberrypi:~ $ v4l2-ctl --query-dv-timings
+</code></pre></div>
+驱动程序不会自动切换到检测到的分辨率。是用下列命令检查目前HDMI的输入
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>pi@raspberrypi:~ $ v4l2-ctl --query-dv-timings
 <a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>Active width: 1280
 <a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a>Active height: 720
 <a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a>Total width: 1650
@@ -794,23 +799,21 @@ to select the currently detected timings.
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a>v4l2-ctl -V
 </code></pre></div>
 should now reflect the resolution detected.</p>
-</div>
-<p>!!! note "8. 芯片支持两种格式(BGR3和UYVY)，BGR3像素深度为24bpp，UYVY为YUV4:2:2 16bpp。如果使用CSI 2通道，BGR3格式最大支持1080P30Hz的输入，使用UYVY则最大支持1080P60Hz的输入。使用下面命令设置为UYVY格式。
-    <div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a>v4l2-ctl -v pixelformat=UYVY
-</code></pre></div></p>
-<div class="admonition note">
-<p class="admonition-title">9. 使用下列命令，检查音频硬件和驱动是否正常</p>
-<p><div class="highlight"><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a>pi@raspberrypi:~ $ arecord -l
+<p>芯片支持两种格式(BGR3和UYVY)，BGR3像素深度为24bpp，UYVY为YUV4:2:2 16bpp。如果使用CSI 2通道，BGR3格式最大支持1080P30Hz的输入，使用UYVY则最大支持1080P60Hz的输入。使用下面命令设置为UYVY格式。
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a>v4l2-ctl -v pixelformat=UYVY
+</code></pre></div>
+使用下列命令，检查音频硬件和驱动是否正常。
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a>pi@raspberrypi:~ $ arecord -l
 <a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a>**** List of CAPTURE Hardware Devices ****
 <a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a>card 1: tc358743 [tc358743], device 0: bcm2835-i2s-dir-hifi dir-hifi-0 [bcm2835-i2s-dir-hifi dir-hifi-0]
 <a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a>  Subdevices: 1/1
 <a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a>  Subdevice #0: subdevice #0
 </code></pre></div>
 Note: card 1: tc358743意味着音频相关硬件已被正确加载，注意这里的1可能不同。</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">10. 安装GStreamer工具.</p>
-<p><div class="highlight"><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a>sudo apt install gstreamer1.0-tools
+<p>安装GStreamer工具.
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a>sudo apt install gstreamer1.0-tools
+<a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a>sudo apt-get install gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly gstreamer1.0-plugins-bad
+<a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a>sudo apt-get install gstreamer1.0-plugins-base
 </code></pre></div>
 检查gstreamer工具版本:
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a>pi@raspberrypi:~ $ gst-launch-1.0 --version
@@ -819,10 +822,8 @@ Note: card 1: tc358743意味着音频相关硬件已被正确加载，注意这�
 <a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a>http://packages.qa.debian.org/gstreamer1.0
 </code></pre></div>
 Note:不同的版本这里输出可能不同.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">11. 使用gstreamer去录制视频或者声音</p>
-<p><div class="highlight"><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a>#GStreamer v1.14 command
+<p>使用gstreamer去录制视频或者声音
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a>#GStreamer v1.14 command
 <a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a>gst-launch-1.0 v4l2src io-mode=5 ! video/x-raw, format=UYVY, framerate=25/1 ! v4l2h264enc output-io-mode=4 ! video/x-h264,profile=high ! h264parse ! queue ! matroskamux name=mux ! filesink location=foo.mkv alsasrc device=hw:1 ! audio/x-raw,rate=48000,channels=2 ! audioconvert ! avenc_aac bitrate=48000 ! aacparse ! queue ! mux.
 </code></pre></div>
 你会得到一个foo.mkv文件.
@@ -843,7 +844,221 @@ PS: 这里我们建议你使用实际的输入帧率去采集HDMI信号。你可
 </code></pre></div>
 Note: alsasrc device=hw:1 – “1” means the audio card number, You must change to correct audio card number.
 (Query the car number via ‘arecord –l’, refer to step 9)</p>
-</div>
+</details>
+<details class="note">
+<summary>Pi5B等平台HDMI转CSI模块测试demo参考</summary>
+<p>编辑 /boot/config.txt (需要sudo权限)
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a>sudo nano /boot/config.txt
+</code></pre></div>
+添加下面的内容
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a>dtoverlay=tc358743
+</code></pre></div>
+如果你的模块(C780和C790)支持声音，添加下面内容支持声音
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a>dtoverlay=tc358743-audio
+</code></pre></div>
+重启树莓派,执行下面指令，找到csi对应的media节点为media0,即rp1-cfe (platform:1f00128000.csi)字段下的media设备:
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-26-1" id="__codelineno-26-1" name="__codelineno-26-1"></a>blikvm@blikvm:~ $ v4l2-ctl --list-devices
+<a href="#__codelineno-26-2" id="__codelineno-26-2" name="__codelineno-26-2"></a>pispbe (platform:1000880000.pisp_be):
+<a href="#__codelineno-26-3" id="__codelineno-26-3" name="__codelineno-26-3"></a>        /dev/video20
+<a href="#__codelineno-26-4" id="__codelineno-26-4" name="__codelineno-26-4"></a>        /dev/video21
+<a href="#__codelineno-26-5" id="__codelineno-26-5" name="__codelineno-26-5"></a>        /dev/video22
+<a href="#__codelineno-26-6" id="__codelineno-26-6" name="__codelineno-26-6"></a>        /dev/video23
+<a href="#__codelineno-26-7" id="__codelineno-26-7" name="__codelineno-26-7"></a>        /dev/video24
+<a href="#__codelineno-26-8" id="__codelineno-26-8" name="__codelineno-26-8"></a>        /dev/video25
+<a href="#__codelineno-26-9" id="__codelineno-26-9" name="__codelineno-26-9"></a>        /dev/video26
+<a href="#__codelineno-26-10" id="__codelineno-26-10" name="__codelineno-26-10"></a>        /dev/video27
+<a href="#__codelineno-26-11" id="__codelineno-26-11" name="__codelineno-26-11"></a>        /dev/video28
+<a href="#__codelineno-26-12" id="__codelineno-26-12" name="__codelineno-26-12"></a>        /dev/video29
+<a href="#__codelineno-26-13" id="__codelineno-26-13" name="__codelineno-26-13"></a>        /dev/video30
+<a href="#__codelineno-26-14" id="__codelineno-26-14" name="__codelineno-26-14"></a>        /dev/video31
+<a href="#__codelineno-26-15" id="__codelineno-26-15" name="__codelineno-26-15"></a>        /dev/video32
+<a href="#__codelineno-26-16" id="__codelineno-26-16" name="__codelineno-26-16"></a>        /dev/video33
+<a href="#__codelineno-26-17" id="__codelineno-26-17" name="__codelineno-26-17"></a>        /dev/video34
+<a href="#__codelineno-26-18" id="__codelineno-26-18" name="__codelineno-26-18"></a>        /dev/video35
+<a href="#__codelineno-26-19" id="__codelineno-26-19" name="__codelineno-26-19"></a>        /dev/video36
+<a href="#__codelineno-26-20" id="__codelineno-26-20" name="__codelineno-26-20"></a>        /dev/video37
+<a href="#__codelineno-26-21" id="__codelineno-26-21" name="__codelineno-26-21"></a>        /dev/media1
+<a href="#__codelineno-26-22" id="__codelineno-26-22" name="__codelineno-26-22"></a>        /dev/media2
+<a href="#__codelineno-26-23" id="__codelineno-26-23" name="__codelineno-26-23"></a>
+<a href="#__codelineno-26-24" id="__codelineno-26-24" name="__codelineno-26-24"></a>rp1-cfe (platform:1f00128000.csi):
+<a href="#__codelineno-26-25" id="__codelineno-26-25" name="__codelineno-26-25"></a>        /dev/video0
+<a href="#__codelineno-26-26" id="__codelineno-26-26" name="__codelineno-26-26"></a>        /dev/video1
+<a href="#__codelineno-26-27" id="__codelineno-26-27" name="__codelineno-26-27"></a>        /dev/video2
+<a href="#__codelineno-26-28" id="__codelineno-26-28" name="__codelineno-26-28"></a>        /dev/video3
+<a href="#__codelineno-26-29" id="__codelineno-26-29" name="__codelineno-26-29"></a>        /dev/video4
+<a href="#__codelineno-26-30" id="__codelineno-26-30" name="__codelineno-26-30"></a>        /dev/video5
+<a href="#__codelineno-26-31" id="__codelineno-26-31" name="__codelineno-26-31"></a>        /dev/video6
+<a href="#__codelineno-26-32" id="__codelineno-26-32" name="__codelineno-26-32"></a>        /dev/video7
+<a href="#__codelineno-26-33" id="__codelineno-26-33" name="__codelineno-26-33"></a>        /dev/media0
+<a href="#__codelineno-26-34" id="__codelineno-26-34" name="__codelineno-26-34"></a>
+<a href="#__codelineno-26-35" id="__codelineno-26-35" name="__codelineno-26-35"></a>rpivid (platform:rpivid):
+<a href="#__codelineno-26-36" id="__codelineno-26-36" name="__codelineno-26-36"></a>        /dev/video19
+<a href="#__codelineno-26-37" id="__codelineno-26-37" name="__codelineno-26-37"></a>        /dev/media3
+</code></pre></div></p>
+<p>找到tc358743对应节点为v4l-subdev2，rp1-cfe-csi2_ch0的pad0为video0:
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-27-1" id="__codelineno-27-1" name="__codelineno-27-1"></a>blikvm@blikvm:~ $ media-ctl -d /dev/media0 -p
+<a href="#__codelineno-27-2" id="__codelineno-27-2" name="__codelineno-27-2"></a>Media controller API version 6.1.63
+<a href="#__codelineno-27-3" id="__codelineno-27-3" name="__codelineno-27-3"></a>
+<a href="#__codelineno-27-4" id="__codelineno-27-4" name="__codelineno-27-4"></a>Media device information
+<a href="#__codelineno-27-5" id="__codelineno-27-5" name="__codelineno-27-5"></a>------------------------
+<a href="#__codelineno-27-6" id="__codelineno-27-6" name="__codelineno-27-6"></a>driver          rp1-cfe
+<a href="#__codelineno-27-7" id="__codelineno-27-7" name="__codelineno-27-7"></a>model           rp1-cfe
+<a href="#__codelineno-27-8" id="__codelineno-27-8" name="__codelineno-27-8"></a>serial
+<a href="#__codelineno-27-9" id="__codelineno-27-9" name="__codelineno-27-9"></a>bus info        platform:1f00128000.csi
+<a href="#__codelineno-27-10" id="__codelineno-27-10" name="__codelineno-27-10"></a>hw revision     0x114666
+<a href="#__codelineno-27-11" id="__codelineno-27-11" name="__codelineno-27-11"></a>driver version  6.1.63
+<a href="#__codelineno-27-12" id="__codelineno-27-12" name="__codelineno-27-12"></a>
+<a href="#__codelineno-27-13" id="__codelineno-27-13" name="__codelineno-27-13"></a>Device topology
+<a href="#__codelineno-27-14" id="__codelineno-27-14" name="__codelineno-27-14"></a>- entity 1: csi2 (8 pads, 8 links)
+<a href="#__codelineno-27-15" id="__codelineno-27-15" name="__codelineno-27-15"></a>            type V4L2 subdev subtype Unknown flags 0
+<a href="#__codelineno-27-16" id="__codelineno-27-16" name="__codelineno-27-16"></a>            device node name /dev/v4l-subdev0
+<a href="#__codelineno-27-17" id="__codelineno-27-17" name="__codelineno-27-17"></a>        pad0: Sink
+<a href="#__codelineno-27-18" id="__codelineno-27-18" name="__codelineno-27-18"></a>                [fmt:SRGGB10_1X10/640x480 field:none colorspace:raw xfer:none ycbcr:601 quantization:full-range]
+<a href="#__codelineno-27-19" id="__codelineno-27-19" name="__codelineno-27-19"></a>                &lt;- "tc358743 4-000f":0 [ENABLED,IMMUTABLE]
+<a href="#__codelineno-27-20" id="__codelineno-27-20" name="__codelineno-27-20"></a>        pad1: Sink
+<a href="#__codelineno-27-21" id="__codelineno-27-21" name="__codelineno-27-21"></a>                [fmt:unknown/8192x1 field:none]
+<a href="#__codelineno-27-22" id="__codelineno-27-22" name="__codelineno-27-22"></a>        pad2: Sink
+<a href="#__codelineno-27-23" id="__codelineno-27-23" name="__codelineno-27-23"></a>                [fmt:SRGGB10_1X10/640x480 field:none colorspace:raw xfer:none ycbcr:601 quantization:full-range]
+<a href="#__codelineno-27-24" id="__codelineno-27-24" name="__codelineno-27-24"></a>        pad3: Sink
+<a href="#__codelineno-27-25" id="__codelineno-27-25" name="__codelineno-27-25"></a>                [fmt:SRGGB10_1X10/640x480 field:none colorspace:raw xfer:none ycbcr:601 quantization:full-range]
+<a href="#__codelineno-27-26" id="__codelineno-27-26" name="__codelineno-27-26"></a>        pad4: Source
+<a href="#__codelineno-27-27" id="__codelineno-27-27" name="__codelineno-27-27"></a>                [fmt:SRGGB10_1X10/640x480 field:none colorspace:raw xfer:none ycbcr:601 quantization:full-range]
+<a href="#__codelineno-27-28" id="__codelineno-27-28" name="__codelineno-27-28"></a>                -&gt; "rp1-cfe-csi2_ch0":0 []
+<a href="#__codelineno-27-29" id="__codelineno-27-29" name="__codelineno-27-29"></a>                -&gt; "pisp-fe":0 []
+<a href="#__codelineno-27-30" id="__codelineno-27-30" name="__codelineno-27-30"></a>        pad5: Source
+<a href="#__codelineno-27-31" id="__codelineno-27-31" name="__codelineno-27-31"></a>                [fmt:unknown/8192x1 field:none]
+<a href="#__codelineno-27-32" id="__codelineno-27-32" name="__codelineno-27-32"></a>                -&gt; "rp1-cfe-embedded":0 []
+<a href="#__codelineno-27-33" id="__codelineno-27-33" name="__codelineno-27-33"></a>        pad6: Source
+<a href="#__codelineno-27-34" id="__codelineno-27-34" name="__codelineno-27-34"></a>                [fmt:SRGGB10_1X10/640x480 field:none colorspace:raw xfer:none ycbcr:601 quantization:full-range]
+<a href="#__codelineno-27-35" id="__codelineno-27-35" name="__codelineno-27-35"></a>                -&gt; "rp1-cfe-csi2_ch2":0 []
+<a href="#__codelineno-27-36" id="__codelineno-27-36" name="__codelineno-27-36"></a>                -&gt; "pisp-fe":0 []
+<a href="#__codelineno-27-37" id="__codelineno-27-37" name="__codelineno-27-37"></a>        pad7: Source
+<a href="#__codelineno-27-38" id="__codelineno-27-38" name="__codelineno-27-38"></a>                [fmt:SRGGB10_1X10/640x480 field:none colorspace:raw xfer:none ycbcr:601 quantization:full-range]
+<a href="#__codelineno-27-39" id="__codelineno-27-39" name="__codelineno-27-39"></a>                -&gt; "rp1-cfe-csi2_ch3":0 []
+<a href="#__codelineno-27-40" id="__codelineno-27-40" name="__codelineno-27-40"></a>                -&gt; "pisp-fe":0 []
+<a href="#__codelineno-27-41" id="__codelineno-27-41" name="__codelineno-27-41"></a>
+<a href="#__codelineno-27-42" id="__codelineno-27-42" name="__codelineno-27-42"></a>- entity 10: pisp-fe (5 pads, 7 links)
+<a href="#__codelineno-27-43" id="__codelineno-27-43" name="__codelineno-27-43"></a>            type V4L2 subdev subtype Unknown flags 0
+<a href="#__codelineno-27-44" id="__codelineno-27-44" name="__codelineno-27-44"></a>            device node name /dev/v4l-subdev1
+<a href="#__codelineno-27-45" id="__codelineno-27-45" name="__codelineno-27-45"></a>        pad0: Sink
+<a href="#__codelineno-27-46" id="__codelineno-27-46" name="__codelineno-27-46"></a>                [fmt:SRGGB16_1X16/640x480 field:none colorspace:raw xfer:none ycbcr:601 quantization:full-range]
+<a href="#__codelineno-27-47" id="__codelineno-27-47" name="__codelineno-27-47"></a>                &lt;- "csi2":4 []
+<a href="#__codelineno-27-48" id="__codelineno-27-48" name="__codelineno-27-48"></a>                &lt;- "csi2":6 []
+<a href="#__codelineno-27-49" id="__codelineno-27-49" name="__codelineno-27-49"></a>                &lt;- "csi2":7 []
+<a href="#__codelineno-27-50" id="__codelineno-27-50" name="__codelineno-27-50"></a>        pad1: Sink
+<a href="#__codelineno-27-51" id="__codelineno-27-51" name="__codelineno-27-51"></a>                [fmt:FIXED/8192x1 field:none]
+<a href="#__codelineno-27-52" id="__codelineno-27-52" name="__codelineno-27-52"></a>                &lt;- "rp1-cfe-fe_config":0 []
+<a href="#__codelineno-27-53" id="__codelineno-27-53" name="__codelineno-27-53"></a>        pad2: Source
+<a href="#__codelineno-27-54" id="__codelineno-27-54" name="__codelineno-27-54"></a>                [fmt:SRGGB16_1X16/640x480 field:none colorspace:raw xfer:none ycbcr:601 quantization:full-range]
+<a href="#__codelineno-27-55" id="__codelineno-27-55" name="__codelineno-27-55"></a>                -&gt; "rp1-cfe-fe_image0":0 []
+<a href="#__codelineno-27-56" id="__codelineno-27-56" name="__codelineno-27-56"></a>        pad3: Source
+<a href="#__codelineno-27-57" id="__codelineno-27-57" name="__codelineno-27-57"></a>                [fmt:SRGGB16_1X16/640x480 field:none colorspace:raw xfer:none ycbcr:601 quantization:full-range]
+<a href="#__codelineno-27-58" id="__codelineno-27-58" name="__codelineno-27-58"></a>                -&gt; "rp1-cfe-fe_image1":0 []
+<a href="#__codelineno-27-59" id="__codelineno-27-59" name="__codelineno-27-59"></a>        pad4: Source
+<a href="#__codelineno-27-60" id="__codelineno-27-60" name="__codelineno-27-60"></a>                [fmt:FIXED/8192x1 field:none]
+<a href="#__codelineno-27-61" id="__codelineno-27-61" name="__codelineno-27-61"></a>                -&gt; "rp1-cfe-fe_stats":0 []
+<a href="#__codelineno-27-62" id="__codelineno-27-62" name="__codelineno-27-62"></a>
+<a href="#__codelineno-27-63" id="__codelineno-27-63" name="__codelineno-27-63"></a>- entity 16: tc358743 4-000f (1 pad, 1 link)
+<a href="#__codelineno-27-64" id="__codelineno-27-64" name="__codelineno-27-64"></a>            type V4L2 subdev subtype Unknown flags 0
+<a href="#__codelineno-27-65" id="__codelineno-27-65" name="__codelineno-27-65"></a>            device node name /dev/v4l-subdev2
+<a href="#__codelineno-27-66" id="__codelineno-27-66" name="__codelineno-27-66"></a>        pad0: Source
+<a href="#__codelineno-27-67" id="__codelineno-27-67" name="__codelineno-27-67"></a>                [fmt:RGB888_1X24/640x480 field:none colorspace:srgb]
+<a href="#__codelineno-27-68" id="__codelineno-27-68" name="__codelineno-27-68"></a>                [dv.caps:BT.656/1120 min:640x350@13000000 max:1920x1200@165000000 stds:CEA-861,DMT,CVT,GTF caps:progressive,reduced-blanking,custom]
+<a href="#__codelineno-27-69" id="__codelineno-27-69" name="__codelineno-27-69"></a>                [dv.detect:BT.656/1120 1920x1080p24 (2750x1125) stds: flags:]
+<a href="#__codelineno-27-70" id="__codelineno-27-70" name="__codelineno-27-70"></a>                [dv.current:BT.656/1120 640x480p59 (800x525) stds:CEA-861,DMT flags:has-cea861-vic]
+<a href="#__codelineno-27-71" id="__codelineno-27-71" name="__codelineno-27-71"></a>                -&gt; "csi2":0 [ENABLED,IMMUTABLE]
+<a href="#__codelineno-27-72" id="__codelineno-27-72" name="__codelineno-27-72"></a>
+<a href="#__codelineno-27-73" id="__codelineno-27-73" name="__codelineno-27-73"></a>- entity 18: rp1-cfe-csi2_ch0 (1 pad, 1 link)
+<a href="#__codelineno-27-74" id="__codelineno-27-74" name="__codelineno-27-74"></a>            type Node subtype V4L flags 0
+<a href="#__codelineno-27-75" id="__codelineno-27-75" name="__codelineno-27-75"></a>            device node name /dev/video0
+<a href="#__codelineno-27-76" id="__codelineno-27-76" name="__codelineno-27-76"></a>        pad0: Sink
+<a href="#__codelineno-27-77" id="__codelineno-27-77" name="__codelineno-27-77"></a>                &lt;- "csi2":4 []
+<a href="#__codelineno-27-78" id="__codelineno-27-78" name="__codelineno-27-78"></a>
+<a href="#__codelineno-27-79" id="__codelineno-27-79" name="__codelineno-27-79"></a>- entity 22: rp1-cfe-embedded (1 pad, 1 link)
+<a href="#__codelineno-27-80" id="__codelineno-27-80" name="__codelineno-27-80"></a>            type Node subtype V4L flags 0
+<a href="#__codelineno-27-81" id="__codelineno-27-81" name="__codelineno-27-81"></a>            device node name /dev/video1
+<a href="#__codelineno-27-82" id="__codelineno-27-82" name="__codelineno-27-82"></a>        pad0: Sink
+<a href="#__codelineno-27-83" id="__codelineno-27-83" name="__codelineno-27-83"></a>                &lt;- "csi2":5 []
+<a href="#__codelineno-27-84" id="__codelineno-27-84" name="__codelineno-27-84"></a>
+<a href="#__codelineno-27-85" id="__codelineno-27-85" name="__codelineno-27-85"></a>- entity 26: rp1-cfe-csi2_ch2 (1 pad, 1 link)
+<a href="#__codelineno-27-86" id="__codelineno-27-86" name="__codelineno-27-86"></a>            type Node subtype V4L flags 0
+<a href="#__codelineno-27-87" id="__codelineno-27-87" name="__codelineno-27-87"></a>            device node name /dev/video2
+<a href="#__codelineno-27-88" id="__codelineno-27-88" name="__codelineno-27-88"></a>        pad0: Sink
+<a href="#__codelineno-27-89" id="__codelineno-27-89" name="__codelineno-27-89"></a>                &lt;- "csi2":6 []
+<a href="#__codelineno-27-90" id="__codelineno-27-90" name="__codelineno-27-90"></a>
+<a href="#__codelineno-27-91" id="__codelineno-27-91" name="__codelineno-27-91"></a>- entity 30: rp1-cfe-csi2_ch3 (1 pad, 1 link)
+<a href="#__codelineno-27-92" id="__codelineno-27-92" name="__codelineno-27-92"></a>            type Node subtype V4L flags 0
+<a href="#__codelineno-27-93" id="__codelineno-27-93" name="__codelineno-27-93"></a>            device node name /dev/video3
+<a href="#__codelineno-27-94" id="__codelineno-27-94" name="__codelineno-27-94"></a>        pad0: Sink
+<a href="#__codelineno-27-95" id="__codelineno-27-95" name="__codelineno-27-95"></a>                &lt;- "csi2":7 []
+<a href="#__codelineno-27-96" id="__codelineno-27-96" name="__codelineno-27-96"></a>
+<a href="#__codelineno-27-97" id="__codelineno-27-97" name="__codelineno-27-97"></a>- entity 34: rp1-cfe-fe_image0 (1 pad, 1 link)
+<a href="#__codelineno-27-98" id="__codelineno-27-98" name="__codelineno-27-98"></a>            type Node subtype V4L flags 1
+<a href="#__codelineno-27-99" id="__codelineno-27-99" name="__codelineno-27-99"></a>            device node name /dev/video4
+<a href="#__codelineno-27-100" id="__codelineno-27-100" name="__codelineno-27-100"></a>        pad0: Sink
+<a href="#__codelineno-27-101" id="__codelineno-27-101" name="__codelineno-27-101"></a>                &lt;- "pisp-fe":2 []
+<a href="#__codelineno-27-102" id="__codelineno-27-102" name="__codelineno-27-102"></a>
+<a href="#__codelineno-27-103" id="__codelineno-27-103" name="__codelineno-27-103"></a>- entity 38: rp1-cfe-fe_image1 (1 pad, 1 link)
+<a href="#__codelineno-27-104" id="__codelineno-27-104" name="__codelineno-27-104"></a>            type Node subtype V4L flags 0
+<a href="#__codelineno-27-105" id="__codelineno-27-105" name="__codelineno-27-105"></a>            device node name /dev/video5
+<a href="#__codelineno-27-106" id="__codelineno-27-106" name="__codelineno-27-106"></a>        pad0: Sink
+<a href="#__codelineno-27-107" id="__codelineno-27-107" name="__codelineno-27-107"></a>                &lt;- "pisp-fe":3 []
+<a href="#__codelineno-27-108" id="__codelineno-27-108" name="__codelineno-27-108"></a>
+<a href="#__codelineno-27-109" id="__codelineno-27-109" name="__codelineno-27-109"></a>- entity 42: rp1-cfe-fe_stats (1 pad, 1 link)
+<a href="#__codelineno-27-110" id="__codelineno-27-110" name="__codelineno-27-110"></a>            type Node subtype V4L flags 0
+<a href="#__codelineno-27-111" id="__codelineno-27-111" name="__codelineno-27-111"></a>            device node name /dev/video6
+<a href="#__codelineno-27-112" id="__codelineno-27-112" name="__codelineno-27-112"></a>        pad0: Sink
+<a href="#__codelineno-27-113" id="__codelineno-27-113" name="__codelineno-27-113"></a>                &lt;- "pisp-fe":4 []
+<a href="#__codelineno-27-114" id="__codelineno-27-114" name="__codelineno-27-114"></a>
+<a href="#__codelineno-27-115" id="__codelineno-27-115" name="__codelineno-27-115"></a>- entity 46: rp1-cfe-fe_config (1 pad, 1 link)
+<a href="#__codelineno-27-116" id="__codelineno-27-116" name="__codelineno-27-116"></a>            type Node subtype V4L flags 0
+<a href="#__codelineno-27-117" id="__codelineno-27-117" name="__codelineno-27-117"></a>            device node name /dev/video7
+<a href="#__codelineno-27-118" id="__codelineno-27-118" name="__codelineno-27-118"></a>        pad0: Source
+<a href="#__codelineno-27-119" id="__codelineno-27-119" name="__codelineno-27-119"></a>                -&gt; "pisp-fe":1 []
+</code></pre></div>
+查询当前输入源信息,若分辨率显示0则表示为检查到输入源信号，需要检查硬件连接和上述步骤排查。
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-28-1" id="__codelineno-28-1" name="__codelineno-28-1"></a>blikvm@blikvm:~ $ v4l2-ctl -d /dev/v4l-subdev2 --query-dv-timings
+<a href="#__codelineno-28-2" id="__codelineno-28-2" name="__codelineno-28-2"></a>    Active width: 1920
+<a href="#__codelineno-28-3" id="__codelineno-28-3" name="__codelineno-28-3"></a>    Active height: 1080
+<a href="#__codelineno-28-4" id="__codelineno-28-4" name="__codelineno-28-4"></a>    Total width: 2750
+<a href="#__codelineno-28-5" id="__codelineno-28-5" name="__codelineno-28-5"></a>    Total height: 1125
+<a href="#__codelineno-28-6" id="__codelineno-28-6" name="__codelineno-28-6"></a>    Frame format: progressive
+<a href="#__codelineno-28-7" id="__codelineno-28-7" name="__codelineno-28-7"></a>    Polarities: -vsync -hsync
+<a href="#__codelineno-28-8" id="__codelineno-28-8" name="__codelineno-28-8"></a>    Pixelclock: 74250000 Hz (24.00 frames per second)
+<a href="#__codelineno-28-9" id="__codelineno-28-9" name="__codelineno-28-9"></a>    Horizontal frontporch: 0
+<a href="#__codelineno-28-10" id="__codelineno-28-10" name="__codelineno-28-10"></a>    Horizontal sync: 830
+<a href="#__codelineno-28-11" id="__codelineno-28-11" name="__codelineno-28-11"></a>    Horizontal backporch: 0
+<a href="#__codelineno-28-12" id="__codelineno-28-12" name="__codelineno-28-12"></a>    Vertical frontporch: 0
+<a href="#__codelineno-28-13" id="__codelineno-28-13" name="__codelineno-28-13"></a>    Vertical sync: 45
+<a href="#__codelineno-28-14" id="__codelineno-28-14" name="__codelineno-28-14"></a>    Vertical backporch: 0
+<a href="#__codelineno-28-15" id="__codelineno-28-15" name="__codelineno-28-15"></a>    Standards:
+<a href="#__codelineno-28-16" id="__codelineno-28-16" name="__codelineno-28-16"></a>    Flags:
+</code></pre></div>
+确认当前输入源信息
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-29-1" id="__codelineno-29-1" name="__codelineno-29-1"></a>blikvm@blikvm:~ $ v4l2-ctl -d /dev/v4l-subdev2 --set-dv-bt-timings query
+<a href="#__codelineno-29-2" id="__codelineno-29-2" name="__codelineno-29-2"></a>BT timings set
+</code></pre></div>
+初始化media0
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-30-1" id="__codelineno-30-1" name="__codelineno-30-1"></a>blikvm@blikvm:~ $ media-ctl -d /dev/media0 -r
+</code></pre></div>
+把csi2的pad4连接到rp1-cfe-csi2_ch0的pad0
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-31-1" id="__codelineno-31-1" name="__codelineno-31-1"></a>blikvm@blikvm:~ $ media-ctl -d /dev/media0 -l ''\''csi2'\'':4 -&gt; '\''rp1-cfe-csi2_ch0'\'':0 [1]'
+</code></pre></div>
+配置media节点
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-32-1" id="__codelineno-32-1" name="__codelineno-32-1"></a>blikvm@blikvm:~ $ media-ctl -d /dev/media0 -V ''\''csi2'\'':0 [fmt:RGB888_1X24/1920x1080 field:none colorspace:srgb]'
+<a href="#__codelineno-32-2" id="__codelineno-32-2" name="__codelineno-32-2"></a>blikvm@blikvm:~ $ media-ctl -d /dev/media0 -V ''\''csi2'\'':4 [fmt:RGB888_1X24/1920x1080 field:none colorspace:srgb]'
+</code></pre></div>
+设置输出格式
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-33-1" id="__codelineno-33-1" name="__codelineno-33-1"></a>v4l2-ctl -v width=1920,height=1080,pixelformat=RGB3
+</code></pre></div>
+采集两帧画面用于测试tc358743是否可以工作，其它如使用gstreamer的方法暂时未
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-34-1" id="__codelineno-34-1" name="__codelineno-34-1"></a>v4l2-ctl --verbose -d /dev/video0 --set-fmt-video=width=1920,height=1080,pixelformat='RGB3' --stream-mmap=4 --stream-skip=3 --stream-count=2 --stream-to=hdmiin.yuv --stream-poll
+</code></pre></div>
+Pi如果安装的是带桌面的系统，可以使用ffplay直接播放yuv文件。
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-35-1" id="__codelineno-35-1" name="__codelineno-35-1"></a>ffplay -f rawvideo -video_size 1920x1080 -pixel_format bgr24 hdmiin.yuv 
+</code></pre></div>
+windows电脑可以使用7yuv等软件查看.yuv文件，教程输入格式为1920<em>1080，所以在7yuv右上角格式选择BGR888，分辨率设置1920</em>1080，即可看到两帧刚采集到的画面</p>
+</details>
 <h2 id="_3"><strong>发货清单</strong></h2>
 <details class="info">
 <summary>C790</summary>
@@ -860,7 +1075,7 @@ Note: alsasrc device=hw:1 – “1” means the audio card number, You must chan
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 4, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 21, 2023</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 5, 2022</span>

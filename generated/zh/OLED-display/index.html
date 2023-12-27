@@ -271,7 +271,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../hid/">
-        键鼠
+        视频&amp;键鼠
       </a>
 </li>
 <li class="md-nav__item">
@@ -405,6 +405,11 @@
         配置PiKVM OS
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../dev_api/">
+        http API
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -427,7 +432,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="oled-display"><strong>OLED display</strong></h1>
-<p>由于OLED长期运行，会出现烧屏等问题，故OLED有以下逻辑，首次启动时，默认会连续显示300分钟,然后间隔5分钟显示一次，从而大大增加屏幕的生命周期。<br/>
+<p>由于OLED长期运行，会出现烧屏等问题，故OLED有以下逻辑，首次启动时，oled_enable默认设置为1，即OLED屏幕会常亮。若oled_enable设置为0，则在设备启动300分钟,然后间隔5分钟显示一次，从而大大增加屏幕的生命周期。<br/>
 你可以在/usr/bin/blikvm/package.json配置文件中，找到下面配置，通过修改restart_show_time和interval_display_time时间，达到不同的控制效果，单位为分钟。
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>"oled":{
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    "oled_enable": 1,
@@ -440,7 +445,7 @@
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 9, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 25, 2023</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 10, 2022</span>

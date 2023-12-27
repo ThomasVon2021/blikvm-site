@@ -1,5 +1,10 @@
 # HDMI转CSI&I2S模块手册
-> 将HDMI信号转换成CSI视频信号和I2S音频信号.
+> 将HDMI信号转换成CSI视频信号和I2S音频信号, 目前全平台支持(zero, Pi3B, Pi4B, CM4, Pi5B),其中最高采集分辨率不仅仅取决于HDMI转CSI转换板，同时也取决于你使用的树莓派硬件版本，树莓派硬件版目前主要分两个系列，最高支持1080P60Hz，和最高支持1080P50Hz。
+
+- 最高支持1080P60Hz的Pi版本(CM3，CM4，Pi5B)
+- 最高支持1080P50Hz的Pi版本(zero, zero2, Pi3B, Pi4B等)
+
+
 ## **简介**
 此模块将HDMI信号转换成CSI视频信号和I2S音频信号，最高支持1080P60Hz的视频输入，在树莓派上工作的很好，目前共有3个版本(C779、C780、C790).
 C790是目前最新的版本，解决了所有已知的问题，同是有CSI 2通道和4通道接口，I2S音频接口，修复了HDMI反向供电问题。
@@ -72,7 +77,7 @@ C790是目前最新的版本，解决了所有已知的问题，同是有CSI 2�
     * 重量: 10g
 
 ??? info "尺寸"
-    尺寸如下图所示. 有4个直径为2。75mm的孔位用于安装，安装螺钉可以选择M2.5。
+    尺寸如下图所示. 有4个直径为2.75mm的孔位用于安装，安装螺钉可以选择M2.5。
     ![](assets/images/hdmi-csi-i2s/c779-size.png){width="400"}  
 
 ## **CSI接口定义**
@@ -98,9 +103,13 @@ Linux raspberrypi 5.10.63-v7l+ #1459 SMP Wed Oct 6 16:41:57 BST 2021 armv7l GNU/
     sudo reboot
     ```
     移动光标到‘Interfacing Options’，然后按Enter键进入。然后选择‘Camera’选项，按Enter键进入后，使能相机。然后选择“Finish”后，
-    选择“reboot”。**重启非常终于!!**
+    选择“reboot”。**重启非常重要!!**
 
-!!! note "3. 编辑 /boot/config.txt (需要sudo权限)"
+??? warning "由于Pi5B取消了硬编码器，下面软件使用方法在Pi平台目前分为两个部分，Pi5B配置，和其它Pi平台配置。"
+
+
+??? note "在zero, zero2,Pi3B,Pi4B等平台HDMI转CSI模块测试demo参考"
+    编辑 /boot/config.txt (需要sudo权限)
     ```
     sudo nano /boot/config.txt
     ```
@@ -116,7 +125,7 @@ Linux raspberrypi 5.10.63-v7l+ #1459 SMP Wed Oct 6 16:41:57 BST 2021 armv7l GNU/
     ```
     dtoverlay=tc358743,4lane=1
     ```
-!!! note "4. 使用“dmesg | grep cma”检查分配给CMA堆的内存量，终端出现的第一行内容应该如下所示"
+    使用“dmesg | grep cma”检查分配给CMA堆的内存量，终端出现的第一行内容应该如下所示:
     ```
     pi@raspberrypi:~ $ dmesg | grep cma
     [0.000000] cma: Reserved 256 MiB at 0x000000001ec00000
@@ -125,7 +134,7 @@ Linux raspberrypi 5.10.63-v7l+ #1459 SMP Wed Oct 6 16:41:57 BST 2021 armv7l GNU/
     ```
     cma=96M
     ```
-!!! note "5. 重启树莓派，如果配置成功，你将会看到/dev/video0设备描述符出现。可以使用“v4l2-ctl –list-devices” 命令列出所有的video描述符。再将树莓派与模块正确连接后，树莓派上电，你可以看到C790模块上有一个绿色灯常亮，然后可以按照下面的命令，检查是否已经正常出现了video0。"
+    重启树莓派，如果配置成功，你将会看到/dev/video0设备描述符出现。可以使用“v4l2-ctl –list-devices” 命令列出所有的video描述符。再将树莓派与模块正确连接后，树莓派上电，你可以看到C790模块上有一个绿色灯常亮，然后可以按照下面的命令，检查是否已经正常出现了video0。
     ```
     pi@raspberrypi:~ $ ls /dev/video0
     /dev/video0
@@ -147,7 +156,7 @@ Linux raspberrypi 5.10.63-v7l+ #1459 SMP Wed Oct 6 16:41:57 BST 2021 armv7l GNU/
         /dev/video1
         /dev/media2
     ```
-!!! note "6. 默认没有加载EDID,如果你有EDID编辑器，你可以自己编辑你所需要的分辨率，或者使用下面提供的EDID分辨率（720p60hz）。"
+    默认没有加载EDID,如果你有EDID编辑器，你可以自己编辑你所需要的分辨率，或者使用下面提供的EDID分辨率（720p60hz）。
     ```
     00ffffffffffff005262888800888888
     1c150103800000780aEE91A3544C9926
@@ -192,7 +201,7 @@ Linux raspberrypi 5.10.63-v7l+ #1459 SMP Wed Oct 6 16:41:57 BST 2021 armv7l GNU/
       IT:                      Supports both over- and underscan
       CE:                      Supports both over- and underscan
     ```
-!!! note "7. 驱动程序不会自动切换到检测到的分辨率。是用下列命令检查目前HDMI的输入"
+    驱动程序不会自动切换到检测到的分辨率。是用下列命令检查目前HDMI的输入
     ```
     pi@raspberrypi:~ $ v4l2-ctl --query-dv-timings
 	Active width: 1280
@@ -221,11 +230,11 @@ Linux raspberrypi 5.10.63-v7l+ #1459 SMP Wed Oct 6 16:41:57 BST 2021 armv7l GNU/
     ```
     should now reflect the resolution detected.
 
-!!! note "8. 芯片支持两种格式(BGR3和UYVY)，BGR3像素深度为24bpp，UYVY为YUV4:2:2 16bpp。如果使用CSI 2通道，BGR3格式最大支持1080P30Hz的输入，使用UYVY则最大支持1080P60Hz的输入。使用下面命令设置为UYVY格式。
+    芯片支持两种格式(BGR3和UYVY)，BGR3像素深度为24bpp，UYVY为YUV4:2:2 16bpp。如果使用CSI 2通道，BGR3格式最大支持1080P30Hz的输入，使用UYVY则最大支持1080P60Hz的输入。使用下面命令设置为UYVY格式。
     ```
     v4l2-ctl -v pixelformat=UYVY
     ```
-!!! note "9. 使用下列命令，检查音频硬件和驱动是否正常"
+    使用下列命令，检查音频硬件和驱动是否正常。
     ```
     pi@raspberrypi:~ $ arecord -l
     **** List of CAPTURE Hardware Devices ****
@@ -235,9 +244,11 @@ Linux raspberrypi 5.10.63-v7l+ #1459 SMP Wed Oct 6 16:41:57 BST 2021 armv7l GNU/
     ```
     Note: card 1: tc358743意味着音频相关硬件已被正确加载，注意这里的1可能不同。
 
-!!! note "10. 安装GStreamer工具."
+    安装GStreamer工具.
     ```
     sudo apt install gstreamer1.0-tools
+    sudo apt-get install gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly gstreamer1.0-plugins-bad
+    sudo apt-get install gstreamer1.0-plugins-base
     ```
     检查gstreamer工具版本:
     ```
@@ -248,7 +259,7 @@ Linux raspberrypi 5.10.63-v7l+ #1459 SMP Wed Oct 6 16:41:57 BST 2021 armv7l GNU/
     ```
     Note:不同的版本这里输出可能不同.
 
-!!! note "11. 使用gstreamer去录制视频或者声音"
+    使用gstreamer去录制视频或者声音
     ```
     #GStreamer v1.14 command
     gst-launch-1.0 v4l2src io-mode=5 ! video/x-raw, format=UYVY, framerate=25/1 ! v4l2h264enc output-io-mode=4 ! video/x-h264,profile=high ! h264parse ! queue ! matroskamux name=mux ! filesink location=foo.mkv alsasrc device=hw:1 ! audio/x-raw,rate=48000,channels=2 ! audioconvert ! avenc_aac bitrate=48000 ! aacparse ! queue ! mux.
@@ -275,6 +286,234 @@ Linux raspberrypi 5.10.63-v7l+ #1459 SMP Wed Oct 6 16:41:57 BST 2021 armv7l GNU/
     ```
     Note: alsasrc device=hw:1 – “1” means the audio card number, You must change to correct audio card number.
     (Query the car number via ‘arecord –l’, refer to step 9)
+
+??? note "Pi5B等平台HDMI转CSI模块测试demo参考"
+    编辑 /boot/config.txt (需要sudo权限)
+    ```
+    sudo nano /boot/config.txt
+    ```
+    添加下面的内容
+    ```
+    dtoverlay=tc358743
+    ```
+    如果你的模块(C780和C790)支持声音，添加下面内容支持声音
+    ```
+    dtoverlay=tc358743-audio
+    ```
+    重启树莓派,执行下面指令，找到csi对应的media节点为media0,即rp1-cfe (platform:1f00128000.csi)字段下的media设备:
+    ```
+    blikvm@blikvm:~ $ v4l2-ctl --list-devices
+    pispbe (platform:1000880000.pisp_be):
+            /dev/video20
+            /dev/video21
+            /dev/video22
+            /dev/video23
+            /dev/video24
+            /dev/video25
+            /dev/video26
+            /dev/video27
+            /dev/video28
+            /dev/video29
+            /dev/video30
+            /dev/video31
+            /dev/video32
+            /dev/video33
+            /dev/video34
+            /dev/video35
+            /dev/video36
+            /dev/video37
+            /dev/media1
+            /dev/media2
+
+    rp1-cfe (platform:1f00128000.csi):
+            /dev/video0
+            /dev/video1
+            /dev/video2
+            /dev/video3
+            /dev/video4
+            /dev/video5
+            /dev/video6
+            /dev/video7
+            /dev/media0
+
+    rpivid (platform:rpivid):
+            /dev/video19
+            /dev/media3
+    ```
+
+    找到tc358743对应节点为v4l-subdev2，rp1-cfe-csi2_ch0的pad0为video0:
+    ```
+    blikvm@blikvm:~ $ media-ctl -d /dev/media0 -p
+    Media controller API version 6.1.63
+
+    Media device information
+    ------------------------
+    driver          rp1-cfe
+    model           rp1-cfe
+    serial
+    bus info        platform:1f00128000.csi
+    hw revision     0x114666
+    driver version  6.1.63
+
+    Device topology
+    - entity 1: csi2 (8 pads, 8 links)
+                type V4L2 subdev subtype Unknown flags 0
+                device node name /dev/v4l-subdev0
+            pad0: Sink
+                    [fmt:SRGGB10_1X10/640x480 field:none colorspace:raw xfer:none ycbcr:601 quantization:full-range]
+                    <- "tc358743 4-000f":0 [ENABLED,IMMUTABLE]
+            pad1: Sink
+                    [fmt:unknown/8192x1 field:none]
+            pad2: Sink
+                    [fmt:SRGGB10_1X10/640x480 field:none colorspace:raw xfer:none ycbcr:601 quantization:full-range]
+            pad3: Sink
+                    [fmt:SRGGB10_1X10/640x480 field:none colorspace:raw xfer:none ycbcr:601 quantization:full-range]
+            pad4: Source
+                    [fmt:SRGGB10_1X10/640x480 field:none colorspace:raw xfer:none ycbcr:601 quantization:full-range]
+                    -> "rp1-cfe-csi2_ch0":0 []
+                    -> "pisp-fe":0 []
+            pad5: Source
+                    [fmt:unknown/8192x1 field:none]
+                    -> "rp1-cfe-embedded":0 []
+            pad6: Source
+                    [fmt:SRGGB10_1X10/640x480 field:none colorspace:raw xfer:none ycbcr:601 quantization:full-range]
+                    -> "rp1-cfe-csi2_ch2":0 []
+                    -> "pisp-fe":0 []
+            pad7: Source
+                    [fmt:SRGGB10_1X10/640x480 field:none colorspace:raw xfer:none ycbcr:601 quantization:full-range]
+                    -> "rp1-cfe-csi2_ch3":0 []
+                    -> "pisp-fe":0 []
+
+    - entity 10: pisp-fe (5 pads, 7 links)
+                type V4L2 subdev subtype Unknown flags 0
+                device node name /dev/v4l-subdev1
+            pad0: Sink
+                    [fmt:SRGGB16_1X16/640x480 field:none colorspace:raw xfer:none ycbcr:601 quantization:full-range]
+                    <- "csi2":4 []
+                    <- "csi2":6 []
+                    <- "csi2":7 []
+            pad1: Sink
+                    [fmt:FIXED/8192x1 field:none]
+                    <- "rp1-cfe-fe_config":0 []
+            pad2: Source
+                    [fmt:SRGGB16_1X16/640x480 field:none colorspace:raw xfer:none ycbcr:601 quantization:full-range]
+                    -> "rp1-cfe-fe_image0":0 []
+            pad3: Source
+                    [fmt:SRGGB16_1X16/640x480 field:none colorspace:raw xfer:none ycbcr:601 quantization:full-range]
+                    -> "rp1-cfe-fe_image1":0 []
+            pad4: Source
+                    [fmt:FIXED/8192x1 field:none]
+                    -> "rp1-cfe-fe_stats":0 []
+
+    - entity 16: tc358743 4-000f (1 pad, 1 link)
+                type V4L2 subdev subtype Unknown flags 0
+                device node name /dev/v4l-subdev2
+            pad0: Source
+                    [fmt:RGB888_1X24/640x480 field:none colorspace:srgb]
+                    [dv.caps:BT.656/1120 min:640x350@13000000 max:1920x1200@165000000 stds:CEA-861,DMT,CVT,GTF caps:progressive,reduced-blanking,custom]
+                    [dv.detect:BT.656/1120 1920x1080p24 (2750x1125) stds: flags:]
+                    [dv.current:BT.656/1120 640x480p59 (800x525) stds:CEA-861,DMT flags:has-cea861-vic]
+                    -> "csi2":0 [ENABLED,IMMUTABLE]
+
+    - entity 18: rp1-cfe-csi2_ch0 (1 pad, 1 link)
+                type Node subtype V4L flags 0
+                device node name /dev/video0
+            pad0: Sink
+                    <- "csi2":4 []
+
+    - entity 22: rp1-cfe-embedded (1 pad, 1 link)
+                type Node subtype V4L flags 0
+                device node name /dev/video1
+            pad0: Sink
+                    <- "csi2":5 []
+
+    - entity 26: rp1-cfe-csi2_ch2 (1 pad, 1 link)
+                type Node subtype V4L flags 0
+                device node name /dev/video2
+            pad0: Sink
+                    <- "csi2":6 []
+
+    - entity 30: rp1-cfe-csi2_ch3 (1 pad, 1 link)
+                type Node subtype V4L flags 0
+                device node name /dev/video3
+            pad0: Sink
+                    <- "csi2":7 []
+
+    - entity 34: rp1-cfe-fe_image0 (1 pad, 1 link)
+                type Node subtype V4L flags 1
+                device node name /dev/video4
+            pad0: Sink
+                    <- "pisp-fe":2 []
+
+    - entity 38: rp1-cfe-fe_image1 (1 pad, 1 link)
+                type Node subtype V4L flags 0
+                device node name /dev/video5
+            pad0: Sink
+                    <- "pisp-fe":3 []
+
+    - entity 42: rp1-cfe-fe_stats (1 pad, 1 link)
+                type Node subtype V4L flags 0
+                device node name /dev/video6
+            pad0: Sink
+                    <- "pisp-fe":4 []
+
+    - entity 46: rp1-cfe-fe_config (1 pad, 1 link)
+                type Node subtype V4L flags 0
+                device node name /dev/video7
+            pad0: Source
+                    -> "pisp-fe":1 []
+    ```
+    查询当前输入源信息,若分辨率显示0则表示为检查到输入源信号，需要检查硬件连接和上述步骤排查。
+    ```
+    blikvm@blikvm:~ $ v4l2-ctl -d /dev/v4l-subdev2 --query-dv-timings
+        Active width: 1920
+        Active height: 1080
+        Total width: 2750
+        Total height: 1125
+        Frame format: progressive
+        Polarities: -vsync -hsync
+        Pixelclock: 74250000 Hz (24.00 frames per second)
+        Horizontal frontporch: 0
+        Horizontal sync: 830
+        Horizontal backporch: 0
+        Vertical frontporch: 0
+        Vertical sync: 45
+        Vertical backporch: 0
+        Standards:
+        Flags:
+    ```
+    确认当前输入源信息
+    ```
+    blikvm@blikvm:~ $ v4l2-ctl -d /dev/v4l-subdev2 --set-dv-bt-timings query
+    BT timings set
+    ```
+    初始化media0
+    ```
+    blikvm@blikvm:~ $ media-ctl -d /dev/media0 -r
+    ```
+    把csi2的pad4连接到rp1-cfe-csi2_ch0的pad0
+    ```
+    blikvm@blikvm:~ $ media-ctl -d /dev/media0 -l ''\''csi2'\'':4 -> '\''rp1-cfe-csi2_ch0'\'':0 [1]'
+    ```
+    配置media节点
+    ```
+    blikvm@blikvm:~ $ media-ctl -d /dev/media0 -V ''\''csi2'\'':0 [fmt:RGB888_1X24/1920x1080 field:none colorspace:srgb]'
+    blikvm@blikvm:~ $ media-ctl -d /dev/media0 -V ''\''csi2'\'':4 [fmt:RGB888_1X24/1920x1080 field:none colorspace:srgb]'
+    ```
+    设置输出格式
+    ```
+    v4l2-ctl -v width=1920,height=1080,pixelformat=RGB3
+    ```
+    采集两帧画面用于测试tc358743是否可以工作，其它如使用gstreamer的方法暂时未
+    ```
+    v4l2-ctl --verbose -d /dev/video0 --set-fmt-video=width=1920,height=1080,pixelformat='RGB3' --stream-mmap=4 --stream-skip=3 --stream-count=2 --stream-to=hdmiin.yuv --stream-poll
+    ```
+    Pi如果安装的是带桌面的系统，可以使用ffplay直接播放yuv文件。
+    ```
+    ffplay -f rawvideo -video_size 1920x1080 -pixel_format bgr24 hdmiin.yuv 
+    ```
+    windows电脑可以使用7yuv等软件查看.yuv文件，教程输入格式为1920*1080，所以在7yuv右上角格式选择BGR888，分辨率设置1920*1080，即可看到两帧刚采集到的画面
+
 
 ## **发货清单**
 ??? info "C790"
