@@ -9,6 +9,9 @@ BliKVM v4是一款生产就绪、即插即用的 KVM-over-IP 设备，为专业�
 ??? info "Craft Computing: Goodbye IPMI - Blicube BliKVM V4 测评"
     <iframe src="//player.bilibili.com/player.html?aid=410062899&bvid=BV1cG411k7Cs&cid=1374719019&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
+??? info "Lawrence Systems: Blicube BliKVM V4: Is This the Best Linux IP KVM Yet?"
+    <iframe src="//player.bilibili.com/player.html?aid=836180766&bvid=BV1vg4y1S7Qk&cid=1404763711&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
 ## 功能特点
 - **视频捕获** (HDMI,最高支持4K@30Hz输入)
 - **键盘转发**
