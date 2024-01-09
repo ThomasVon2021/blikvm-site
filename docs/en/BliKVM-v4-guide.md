@@ -10,6 +10,9 @@ BliKVM v4 is a production-ready, plug and play KVM-over-IP device that offers pr
 ??? info "Craft Computing: Goodbye IPMI - Blicube BliKVM V4 Review"
     <iframe width="560" height="315" src="https://www.youtube.com/embed/HG7g3Qrupcw?si=KvejpwTAwTwckO3q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
+??? info "Lawrence Systems: Blicube BliKVM V4: Is This the Best Linux IP KVM Yet?"
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/sbH9-fmWBS8?si=JX47c7x1wtEVk8kS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## Features
 - **Video capture** (HDMI, support 4K@30Hz input)
 - **Keyboard forwarding**
