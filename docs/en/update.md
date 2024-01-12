@@ -22,7 +22,7 @@
     git pull --rebase
     python3 /opt/bin/blikvm/script/update.py
     ```
-   Observe the output of the terminal. When you see the message of successful upgrade, the terminal enters reboot, and the reboot takes effect.
+   Observe the output of the terminal. When you see the message of successful upgrade, enter within the terminal the: 'reboot' command and the reboot should take effect.
 
 !!! warning "If you are unable to update successfully due to network issues, you can download the latest release.tar.gz package on another PC with a stable network connection and follow the instructions below for installation."
     - download address: https://github.com/ThomasVon2021/blikvm/releases
