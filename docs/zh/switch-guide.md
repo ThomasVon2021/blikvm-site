@@ -85,6 +85,20 @@ BliKVM-Switch-V1.0使用和XH-HK4401相同的硬件方案,AG7210 HDMI切换芯�
                         - ["#Input 3", ch2_led, ch2_button]
                         - ["#Input 4", ch3_led, ch3_button]
         ```
+        !!! warning "上述配置基于2022 pikvm图像。如果您使用的是最新的pikvm映像或最新的软件版本，请编辑文件/etc/kvmd/override.yaml并添加行：protocol:2，例子如下:"
+        ```
+        kvmd:
+        gpio:
+            drivers:
+                hk:
+                    type: xh_hk4401
+                    protocol: 2
+                    device: /dev/ttyUSB0
+            scheme:
+                ch0_led:
+                driver: hk
+                ...
+        ```
     4. 终端使用`ro`命令将系统重新设置为只读系统；
     5. 终端使用`systemctl restart kvmd`重启服务。
     6. 进入PiKVM web界面，并单击“GPIO”菜单。您应该看到4个输入，其中一个输入有一个绿色圆圈，表示当前已选中。单击其他输入以更改选定的主机。

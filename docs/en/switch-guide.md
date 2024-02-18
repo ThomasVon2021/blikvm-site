@@ -85,7 +85,7 @@ BliKVM-Switch-V1.0 uses the same hardware solution as XH-HK4401, AG7210 HDMI swi
                         - ["#Input 3", ch2_led, ch2_button]
                         - ["#Input 4", ch3_led, ch3_button]
         ```
-    !!! warning " The above configuration is based on the 2022 pikvm image. If you are using the latest pikvm image or software version, Edit file /etc/kvmd/override.yaml and add the line: protocol: 2, Sample:"
+    !!! warning " The above configuration is based on the 2022 pikvm image. If you are using the latest pikvm image or latest software version, Edit file /etc/kvmd/override.yaml and add the line: protocol: 2, Sample:"
         ```
         kvmd:
         gpio:

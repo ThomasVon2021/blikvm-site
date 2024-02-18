@@ -599,6 +599,23 @@ BliKVM-Switch-V1.0 uses the same hardware solution as XH-HK4401, AG7210 HDMI swi
 <a href="#__codelineno-0-48" id="__codelineno-0-48" name="__codelineno-0-48"></a>                - ["#Input 3", ch2_led, ch2_button]
 <a href="#__codelineno-0-49" id="__codelineno-0-49" name="__codelineno-0-49"></a>                - ["#Input 4", ch3_led, ch3_button]
 </code></pre></div></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title"> The above configuration is based on the 2022 pikvm image. If you are using the latest pikvm image or latest software version, Edit file /etc/kvmd/override.yaml and add the line: protocol: 2, Sample:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>kvmd:
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>gpio:
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>    drivers:
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>        hk:
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>            type: xh_hk4401
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>            protocol: 2
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>            device: /dev/ttyUSB0
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>    scheme:
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>        ch0_led:
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>        driver: hk
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>        ...
+</code></pre></div>
+</div>
+<ol>
 <li>Use the <code>ro</code> command on the terminal to reset the system to a read-only system;</li>
 <li>Use 'systemctl restart kvmd' on the terminal to restart the service;</li>
 <li>Enter the PiKVM web interface and click the GPIO menu. You should see 4 inputs, one of which has a green circle to indicate that it is currently selected. Click Other Inputs to change the selected host.
@@ -669,7 +686,7 @@ BliKVM-Switch-V1.0 uses the same hardware solution as XH-HK4401, AG7210 HDMI swi
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 18, 2024</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 7, 2023</span>

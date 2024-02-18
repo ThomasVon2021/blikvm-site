@@ -594,6 +594,19 @@ BliKVM-Switch-V1.0使用和XH-HK4401相同的硬件方案,AG7210 HDMI切换芯�
 <a href="#__codelineno-0-47" id="__codelineno-0-47" name="__codelineno-0-47"></a>                - ["#Input 2", ch1_led, ch1_button]
 <a href="#__codelineno-0-48" id="__codelineno-0-48" name="__codelineno-0-48"></a>                - ["#Input 3", ch2_led, ch2_button]
 <a href="#__codelineno-0-49" id="__codelineno-0-49" name="__codelineno-0-49"></a>                - ["#Input 4", ch3_led, ch3_button]
+</code></pre></div>
+    !!! warning "上述配置基于2022 pikvm图像。如果您使用的是最新的pikvm映像或最新的软件版本，请编辑文件/etc/kvmd/override.yaml并添加行：protocol:2，例子如下:"
+    <div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>kvmd:
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>gpio:
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>    drivers:
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>        hk:
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>            type: xh_hk4401
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>            protocol: 2
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>            device: /dev/ttyUSB0
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>    scheme:
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>        ch0_led:
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>        driver: hk
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>        ...
 </code></pre></div></li>
 <li>终端使用<code>ro</code>命令将系统重新设置为只读系统；</li>
 <li>终端使用<code>systemctl restart kvmd</code>重启服务。</li>
