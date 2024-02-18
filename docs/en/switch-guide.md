@@ -85,6 +85,20 @@ BliKVM-Switch-V1.0 uses the same hardware solution as XH-HK4401, AG7210 HDMI swi
                         - ["#Input 3", ch2_led, ch2_button]
                         - ["#Input 4", ch3_led, ch3_button]
         ```
+    !!! warning " The above configuration is based on the 2022 pikvm image. If you are using the latest pikvm image or software version, Edit file /etc/kvmd/override.yaml and add the line: protocol: 2, Sample:"
+        ```
+        kvmd:
+        gpio:
+            drivers:
+                hk:
+                    type: xh_hk4401
+                    protocol: 2
+                    device: /dev/ttyUSB0
+            scheme:
+                ch0_led:
+                driver: hk
+                ...
+        ```
     4. Use the `ro` command on the terminal to reset the system to a read-only system;
     5. Use 'systemctl restart kvmd' on the terminal to restart the service;
     6. Enter the PiKVM web interface and click the GPIO menu. You should see 4 inputs, one of which has a green circle to indicate that it is currently selected. Click Other Inputs to change the selected host.
