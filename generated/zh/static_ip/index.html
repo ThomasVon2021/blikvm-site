@@ -241,9 +241,31 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          设置静态IP
+          <span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
         设置静态IP
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#v1-v2-v3">
+    v1 v2 v3参考
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#v4">
+    v4参考
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../wifi/">
@@ -422,6 +444,22 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#v1-v2-v3">
+    v1 v2 v3参考
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#v4">
+    v4参考
+  </a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
@@ -432,6 +470,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="blikvm-osip"><strong>BliKVM OS设置静态IP</strong></h1>
+<h2 id="v1-v2-v3">v1 v2 v3参考</h2>
 <ol>
 <li>使用SSH连接到BliKVM的终端,如果是只读系统，请使用<code>rw</code>命令使系统可写。</li>
 <li>打开网络配置文件<code>/etc/dhcpcd.conf</code>以进行编辑：
@@ -447,6 +486,28 @@
 <li>保存文件并退出编辑器。</li>
 <li>重新启动BliKVM以使静态IP设置生效：
    <div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>sudo reboot
+</code></pre></div></li>
+</ol>
+<h2 id="v4">v4参考</h2>
+<ol>
+<li>使用SSH连接到BliKVM的终端,如果是只读系统，请使用<code>rw</code>命令使系统可写。</li>
+<li>打开网络配置文件<code>/etc/network/interfaces</code>以进行编辑：
+   <div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>sudo vim /etc/network/interfaces
+</code></pre></div></li>
+<li>在文件末尾添加以下内容，替换为您想要设置的IP地址、网关和DNS服务器：
+   <div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>source /etc/network/interfaces.d/*
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>auto eth0
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>allow-hotplug eth0
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>iface eth0 inet static
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>address 192.168.0.100
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a>netmask 255.255.255.0
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a>gateway 192.168.0.1
+<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a>dns-nameservers 192.168.0.1
+</code></pre></div>
+   注意：根据您的网络设置，可能需要修改上述示例中的IP地址、网关和DNS服务器的值。</li>
+<li>保存文件并退出编辑器。</li>
+<li>重新启动BliKVM以使静态IP设置生效：
+   <div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>sudo reboot
 </code></pre></div></li>
 </ol>
 <p>根据您的网络环境和需求，您可以根据上述步骤自定义配置静态IP地址。请确保IP地址、网关和DNS服务器的设置与您的网络设置相匹配。</p>

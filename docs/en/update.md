@@ -30,11 +30,9 @@
     - v4 hardware use release-h616-v4.tar.gz
     SSH into the device terminal and use `tar -zxvf release.tar.gz` to extract the release.tar.gz file.
     ```
-    rw
     sudo -i
     cd /your release path/
     python3 install_release.py --releasepath=./
-    ro
     ```
     You can compare the versions before and after in /usr/bin/blikvm/package.json. If you have upgraded to the specified version, the installation is successful, and you can reboot for the changes to take effect.
     
