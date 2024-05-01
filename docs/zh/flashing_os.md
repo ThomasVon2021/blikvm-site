@@ -12,7 +12,7 @@
 
 ## Download the image
 
-!!! info "目前BLIKVM os全版本提供，pikvm os目前只提供了v1 v2 v3，需要v4上运行PiKVM的用户可以加入discord群获得支持。"
+!!! info "目前BLIKVM os全版本提供，pikvm os目前只提供了v1 v2 v3，需要v4上运行PiKVM的用户可以参考此[说明](https://github.com/RainCat1998/Bli-PiKVM)。"
 
 ### BLIKVM software
 !!! info "You可以从下面的链接中下载BliKVM v1 CM4, v2 PCIe, v3 HAT, v4 Allwinner的BliKVM镜像, v1 v2 v3使用同一个镜像。"

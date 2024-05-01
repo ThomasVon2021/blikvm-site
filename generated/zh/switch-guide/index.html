@@ -535,78 +535,80 @@ BliKVM-Switch-V1.0使用和XH-HK4401相同的硬件方案,AG7210 HDMI切换芯�
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/switch/interface-zh3.png"><img alt="" src="../assets/images/switch/interface-zh3.png" width="600"/></a></p>
 </div>
 <h2 id="_3"><strong>软件配置</strong></h2>
-<div class="admonition info">
-<p class="admonition-title">如果你使用的是BliKVM软件，在BliKVM启动前先把switch通电并接好线，则不需要做任何配置，BliKVM启动时即会去自动识别。若自动识别失败，可手动指定switch设备，首先通过终端确认switch插入BliKVM后，识别到的设备描述符名称，如<code>/dev/ttyUSB0</code>,然后编辑<code>/usr/bin/blikvm/package.json</code>中的<code>switch_handle</code>字段，将switch_enable赋值为1, switch_path赋值为<code>/dev/ttyUSB0</code>，然后重启BliKVM即可。点击左下角的MORE，找到BliKVM switch这一栏，进行切换选择即可。注意对应通道蓝色小点闪动表示识别到了switch插入，并且正处于当前通道，若无蓝色小点则表示未识别到switch插入。</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/switch/blikvm-soft-switch.png"><img alt="" src="../assets/images/switch/blikvm-soft-switch.png" width="600"/></a></p>
-</div>
+<p>!!! info "如果你使用的是BliKVM软件，在BliKVM启动前先把switch通电并接好线，通过终端确认switch插入BliKVM后，识别到的设备描述符名称，如<code>/dev/ttyUSB0</code>,然后编辑<code>/usr/bin/blikvm/package.json</code>中的<code>switch_handle</code>字段，将switch_enable赋值为1, switch_path赋值为<code>/dev/ttyUSB0</code>，然后重启BliKVM即可。
+如果是只读系统，先使用<code>rw</code>命令将系统变为可读写系统。编辑配置文件可以参考下命令:
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo vim /usr/bin/blikvm/package.json
+</code></pre></div></p>
+<p>点击左下角的MORE，找到BliKVM switch这一栏，进行切换选择即可。注意对应通道蓝色小点闪动表示识别到了switch插入，并且正处于当前通道，若无蓝色小点则表示未识别到switch插入。"
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/switch/blikvm-soft-switch.png"><img alt="" src="../assets/images/switch/blikvm-soft-switch.png" width="600"/></a></p>
 <div class="admonition info">
 <p class="admonition-title">若您使用的PiKVM软件，请按照下面的说明进行配置</p>
 <ol>
 <li>通过SSH登陆PiKVM，用户名和密码均为root;</li>
 <li>终端使用<code>rw</code>命令将系统改为可读写系统;</li>
 <li>编辑<code>/etc/kvmd/override.yaml</code>此文件，使改文件包含下面的内容，即在原有内容后追加.
-    <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>kvmd:
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    gpio:
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>        drivers:
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>            hk:
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>                type: xh_hk4401
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>                device: /dev/ttyUSB0
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>        scheme:
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>            ch0_led:
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>                driver: hk
-<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>                pin: 0
-<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>                mode: input
-<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>            ch1_led:
-<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>                driver: hk
-<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>                pin: 1
-<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>                mode: input
-<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a>            ch2_led:
-<a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a>                driver: hk
-<a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a>                pin: 2
-<a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a>                mode: input
-<a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a>            ch3_led:
-<a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a>                driver: hk
-<a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a>                pin: 3
-<a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a>                mode: input
-<a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a>            ch0_button:
-<a href="#__codelineno-0-25" id="__codelineno-0-25" name="__codelineno-0-25"></a>                driver: hk
-<a href="#__codelineno-0-26" id="__codelineno-0-26" name="__codelineno-0-26"></a>                pin: 0
-<a href="#__codelineno-0-27" id="__codelineno-0-27" name="__codelineno-0-27"></a>                mode: output
-<a href="#__codelineno-0-28" id="__codelineno-0-28" name="__codelineno-0-28"></a>                switch: false
-<a href="#__codelineno-0-29" id="__codelineno-0-29" name="__codelineno-0-29"></a>            ch1_button:
-<a href="#__codelineno-0-30" id="__codelineno-0-30" name="__codelineno-0-30"></a>                driver: hk
-<a href="#__codelineno-0-31" id="__codelineno-0-31" name="__codelineno-0-31"></a>                pin: 1
-<a href="#__codelineno-0-32" id="__codelineno-0-32" name="__codelineno-0-32"></a>                mode: output
-<a href="#__codelineno-0-33" id="__codelineno-0-33" name="__codelineno-0-33"></a>                switch: false
-<a href="#__codelineno-0-34" id="__codelineno-0-34" name="__codelineno-0-34"></a>            ch2_button:
-<a href="#__codelineno-0-35" id="__codelineno-0-35" name="__codelineno-0-35"></a>                driver: hk
-<a href="#__codelineno-0-36" id="__codelineno-0-36" name="__codelineno-0-36"></a>                pin: 2
-<a href="#__codelineno-0-37" id="__codelineno-0-37" name="__codelineno-0-37"></a>                mode: output
-<a href="#__codelineno-0-38" id="__codelineno-0-38" name="__codelineno-0-38"></a>                switch: false
-<a href="#__codelineno-0-39" id="__codelineno-0-39" name="__codelineno-0-39"></a>            ch3_button:
-<a href="#__codelineno-0-40" id="__codelineno-0-40" name="__codelineno-0-40"></a>                driver: hk
-<a href="#__codelineno-0-41" id="__codelineno-0-41" name="__codelineno-0-41"></a>                pin: 3
-<a href="#__codelineno-0-42" id="__codelineno-0-42" name="__codelineno-0-42"></a>                mode: output
-<a href="#__codelineno-0-43" id="__codelineno-0-43" name="__codelineno-0-43"></a>                switch: false
-<a href="#__codelineno-0-44" id="__codelineno-0-44" name="__codelineno-0-44"></a>        view:
-<a href="#__codelineno-0-45" id="__codelineno-0-45" name="__codelineno-0-45"></a>            table:
-<a href="#__codelineno-0-46" id="__codelineno-0-46" name="__codelineno-0-46"></a>                - ["#Input 1", ch0_led, ch0_button]
-<a href="#__codelineno-0-47" id="__codelineno-0-47" name="__codelineno-0-47"></a>                - ["#Input 2", ch1_led, ch1_button]
-<a href="#__codelineno-0-48" id="__codelineno-0-48" name="__codelineno-0-48"></a>                - ["#Input 3", ch2_led, ch2_button]
-<a href="#__codelineno-0-49" id="__codelineno-0-49" name="__codelineno-0-49"></a>                - ["#Input 4", ch3_led, ch3_button]
+    <div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>kvmd:
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>    gpio:
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>        drivers:
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>            hk:
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>                type: xh_hk4401
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>                device: /dev/ttyUSB0
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>        scheme:
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>            ch0_led:
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>                driver: hk
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>                pin: 0
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>                mode: input
+<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>            ch1_led:
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a>                driver: hk
+<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>                pin: 1
+<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a>                mode: input
+<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a>            ch2_led:
+<a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a>                driver: hk
+<a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a>                pin: 2
+<a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a>                mode: input
+<a href="#__codelineno-1-20" id="__codelineno-1-20" name="__codelineno-1-20"></a>            ch3_led:
+<a href="#__codelineno-1-21" id="__codelineno-1-21" name="__codelineno-1-21"></a>                driver: hk
+<a href="#__codelineno-1-22" id="__codelineno-1-22" name="__codelineno-1-22"></a>                pin: 3
+<a href="#__codelineno-1-23" id="__codelineno-1-23" name="__codelineno-1-23"></a>                mode: input
+<a href="#__codelineno-1-24" id="__codelineno-1-24" name="__codelineno-1-24"></a>            ch0_button:
+<a href="#__codelineno-1-25" id="__codelineno-1-25" name="__codelineno-1-25"></a>                driver: hk
+<a href="#__codelineno-1-26" id="__codelineno-1-26" name="__codelineno-1-26"></a>                pin: 0
+<a href="#__codelineno-1-27" id="__codelineno-1-27" name="__codelineno-1-27"></a>                mode: output
+<a href="#__codelineno-1-28" id="__codelineno-1-28" name="__codelineno-1-28"></a>                switch: false
+<a href="#__codelineno-1-29" id="__codelineno-1-29" name="__codelineno-1-29"></a>            ch1_button:
+<a href="#__codelineno-1-30" id="__codelineno-1-30" name="__codelineno-1-30"></a>                driver: hk
+<a href="#__codelineno-1-31" id="__codelineno-1-31" name="__codelineno-1-31"></a>                pin: 1
+<a href="#__codelineno-1-32" id="__codelineno-1-32" name="__codelineno-1-32"></a>                mode: output
+<a href="#__codelineno-1-33" id="__codelineno-1-33" name="__codelineno-1-33"></a>                switch: false
+<a href="#__codelineno-1-34" id="__codelineno-1-34" name="__codelineno-1-34"></a>            ch2_button:
+<a href="#__codelineno-1-35" id="__codelineno-1-35" name="__codelineno-1-35"></a>                driver: hk
+<a href="#__codelineno-1-36" id="__codelineno-1-36" name="__codelineno-1-36"></a>                pin: 2
+<a href="#__codelineno-1-37" id="__codelineno-1-37" name="__codelineno-1-37"></a>                mode: output
+<a href="#__codelineno-1-38" id="__codelineno-1-38" name="__codelineno-1-38"></a>                switch: false
+<a href="#__codelineno-1-39" id="__codelineno-1-39" name="__codelineno-1-39"></a>            ch3_button:
+<a href="#__codelineno-1-40" id="__codelineno-1-40" name="__codelineno-1-40"></a>                driver: hk
+<a href="#__codelineno-1-41" id="__codelineno-1-41" name="__codelineno-1-41"></a>                pin: 3
+<a href="#__codelineno-1-42" id="__codelineno-1-42" name="__codelineno-1-42"></a>                mode: output
+<a href="#__codelineno-1-43" id="__codelineno-1-43" name="__codelineno-1-43"></a>                switch: false
+<a href="#__codelineno-1-44" id="__codelineno-1-44" name="__codelineno-1-44"></a>        view:
+<a href="#__codelineno-1-45" id="__codelineno-1-45" name="__codelineno-1-45"></a>            table:
+<a href="#__codelineno-1-46" id="__codelineno-1-46" name="__codelineno-1-46"></a>                - ["#Input 1", ch0_led, ch0_button]
+<a href="#__codelineno-1-47" id="__codelineno-1-47" name="__codelineno-1-47"></a>                - ["#Input 2", ch1_led, ch1_button]
+<a href="#__codelineno-1-48" id="__codelineno-1-48" name="__codelineno-1-48"></a>                - ["#Input 3", ch2_led, ch2_button]
+<a href="#__codelineno-1-49" id="__codelineno-1-49" name="__codelineno-1-49"></a>                - ["#Input 4", ch3_led, ch3_button]
 </code></pre></div>
     !!! warning "上述配置基于2022 pikvm图像。如果您使用的是最新的pikvm映像或最新的软件版本，请编辑文件/etc/kvmd/override.yaml并添加行：protocol:2，例子如下:"
-    <div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>kvmd:
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>gpio:
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>    drivers:
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>        hk:
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>            type: xh_hk4401
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>            protocol: 2
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>            device: /dev/ttyUSB0
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>    scheme:
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>        ch0_led:
-<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>        driver: hk
-<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>        ...
+    <div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>kvmd:
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>gpio:
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>    drivers:
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>        hk:
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>            type: xh_hk4401
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>            protocol: 2
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>            device: /dev/ttyUSB0
+<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>    scheme:
+<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>        ch0_led:
+<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a>        driver: hk
+<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a>        ...
 </code></pre></div></li>
 <li>终端使用<code>ro</code>命令将系统重新设置为只读系统；</li>
 <li>终端使用<code>systemctl restart kvmd</code>重启服务。</li>

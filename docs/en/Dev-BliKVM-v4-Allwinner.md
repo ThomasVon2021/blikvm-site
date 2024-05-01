@@ -1,4 +1,4 @@
-# Dev BliKVM v4 Allwinner (H616 SOC)
+# Dev BliKVM v4 Allwinner (H616/H313 SOC)
 
 ![Main](assets/images/v4/Datasheet-BliKVM-v4.assets/Main.png){width="400"}
 

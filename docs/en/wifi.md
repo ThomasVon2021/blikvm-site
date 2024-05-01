@@ -3,7 +3,7 @@
     1. Please confirm that the hardware you use supports wifi function, for example, the CM400200 version does not have wifi function;
     2. If the SOC of KVM hardware is CM4, please confirm whether wifi antenna is connected;
     3. PiKVM OS is arch linux;
-    4. BLIKVM OS raspberry pi series is debian system, and H616 series is armbian system;
+    4. BLIKVM OS raspberry pi series is debian system, and v4 series is armbian system;
 
 ## **v1 v2 v3 use raspi-config for wifi configure on raspberry pi debian system**
 

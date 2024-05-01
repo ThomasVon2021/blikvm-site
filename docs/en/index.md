@@ -6,9 +6,9 @@ CD-ROM or Flash Drive. Unlike software-based remote management, you don't need t
 Join our [BLIKVM Discord Community](https://discord.com/invite/9Y374gUF6C) for Support, FAQ & News!
 ![Image title](assets/images/version_all.png)
 
-|FEATURE|BliKVM v1 CM4|BliKVM v2 PCIe|BliKVM v3 HAT|BliKVM v4 H616|
+|FEATURE|BliKVM v1 CM4|BliKVM v2 PCIe|BliKVM v3 HAT|BliKVM v4 /H313|
 |-|-|-|-|-|
-|SOC|Raspberry CM4|Raspberry CM4|Raspberry 4B|Allwinner H616|
+|SOC|Raspberry CM4|Raspberry CM4|Raspberry 4B|Allwinner H616/H313|
 |Supported resolutions|1920x1080@60Hz|1920x1080@60Hz|1920x1080@50Hz|3840x2160@30Hz|
 |HDMI Capture|TC358743|TC358743|TC358743|MS2131|
 |HDMI Loop Through|No|No|No|Yes|

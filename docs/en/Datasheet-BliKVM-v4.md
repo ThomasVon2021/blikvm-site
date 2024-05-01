@@ -1,6 +1,6 @@
 
 
-# BliKVM v4 Allwinner (H616 SOC)
+# BliKVM v4 Allwinner (H616/H313 SOC)
 
  ![Main](assets/images/v4/Datasheet-BliKVM-v4.assets/Main.png){width="400"}
  
@@ -52,7 +52,7 @@ BliKVM is a production-ready, plug and play KVM-over-IP device that offers profe
 | Video compression methods   | MJPEG                                                        |
 |                             |                                                              |
 | **Core**                    |                                                              |
-| Chip                        | ALLWINNER H616                                               |
+| Chip                        | ALLWINNER H616/H313                                               |
 | RAM                         | 1GB                                                          |
 |                             |                                                              |
 | **Power consumption**       | Up to 15W                                                    |

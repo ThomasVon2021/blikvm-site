@@ -5,9 +5,9 @@ BLIKVM是一款开源软件的KVM专业设备，目前有4个版本，v1 CM4, v2
 [Discord](https://discord.com/invite/9Y374gUF6C) 群组和来自全世界的爱好者和用户进行交流，获得技术支持，常见问题解答和新闻等。
 ![Image title](assets/images/version_all.png)
 
-|功能|BliKVM v1 CM4|BliKVM v2 PCIe|BliKVM v3 HAT|BliKVM v4 H616|
+|功能|BliKVM v1 CM4|BliKVM v2 PCIe|BliKVM v3 HAT|BliKVM v4 H616/H313|
 |-|-|-|-|-|
-|SOC|树莓派CM4| 树莓派CM4|树莓派4B|全志H616|
+|SOC|树莓派CM4| 树莓派CM4|树莓派4B|全志H616/H313|
 |支持输入的最高分辨率| 1920x1080@60Hz|1920x1080@60Hz|1920x1080@50Hz|3840x2160@30Hz|
 |HDMI采集芯片|TC358743|TC358743|TC358743|MS2131|
 |HDMI环出|无|无|无|有|

@@ -26,7 +26,13 @@ BliKVM-Switch-V1.0使用和XH-HK4401相同的硬件方案,AG7210 HDMI切换芯�
     ![](assets/images/switch/interface-zh3.png){width="600"}
 
 ## **软件配置**
-!!! info "如果你使用的是BliKVM软件，在BliKVM启动前先把switch通电并接好线，则不需要做任何配置，BliKVM启动时即会去自动识别。若自动识别失败，可手动指定switch设备，首先通过终端确认switch插入BliKVM后，识别到的设备描述符名称，如`/dev/ttyUSB0`,然后编辑`/usr/bin/blikvm/package.json`中的`switch_handle`字段，将switch_enable赋值为1, switch_path赋值为`/dev/ttyUSB0`，然后重启BliKVM即可。点击左下角的MORE，找到BliKVM switch这一栏，进行切换选择即可。注意对应通道蓝色小点闪动表示识别到了switch插入，并且正处于当前通道，若无蓝色小点则表示未识别到switch插入。"
+!!! info "如果你使用的是BliKVM软件，在BliKVM启动前先把switch通电并接好线，通过终端确认switch插入BliKVM后，识别到的设备描述符名称，如`/dev/ttyUSB0`,然后编辑`/usr/bin/blikvm/package.json`中的`switch_handle`字段，将switch_enable赋值为1, switch_path赋值为`/dev/ttyUSB0`，然后重启BliKVM即可。
+如果是只读系统，先使用`rw`命令将系统变为可读写系统。编辑配置文件可以参考下命令:
+```
+sudo vim /usr/bin/blikvm/package.json
+```
+
+点击左下角的MORE，找到BliKVM switch这一栏，进行切换选择即可。注意对应通道蓝色小点闪动表示识别到了switch插入，并且正处于当前通道，若无蓝色小点则表示未识别到switch插入。"
     ![](assets/images/switch/blikvm-soft-switch.png){width="600"}
 
 

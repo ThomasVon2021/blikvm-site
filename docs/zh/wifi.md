@@ -3,7 +3,7 @@
     1. 请确认你使用的硬件支持wifi功能，如CM400200版本不带wifi功能；
     2. 若KVM硬件的SOC为CM4，请确认是否连接了wifi天线；
     3. PiKVM OS为arch linux；
-    4. BLIKVM OS树莓派系列为debian系统，H616系列为armbian系统；
+    4. BLIKVM OS树莓派系列为debian系统，v4系列为armbian系统；
 
 ## **v1，v2，v3硬件使用的为树莓派debian系统，使用raspi-config进行wifi链接**
 
