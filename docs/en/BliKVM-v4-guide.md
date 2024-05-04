@@ -13,6 +13,9 @@ BliKVM v4 is a production-ready, plug and play KVM-over-IP device that offers pr
 ??? info "Lawrence Systems: Blicube BliKVM V4: Is This the Best Linux IP KVM Yet?"
     <iframe width="560" height="315" src="https://www.youtube.com/embed/sbH9-fmWBS8?si=JX47c7x1wtEVk8kS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
+??? info "RainCat: How to install PiKVM on BliKVM v4 Allwinner"
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/srbGDFa0QoQ?si=v4ss_3x5D_A6o72X" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Features
 - **Video capture** (HDMI, support 4K@30Hz input)
 - **Keyboard forwarding**
