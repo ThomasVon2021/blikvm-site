@@ -88,6 +88,7 @@ As a first step, we recommend carefully reading our documentation. Most steps to
 ## Video problems
 
 ??? question "BLIKVM does not show the video from the computer at all"
+    * If the output of `dmesg | grep tc358743` does not show something similar as `tc358743 found @ ...`, then this means that the TC358743 HDMI input bridge is not detected. Verify that the flex flat cable (ffc) is correctly connected.
     * Double-check that the video capture device is connected correctly. For the CSI bridge, this should be exactly the camera port.
     * Some laptops do not output any signal until you switch the output (usually via the FN + and an F5 key on the keyboard).
     * Your computer may have turned on sleep mode for the monitor. Move the mouse to turn it off.
