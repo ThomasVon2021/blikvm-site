@@ -514,6 +514,8 @@ Linux raspberrypi 5.10.63-v7l+ #1459 SMP Wed Oct 6 16:41:57 BST 2021 armv7l GNU/
     ```
     windows电脑可以使用7yuv等软件查看.yuv文件，教程输入格式为1920*1080，所以在7yuv右上角格式选择BGR888，分辨率设置1920*1080，即可看到两帧刚采集到的画面
 
+## **芯片资料**
+[tc358743芯片资料](https://zcwrego195.feishu.cn/drive/folder/V3dXfMA5UlBNmXdX2hycYZuLnxc?from=from_copylink)
 
 ## **发货清单**
 ??? info "C790"

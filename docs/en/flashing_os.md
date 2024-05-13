@@ -12,7 +12,7 @@
 
 ## Download the image
 
-!!! info "Currently, BLIKVM OS is available for all versions, while PiKVM OS is only provided for v1, v2, and v3. Users who need to run PiKVM on v4 can refer to this [doc](https://github.com/RainCat1998/Bli-PiKVM)."
+!!! info "Users who need to run PiKVM on v4 by yourself can refer to this [doc](https://github.com/RainCat1998/Bli-PiKVM)."
 
 ### BLIKVM software
 !!! info "You can find BliKVM v1 CM4, v2 PCIe, v3 HAT, v4 Allwinner BLIKVM software image, v1 v2 v3 use a same image."

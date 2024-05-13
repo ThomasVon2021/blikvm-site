@@ -530,6 +530,9 @@ Linux raspberrypi 5.10.63-v7l+ #1459 SMP Wed Oct 6 16:41:57 BST 2021 armv7l GNU/
     ```
     On a Windows computer, you can use software like 7yuv to view .yuv files. For the tutorial with an input format of 1920*1080, you should select BGR888 in the top right corner of 7yuv and set the resolution to 1920*1080 to view the two frames you just captured.
 
+## **chip docs**
+[tc358743 docs](https://zcwrego195.feishu.cn/drive/folder/V3dXfMA5UlBNmXdX2hycYZuLnxc?from=from_copylink)
+
 
 ## **Packing List**
 ??? info "C790"
