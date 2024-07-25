@@ -13,4 +13,5 @@ To customize this behavior, you can locate the following configuration in the "/
 ```
 
 
-
+# BliKVM v4 Allwinner
+To power ON/OFF the the display manually, please press and hold the `SW2` button on the front pannel.
