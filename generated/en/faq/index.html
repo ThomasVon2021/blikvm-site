@@ -608,6 +608,7 @@ Keep in mind that the more users that are added and accessing the screen stream 
 <details class="question">
 <summary>BLIKVM does not show the video from the computer at all</summary>
 <ul>
+<li>If the output of <code>dmesg | grep tc358743</code> does not show something similar as <code>tc358743 found @ ...</code>, then this means that the TC358743 HDMI input bridge is not detected. Verify that the flex flat cable (ffc) is correctly connected.</li>
 <li>Double-check that the video capture device is connected correctly. For the CSI bridge, this should be exactly the camera port.</li>
 <li>Some laptops do not output any signal until you switch the output (usually via the FN + and an F5 key on the keyboard).</li>
 <li>Your computer may have turned on sleep mode for the monitor. Move the mouse to turn it off.</li>
@@ -696,7 +697,7 @@ Keep in mind that the more users that are added and accessing the screen stream 
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 5, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 4, 2024</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 19, 2023</span>
