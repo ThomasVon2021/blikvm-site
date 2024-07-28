@@ -176,3 +176,7 @@ BLIKVM PCIe is a PCIe add-in card based on Raspberry Pi CM4 for KVM Over IP. Thi
 
 ## **Buy link**
 [v2 buy](https://www.aliexpress.com/item/1005004572837650.html?spm=5261.ProductManageOnline.0.0.346d2ddbm8cDsR)
+
+## **3D printable case**
+!!! info "A simple snap fit case for the PCIe." 
+[Download file](https://www.printables.com/model/956469-blikvm-v2-pcie-box)
