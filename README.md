@@ -1,6 +1,7 @@
 # BLIKVM website
 
 [![Discord](https://img.shields.io/discord/943534043515977768?color=0&label=chat&logo=discord)](https://discord.gg/9Y374gUF6C)
+
 This repo is the <a href="https://wiki.blicube.com/blikvm/en/" target="_blank">BLIKVM website</a> manual. The manual has Multilingual support. We highly encourage you to translate your own language for the BliKVM user manual. If you are interested in becoming a translation contributor,
 you can submit a PR. We will thank you very much for your translation work.
 
