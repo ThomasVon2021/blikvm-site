@@ -74,5 +74,7 @@ bash build.sh
 ## Acknowledgments
 
 <a href="https://www.mkdocs.org/" target="_blank">mkdocs</a>
+
 <a href="https://github.com/nishiku" target="_blank">Masao NISHIKU</a>
+
 <a href="https://github.com/GordoNice" target="_blank">Ivan Gordeev</a>
