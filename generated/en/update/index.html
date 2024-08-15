@@ -168,35 +168,35 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="..">Getting started</a>
+<a href="..">Getting Started</a>
 <label for="__nav_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-label="Getting started" class="md-nav" data-md-level="1">
+<nav aria-label="Getting Started" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_1">
 <span class="md-nav__icon md-icon"></span>
-          Getting started
+          Getting Started
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BliKVM-v4-guide/">
-        BliKVM v4 Allwinner guide
+        BliKVM v4 Allwinner Guide
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BLIKVM-HAT-guide/">
-        BliKVM v3 HAT guide
+        BliKVM v3 HAT Guide
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BLIKVM-PCIE-guide/">
-        BliKVM v2 PCIe guide
+        BliKVM v2 PCIe Guide
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BLIKVM-CM4-guide/">
-        BliKVM v1 CM4 guide
+        BliKVM v1 CM4 Guide
       </a>
 </li>
 <li class="md-nav__item">
@@ -291,7 +291,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#web-ui-update">
-    Web UI update
+    Web UI Update
   </a>
 </li>
 </ul>
@@ -353,23 +353,23 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4">
-          Installation instructions
+          Installation Instructions
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Installation instructions" class="md-nav" data-md-level="1">
+<nav aria-label="Installation Instructions" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
-          Installation instructions
+          Installation Instructions
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BLIHAT-Installation/">
-        v3 HAT illustrated instructions
+        v3 HAT Illustrated Instructions
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BLIKVM-PCIe-installation/">
-        v2 PCIe illustrated instructions
+        v2 PCIe Illustrated Instructions
       </a>
 </li>
 </ul>
@@ -439,7 +439,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../dev_api/">
-        http API
+        HTTP API
       </a>
 </li>
 </ul>
@@ -471,7 +471,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#web-ui-update">
-    Web UI update
+    Web UI Update
   </a>
 </li>
 </ul>
@@ -489,7 +489,7 @@
 <div class="admonition note">
 <p class="admonition-title">The currently available versions of the BLIKVM project are hosted in the release package of the github. The update software function needs to keep the device connected. There are currently two ways to update the software.</p>
 <ul>
-<li>Method 1: Click the update button through the web interface, and the program will be updated automatically. Restart is required after the update.</li>
+<li>Method 1: Click the update button through the web interface, and the program will be updated automatically. A restart is required after the update.</li>
 <li>Method 2: Manually run the script on the KVM terminal to update, and restart after the update.</li>
 </ul>
 </div>
@@ -501,7 +501,7 @@
 </ul>
 </div>
 <div class="admonition warning">
-<p class="admonition-title">We strongly recommend performing the update while you are in close proximity to the BliKVM hardware you are upgrading.  The reason is if anything goes wrong you can intervene.</p>
+<p class="admonition-title">We strongly recommend performing the update while you are in close proximity to the BliKVM hardware you are upgrading. This way if anything goes wrong you can intervene.</p>
 <ul>
 <li>If you are familiar with command-line operations, we recommend manually updating so that you can monitor the command-line status in real time.</li>
 <li>If the update is abnormal and the web interface cannot exit the update status, use ssh to the terminal can and restart to recover.</li>
@@ -509,18 +509,18 @@
 </div>
 <h2 id="manually-run-the-script-to-update"><strong>Manually run the script to update</strong></h2>
 <div class="admonition info">
-<p class="admonition-title">In the terminal，If the current system terminal can see the ro keyword and it is a read-only system, it is necessary to use 'rw' to make the system writable.</p>
+<p class="admonition-title">In the terminal，if the current system terminal can see the <code>ro</code> keyword and it is a read-only system, it is necessary to use <code>rw</code> to make the system writable.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo -i
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>cd /opt/bin/blikvm/
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>git pull --rebase
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>python3 /opt/bin/blikvm/script/update.py
 </code></pre></div>
 </div>
-<p>Observe the output of the terminal. When you see the message of successful upgrade, enter within the terminal the: 'reboot' command and the reboot should take effect.</p>
+<p>Observe the output of the terminal. When you see the message of successful upgrade, enter in the terminal the: <code>reboot</code> command and the reboot should take effect.</p>
 <div class="admonition warning">
 <p class="admonition-title">If you are unable to update successfully due to network issues, you can download the latest release.tar.gz package on another PC with a stable network connection and follow the instructions below for installation.</p>
 <ul>
-<li>download address: https://github.com/ThomasVon2021/blikvm/releases</li>
+<li>Download Address: https://github.com/ThomasVon2021/blikvm/releases</li>
 <li>v1 v2 v3 hardware use release.tar.gz</li>
 <li>v4 hardware use release-h616-v4.tar.gz
 SSH into the device terminal and use <code>tar -zxvf release.tar.gz</code> to extract the release.tar.gz file.
@@ -528,15 +528,15 @@ SSH into the device terminal and use <code>tar -zxvf release.tar.gz</code> to ex
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>cd /your release path/
 <a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>python3 install_release.py --releasepath=./
 </code></pre></div>
-You can compare the versions before and after in /usr/bin/blikvm/package.json. If you have upgraded to the specified version, the installation is successful, and you can reboot for the changes to take effect.</li>
+You can compare the versions before and after in <code>/usr/bin/blikvm/package.json</code>. If you have upgraded to the specified version, the installation is successful, and you can reboot for the changes to take effect.</li>
 </ul>
 </div>
-<h2 id="web-ui-update"><strong>Web UI update</strong></h2>
+<h2 id="web-ui-update"><strong>Web UI Update</strong></h2>
 <div class="admonition warning">
 <p class="admonition-title">The current web upgrade function is temporarily disabled. Please use the command line to update</p>
 </div>
 <div class="admonition info">
-<p class="admonition-title">After clicking the More Options button, find the CheckUpdate button and click it. If the available version is found, the pop-up box in the figure below will appear. Click OK to enter the upgrade process. The web interface is temporarily inoperable during the upgrade process. View the current update status by manually refreshing the page. When the message of successful update appears, it means that the update has been successful. Click the restart button, and the new version of software will take effect.</p>
+<p class="admonition-title">After clicking the More Options button, find the Check Update button and click it. If the available version is found, the pop-up box in the figure below will appear. Click OK to enter the upgrade process. The web interface is temporarily inoperable during the upgrade process. View the current update status by manually refreshing the page. When the message of successful update appears, it means that the update has been successful. Click the restart button, and the new version of software will take effect.</p>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/update/update_button.png"><img alt="IMG_8366" src="../assets/images/update/update_button.png" width="300"/></a>
 <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/update/update_info.png"><img alt="IMG_8366" src="../assets/images/update/update_info.png" width="300"/></a>
 <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/update/upgrading.png"><img alt="IMG_8366" src="../assets/images/update/upgrading.png" width="300"/></a>
@@ -547,7 +547,7 @@ You can compare the versions before and after in /usr/bin/blikvm/package.json. I
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 28, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 15, 2024</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 21, 2023</span>

@@ -168,35 +168,35 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="..">Getting started</a>
+<a href="..">Getting Started</a>
 <label for="__nav_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-label="Getting started" class="md-nav" data-md-level="1">
+<nav aria-label="Getting Started" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_1">
 <span class="md-nav__icon md-icon"></span>
-          Getting started
+          Getting Started
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BliKVM-v4-guide/">
-        BliKVM v4 Allwinner guide
+        BliKVM v4 Allwinner Guide
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BLIKVM-HAT-guide/">
-        BliKVM v3 HAT guide
+        BliKVM v3 HAT Guide
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BLIKVM-PCIE-guide/">
-        BliKVM v2 PCIe guide
+        BliKVM v2 PCIe Guide
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BLIKVM-CM4-guide/">
-        BliKVM v1 CM4 guide
+        BliKVM v1 CM4 Guide
       </a>
 </li>
 <li class="md-nav__item">
@@ -260,8 +260,8 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#v1-v2-v3-use-raspi-config-for-wifi-configure-on-raspberry-pi-debian-system">
-    v1 v2 v3 use raspi-config for wifi configure on raspberry pi debian system
+<a class="md-nav__link" href="#v1-v2-v3-use-raspi-config-for-wi-fi-config-on-raspberry-pi-debian-systems">
+    v1 v2 v3 Use raspi-config for Wi-Fi config on Raspberry Pi Debian systems
   </a>
 </li>
 <li class="md-nav__item">
@@ -348,23 +348,23 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4">
-          Installation instructions
+          Installation Instructions
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Installation instructions" class="md-nav" data-md-level="1">
+<nav aria-label="Installation Instructions" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
-          Installation instructions
+          Installation Instructions
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BLIHAT-Installation/">
-        v3 HAT illustrated instructions
+        v3 HAT Illustrated Instructions
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BLIKVM-PCIe-installation/">
-        v2 PCIe illustrated instructions
+        v2 PCIe Illustrated Instructions
       </a>
 </li>
 </ul>
@@ -434,7 +434,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../dev_api/">
-        http API
+        HTTP API
       </a>
 </li>
 </ul>
@@ -455,8 +455,8 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#v1-v2-v3-use-raspi-config-for-wifi-configure-on-raspberry-pi-debian-system">
-    v1 v2 v3 use raspi-config for wifi configure on raspberry pi debian system
+<a class="md-nav__link" href="#v1-v2-v3-use-raspi-config-for-wi-fi-config-on-raspberry-pi-debian-systems">
+    v1 v2 v3 Use raspi-config for Wi-Fi config on Raspberry Pi Debian systems
   </a>
 </li>
 <li class="md-nav__item">
@@ -484,33 +484,35 @@
 <li>BLIKVM OS raspberry pi series is debian system, and v4 series is armbian system;</li>
 </ol>
 </div>
-<h2 id="v1-v2-v3-use-raspi-config-for-wifi-configure-on-raspberry-pi-debian-system"><strong>v1 v2 v3 use raspi-config for wifi configure on raspberry pi debian system</strong></h2>
+<h2 id="v1-v2-v3-use-raspi-config-for-wi-fi-config-on-raspberry-pi-debian-systems"><strong>v1 v2 v3 Use raspi-config for Wi-Fi config on Raspberry Pi Debian systems</strong></h2>
 <ol>
-<li>Log in to ssh, command: ssh blikvm@ip</li>
-<li>The system is reloaded as writable. Command: rw</li>
-<li>Start raspi-config, command: sudo raspi-config</li>
+<li>Log in to SSH. Command: <code>ssh blikvm@ip</code></li>
+<li>Mount the system as writable. Command: <code>rw</code></li>
+<li>Start raspi-config. Command: <code>sudo raspi-config</code></li>
 <li>Select System Options</li>
 <li>Select Wireless LAN</li>
-<li>Select the country where wifi is located, and China will select CN. If it has been set before, this step will skip to 7</li>
-<li>Enter the ssid (name) of Wi-Fi</li>
-<li>Enter the Wi-Fi password. If there is no password, press Enter directly</li>
-<li>At this time, you will return to the interface in Step 4, press the tab key to select<finish>, and press Enter</finish></li>
+<li>Select the country where Wi-Fi is located, and China will select CN. If it has been set before, this step will skip to 7</li>
+<li>Enter the Wi-Fi SSID (name)</li>
+<li>Enter the Wi-Fi password. If there is no password, press <strong>Enter</strong> directly</li>
+<li>At this time, you will return to the interface in Step 4, press the <strong>tab</strong> key to select <strong>Finish</strong>, then press <strong>Enter</strong></li>
 <li>Check whether to connect to wifi. Command: ifconfig wlan0. If you see the ip obtained, you are connected</li>
-<li>Mount the system as read-only. Command: ro</li>
+<li>Mount the system as read-only. Command: <code>ro</code></li>
 </ol>
 <h2 id="v4-hardware-using-armbian-system-with-armbian-config"><strong>v4 Hardware using Armbian System with armbian-config</strong></h2>
 <ol>
 <li>Log in via SSH using the command: <code>ssh blikvm@ip</code> to access the Armbian system.</li>
-<li>Enter the following command to launch the <code>armbian-config</code> tool:
+<li>Enter the following command to launch the <code>armbian-config</code> tool:</li>
+</ol>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo armbian-config
-</code></pre></div></li>
-<li>In the <code>armbian-config</code> menu, navigate and select options using the arrow keys and press Enter.</li>
-<li>Scroll down to the "Network" option using the arrow keys and press Enter to enter the submenu.</li>
-<li>In the "Network" submenu, select the "Wireless" option and press Enter to enter the Wi-Fi configuration menu.</li>
-<li>In the Wi-Fi configuration menu, select the "Connect to Wi-Fi" option and press Enter to enter the Wi-Fi connection setup.</li>
-<li><code>armbian-config</code> will list the available wireless interfaces and already configured networks. Select the wireless interface you want to connect to and press Enter.</li>
-<li><code>armbian-config</code> will display the list of available Wi-Fi networks. Use the arrow keys to select the Wi-Fi network you want to connect to and press Enter.</li>
-<li>If the Wi-Fi network is password-protected, <code>armbian-config</code> will prompt you to enter the Wi-Fi password. Enter the password and press Enter.</li>
+</code></pre></div>
+<ol>
+<li>In the <code>armbian-config</code> menu, navigate and select options using the arrow keys and press <strong>Enter</strong>.</li>
+<li>Scroll down to the "Network" option using the arrow keys and press <strong>Enter</strong> to enter the submenu.</li>
+<li>In the "Network" submenu, select the "Wireless" option and press <strong>Enter</strong> to enter the Wi-Fi configuration menu.</li>
+<li>In the Wi-Fi configuration menu, select the "Connect to Wi-Fi" option and press <strong>Enter</strong> to enter the Wi-Fi connection setup.</li>
+<li><code>armbian-config</code> will list the available wireless interfaces and already configured networks. Select the wireless interface you want to connect to and press <strong>Enter</strong>.</li>
+<li><code>armbian-config</code> will display the list of available Wi-Fi networks. Use the arrow keys to select the Wi-Fi network you want to connect to and press <strong>Enter</strong>.</li>
+<li>If the Wi-Fi network is password-protected, <code>armbian-config</code> will prompt you to enter the Wi-Fi password. Enter the password and press <strong>Enter</strong>.</li>
 <li>Wait for a moment while the Armbian system attempts to connect to the specified Wi-Fi network. If the connection is successful, you will see a corresponding message on the screen.</li>
 <li>Exit the <code>armbian-config</code> tool.</li>
 </ol>
@@ -520,7 +522,7 @@
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 1, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 15, 2024</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 12, 2023</span>

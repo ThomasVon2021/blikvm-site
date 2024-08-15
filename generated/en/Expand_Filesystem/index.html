@@ -168,35 +168,35 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="..">Getting started</a>
+<a href="..">Getting Started</a>
 <label for="__nav_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-label="Getting started" class="md-nav" data-md-level="1">
+<nav aria-label="Getting Started" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_1">
 <span class="md-nav__icon md-icon"></span>
-          Getting started
+          Getting Started
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BliKVM-v4-guide/">
-        BliKVM v4 Allwinner guide
+        BliKVM v4 Allwinner Guide
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BLIKVM-HAT-guide/">
-        BliKVM v3 HAT guide
+        BliKVM v3 HAT Guide
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BLIKVM-PCIE-guide/">
-        BliKVM v2 PCIe guide
+        BliKVM v2 PCIe Guide
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BLIKVM-CM4-guide/">
-        BliKVM v1 CM4 guide
+        BliKVM v1 CM4 Guide
       </a>
 </li>
 <li class="md-nav__item">
@@ -353,23 +353,23 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4">
-          Installation instructions
+          Installation Instructions
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Installation instructions" class="md-nav" data-md-level="1">
+<nav aria-label="Installation Instructions" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
-          Installation instructions
+          Installation Instructions
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BLIHAT-Installation/">
-        v3 HAT illustrated instructions
+        v3 HAT Illustrated Instructions
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BLIKVM-PCIe-installation/">
-        v2 PCIe illustrated instructions
+        v2 PCIe Illustrated Instructions
       </a>
 </li>
 </ul>
@@ -439,7 +439,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../dev_api/">
-        http API
+        HTTP API
       </a>
 </li>
 </ul>
@@ -487,100 +487,99 @@
 <h1 id="expand-filesystem">Expand Filesystem</h1>
 <p>If you find that the free space of the raspberry pi SD card or eMMC is smaller than the capacity of the actual SD card or eMMC, you need to do the following to expand the raspberry pi. If you find that the system does not have the raspi config tool, you can use Method 2 (use the GParted partition tool).  </p>
 <h2 id="method-1-use-raspi-config-tool">Method 1: Use raspi-config tool</h2>
-<p>If you are using a mirror after June 2023 and have added a third read-write partition, this method is no longer applicable. Please refer to method 2 and method 3.
-<strong>1.</strong> open raspi-config.
+<p>If you are using a mirror after June 2023 and have added a third read-write partition, this method is no longer applicable. Please refer to method 2 and method 3.</p>
+<p><strong>1.</strong> Open raspi-config.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo raspi-config
 </code></pre></div>
-<strong>2.</strong> choose Advancd Options：<br/>
+<p><strong>2.</strong> Choose Advancd Options：<br/>
 <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/expand_filesystem/advance_option.png"><img alt="IMG_8366" src="../assets/images/expand_filesystem/advance_option.png" width="300"/></a></p>
-<p><strong>3.</strong> choose Expand Filesystem：<br/>
+<p><strong>3.</strong> Choose Expand Filesystem：<br/>
 <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/expand_filesystem/expand.png"><img alt="IMG_8366" src="../assets/images/expand_filesystem/expand.png" width="300"/></a></p>
 <p><strong>4.</strong> Ok:<br/>
 <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/expand_filesystem/expand_ok.png"><img alt="IMG_8366" src="../assets/images/expand_filesystem/expand_ok.png" width="300"/></a></p>
 <p><strong>5.</strong> Execute the command <code>resize2fs /dev/mmcblk0p2</code> in the terminal to see that the SD card has been successfully expanded.</p>
 <h2 id="method-2-use-gparted-tool">Method 2: Use GParted tool</h2>
-<p><strong>1.</strong> Connect the SD card or EMMc that has burned the image to the computer through USB. Take the GParted partition tool under Linux as an example. Other platforms also have similar partition tools. Open GParted software and select SD card:  <br/>
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/expand_filesystem/gparted01.png"><img alt="" src="../assets/images/expand_filesystem/gparted01.png" width="300"/></a></p>
-<p><strong>2.</strong> By observing the partition of the SD card in the above figure, we can find that 2.01GB and 21.87GB of space are unused before and after the sdb3 partition, which is the space we want to expand. Select the sdb3 partition and click Resize.<br/>
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/expand_filesystem/gparted02.png"><img alt="" src="../assets/images/expand_filesystem/gparted02.png" width="300"/></a>
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/expand_filesystem/gparted03.png"><img alt="" src="../assets/images/expand_filesystem/gparted03.png" width="300"/></a></p>
+<p><strong>1.</strong> Connect the SD card or EMMc that has burned the image to the computer through USB. Take the GParted partition tool on Linux as an example. Other platforms also have similar partition tools.</p>
+<p>Open GParted software and select SD card:</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/expand_filesystem/gparted01.png"><img alt="gparted1" src="../assets/images/expand_filesystem/gparted01.png" width="300"/></a></p>
+<p><strong>2.</strong> By observing the partition of the SD card in the above figure, we can find that 2.01GB and 21.87GB of space are unused before and after the sdb3 partition, which is the space we want to expand.</p>
+<p>Select the sdb3 partition and click Resize.  </p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/expand_filesystem/gparted02.png"><img alt="gparted2" src="../assets/images/expand_filesystem/gparted02.png" width="300"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/expand_filesystem/gparted03.png"><img alt="gparted3" src="../assets/images/expand_filesystem/gparted03.png" width="300"/></a></p>
 <p><strong>3.</strong> You can drag the white partition of sdb3 to the leftmost and rightmost, or fill in 25958 with "Previous Free Space" as "0" and "New Size" as "Maximum Size", and then click Resize in the lower right corner. Then click OK to see that all unused space of sd has been used.<br/>
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/expand_filesystem/gparted04.png"><img alt="" src="../assets/images/expand_filesystem/gparted04.png" width="300"/></a>
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/expand_filesystem/gparted05.png"><img alt="" src="../assets/images/expand_filesystem/gparted05.png" width="300"/></a></p>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/expand_filesystem/gparted04.png"><img alt="gparted4" src="../assets/images/expand_filesystem/gparted04.png" width="300"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/expand_filesystem/gparted05.png"><img alt="gparted5" src="../assets/images/expand_filesystem/gparted05.png" width="300"/></a></p>
 <p><strong>4.</strong> Insert the SD card into the device and start it.  </p>
 <h2 id="method-3-use-script">Method 3: Use script</h2>
 <ul>
-<li>
-<p>If you are using a BliKVM image, you can run the following script on KVM to automatically expand the space.
-<strong>1.</strong> Log in to the KVM terminal, confirm that the system has read and write permissions, run <code>vim expand. sh</code> on any path, and write the following content to expand.sh.<br/>
-If your hardwawre is v1,v2 or v3, use:
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>#!/bin/bash
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>set -x
+<li>If you are using a BliKVM image, you can run the following script on KVM to automatically expand the space.</li>
+</ul>
+<p><strong>1.</strong> Log in to the KVM terminal, confirm that the system has read and write permissions, run <code>vim expand.sh</code> on any path, and write the following content to expand.sh.</p>
+<p>If your hardware is <strong>v1</strong>,<strong>v2</strong> or <strong>v3</strong>, use:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="ch">#!/bin/bash</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="nb">set</span> -x
 <a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>resize_mmcblk0p3() {
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>  echo "Resizing mmcblk0p3 partition..."
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>  parted /dev/mmcblk0 resizepart 3 100%
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>resize_mmcblk0p3<span class="o">()</span> <span class="o">{</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>  <span class="nb">echo</span> <span class="s2">"Resizing mmcblk0p3 partition..."</span>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>  parted /dev/mmcblk0 resizepart <span class="m">3</span> <span class="m">100</span>%
 <a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>  resize2fs /dev/mmcblk0p3
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>  echo "mmcblk0p3 partition resized successfully."
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>}
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>  <span class="nb">echo</span> <span class="s2">"mmcblk0p3 partition resized successfully."</span>
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="o">}</span>
 <a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>
-<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>echo "Starting partition resizing..."
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="nb">echo</span> <span class="s2">"Starting partition resizing..."</span>
 <a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>
 <a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a>resize_mmcblk0p3
 <a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>
-<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a>echo "Partition resizing completed."
+<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="nb">echo</span> <span class="s2">"Partition resizing completed."</span>
 </code></pre></div>
-If your hardwawre is v4, use:
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>#!/bin/bash
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>set -x
+<p>If your hardware is <strong>v4</strong>, use:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="ch">#!/bin/bash</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="nb">set</span> -x
 <a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>resize_mmcblk0p1() {
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>  echo "Resizing mmcblk0p1 partition..."
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>  parted /dev/mmcblk0 resizepart 1 100%
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>resize_mmcblk0p1<span class="o">()</span> <span class="o">{</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>  <span class="nb">echo</span> <span class="s2">"Resizing mmcblk0p1 partition..."</span>
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>  parted /dev/mmcblk0 resizepart <span class="m">1</span> <span class="m">100</span>%
 <a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>  resize2fs /dev/mmcblk0p1
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>  echo "mmcblk0p1 partition resized successfully."
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>}
+<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>  <span class="nb">echo</span> <span class="s2">"mmcblk0p1 partition resized successfully."</span>
+<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="o">}</span>
 <a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a>
-<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a>echo "Starting partition resizing..."
+<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="nb">echo</span> <span class="s2">"Starting partition resizing..."</span>
 <a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a>
 <a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a>resize_mmcblk0p1
-<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a>echo "Partition resizing completed."
-</code></pre></div></p>
-</li>
-<li>
-<p>If you are using a PiKVM image, you can run the following script on KVM to automatically expand the space.
-<strong>1.</strong> Log in to the KVM terminal, confirm that the system has read and write permissions, run <code>vim expand. sh</code> on any path, and write the following content to expand.sh
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>#!/bin/bash
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>set -x
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>        if grep -q 'X-kvmd\.otgmsd' /etc/fstab; then
-<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>                part=$(grep 'X-kvmd\.otgmsd' /etc/fstab | awk '{print $1}')
-<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>                # shellcheck disable=SC2206
-<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>                splitted=(${part//=/ })
-<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a>                if [ "${splitted[0]}" == LABEL ]; then
-<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>                        label=${splitted[1]}
-<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>                        part=$(blkid -c /dev/null -L "$label")
-<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a>                else
-<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a>                        label=PIMSD
-<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a>                fi
-<a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a>                unset splitted
-<a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a>                disk=/dev/$(lsblk -no pkname "$part")
-<a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a>                npart=$(cat "/sys/class/block/${part//\/dev\//}/partition")
-<a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a>                umount "$part"
-<a href="#__codelineno-3-17" id="__codelineno-3-17" name="__codelineno-3-17"></a>                parted "$disk" -a optimal -s resizepart "$npart" 100%
-<a href="#__codelineno-3-18" id="__codelineno-3-18" name="__codelineno-3-18"></a>                yes | mkfs.ext4 -L "$label" -F -m 0 "$part"
-<a href="#__codelineno-3-19" id="__codelineno-3-19" name="__codelineno-3-19"></a>                mount "$part"
-<a href="#__codelineno-3-20" id="__codelineno-3-20" name="__codelineno-3-20"></a>                unset disk part npart label
-<a href="#__codelineno-3-21" id="__codelineno-3-21" name="__codelineno-3-21"></a>        fi
-</code></pre></div></p>
-</li>
-</ul>
-<p><strong>2.</strong> Execute 'bash expand. sh' on the terminal and wait for the execution to complete.</p>
+<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="nb">echo</span> <span class="s2">"Partition resizing completed."</span>
+</code></pre></div>
+<hr/>
+<p>If you are using a PiKVM image, you can run the script below on the KVM to automatically expand the space.</p>
+<p><strong>1.</strong> Log in to the KVM terminal, confirm that the system has read and write permissions, run <code>vim expand.sh</code> on any path, and write the following content to <code>expand.sh</code></p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="ch">#!/bin/bash</span>
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="nb">set</span> -x
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>        <span class="k">if</span> grep -q <span class="s1">'X-kvmd\.otgmsd'</span> /etc/fstab<span class="p">;</span> <span class="k">then</span>
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>                <span class="nv">part</span><span class="o">=</span><span class="k">$(</span>grep <span class="s1">'X-kvmd\.otgmsd'</span> /etc/fstab <span class="p">|</span> awk <span class="s1">'{print $1}'</span><span class="k">)</span>
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>                <span class="c1"># shellcheck disable=SC2206</span>
+<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>                <span class="nv">splitted</span><span class="o">=(</span><span class="si">${</span><span class="nv">part</span><span class="p">//=/ </span><span class="si">}</span><span class="o">)</span>
+<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a>                <span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="si">${</span><span class="nv">splitted</span><span class="p">[0]</span><span class="si">}</span><span class="s2">"</span> <span class="o">==</span> LABEL <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>                        <span class="nv">label</span><span class="o">=</span><span class="si">${</span><span class="nv">splitted</span><span class="p">[1]</span><span class="si">}</span>
+<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>                        <span class="nv">part</span><span class="o">=</span><span class="k">$(</span>blkid -c /dev/null -L <span class="s2">"</span><span class="nv">$label</span><span class="s2">"</span><span class="k">)</span>
+<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a>                <span class="k">else</span>
+<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a>                        <span class="nv">label</span><span class="o">=</span>PIMSD
+<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a>                <span class="k">fi</span>
+<a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a>                <span class="nb">unset</span> splitted
+<a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a>                <span class="nv">disk</span><span class="o">=</span>/dev/<span class="k">$(</span>lsblk -no pkname <span class="s2">"</span><span class="nv">$part</span><span class="s2">"</span><span class="k">)</span>
+<a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a>                <span class="nv">npart</span><span class="o">=</span><span class="k">$(</span>cat <span class="s2">"/sys/class/block/</span><span class="si">${</span><span class="nv">part</span><span class="p">//</span><span class="se">\/</span><span class="nv">dev</span><span class="se">\/</span><span class="p">/</span><span class="si">}</span><span class="s2">/partition"</span><span class="k">)</span>
+<a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a>                umount <span class="s2">"</span><span class="nv">$part</span><span class="s2">"</span>
+<a href="#__codelineno-3-17" id="__codelineno-3-17" name="__codelineno-3-17"></a>                parted <span class="s2">"</span><span class="nv">$disk</span><span class="s2">"</span> -a optimal -s resizepart <span class="s2">"</span><span class="nv">$npart</span><span class="s2">"</span> <span class="m">100</span>%
+<a href="#__codelineno-3-18" id="__codelineno-3-18" name="__codelineno-3-18"></a>                yes <span class="p">|</span> mkfs.ext4 -L <span class="s2">"</span><span class="nv">$label</span><span class="s2">"</span> -F -m <span class="m">0</span> <span class="s2">"</span><span class="nv">$part</span><span class="s2">"</span>
+<a href="#__codelineno-3-19" id="__codelineno-3-19" name="__codelineno-3-19"></a>                mount <span class="s2">"</span><span class="nv">$part</span><span class="s2">"</span>
+<a href="#__codelineno-3-20" id="__codelineno-3-20" name="__codelineno-3-20"></a>                <span class="nb">unset</span> disk part npart label
+<a href="#__codelineno-3-21" id="__codelineno-3-21" name="__codelineno-3-21"></a>        <span class="k">fi</span>
+</code></pre></div>
+<p><strong>2.</strong> Execute <code>bash expand.sh</code> on the terminal and wait for the execution to complete.</p>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 3, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 15, 2024</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 29, 2022</span>

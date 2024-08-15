@@ -168,35 +168,35 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="..">Getting started</a>
+<a href="..">Getting Started</a>
 <label for="__nav_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-label="Getting started" class="md-nav" data-md-level="1">
+<nav aria-label="Getting Started" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_1">
 <span class="md-nav__icon md-icon"></span>
-          Getting started
+          Getting Started
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BliKVM-v4-guide/">
-        BliKVM v4 Allwinner guide
+        BliKVM v4 Allwinner Guide
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BLIKVM-HAT-guide/">
-        BliKVM v3 HAT guide
+        BliKVM v3 HAT Guide
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BLIKVM-PCIE-guide/">
-        BliKVM v2 PCIe guide
+        BliKVM v2 PCIe Guide
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BLIKVM-CM4-guide/">
-        BliKVM v1 CM4 guide
+        BliKVM v1 CM4 Guide
       </a>
 </li>
 <li class="md-nav__item">
@@ -353,23 +353,23 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4">
-          Installation instructions
+          Installation Instructions
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Installation instructions" class="md-nav" data-md-level="1">
+<nav aria-label="Installation Instructions" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
-          Installation instructions
+          Installation Instructions
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BLIHAT-Installation/">
-        v3 HAT illustrated instructions
+        v3 HAT Illustrated Instructions
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BLIKVM-PCIe-installation/">
-        v2 PCIe illustrated instructions
+        v2 PCIe Illustrated Instructions
       </a>
 </li>
 </ul>
@@ -439,7 +439,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../dev_api/">
-        http API
+        HTTP API
       </a>
 </li>
 </ul>
@@ -485,38 +485,39 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="zerotier-vpn"><strong>ZeroTier VPN</strong></h1>
-<p><a href="https://www.zerotier.com/">ZeroTier</a> allow secure access to your BliKVM even throught NAT on both sides. It lets you build modern, secure multi-point virtualized networks of almost any type. This document provides an example for accessing your BliKVM over the internet, but you can also use Tailscale or other VPN solutions. The following is a basic example, and for any specific settings or functionalities, please refer to the <a href="https://docs.zerotier.com/">ZeroTier documentation</a>.</p>
+<p><a href="https://www.zerotier.com/">ZeroTier</a> allows secure access to your BliKVM even throught NAT on both sides. It lets you build modern, secure multi-point virtualized networks of almost any type. This document provides an example for accessing your BliKVM over the internet, but you can also use Tailscale or other VPN solutions. The following is a basic example, and for any specific settings or functionalities, please refer to the <a href="https://docs.zerotier.com/">ZeroTier documentation</a>.</p>
 <h2 id="installing-zerotier-on-blikvm"><strong>Installing ZeroTier on BliKVM</strong></h2>
-<p>First of all, prepare account and VPN network at ZeroTier with instructions here: <a href="https://docs.zerotier.com/start">Create a Network</a> , save Network ID for later usage. Next, connect with BliKVM terminal using SSH protocol, and check for read-write access. If it's a read-only system, use the rw command to make it writable.
-Now install ZeroTier client using command below:
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>curl -s https://install.zerotier.com | sudo bash
-</code></pre></div></p>
+<p>First of all, prepare account and VPN network at ZeroTier with instructions here: <a href="https://docs.zerotier.com/start">Create a Network</a> , save Network ID for later usage. Next, connect with BliKVM terminal using SSH protocol, and check for read-write access. If it's a read-only system, use the rw command to make it writable.</p>
+<p>Now install ZeroTier client using the command below:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>curl -s https://install.zerotier.com <span class="p">|</span> sudo bash
+</code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Note that in some regions, such as China, downloading ZeroTier directly might be problematic due to network restrictions. Please configure your network accordingly.</p>
 </div>
 <h2 id="adding-blikvm-to-your-zerotier-network"><strong>Adding BliKVM to your ZeroTier Network</strong></h2>
-<p>On the BliKVM terminal, use the following command to add BliKVM to your ZeroTier network (using ZeoroTier Network ID, for example d5e04297a16fa690):
+<p>On the BliKVM terminal, use the following command to add BliKVM to your ZeroTier network (using your ZeoroTier Network ID, for example d5e04297a16fa690):</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>sudo zerotier-cli join d5e04297a16fa690
 </code></pre></div>
-If everything goes well, you can run ip addr show zerotier network device (name is starting with zt) on the BliKVM terminal to view the IP address assigned by ZeroTier for the virtual network. Here's an example output:
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>3: zt6ovrlscs: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 2800 qdisc pfifo_fast state UNKNOWN group default qlen 1000
+<p>If everything goes well, you can run <code>ip addr show</code> zerotier network device (name is starting with zt) on the BliKVM terminal to view the IP address assigned by ZeroTier for the virtual network.</p>
+<p>Here's an example output:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="m">3</span>: zt6ovrlscs: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span class="m">2800</span> qdisc pfifo_fast state UNKNOWN group default qlen <span class="m">1000</span>
 <a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>    link/ether d6:e4:eb:ae:db:64 brd ff:ff:ff:ff:ff:ff
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>    inet 172.25.96.75/16 brd 172.25.255.255 scope global zt6ovrlscs
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>    inet <span class="m">172</span>.25.96.75/16 brd <span class="m">172</span>.25.255.255 scope global zt6ovrlscs
 <a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>       valid_lft forever preferred_lft forever
 <a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>    inet6 fe80::d4e4:ebff:feae:db64/64 scope link 
 <a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>       valid_lft forever preferred_lft forever
 </code></pre></div>
-The IP address, such as 172.25.96.75, can be used to access the BliKVM web interface from your host machine.</p>
+<p>The IP address, such as <code>172.25.96.75</code>, can be used to access the BliKVM web interface from your host machine.</p>
 <h2 id="installing-zerotier-on-client-computer"><strong>Installing ZeroTier on client computer</strong></h2>
-<p>Go to <a href="https://www.zerotier.com/download/">Download</a> section at ZeroTier website and install ZeroTier on your controlling host machine. Join your ZeroTier Network ID, and then you can check your <a href="https://my.zerotier.com/">network page</a> to verify if both your machines are online. Check if they are authorzied to connect to network there (Auth? column). Once they are online, you can use the following address to access BliKVM from your controlling host machine:
+<p>Go to <a href="https://www.zerotier.com/download/">Download</a> section at ZeroTier website and install ZeroTier on your controlling host machine. Join your ZeroTier Network ID, and then you can check your <a href="https://my.zerotier.com/">network page</a> to verify if both your machines are online. Check if they are authorzied to connect to network there (Auth? column). Once they are online, you can use the following address to access BliKVM from your controlling host machine:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>http://&lt;zerotier_kvm_ip&gt;
-</code></pre></div></p>
+</code></pre></div>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 15, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 15, 2024</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 15, 2023</span>

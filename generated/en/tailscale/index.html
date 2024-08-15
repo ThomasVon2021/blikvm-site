@@ -168,35 +168,35 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="..">Getting started</a>
+<a href="..">Getting Started</a>
 <label for="__nav_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-label="Getting started" class="md-nav" data-md-level="1">
+<nav aria-label="Getting Started" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_1">
 <span class="md-nav__icon md-icon"></span>
-          Getting started
+          Getting Started
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BliKVM-v4-guide/">
-        BliKVM v4 Allwinner guide
+        BliKVM v4 Allwinner Guide
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BLIKVM-HAT-guide/">
-        BliKVM v3 HAT guide
+        BliKVM v3 HAT Guide
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BLIKVM-PCIE-guide/">
-        BliKVM v2 PCIe guide
+        BliKVM v2 PCIe Guide
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BLIKVM-CM4-guide/">
-        BliKVM v1 CM4 guide
+        BliKVM v1 CM4 Guide
       </a>
 </li>
 <li class="md-nav__item">
@@ -245,8 +245,8 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#blikvmtailscale">
-    BliKVM安装Tailscale
+<a class="md-nav__link" href="#blikvm-installation">
+    BliKVM Installation
   </a>
 </li>
 <li class="md-nav__item">
@@ -255,8 +255,8 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#tailscale">
-    主机安装Tailscale
+<a class="md-nav__link" href="#host-installation">
+    Host Installation
   </a>
 </li>
 </ul>
@@ -353,23 +353,23 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4">
-          Installation instructions
+          Installation Instructions
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Installation instructions" class="md-nav" data-md-level="1">
+<nav aria-label="Installation Instructions" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
-          Installation instructions
+          Installation Instructions
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BLIHAT-Installation/">
-        v3 HAT illustrated instructions
+        v3 HAT Illustrated Instructions
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BLIKVM-PCIe-installation/">
-        v2 PCIe illustrated instructions
+        v2 PCIe Illustrated Instructions
       </a>
 </li>
 </ul>
@@ -439,7 +439,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../dev_api/">
-        http API
+        HTTP API
       </a>
 </li>
 </ul>
@@ -460,8 +460,8 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#blikvmtailscale">
-    BliKVM安装Tailscale
+<a class="md-nav__link" href="#blikvm-installation">
+    BliKVM Installation
   </a>
 </li>
 <li class="md-nav__item">
@@ -470,8 +470,8 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#tailscale">
-    主机安装Tailscale
+<a class="md-nav__link" href="#host-installation">
+    Host Installation
   </a>
 </li>
 </ul>
@@ -486,38 +486,39 @@
 </a>
 <h1 id="tailscale-vpn"><strong>Tailscale VPN</strong></h1>
 <p><a href="https://tailscale.com/">Tailscale</a> can be used to access your BliKVM from the public internet. It is a convenient and free networking tool for setting up a small VPN network. This document provides an example for accessing your BliKVM over the internet, but you can also use Zerotier or other VPN solutions. The following is a basic example, and for any specific settings or functionalities, please refer to the Tailscale documentation.</p>
-<h2 id="blikvmtailscale"><strong>BliKVM安装Tailscale</strong></h2>
-<p>First, make sure that your system has read-write access. If it's a read-only system, use the rw command to make it writable. Then, proceed with the Tailscale <a href="https://tailscale.com/download">installation</a> by running the following command:
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>curl -fsSL https://tailscale.com/install.sh | sh
-</code></pre></div></p>
+<h2 id="blikvm-installation"><strong>BliKVM Installation</strong></h2>
+<p>First, make sure that your system has read-write access. If it's a read-only system, use the rw command to make it writable. Then, proceed with the Tailscale <a href="https://tailscale.com/download">installation</a> by running the following command:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>curl -fsSL https://tailscale.com/install.sh <span class="p">|</span> sh
+</code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Note that in some regions, such as China, downloading Tailscale directly might be problematic due to network restrictions. Please configure your network accordingly.</p>
 </div>
 <h2 id="adding-blikvm-to-your-tailscale-network"><strong>Adding BliKVM to your Tailscale Network</strong></h2>
-<p>Register an account on the Tailscale website and generate your own keys in the settings. On the BliKVM terminal, use the following command to add BliKVM to your Tailscale network:
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>sudo tailscale up --authkey=your-auth-key --accept-routes
+<p>Register an account on the Tailscale website and generate your own keys in the settings. On the BliKVM terminal, use the following command to add BliKVM to your Tailscale network:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>sudo tailscale up --authkey<span class="o">=</span>your-auth-key --accept-routes
 </code></pre></div>
-If everything goes well, you can run ip addr show tailscale0 on the BliKVM terminal to view the IP address assigned by Tailscale for the virtual network. Here's an example output:
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>3: tailscale0: &lt;POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP&gt; mtu 1280 qdisc pfifo_fast state UNKNOWN group default qlen 500
+<p>If everything goes well, you can run ip addr show tailscale0 on the BliKVM terminal to view the IP address assigned by Tailscale for the virtual network.</p>
+<p>Here's an example output:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="m">3</span>: tailscale0: &lt;POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP&gt; mtu <span class="m">1280</span> qdisc pfifo_fast state UNKNOWN group default qlen <span class="m">500</span>
 <a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>    link/none
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>    inet 100.126.223.28/32 scope global tailscale0
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>    inet <span class="m">100</span>.126.223.28/32 scope global tailscale0
 <a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>       valid_lft forever preferred_lft forever
 <a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>    inet6 fd7a:115c:a1e0:ab12:4843:cd96:627e:df1c/128 scope global
 <a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>       valid_lft forever preferred_lft forever
 <a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>    inet6 fe80::8955:99dc:4e7d:b08b/64 scope link stable-privacy
 <a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>       valid_lft forever preferred_lft forever
 </code></pre></div>
-The IP address, such as 100.126.223.28, can be used to access the BliKVM web interface from your host machine.</p>
-<h2 id="tailscale"><strong>主机安装Tailscale</strong></h2>
-<p><a href="https://tailscale.com/download">Download</a> and install Tailscale from the Tailscale website on your controlling host machine. Log in with your Tailscale account, and then you can check the Tailscale <a href="https://login.tailscale.com/admin/machines">admin page</a> to verify if both your machines are online. Once they are online, you can use the following address to access BliKVM from your controlling host machine:
+<p>The IP address, such as <code>100.126.223.28</code>, can be used to access the BliKVM web interface from your host machine.</p>
+<h2 id="host-installation"><strong>Host Installation</strong></h2>
+<p><a href="https://tailscale.com/download">Download</a> and install Tailscale from the Tailscale website on your controlling host machine. Log in with your Tailscale account, and then you can check the Tailscale <a href="https://login.tailscale.com/admin/machines">admin page</a> to verify if both your machines are online. Once they are online, you can use the following address to access BliKVM from your controlling host machine:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>http://&lt;tailscale_kvm_ip&gt;
-</code></pre></div></p>
+</code></pre></div>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 22, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 15, 2024</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 22, 2023</span>
