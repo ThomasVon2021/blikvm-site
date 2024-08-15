@@ -19,12 +19,12 @@
     * Вес: 10 г
 
 !!! note "интерфейс"
-    ![](assets/images/hdmi-csi-i2s/c790-interface.png){width="400"}  
+    ![](assets/images/hdmi-csi-i2s/c790-interface.png){width="400"}
     C790 имеет два выходных интерфейса csi. Спереди C790 интерфейс CSI-2 представляет собой 15-контактное гнездо FPC с шагом 1.0 мм. Сзади C790 интерфейс CSI-2 представляет собой 22-контактное гнездо FPC с шагом 0.5 мм.
-    ![](assets/images/hdmi-csi-i2s/c790-i2s-connect.png){width="400"}  
+    ![](assets/images/hdmi-csi-i2s/c790-i2s-connect.png){width="400"}
 
 !!! note "размеры"
-    ![](assets/images/hdmi-csi-i2s/c790-size.png){width="400"}  
+    ![](assets/images/hdmi-csi-i2s/c790-size.png){width="400"}
 
 ### **C780**
 ??? info "Параметры C780A"
@@ -46,12 +46,12 @@
     * Блок питания: 3.3 В
     * Вес: 10 г
 ??? info "интерфейс"
-    ![](assets/images/hdmi-csi-i2s/2-4.png){width="400"}  
+    ![](assets/images/hdmi-csi-i2s/2-4.png){width="400"}
     Схема подключения аудиосистемы показана на рисунке.  
     ![](assets/images/hdmi-csi-i2s/2-8.png){width="400"}
 ??? info "размеры"
     Размеры C780 показаны на рисунке. Имеется 6 монтажных отверстий диаметром 2.75 мм, которые подходят под винты М2.5.
-    ![](assets/images/hdmi-csi-i2s/2-1.png){width="400"}  
+    ![](assets/images/hdmi-csi-i2s/2-1.png){width="400"}
     Как показано на рисунке, пользователь может непосредственно закрепить модуль на Raspberry Pi Zero. C780 спроектирован так, чтобы его можно было разъединить, расстояние между отверстиями перед разрывом идеально подходит для большинства серий Raspberry Pi.
     ![](assets/images/hdmi-csi-i2s/2-2.png){width="400"}
 
@@ -68,7 +68,7 @@
 
 ??? info "размеры"
     Размеры C779 показаны на рисунке. Имеются 4 монтажных отверстия диаметром 2.75 мм, которые подходят под винты М2.5. 
-    ![](assets/images/hdmi-csi-i2s/c779-size.png){width="400"}  
+    ![](assets/images/hdmi-csi-i2s/c779-size.png){width="400"}
 
 ## **Демонстрация программного обеспечения**
 Руководство пользователя C790/C780/C779 зависит от используемой вами официальной версии Raspberry Pi OS. Разные версии имеют разные методы использования. Если у вас есть вопросы, то присоединяйтесь к нашему [BLIKVM дискорд сообществу](https://discord.com/invite/9Y374gUF6C)!

@@ -26,7 +26,7 @@ In the example below, let's assume your BliKVM has obtained the address **192.16
 
     **The default username is `admin`, and the password is also `admin`.** Once logged in, you will have access to the main menu with essential functions. You can change system settings and passwords using the web interface's account management feature.
 
-!!! warning "Note about accessing BliKVM web via http, not https"
+!!! warning "Note: The BliKVM Web interface should be accessed via http, not https"
 
 ??? example "Accessing BliKVM via SSH"
     SSH is the most common method for remote access in the Linux world. You can access BliKVM via SSH. This method is used for managing the device:
@@ -38,32 +38,33 @@ In the example below, let's assume your BliKVM has obtained the address **192.16
     You can use `sudo -i` to obtain root privileges.
 
 ??? example "Optional: Updating BliKVM Software"
-    This section is not mandatory and should only be performed if you are next to the BliKVM for recovery purposes. Refer to the [Software Update Guide](./update.md) for instructions.
+    This section is not mandatory and should only be performed if you have physical access to the BliKVM for recovery purposes. Refer to the [Software Update Guide](./update.md) for instructions.
 
 ## Note on BliKVM OS Terminal Usage
 
 Some configuration changes must be made under the `root` user (i.e., administrator).
 
 !!! tip "Obtaining Root Privileges"
-    * If you are logged in via SSH, use `sudo -i` to obtain root privileges.
+    - If you are logged in via SSH, use `sudo -i` to obtain root privileges.
 
-BliKVM storage cards in versions v1, v2, and v3 are mounted in read-only mode. This protects the file system from being corrupted in the event of a sudden power outage. To edit any files and make changes, you need to remount the file system in read-write mode. You can determine the current mode by checking if `ro` or `rw` is displayed in the terminal.
+BliKVM storage cards in versions **v1**, **v2**, and **v3** are mounted in **read-only mode**. This protects the file system from being corrupted in the event of a sudden power outage. To edit any files and make changes, you need to remount the file system in read-write mode. You can determine the current mode by checking if `ro` or `rw` is displayed in the terminal.
 
 !!! tip "Enabling Write Mode"
-    * To enable write mode, run the command `rw`.
-    * To disable write mode, run the command `ro`.
-    * If you receive a "Device is busy" message, execute the `reboot` command.
-
+    - To enable write mode, run the command `rw`.
+    - To disable write mode, run the command `ro`.
+    - If you receive a "Device is busy" message, execute the `reboot` command.
 
 ## What's next?
+
 * Set up internet access using [Port Forwarding](./port-forwarding.md) or [Tailscale VPN](./tailscale.md).
 * Explore BLIKVM features using the table of contents on the left.
-* Join our [Discord](https://discord.com/invite/9Y374gUF6C) to contact the community and developers.
+* Join our [Discord](https://discord.com/invite/9Y374gUF6C) to connect with the community and developers.
 * Check out the [GitHub](https://github.com/ThomasVon2021/blikvm) - BLIKVM is a Open Source project!
 
-
 -----
+
 ## FAQ and Troubleshooting
+
 If you have any questions or run into problems, take a look at the [FAQ](faq.md).
 Seriously, it's really useful! We've probably already found a solution for it :)
 

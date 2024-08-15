@@ -13,7 +13,7 @@ msd虚拟U盘入口为:
     - 因部分镜像文件大小较大，采取上传镜像方案为切片上传和合并，合并过程不能断点重来，切记等待合并完成后(时间较长)，再进入下一步；  
     - 制作启动盘也很为两个步骤，制作虚拟U盘，将选择的iso镜像拷贝到制作好的虚拟U盘里，两个步骤均有进度，请等两者进度均100%后再点击下一步按钮。  
     ![](assets/images/msd/progress.png){width="300"}
-    ![](assets/images/msd/merger.png){width="300"}  
+    ![](assets/images/msd/merger.png){width="300"}
     
 ## 手动 (不使用Web UI)
 

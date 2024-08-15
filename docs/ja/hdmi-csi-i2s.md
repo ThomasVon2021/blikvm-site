@@ -19,12 +19,12 @@
     * 重量: 10g
 
 !!! note "インターフェイス"
-    ![](assets/images/hdmi-csi-i2s/c790-interface.png){width="400"}  
+    ![](assets/images/hdmi-csi-i2s/c790-interface.png){width="400"}
     C790は2つのCSI出力インターフェイスを持ちます。C890の表のCSI-2インターフェイスは1mm幅の15ピンFPCケーブル用です。裏のCSI-2インターフェイスは0.5mm幅の22ピンFPCケーブル用です。
-    ![](assets/images/hdmi-csi-i2s/c790-i2s-connect.png){width="400"}  
+    ![](assets/images/hdmi-csi-i2s/c790-i2s-connect.png){width="400"}
 
 !!! note "寸法"
-    ![](assets/images/hdmi-csi-i2s/c790-size.png){width="400"}  
+    ![](assets/images/hdmi-csi-i2s/c790-size.png){width="400"}
 
 ### **C780**
 ??? info "C780A ハードウェア仕様"
@@ -46,7 +46,7 @@
     * 入力電圧:3.3V
     * 重量: 10g
 ??? info "インターフェイス"
-    ![](assets/images/hdmi-csi-i2s/2-4.png){width="400"}  
+    ![](assets/images/hdmi-csi-i2s/2-4.png){width="400"}
 
     オーディオのピン配列は下記の図を参照ください。
 
@@ -54,7 +54,7 @@
 
 ??? info "寸法"
     C780の寸法は数の通りです。2.75mm径の穴が6つあり、M2.5のネジを使用できます。
-    ![](assets/images/hdmi-csi-i2s/2-1.png){width="400"}  
+    ![](assets/images/hdmi-csi-i2s/2-1.png){width="400"}
     次の図のようにRaspberry Pi Zeroに直接固定できます。そして、基板を切り離すことにより、他のほとんどのRaspberry Piにより設置しやすくなります。
     
     ![](assets/images/hdmi-csi-i2s/2-2.png){width="400"}
@@ -72,7 +72,7 @@
 
 ??? info "寸法"
     C779の寸法は数の通りです。2.75mm径の穴が4つあり、M2.5のネジを使用できます。
-    ![](assets/images/hdmi-csi-i2s/c779-size.png){width="400"}  
+    ![](assets/images/hdmi-csi-i2s/c779-size.png){width="400"}
 
 ## **ソフトウェアデモ**
 ここで紹介するのは公式のRaspberry Pi OSでのC790/C780/C779の使い方です。バージョンが異なる場合は使用方法が異なる場合があります。もし、質問がある場合は[BLIKVM Discord 

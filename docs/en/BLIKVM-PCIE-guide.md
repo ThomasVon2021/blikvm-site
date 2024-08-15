@@ -7,12 +7,14 @@
 BLIKVM PCIe is a PCIe add-in card based on Raspberry Pi CM4 for KVM Over IP. This product’s key features include video capture, ATX controller, PoE, OLED , UART and RTC. The card has a standard PCIe I/O bracket and a low profile PCIe  I/O bracket. The product is currently perfectly compatible with blikvm image and pikvm image.
 
 ## **Installation requirements**
+
 !!! note "You will need the following things"
-    * Raspberry Pi CM4(if you order PCIe card only).
-    * PoE-sourcing equipment or 5V/3A USB adapter.
-    * CR1220 coin cell battery.
+    - Raspberry Pi CM4(if you order PCIe card only).
+    - PoE-sourcing equipment or 5V/3A USB adapter.
+    - CR1220 coin cell battery.
 
 ## Features
+
 - **Video capture** (HDMI, support 1080P@60Hz input)
 - **Keyboard forwarding**
 - **Mouse forwarding**
@@ -21,14 +23,15 @@ BLIKVM PCIe is a PCIe add-in card based on Raspberry Pi CM4 for KVM Over IP. Thi
 - **Fullscreen mode**
 - Access via **Web UI**
 - Support **multi language** switching
-- Support **PoE** 
+- Support **PoE**
 - **Serial** console port
 - **OLED** display
 - **Real Time Clock (RTC)**  
 - **PWM Fan**  
 
 ## **Basic setup**
-**1.** [If you have an assembly kit, Flash the memory card or eMMC ](./flashing_os.md)   
+
+**1.** [If you have an assembly kit, Flash the memory card or eMMC](./flashing_os.md)
 **2.Build BLIKVM** according to the [illustrated instructions](./BLIKVM-PCIe-installation.md):
 ??? info "Geerling: Engineering Test video"
     <iframe width="560" height="315" src="https://www.youtube.com/embed/cVWF3u-y-Zg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -37,6 +40,7 @@ BLIKVM PCIe is a PCIe add-in card based on Raspberry Pi CM4 for KVM Over IP. Thi
     <iframe width="560" height="315" src="https://www.youtube.com/embed/Wn5UXY4W6E0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## **Specification**
+
 !!! note "hardware feature list"
     ![BLIKVM_PCIe_main-define](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_main-define.png){width="300"}
     ![BLIKVM_PCIe_main-back](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_main-back.png){width="300"}
@@ -48,7 +52,6 @@ BLIKVM PCIe is a PCIe add-in card based on Raspberry Pi CM4 for KVM Over IP. Thi
 | 7 | PWM FAN | 8  | BOOT |
 | 9 | REAL TIME CLOCK(RTC)         | 10  | UART port|
 | 11 |  USB-PC port       |   | |
-
 
 !!! note "**HDMI IN**"
     The bridge chip is Toshiba TC358743, which supports both video and audio(I2S), and the highest input resolution is 1080p@60fps.
@@ -70,13 +73,13 @@ BLIKVM PCIe is a PCIe add-in card based on Raspberry Pi CM4 for KVM Over IP. Thi
     - Connect to power control interface on the motherboard of the controlled computer with DuPont cables. It can turn on, off, and restart the controlled computer.  
     - The pin is defined on the printing of the PCIe board, **BTN** means button.  
     - According to the instructions of the computer motherboard, first find the position of the ATX function related pins on the motherboard, and then unplug the ATX ray that has been connected to the motherboard. After unplugging, the power button of the computer will lose its function. There are two rows of 8PIN pins on the PCIe board. It is unnecessary to distinguish between the two rows of pins when they are used with the same functions. One row of pins is used for KVM to control ATX-related functions, and the other row of pins is connected to the ATX DuPont head unplugged from the main board to maintain the original chassis power button function. Connect each wire according to the specific pin definitions on the motherboard and PCIe. See the following figure for the connection relationship：  
-    ![](assets/images/BLIKVM-PCIe/atx-cp.png)
+    ![atx-cp](assets/images/BLIKVM-PCIe/atx-cp.png)
 
 !!! note "**OLED Display**"
     A white OLED display with a resolution of 128x64, and the chip is SSD1306. This display can show the temperature, IP address and other information of the Raspberry Pi.
 
 !!! note "**FAN**"
-    The Card HAT is fitted with a small fan that is controlled by your Raspberry Pi CM4 via GPIO12. 
+    The Card HAT is fitted with a small fan that is controlled by your Raspberry Pi CM4 via GPIO12.
 
 !!! note "**BOOT**"
     Fit jumper to disable eMMC Boot
@@ -87,11 +90,9 @@ BLIKVM PCIe is a PCIe add-in card based on Raspberry Pi CM4 for KVM Over IP. Thi
 !!! note "**UART**"
     Connect the serial port to debug your Raspberry Pi CM4.  
     The uart of Raspberry Pi CM4. G for GND, T(GPIO 14) for TXD, R(GPIO 15) for RXD.  
-    ![](assets/images/gpio/uart_gpio.jpg){width="300"}   
+    ![uart-gpio](assets/images/gpio/uart_gpio.jpg){width="300"}
     Connect serial cable wires to G T R connectors on the PCIe board. NOTE: black wire = Ground, whiTe = Tx, and gReen = Rx;
     For specific methods, please refer to [this document](./serial_over_usb.md).
-    
-
 
 ## **Accessories**
 
@@ -112,13 +113,15 @@ BLIKVM PCIe is a PCIe add-in card based on Raspberry Pi CM4 for KVM Over IP. Thi
 
 ![dimension1](assets/images/BLIKVM-PCIe/dimension.png){width="400"}
 
-## **Test Video **
+## **Test Video**
+
 ??? info "BLIKVM hardware PCIe version is tested wonderful based on pikvm software."
     <iframe width="560" height="315" src="https://www.youtube.com/embed/0SEGeLFV-Wk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## **Notes**
+
 !!! warning "To prevent the CM4 module from contacting the SD card holder, do not remove the insulating tape"
-    ![](assets/images/BLIKVM-PCIe/sd.jpg){width="300"}
+    ![sd](assets/images/BLIKVM-PCIe/sd.jpg){width="300"}
 
 ## **List**
 
@@ -175,8 +178,10 @@ BLIKVM PCIe is a PCIe add-in card based on Raspberry Pi CM4 for KVM Over IP. Thi
 | CR1220 coin cell battery                     | 1    |
 
 ## **Buy link**
-[v2 buy](https://www.aliexpress.com/item/1005004572837650.html?spm=5261.ProductManageOnline.0.0.346d2ddbm8cDsR)
+
+[Buy v2](https://www.aliexpress.com/item/1005004572837650.html?spm=5261.ProductManageOnline.0.0.346d2ddbm8cDsR)
 
 ## **3D printable case**
-!!! info "A simple snap fit case for the PCIe." 
+
+!!! info "A simple snap fit case for the PCIe."
 [Download file](https://www.printables.com/model/956469-blikvm-v2-pcie-box)

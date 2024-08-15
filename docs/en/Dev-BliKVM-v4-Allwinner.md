@@ -54,6 +54,3 @@ BliKVM is a production-ready, plug and play KVM-over-IP device that offers profe
 | SPI1_MOSI | GPIOH7      |                             |
 | GND       | GND         |                             |
 | 3V3       | 3V3         |                             |
-
-
-

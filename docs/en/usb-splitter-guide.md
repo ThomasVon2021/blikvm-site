@@ -39,8 +39,9 @@ An adaptor of this kind does not fall within the USB specification. It's designe
     <iframe width="560" height="315" src="https://www.youtube.com/embed/4Od5MjBHbhY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## **4.3D printable case**
+
 !!! info "A simple snap fit case for the USB splitter."
-    ![](assets/images/usb-splitter/splitter_3d.png){width="300"} 
-    ![](assets/images/usb-splitter/splitter_3d_case.png){width="300"} 
- 
+    ![](assets/images/usb-splitter/splitter_3d.png){width="300"}
+    ![](assets/images/usb-splitter/splitter_3d_case.png){width="300"}
+
 [Download file](https://www.printables.com/model/370776-usb-splitter-case-blicube-blikvm)

@@ -10,7 +10,7 @@
     ![Preparing_to_install_CM4](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/Preparing_to_install_CM4.jpg){width="300"}
     ![install_cm4_and_4_spacers](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/install_cm4_and_4_spacers.jpg){width="300"}
     ![install_cm4_and_4_spacers_2](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/install_cm4_and_4_spacers_2.jpg){width="300"}
-    ![Stick_a_heat_conductive_sheet](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/Stick_a_heat_conductive_sheet.jpg){width="300"}   
+    ![Stick_a_heat_conductive_sheet](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/Stick_a_heat_conductive_sheet.jpg){width="300"}
 
     ヒートシンクの設置。4本のネジで先に設置した六角スペーサに固定してください。
 
@@ -22,7 +22,7 @@
 !!! note "ここではAsus H520-Eを使って説明しています。インターフェイスの位置や配列はマザーボードごとに異なります。実際に使用するマザーボードのマニュアルを参照して接続してください。"
     ![connection_preparation](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/connection_preparation.jpg){width="300"}
     ![connect_USB_and_ATX](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/connect_USB_and_ATX.jpg){width="300"}
-    ![connect_USB_and_ATX_motherborad](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/connect_USB_and_ATX_motherborad-165941489982915.jpg){width="300"}
+    ![connect_USB_and_ATX_motherboard](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/connect_USB_and_ATX_motherboard-165941489982915.jpg){width="300"}
     ![pin_definition_atx](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/pin_definition_atx.jpg){width="300"}
     ![connect_USB_and_ATX_OK](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/connect_USB_and_ATX_OK.jpg){width="300"}
 
@@ -52,7 +52,7 @@
 
 !!! note "OLEDディスプレイにデバイスのIPアドレスなどの情報が表示されます"
     ![find_IP](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/find_IP.jpg){width="300"}
-    ![test_all](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/test_all.jpg){width="300"}  
+    ![test_all](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/test_all.jpg){width="300"}
     IPアドレスへWebブラウザからアクセスしてください。テストが完了してからボードをコンピュータへ設置してください。
 
 ## **9.製品をコンピュータのケースへ設置**
@@ -81,7 +81,7 @@
     ![place_4_nylon_spacers](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/place_4_nylon_spacers.jpg){width="300"}
     ![install_fan_ok](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/install_fan_ok.jpg){width="300"}
     ![fan_power_polarity](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/fan_power_polarity.jpg){width="300"}
-    ![install_fan_all](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/install_fan_all.jpg){width="300"}  
+    ![install_fan_all](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/install_fan_all.jpg){width="300"}
 
 !!! info "冷却ファンはCM4のGPIO12に接続されコントロールされます"
 

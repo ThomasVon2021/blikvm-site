@@ -6,7 +6,7 @@
 BliKVM Hat版本是基于树莓派4B制作的一款硬件，用于KVM Over IP。Hat关键功能包括HDMI视频捕获、ATX控制、PoE供电、OLED屏幕显示、RTC时钟。
 Hat配有金属外壳，用于保护和散热。Hat可以被安装到1U的机架。同时支持blikvm镜像和pikvm镜像。
 
- ![Image title](assets/images/BLIKVM-HAT/case.png){width="300"}  
+ ![Image title](assets/images/BLIKVM-HAT/case.png){width="300"}
 ## **安装要求**
 !!! note "如果你购买的只是一个Hat，你还需要下面设备"
     * 树莓派4B，1GB RAM或者更多
@@ -129,7 +129,7 @@ ATX模块通过杜邦线和电脑的主板连接。ATX模块配有全高和半�
 
 ### **金属外壳**
 
-![Image title](assets/images/BLIKVM-HAT/metal-case.png){width="300"}  
+![Image title](assets/images/BLIKVM-HAT/metal-case.png){width="300"}
 
 金属外壳可以保护Hat和用于散热.外壳上每个端口有清晰的丝印来表示此端口用途。此外壳可以方便的安装在1U的机架上。
 

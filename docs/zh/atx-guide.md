@@ -12,7 +12,7 @@ questions and support!
 | ![ATXA_A](assets/images/atx/ATXA_A.png){width="400"} | ![ATXA_B](assets/images/atx/ATXA_B.png){width="250"} |
 
 ## **2. A-board**
-![](assets/images/atx/status.png){width="400"}  
+![](assets/images/atx/status.png){width="400"}
  A-board is connected to the Raspberry Pi. The following table is a typical connection method in BLIKVM and PiKVM application.
 
 | A-board | RPI4   |
@@ -46,7 +46,7 @@ The b-board has an adapted full-height and half-height metal PCI mounting plate,
 
 !!! info "ATXA-B与电脑主板连接说明"
     根据电脑主板说明，首先找到主板上ATX功能相关引脚位置，拔下主板已经接好的ATX线，拔下后电脑的电源按钮将失去作用。ATXA-B主板共有两排8PIN引脚，两排引脚功能完全相同使用时无需区分。其中一排引脚用于KVM控制ATX相关功能，另一排引脚接主板上拔下来的ATX杜邦头，保持原有机箱电源按钮功能。根据主板和ATX-B上的具体引脚定义进行每根线的连接，连接关系可以参考下图：  
-    ![](assets/images/atx/ATXA-B-motherborad.png)
+    ![](assets/images/atx/ATXA-B-motherboard.png)
 
 ## **4.Mechanical Diagram**
 
