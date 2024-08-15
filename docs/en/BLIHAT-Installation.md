@@ -60,7 +60,7 @@ Install the FFC cable
 
 ![IMG_8338](assets/images/BLIKVM-HAT/hat-install/IMG_8338.JPG){width="300"}  
 
-Install the HAT on Raspberry Pi 4
+Install the HAT on the Raspberry Pi 4
 
 ![IMG_8339](assets/images/BLIKVM-HAT/hat-install/IMG_8339.JPG){width="300"}  
 
@@ -68,7 +68,7 @@ Install the HAT on Raspberry Pi 4
 
 ![IMG_8341](assets/images/BLIKVM-HAT/hat-install/IMG_8341-165580085168229.JPG){width="300"}  
 
-Install four Hex Spacers
+Install the four Hex Spacers
 
 ![IMG_8342](assets/images/BLIKVM-HAT/hat-install/IMG_8342.JPG){width="300"}  
 
@@ -88,7 +88,7 @@ Install the audio cable
 
 ![IMG_8348](assets/images/BLIKVM-HAT/hat-install/IMG_8348.JPG){width="300"}  
 
-Stick a heat conductive sheet on the back of the Raspberry Pi 4 , tear off the protective film of the sheet
+Stick a heat conductive sheet on the back of the Raspberry Pi 4, tear off the protective film of the sheet
 
 ![IMG_8349](assets/images/BLIKVM-HAT/hat-install/IMG_8349.JPG){width="300"}  
 
