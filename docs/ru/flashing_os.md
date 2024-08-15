@@ -48,7 +48,7 @@
 1. Скачайте и установите **последнюю версию** [RPi Imager](https://github.com/raspberrypi/rpi-imager/releases).
 
 2. Запустите RPi Imager:  
-![Image title](assets/images/flash_os/flash_rpi.png){width="300"}  
+![Image title](assets/images/flash_os/flash_rpi.png){width="300"}
 
 3. Нажмите **CHOOSE OS** и выберете **Use custom** кастомный образ внизу списка:  
 ![Image title](assets/images/flash_os/flash_choose_os.png){width="300"}

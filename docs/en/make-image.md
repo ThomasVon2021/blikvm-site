@@ -9,10 +9,10 @@ When you have made modifications to an image and want to create your own image, 
    ![Image title](assets/images/make-image/fdisk.png){width="400"}
 
 3. Then, use the `dd` command to write to an empty img file. Set the `count` value to be greater than the size of the volume end obtained from `fdisk` by at least 1.
-```
+
+```bash
 touch blikvm-armbian-v4-20230623.img
 sudo dd if=/dev/sdb of=./blikvm-armbian-v4-20230623.img bs=512 count=10151936
 ```
 
 4. Wait for the `dd` command to finish executing.
-

@@ -7,7 +7,7 @@
 Raspberry Pi IPKVM HATはKVM over IPに特化したRaspberry Pi 4専用アドオンボードです。
 BLIKVM-RPI4はRaspberry Pi 4のPoEに対応したKVM HATです。この製品の主な機能は、ビデオキャプチャ、ATXアダプタ、PoE、OLED、そしてRTCです。HATを熱から守るための専用金属ケースが付属します。そのケースは1Uのラックに設置できます。そして、blikvmおよびpikvmのソフトウェアイメージを利用できます。
 
- ![Image title](assets/images/BLIKVM-HAT/case.png){width="300"}  
+ ![Image title](assets/images/BLIKVM-HAT/case.png){width="300"}
 ## **インストール要件**
 !!! note "組み立てキットの場合には下記のものが必要となります"
     * Raspberry Pi 4B (1GB 以上のRAM)
@@ -112,7 +112,7 @@ BLIKVM-RPI4はRaspberry Pi 4のPoEに対応したKVM HATです。この製品の
 
 ### **金属ケース**
 
-![Image title](assets/images/BLIKVM-HAT/metal-case.png){width="300"}  
+![Image title](assets/images/BLIKVM-HAT/metal-case.png){width="300"}
 この金属ケースはHATを保護して、熱耐性を向上させます。ケースには各ポートの名称が印字されています。
 このケースは標準的な1Uラックにインストールできます。
 

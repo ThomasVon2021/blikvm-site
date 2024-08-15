@@ -3,6 +3,7 @@
 !!! warning "Because the blikvm hardware implementation scheme and PiKVM hardware implementation scheme are not exactly the same, you need to modify some errors through the following configuration for the official image of PiKVM. Of course, you can use the [configured image](./flashing_os.md)."
 
 ## **Fan config**
+
 !!! info "Since BliKVM's fan hardware is different to PiKVM's, you need to replace the control fan script first. The following default starting fan temperature is 40 degrees Celsius"
     ```
     su -
@@ -21,6 +22,7 @@
     ```
 
 ## **Check EDID file for 1080P60Hz input**
+
 !!! note "The function of the EDID file is to set the controlled computer to input according to the expected resolution. Since the image EDID file of PiKVM in different periods does not necessarily meet 1080P60Hz, when you use the CM4 version of hardware, it is found that the default output of the controlled computer is not 1080P60Hz, you can modify /etc/kvmd/tc358743-edid.hex to the following contents"
     ```
     00FFFFFFFFFFFF005262888800888888
@@ -54,7 +56,9 @@
         tc358743 = "/dev/kvmd-video"
     }
     ```
+
 ## **OLED**
+
 !!! abstract "Follow the method below to enable OLED."
     If you use PiKVM official image, log in to PiKVM and run these commands:
     ```

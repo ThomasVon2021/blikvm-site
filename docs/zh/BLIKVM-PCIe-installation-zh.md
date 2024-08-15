@@ -10,7 +10,7 @@
     ![Preparing_to_install_CM4](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/Preparing_to_install_CM4.jpg){width="300"}
     ![install_cm4_and_4_spacers](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/install_cm4_and_4_spacers.jpg){width="300"}
     ![install_cm4_and_4_spacers_2](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/install_cm4_and_4_spacers_2.jpg){width="300"}
-    ![Stick_a_heat_conductive_sheet](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/Stick_a_heat_conductive_sheet.jpg){width="300"}   
+    ![Stick_a_heat_conductive_sheet](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/Stick_a_heat_conductive_sheet.jpg){width="300"} 
     安装金属散热片。  
     ![Install_metal_heatsink](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/Install_metal_heatsink.jpg){width="300"}
 
@@ -20,7 +20,7 @@
 !!! note "此文中的主板使用的是Asus H520M-E，不同的主板接口定义不一定相同，请参考您的主板相关手册。"
     ![connection_preparation](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/connection_preparation.jpg){width="300"}
     ![connect_USB_and_ATX](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/connect_USB_and_ATX.jpg){width="300"}
-    ![connect_USB_and_ATX_motherborad](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/connect_USB_and_ATX_motherborad-165941489982915.jpg){width="300"}
+    ![connect_USB_and_ATX_motherboard](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/connect_USB_and_ATX_motherboard-165941489982915.jpg){width="300"}
     ![pin_definition_atx](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/pin_definition_atx.jpg){width="300"}
     ![connect_USB_and_ATX_OK](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/connect_USB_and_ATX_OK.jpg){width="300"}
 
@@ -30,7 +30,7 @@
     ![connect_OLED](assets/images/BLIKVM-PCIe/oled/install-oled02.png){width="300"}
     ![connect_OLED](assets/images/BLIKVM-PCIe/oled/install-oled03.png){width="300"}
     ![connect_OLED](assets/images/BLIKVM-PCIe/oled/install-oled04.png){width="300"}
-    ![connect_OLED](assets/images/BLIKVM-PCIe/oled/install-oled05.png){width="300"}  
+    ![connect_OLED](assets/images/BLIKVM-PCIe/oled/install-oled05.png){width="300"}
     上面的就是安装步骤，未撕膜的效果，实际使用请撕去保护膜，效果如下：  
     ![connect_OLED](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/connect_OLED.jpg){width="400"}
 
@@ -85,7 +85,7 @@
     ![place_4_nylon_spacers](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/place_4_nylon_spacers.jpg){width="300"}
     ![install_fan_ok](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/install_fan_ok.jpg){width="300"}
     ![fan_power_polarity](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/fan_power_polarity.jpg){width="300"}
-    ![install_fan_all](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/install_fan_all.jpg){width="300"}  
+    ![install_fan_all](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_Installation_Guide.assets/install_fan_all.jpg){width="300"}
 
 !!! info "风扇被树莓派的GPIO12口控制"
 

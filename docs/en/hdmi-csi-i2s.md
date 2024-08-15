@@ -1,4 +1,5 @@
 # HDMI to CSI&I2S bridge guide
+
 > Convert HDMI signal acquisition into CSI signal and I2S audio signal. Currently, all platforms are supported (Zero, Pi3B, Pi4B, CM4, Pi5B), and the maximum capture resolution not only depends on the HDMI to CSI converter board you are using but also on the Raspberry Pi hardware version you have. Raspberry Pi hardware versions are primarily divided into two series, one supporting a maximum of 1080P60Hz and the other supporting a maximum of 1080P50Hz.
 
 - The Raspberry Pi versions that support a maximum of 1080P60Hz are CM3, CM4, and Pi5B.
@@ -6,116 +7,114 @@
 - The Raspberry Pi versions that support a maximum of 1080P50Hz are Zero, Zero 2, Pi3B, Pi4B, and so on.
 
 ## **Introduction**
-This module takes the incoming HDMI signal and converts it into a separate CSI signal and I2S audio signal. 
-HDMI input supports up to 1080P60Hz. It works well on raspberry pi, there are three versions of this module 
-in history(C779、C780、C790). C790 is the latest version. C790 has mitigate HDMI backpowering,also has two csi 
-channels and four csi channels at the same time.
-![](assets/images/hdmi-csi-i2s/c790.png)
+
+This module takes the incoming HDMI signal and converts it into a separate CSI signal and I2S audio signal. HDMI input supports up to 1080P60Hz. It works well on Raspberry Pi, there are three versions of this module in history (C779, C780, C790). C790 is the latest version. C790 has mitigated HDMI backpowering, and also has two csi channels and four csi channels at the same time.
+![hdmi-csi-i2s](assets/images/hdmi-csi-i2s/c790.png)
 
 ## **Features**
+
 ### **C790**
-!!! note "hardware parameters"
-    * HDMI input: supports up to 1080P60Hz on Raspberry Pi
-    * HDMI to CSI-2 bridge chip:Toshiba TC358743XBG
-    * 4 CSI-2 channels & clock
-    * The CSI-2 interface, with 15 pin FPC seat, spacing 1.0 mm, is located on the front of the C790 module.
-    * The CSI-2 interface, with 22 pin FPC seat, spacing 0.5 mm, is located on the back of the C790 module.
-    * Size: 30 x 45 mm
-    * Install:4 x M2.5
-    * Power supply:3.3V
-    * Weight: 10g
+
+!!! note "Hardware Parameters"
+    - HDMI input: supports up to 1080P60Hz on Raspberry Pi
+    - HDMI to CSI-2 bridge chip: Toshiba TC358743XBG
+    - 4 CSI-2 channels & clock
+    - The CSI-2 interface, with 15 pin FPC seat, spacing 1.0 mm, is located on the front of the C790 module.
+    - The CSI-2 interface, with 22 pin FPC seat, spacing 0.5 mm, is located on the back of the C790 module.
+    - Size: 30 x 45 mm
+    - Install: 4 x M2.5
+    - Power supply: 3.3V
+    - Weight: 10g
 
 !!! warning "Pi 4B only support 1080P50Hz, limited by the number of CSI-2 channels. CM4 support 1080P60HZ, So if you must use 1080P60Hz input, please use CM4 and C790 together."
 
-!!! note "interface"
-    ![](assets/images/hdmi-csi-i2s/c790-interface.png){width="400"}  
-    C790 has two csi output interface. In fornt of C790, the CSI-2 interface is 15 pin FPC seat, 
-    spacing 1.0 mm. In back of C790, the CSI-2 interface is 22 pin FPC seat, spacing 0.5 mm.
-    ![](assets/images/hdmi-csi-i2s/c790-i2s-connect.png){width="400"}  
+!!! note "Interface"
+    ![c790-interface](assets/images/hdmi-csi-i2s/c790-interface.png){width="400"}
+    C790 has two CSI output interfaces. In front of C790, the CSI-2 interface is 15 pin FPC seat, spacing 1.0 mm. In back of C790, the CSI-2 interface is 22 pin FPC seat, spacing 0.5 mm.
+    ![c790-i2s-connect](assets/images/hdmi-csi-i2s/c790-i2s-connect.png){width="400"}
 
-!!! note "size"
-    ![](assets/images/hdmi-csi-i2s/c790-size.png){width="400"}  
+!!! note "Size"
+    ![c790-size](assets/images/hdmi-csi-i2s/c790-size.png){width="400"}
 
-!!! note "Install C790 on raspberry pi for reference"
-    ![](assets/images/hdmi-csi-i2s/install_c790_pi4b.png){width="400"} 
+!!! note "Install C790 on Raspberry Pi for reference"
+    ![install-c790-pi4b](assets/images/hdmi-csi-i2s/install_c790_pi4b.png){width="400"}
 
 ### **C780**
-??? info "C780A hardware parameters"
-    * HDMI input: supports up to 1080P50Hz on raspberry pi(Limited by the number of CSI-2 channels)
-    * HDMI to CSI-2 bridge chip:Toshiba TC358743XBG
-    * 2 CSI-2 channels & clock
-    * CSI-2 interface: 15 pin FPC seat, spacing 1.0 mm
-    * Size: 30 x 65 mm (unbroken PCB size); 30 x 45 mm (PCB size after breaking)
-    * Install:6 x M2.5
-    * Power supply:3.3V
-    * Weight: 10g
-??? info "C780B hardware parameters"
-    * HDMI input: supports up to 1080P60Hz on raspberry pi
-    * HDMI to CSI-2 bridge chip:Toshiba TC358743XBG
-    * 4 CSI-2 channels & clock
-    * CSI-2 interface: 22 pin FPC seat, spacing 0.5 mm
-    * Size: 30 x 65 mm (unbroken PCB size); 30 x 45 mm (PCB size after breaking)
-    * Install:6 x M2.5
-    * Power supply:3.3V
-    * Weight: 10g
-??? info "interface"
-    ![](assets/images/hdmi-csi-i2s/2-4.png){width="400"}  
+
+??? info "C780A Hardware Parameters"
+    - HDMI input: supports up to 1080P50Hz on Raspberry Pi(Limited by the number of CSI-2 channels)
+    - HDMI to CSI-2 bridge chip: Toshiba TC358743XBG
+    - 2 CSI-2 channels & clock
+    - CSI-2 interface: 15 pin FPC seat, spacing 1.0 mm
+    - Size: 30 x 65 mm (unbroken PCB size); 30 x 45 mm (PCB size after breaking)
+    - Install: 6 x M2.5
+    - Power supply: 3.3V
+    - Weight: 10g
+??? info "C780B Hardware Parameters"
+    - HDMI input: supports up to 1080P60Hz on Raspberry Pi
+    - HDMI to CSI-2 bridge chip: Toshiba TC358743XBG
+    - 4 CSI-2 channels & clock
+    - CSI-2 interface: 22 pin FPC seat, spacing 0.5 mm
+    - Size: 30 x 65 mm (unbroken PCB size); 30 x 45 mm (PCB size after breaking)
+    - Install: 6 x M2.5
+    - Power supply: 3.3V
+    - Weight: 10g
+??? info "Interface"
+    ![2-4](assets/images/hdmi-csi-i2s/2-4.png){width="400"}
     The wiring of audio part is shown in Figure.  
-    ![](assets/images/hdmi-csi-i2s/2-8.png){width="400"}
-??? info "size"
-    The size of C780 is shown in Figure. There are 6 mounting holes with a diameter of 2.75mm, 
-    which are suitable for M2.5 screws.  
-    ![](assets/images/hdmi-csi-i2s/2-1.png){width="400"}  
-    As shown in Figure, the user can directly fix the module on the raspberry pi zero.C780 is designed 
-    to be broken, and the hole spacing before breaking can be perfectly installed with most series of 
-    raspberry pi.
-    ![](assets/images/hdmi-csi-i2s/2-2.png){width="400"}
+    ![2-8](assets/images/hdmi-csi-i2s/2-8.png){width="400"}
+??? info "Size"
+    The size of C780 is shown in the image below. There are 6 mounting holes with a diameter of 2.75mm, which are suitable for M2.5 screws.  
+    ![2-1](assets/images/hdmi-csi-i2s/2-1.png){width="400"}
+    As shown in the image below, the user can directly fix the module on the Raspberry Pi Zero. C780 is designed to be broken, and the hole spacing before breaking can be perfectly installed with most series of Raspberry Pi.
+    ![2-2](assets/images/hdmi-csi-i2s/2-2.png){width="400"}
 
 ### **C779**
-??? info "hardware parameters"
-    * HDMI input: supports up to 1080P50Hz on raspberry pi(Limited by the number of CSI-2 channels)
-    * HDMI to CSI-2 bridge chip:Toshiba TC358743XBG
-    * 2 CSI-2 channels & clock
-    * CSI-2 interface: 15 pin FPC seat, spacing 1.0 mm
-    * Size: 35 x 50 mm 
-    * Install:4 x M2.5
-    * Power supply:3.3V
-    * Weight: 10g
 
-??? info "size"
-    The size of C779 is shown in Figure. There are 4 mounting holes with a diameter of 2.75mm, 
-    which are suitable for M2.5 screws.  
-    ![](assets/images/hdmi-csi-i2s/c779-size.png){width="400"}  
+??? info "Hardware Parameters"
+    - HDMI input: supports up to 1080P50Hz on Raspberry Pi(Limited by the number of CSI-2 channels)
+    - HDMI to CSI-2 bridge chip: Toshiba TC358743XBG
+    - 2 CSI-2 channels & clock
+    - CSI-2 interface: 15 pin FPC seat, spacing 1.0 mm
+    - Size: 35 x 50 mm
+    - Install: 4 x M2.5
+    - Power supply: 3.3V
+    - Weight: 10g
+
+??? info "Size"
+    The size of C779 is shown in Figure. There are 4 mounting holes with a diameter of 2.75mm, which are suitable for M2.5 screws.  
+    ![C779-size](assets/images/hdmi-csi-i2s/c779-size.png){width="400"}
 
 ## **CSI Interface Definitions**
-The CSI (Camera Serial Interface) interfaces C779 and C780A have 15 pins each, while the C780B interface has 22 pins. The C790 interface is unique as it supports both 15 and 22 PIN configurations.
-![](assets/images/hdmi-csi-i2s/interface.png){width="400"} 
 
-## **Software demo**
-The use guide of C790/C780/C779 depends on the official Raspberry Pi OS version you are using. 
-Different versions have different usage methods. If you have some questions, Join our [BLIKVM Discord 
-Community](https://discord.com/invite/9Y374gUF6C) for Support, FAQ & News!  
-To use the kernel drivers, please update your system. There are a few things that have changed with the 
-5.4 kernel, so these instructions are for 5.4 or later. If “uname -a” reports anything less, then fix 
-this before proceeding.  
-``` 
+The CSI (Camera Serial Interface) interfaces C779 and C780A have 15 pins each, while the C780B interface has 22 pins. The C790 interface is unique as it supports both 15 and 22 PIN configurations.
+
+![Interface](assets/images/hdmi-csi-i2s/interface.png){width="400"}
+
+## **Software Demo**
+
+The use guide of C790/C780/C779 depends on the official Raspberry Pi OS version you are using.
+Different versions have different usage methods. If you have some questions, Join our [BLIKVM Discord Community](https://discord.com/invite/9Y374gUF6C) for Support, FAQ & News!
+To use the kernel drivers, please update your system. There are a few things that have changed with the 5.4 kernel, so these instructions are for 5.4 or later. If `uname -a` reports anything less, then fix this before proceeding.
+
+```bash
 pi@raspberrypi:~ $ uname -a
 Linux raspberrypi 5.10.63-v7l+ #1459 SMP Wed Oct 6 16:41:57 BST 2021 armv7l GNU/Linux
 ```
-!!! note "1. Update & upgrade the raspberry pi system (It will take a long time depend on the different country)"
-    ``` 
+
+!!! note "1. Update & upgrade the Raspberry Pi system (It will take a long time depend on the different country)"
+    ```
     sudo apt-get update
     sudo apt-get upgrade
-    ``` 
+    ```
 !!! note "2. Enable camera module (the camera is enabled by default in Raspberry pi Bullseys OS)"
     ```
     sudo raspi-config
     sudo reboot
     ```
-    Navigate to ‘Interfacing Options’ and hit Enter. Now select the ‘Camera’ option, and hit the Enter 
-    key to enable it. Select “Finish” and select to reboot your Raspberry Pi. **reboot is important!!**
+    Navigate to ‘Interfacing Options’ and hit Enter. Now select the ‘Camera’ option, and hit the Enter key to enable it. Select “Finish” and select to reboot your Raspberry Pi. **reboot is important!!**
 
-??? warning " Due to the absence of hardware encoding on the Pi5B, the software usage instructions for Pi platforms are currently divided into two sections: Pi5B configuration and configuration for other Pi platforms."
+??? warning "Due to the absence of hardware encoding on the Pi5B, the software usage instructions for Pi platforms are currently divided into two sections: Pi5B configuration and configuration for other Pi platforms."
 
 ??? note "In platforms such as Zero, Zero 2, Pi3B, Pi4B, etc., there is a reference for testing HDMI to CSI module demo."
     Edit /boot/config.txt (that will need sudo)
@@ -130,9 +129,7 @@ Linux raspberrypi 5.10.63-v7l+ #1459 SMP Wed Oct 6 16:41:57 BST 2021 armv7l GNU/
     ```
     dtoverlay=tc358743-audio
     ```
-    please append the If (and only if) you have a device such as the C780 or C790 that supports the 22pin 
-    connector with all 4 lanes wired out, and are using a Compute Module with the CAM1 connector that also 
-    has all 4 lanes wired up, you can use:
+    If (and only if) you have a device such as the C780 or C790 that supports the 22pin connector with all 4 lanes wired out, and are using a Compute Module with the CAM1 connector that also has all 4 lanes wired up, you can use:
     ```
     dtoverlay=tc358743,4lane=1
     ```
@@ -141,13 +138,12 @@ Linux raspberrypi 5.10.63-v7l+ #1459 SMP Wed Oct 6 16:41:57 BST 2021 armv7l GNU/
     pi@raspberrypi:~ $ dmesg | grep cma
     [0.000000] cma: Reserved 256 MiB at 0x000000001ec00000
     ```
-    If it reports less than 96MB assigned to CMA, then edit /boot/cmdline.txt and add to the start of the line. 
+    If it reports less than 96MB assigned to CMA, then edit /boot/cmdline.txt and add to the start of the line.
     Do NOT add any carriage returns.
     ```
     cma=96M
     ```
-    Reboot. If all is well you should get a /dev/video0 device, and “v4l2-ctl –list-devices” will tell you that it is provided by Unicam. After connecting all the cables, power on the Raspberry Pi, 
-    the C790 indicator light is normally green, and after opening the Raspberry Pi terminal, enter the following command:
+    Reboot. If all is well you should get a /dev/video0 device, and “v4l2-ctl –list-devices” will tell you that it is provided by Unicam. After connecting all the cables, power on the Raspberry Pi, the C790 indicator light is normally green, and after opening the Raspberry Pi terminal, enter the following command:
     ```
     pi@raspberrypi:~ $ ls /dev/video0
     /dev/video0
@@ -169,8 +165,7 @@ Linux raspberrypi 5.10.63-v7l+ #1459 SMP Wed Oct 6 16:41:57 BST 2021 armv7l GNU/
         /dev/video1
         /dev/media2
     ```
-    This driver puts all the control in the hands of the user, or the user’s application. By default there is no EDID loaded into the chip to allow it to tell the HDMI source what resolutions are supported. There are EDID editors around. If you create a file edid.txt, 
-    then you can push this to the device using the comment of edid.txt file:
+    This driver puts all the control in the hands of the user, or the user’s application. By default there is no EDID loaded into the chip to allow it to tell the HDMI source what resolutions are supported. There are EDID editors around. If you create a file edid.txt, then you can push this to the device using the comment of edid.txt file:
     ```
     00ffffffffffff005262888800888888
     1c150103800000780aEE91A3544C9926
@@ -194,7 +189,7 @@ Linux raspberrypi 5.10.63-v7l+ #1459 SMP Wed Oct 6 16:41:57 BST 2021 armv7l GNU/
     sudo nano edid.txt
     #copy the above commend in edid.txt, save&exit;
     pi@raspberrypi:~ $ v4l2-ctl --set-edid=file=edid.txt --fix-edid-checksums
-    
+
     CTA-861 Header
       IT Formats Underscanned: yes
       Audio:                   yes
@@ -218,21 +213,21 @@ Linux raspberrypi 5.10.63-v7l+ #1459 SMP Wed Oct 6 16:41:57 BST 2021 armv7l GNU/
     The driver does NOT automatically switch to the resolution detected. Use the command:
     ```
     pi@raspberrypi:~ $ v4l2-ctl --query-dv-timings
-	Active width: 1280
-	Active height: 720
-	Total width: 1650
-	Total height: 750
-	Frame format: progressive
-	Polarities: -vsync -hsync
-	Pixelclock: 74250000 Hz (60.00 frames per second)
-	Horizontal frontporch: 0
-	Horizontal sync: 370
-	Horizontal backporch: 0
-	Vertical frontporch: 0
-	Vertical sync: 30
-	Vertical backporch: 0
-	Standards: 
-	Flags: 
+    Active width: 1280
+    Active height: 720
+    Total width: 1650
+    Total height: 750
+    Frame format: progressive
+    Polarities: -vsync -hsync
+    Pixelclock: 74250000 Hz (60.00 frames per second)
+    Horizontal frontporch: 0
+    Horizontal sync: 370
+    Horizontal backporch: 0
+    Vertical frontporch: 0
+    Vertical sync: 30
+    Vertical backporch: 0
+    Standards: 
+    Flags: 
     ```
     You MUST set the timings via “v4l2-ctl –set-dv-bt-timings”. You can pass in an index to the detected mode, or use:
     ```
@@ -530,20 +525,23 @@ Linux raspberrypi 5.10.63-v7l+ #1459 SMP Wed Oct 6 16:41:57 BST 2021 armv7l GNU/
     ```
     On a Windows computer, you can use software like 7yuv to view .yuv files. For the tutorial with an input format of 1920*1080, you should select BGR888 in the top right corner of 7yuv and set the resolution to 1920*1080 to view the two frames you just captured.
 
-## **chip docs**
-[tc358743 docs](https://zcwrego195.feishu.cn/drive/folder/V3dXfMA5UlBNmXdX2hycYZuLnxc?from=from_copylink)
+## **Chip Docs**
 
+[TC358743 Documentation](https://zcwrego195.feishu.cn/drive/folder/V3dXfMA5UlBNmXdX2hycYZuLnxc?from=from_copylink)
 
 ## **Packing List**
+
 ??? info "C790"
-    ![](assets/images/hdmi-csi-i2s/c790-packing-list.png){width="400"}
+    ![packing-list](assets/images/hdmi-csi-i2s/c790-packing-list.png){width="400"}
 
-## **Test video**
-C780A test:https://www.youtube.com/watch?v=ecqyINoiHNQ
+## **Test Video**
 
-C780B test:https://www.youtube.com/watch?v=nc-hwPT2Uak&t=15s
+[C780A Test](https://www.youtube.com/watch?v=ecqyINoiHNQ)
 
-## **Purchase link**
-Purchase：<a href="https://www.aliexpress.com/item/1005002861310912.html?pdp_ext_f=%7B%22sku_id%22:%2212000022635165947%22,%22ship_from%22:%22CN%22%7D&gps-id=pcStoreJustForYou&scm=1007.23125.137358.0&scm_id=1007.23125.137358.0&scm-url=1007.23125.137358.0&pvid=8e29d7e9-f257-4f20-a0b2-c2bff6a048d6&spm=a2g0o.store_pc_home.smartJustForYou_6000897758043.1" target="_blank">C790 & C780</a>
+[C780B Test](https://www.youtube.com/watch?v=nc-hwPT2Uak)
 
-Purchase：<a href="https://www.aliexpress.com/item/1005003033156483.html?spm=a2g0o.productlist.0.0.36f93cc2DFaouV&algo_pvid=2bfab2d1-a9c7-4c29-9434-2f451401d0e1&algo_exp_id=2bfab2d1-a9c7-4c29-9434-2f451401d0e1-9&pdp_ext_f=%7B%22sku_id%22%3A%2212000023351081819%22%7D" target="_blank">C779</a>
+## **Purchase Link**
+
+[Purchase C780 & C790](https://www.aliexpress.com/item/1005002861310912.html?pdp_ext_f=%7B%22sku_id%22:%2212000022635165947%22,%22ship_from%22:%22CN%22%7D)
+
+[Purchase C779](https://www.aliexpress.com/item/1005003033156483.html?algo_exp_id=2bfab2d1-a9c7-4c29-9434-2f451401d0e1-9&pdp_ext_f=%7B%22sku_id%22%3A%2212000023351081819%22%7D)

@@ -18,6 +18,6 @@ jobs:
         with:  
           username: '${{ secrets.USER_NAME }}'   #ssh user name
           server: '${{ secrets.SERVER_IP }}' 
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }} 
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           local_path: './generated/*' 
           remote_path: '/www/wwwroot/wiki.blicube.com/blikvm'

@@ -1,22 +1,26 @@
-# **API**
+# API
 
 !!! warning "DISCLAIMER: This API is experimental and subject to change at any moment!"
 
 This document is the HTTP API development manual for BLIKVM OS. If you have new API requirements not covered in this document, you can submit a pull request on GitHub to seek support. Please replace the kvmip in the request URL with the actual IP address of your KVM.
 
 ### **Authentication**
-This API is used for user login and returns an access token. Some APIs within the system require a valid token for access.   
+
+This API is used for user login and returns an access token. Some APIs within the system require a valid token for access.
 
 - Request URL: `http://kvmip/login_api`  
 - Request Method: GET  
-- Request Body: JSON format, for example:   
+- Request Body: JSON format, for example:
+
 ```
 {
     "username": "admin",
     "password": "admin"
 }
 ```
+
 The response is as follows; if the status is not 1, the authentication has failed.
+
 ```
 {
     "status": 1,
@@ -27,7 +31,8 @@ The response is as follows; if the status is not 1, the authentication has faile
 }
 ```
 
-### **mjepg video**
+### **MJPEG Video**
+
 This API is used to obtain the MJPEG video stream when the image mode is set to MJPEG.  
 
 - Request URL: `http://kvmip:8008/stream`  
@@ -37,7 +42,7 @@ This API is used to capture a frame of MJPEG in image mode.
 - Request URL: `http://kvmip:8008/snapshot`  
 - Request Method: GET
 
-### **keyboard**  
+### **Keyboard**  
 
 ??? info "For specific keyboard encoding, please refer to the following:"
     ```
@@ -140,13 +145,16 @@ This API is used to capture a frame of MJPEG in image mode.
 
 - Request URL: `http://kvmip/keyboard`  
 - Request Method: GET  
-- Request Body: JSON format, where "keycodes" is a string array supporting multiple inputs at once. For example:   
+- Request Body: JSON format, where "keycodes" is a string array supporting multiple inputs at once. For example:
+
 ```
 {
     "keycodes": ["Digit1"]
 }
 ```  
+
 The response result is as follows:
+
 ```
 {
     "status": 1,

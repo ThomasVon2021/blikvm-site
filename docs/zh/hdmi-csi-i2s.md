@@ -26,16 +26,16 @@ C790是目前最新的版本，解决了所有已知的问题，同是有CSI 2�
 !!! warning "树莓派4B只支持1080P50Hz(因为4B只有两个CSI-2通道) ,树莓派CM4只支持1080P60Hz,所以如果你的输入设备一定要是1080P60Hz，请同时使用CM4和C790."
 
 !!! note "接口"
-    ![](assets/images/hdmi-csi-i2s/c790-interface.png){width="400"}  
+    ![](assets/images/hdmi-csi-i2s/c790-interface.png){width="400"}
     C790有两个CSI输出接口: 接口1，在C790正面，15 pin FPC, 间距1.0 mm;
     接口1，在C790背面,22 pin FPC, 间距0.5 mm。
-    ![](assets/images/hdmi-csi-i2s/c790-i2s-connect.png){width="400"}  
+    ![](assets/images/hdmi-csi-i2s/c790-i2s-connect.png){width="400"}
 
 !!! note "尺寸"
-    ![](assets/images/hdmi-csi-i2s/c790-size.png){width="400"}  
+    ![](assets/images/hdmi-csi-i2s/c790-size.png){width="400"}
 
 !!! note "安装参考"
-    ![](assets/images/hdmi-csi-i2s/install_c790_pi4b.png){width="400"}  
+    ![](assets/images/hdmi-csi-i2s/install_c790_pi4b.png){width="400"}
 ### **C780**
 ??? info "C780A硬件参数"
     * HDMI输入: 最高支持080P50Hz在树莓派上；
@@ -56,12 +56,12 @@ C790是目前最新的版本，解决了所有已知的问题，同是有CSI 2�
     * 供电电压:3.3V
     * 重量: 10g
 ??? info "接口"
-    ![](assets/images/hdmi-csi-i2s/2-4.png){width="400"}  
+    ![](assets/images/hdmi-csi-i2s/2-4.png){width="400"}
     音频引脚定义如下图所示:
     ![](assets/images/hdmi-csi-i2s/2-8.png){width="400"}
 ??? info "尺寸"
     尺寸如下图所示. 有6个直径为2。75mm的孔位用于安装，安装螺钉可以选择M2.5。
-    ![](assets/images/hdmi-csi-i2s/2-1.png){width="400"}  
+    ![](assets/images/hdmi-csi-i2s/2-1.png){width="400"}
     如下图所示，C780被设计成可折断式的，C780模块在未被折断前可以完美的安装在zero上。
     ![](assets/images/hdmi-csi-i2s/2-2.png){width="400"}
 
@@ -78,7 +78,7 @@ C790是目前最新的版本，解决了所有已知的问题，同是有CSI 2�
 
 ??? info "尺寸"
     尺寸如下图所示. 有4个直径为2.75mm的孔位用于安装，安装螺钉可以选择M2.5。
-    ![](assets/images/hdmi-csi-i2s/c779-size.png){width="400"}  
+    ![](assets/images/hdmi-csi-i2s/c779-size.png){width="400"}
 
 ## **CSI接口定义**
 其中C779，C780A只有15PIN引脚，C780B只有22PIN引脚，C790同时有15和22PIN引脚。
@@ -274,7 +274,7 @@ Linux raspberrypi 5.10.63-v7l+ #1459 SMP Wed Oct 6 16:41:57 BST 2021 armv7l GNU/
     Press CTRL+C to end recording.
     ```
     PS: 这里我们建议你使用实际的输入帧率去采集HDMI信号。你可以使用 ‘v4l2-ctl –query-dv-timings’去检查实际输入帧率。
-    ![Image title](assets/images/hdmi-csi-i2s/v4l2-rate.png){width="400"}  
+    ![Image title](assets/images/hdmi-csi-i2s/v4l2-rate.png){width="400"}
     
     如上图中的HDMI输入设备，帧率是60Hz，所以我们可以使用下面命令去录制视频：
     ```

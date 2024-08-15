@@ -2,7 +2,7 @@
 
 ## **介绍**
 
-![main1](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_main1.png){width="500"}  
+![main1](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_main1.png){width="500"}
 BLIKVM PCIe是一款基于树莓派CM4的IPKVM扩展卡，可以安装到PC或者服务器的PCIe插槽，完美运行PiKVM项目。主要功能有：HDMI视频采集，键盘鼠标控制，ATX开关机控制，PoE供电，OLED屏幕显示，
 串口终端调试和RTC时钟功能。此PCIe卡配有全高和半高的挡板。 BLIKVM PCIe版本支持blikvm和pikvm的系统镜像。
 
@@ -89,7 +89,7 @@ BLIKVM PCIe是一款基于树莓派CM4的IPKVM扩展卡，可以安装到PC或�
 !!! note "**串口**"
     可以通过改串口登陆设备进行调试，一般在在网络链接故障等情况下使用。
     树莓派CM4的串口. G for GND, T(GPIO 14) for TXD, R(GPIO 15) for RXD.  
-    ![](assets/images/gpio/uart_gpio.jpg){width="300"}   
+    ![](assets/images/gpio/uart_gpio.jpg){width="300"} 
     将USB转TTL模块的杜邦头连接到PCIe的**GTR**口，USB转ttl模块与**GTR**接线关系为（黑色线-G, 白色线-T, 绿色线-R）;具体方法可参考[此文档](./serial_over_usb.md)
 
 ## **配件**

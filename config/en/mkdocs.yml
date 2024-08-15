@@ -67,12 +67,12 @@ markdown_extensions:
   - pymdownx.superfences
 
 nav:
-    - "Getting started":
+    - "Getting Started":
         - "BLIKVM Overview": index.md
-        - "BliKVM v4 Allwinner guide": BliKVM-v4-guide.md
-        - "BliKVM v3 HAT guide": BLIKVM-HAT-guide.md
-        - "BliKVM v2 PCIe guide": BLIKVM-PCIE-guide.md
-        - "BliKVM v1 CM4 guide": BLIKVM-CM4-guide.md
+        - "BliKVM v4 Allwinner Guide": BliKVM-v4-guide.md
+        - "BliKVM v3 HAT Guide": BLIKVM-HAT-guide.md
+        - "BliKVM v2 PCIe Guide": BLIKVM-PCIE-guide.md
+        - "BliKVM v1 CM4 Guide": BLIKVM-CM4-guide.md
         - "First Steps": first_steps.md
         - "FAQ": faq.md
     - "Network":
@@ -93,9 +93,9 @@ nav:
         - "HDMI EDID": edid.md
         - "User Manager": user-manager.md
         - "Wake-on-LAN": wake-on-lan.md
-    - "Installation instructions":
-        - "v3 HAT illustrated instructions": BLIHAT-Installation.md
-        - "v2 PCIe illustrated instructions": BLIKVM-PCIe-installation.md
+    - "Installation Instructions":
+        - "v3 HAT Illustrated Instructions": BLIHAT-Installation.md
+        - "v2 PCIe Illustrated Instructions": BLIKVM-PCIe-installation.md
     - "Accessories":
         - "ATX Guide": atx-guide.md
         - "HDMI to CSI & Audio": hdmi-csi-i2s.md
@@ -105,7 +105,7 @@ nav:
         - "Make Image": make-image.md
         - "Config for PiKVM OS": modify_pikvm_image.md
         - "v4 Allwinner Dev Guide": Dev-BliKVM-v4-Allwinner.md
-        - "http API": dev_api.md
+        - "HTTP API": dev_api.md
 plugins:
   - glightbox
   - git-revision-date-localized:

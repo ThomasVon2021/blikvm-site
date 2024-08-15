@@ -64,7 +64,7 @@ If the content shown in the figure below appears, it indicates that EMMC initial
 1. Download and install **the latest version** of [RPi Imager](https://github.com/raspberrypi/rpi-imager/releases).
 
 2. Run RPi Imager:  
-![Image title](assets/images/flash_os/flash_rpi.png){width="300"}  
+![Image title](assets/images/flash_os/flash_rpi.png){width="300"}
 
 3. Press **CHOOSE OS** and select **Use custom** image at bottom of the list:  
 ![Image title](assets/images/flash_os/flash_choose_os.png){width="300"}

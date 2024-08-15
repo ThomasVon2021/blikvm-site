@@ -1,60 +1,73 @@
 # BLIKVM HAT version guide
+
 ## **Introduction**
 
 !!! info "BLIKVM hat Video"
     <iframe width="560" height="315" src="https://www.youtube.com/embed/SdpmMojDbGA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-The Raspberry Pi IPKVM HAT is an add-on board for Raspberry Pi 4, made especially for KVM Over IP.  
-BLIKVM-RPI4 is a Raspberry Pi 4 PoE KVM HAT.  This product’s key features include video capture, 
-ATX adapter,PoE, OLED and RTC. The product has a customized metal case to dissipate heat and provide protection 
-for the HAT. The product can be easily installed on a standard 1U rack. The product is currently perfectly compatible
-with blikvm image and pikvm image.  
- ![Image title](assets/images/BLIKVM-HAT/case.png){width="300"}  
 
- ## Features
+The Raspberry Pi IPKVM HAT is an add-on board for Raspberry Pi 4, made especially for KVM Over IP. The BLIKVM-RPI4 is a Raspberry Pi 4 PoE KVM HAT.
+
+This product’s key features include video capture, ATX adapter, PoE, OLED and RTC.
+The product has a customized metal case to dissipate heat and provide protection for the HAT.
+The product can be easily installed on a standard 1U rack.
+The product is currently perfectly compatible with BliKVM image and PiKVM image.  
+
+![Image title](assets/images/BLIKVM-HAT/case.png){width="300"}
+
+## **Features**
+
 - **Video capture** (HDMI, support 1080P@50Hz input)
 - **Keyboard forwarding**
 - **Mouse forwarding**
 - **Mass Storage Drive**
-- **ATX** Control the server power using ATX functions
+- **ATX Adapter**: Control the server power using ATX functions
 - **Fullscreen mode**
 - Access via **Web UI**
-- Support **multi language** switching
-- Support **PoE**
+- **Multi Language** switching support
+- **PoE** support
 - **Serial** console port
 - **OLED** display
 - **Real Time Clock (RTC)**  
 - **PWM FAN**
 
-  ## Interface
-  ***
-- HAT part:
+## **Interface**
+
+***
+
+**HAT part:**
+
 1. HDMI IN
 2. ATX Port
 3. OLED
 4. PoE jumper
+
 ***
-- Raspberry 4B part:
-5. SD CARD
-6. ACT LED
-7. PWR LED
-8. USB-PC
-9. HDMI 0
-10. HDMI 1
-11. A/V
-12. ETH(1000M) & PoE
-13. 2xUSB2.0 Port & 2xUSB3.0Port
+
+**Raspberry 4B part:**
+
+1. SD CARD
+2. ACT LED
+3. PWR LED
+4. USB-PC
+5. HDMI 0
+6. HDMI 1
+7. A/V
+8. ETH(1000M) & PoE
+9. 2x USB 2.0 Ports & 2x USB 3.0 Ports
 
 ## **Installation requirements**
+
 !!! note "If you have an assembly kit, you will need the following things"
-    * Raspberry Pi 4B with 1Gb RAM or more.
-    * HDMI cable.
-    * Straight Ethernet cable (for the ATX board connection).
-    * Power supply unit & cable(5.1V 3A USB-C, recommended by the Raspberry Pi).
+    - Raspberry Pi 4B with 1Gb RAM or more.
+    - HDMI cable.
+    - Straight Ethernet cable (for the ATX board connection).
+    - Power supply unit & cable(5.1V 3A USB-C, recommended by the Raspberry Pi).
 
 ## **Basic setup**
-**1.** [Flash the memory card or eMMC ](./flashing_os.md) 
 
-**2.Build BLIKVM** according to the video instruction or review the [illustrated instructions](./BLIHAT-Installation.md):
+**1.** [Flash the memory card or eMMC](./flashing_os.md)
+
+**2.** Build BLIKVM according to the video instructions or review the [illustrated instructions](./BLIHAT-Installation.md):
 
 ??? info "Video Guide: Metal case step by step"
     <iframe width="560" height="315" src="https://www.youtube.com/embed/FaZBQUA7rAM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -102,6 +115,7 @@ with blikvm image and pikvm image.
     ![image-20220621174207504](assets/images/BLIKVM-HAT/hat-install/image-20220621174207504.png){width="300"}
 
 ## **Specification**
+
 ![Image title](assets/images/BLIKVM-HAT/specification.png){width="600"}
 
 ??? note "**HDMI IN**"
@@ -109,11 +123,10 @@ with blikvm image and pikvm image.
     Fixed HDMI back power issue.
 
 ??? note "**CN-ATX**"
-    The CN-ATX interface is connected to the ATX adapter board (an accessory for the HAT)through a network cable, which can turn on, 
-    off, and restart the controlled computer.
+    The CN-ATX interface is connected to the ATX adapter board (an accessory for the HAT) through a network cable, which can turn on, off, and restart the controlled computer.
 
 ??? note "**Display**"
-    A white OLED display with a resolution of 128x32, and the chip is SSD1306. 
+    A white OLED display with a resolution of 128x32, and the chip is SSD1306.
     This display can show the temperature, IP address and other information of the Raspberry Pi.
 
 ??? note "**PoE**"
@@ -123,7 +136,7 @@ with blikvm image and pikvm image.
     - Plug in the PoE jumper cap to enable PoE power supply
 
 ??? note "**FAN**"
-    The IPKVM HAT is fitted with a small fan that is controlled by your Raspberry Pi via GPIO12. 
+    The IPKVM HAT is fitted with a small fan that is controlled by your Raspberry Pi via GPIO12.
 
 ??? note "**Real Time Clock (RTC)**"
     The clock chip is PCF8563 that is controlled by your Raspberry Pi via I2C. The coin cell battery is installed under the HDMI IN module.
@@ -134,10 +147,11 @@ with blikvm image and pikvm image.
 
 ![Image title](assets/images/BLIKVM-HAT/ATX-A-B.png){width="300"}
 
-This board is connected to the switch port on the motherboard of the controlled computer with DuPont cables. 
-The board has a standard PCIe I/O bracket and a low profile PCIe  I/O bracket.
+This board is connected to the switch port on the motherboard of the controlled computer with DuPont cables.
+The board has a standard PCIe I/O bracket and a low profile PCIe I/O bracket.
 
 ### **USB/PWR splitter**
+
 ![Image title](assets/images/BLIKVM-HAT/usb-spiltter.png){width="300"}
 
 - Connect the RPI4 port to your Raspberry Pi 4.
@@ -152,7 +166,7 @@ If the controlled computer does not output HDMI images correctly, please use thi
 
 ### **Metal case**
 
-![Image title](assets/images/BLIKVM-HAT/metal-case.png){width="300"}  
+![Image title](assets/images/BLIKVM-HAT/metal-case.png){width="300"}
 The metal case protects the HAT and improve heat dissipation. There are clear port markings on the case.
 
 The case can be easily installed on a standard 1U rack.
@@ -160,6 +174,7 @@ The case can be easily installed on a standard 1U rack.
 ## **List**
 
 ### **Product List**
+
 ![Image title](assets/images/BLIKVM-HAT/product-list.png){width="300"}
 
 | Raspberry Pi IPKVM HAT                 | 1    |
@@ -186,4 +201,5 @@ The case can be easily installed on a standard 1U rack.
 | CR1220 coin cell battery                    | 1    |
 
 ## **Buy link**
-[v3 buy](https://www.aliexpress.com/item/1005004377930400.html?spm=5261.ProductManageOnline.0.0.346d2ddbm8cDsR)
+
+[Buy v3](https://www.aliexpress.com/item/1005004377930400.html?spm=5261.ProductManageOnline.0.0.346d2ddbm8cDsR)

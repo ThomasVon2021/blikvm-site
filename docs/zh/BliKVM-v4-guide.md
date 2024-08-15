@@ -1,7 +1,7 @@
 # **BliKVM v4 Allwinner**
 
 ![](assets/images/v4/BliKVM-v4-front.png){width="300"}
-![](assets/images/v4/BliKVM-v4-back.png){width="300"}  
+![](assets/images/v4/BliKVM-v4-back.png){width="300"}
 BliKVM v4是一款生产就绪、即插即用的 KVM-over-IP 设备，为专业用户提供了**远程服务器或工作站管理**的便捷解决方案。 它基于Linux并且完全开源。 借助 BliKVM，您可以轻松**打开/关闭电源、重新启动计算机、配置 UEFI/BIOS 设置以及使用模拟大容量存储设备执行操作系统重新安装**。 BliKVM 模拟键盘、鼠标和显示器，所有这些都可以通过 Web 浏览器访问，确保无缝的用户体验。 **其硬件级访问保证独立于特定的远程端口、协议或服务**，使其成为专业人士高度灵活且可靠的远程管理解决方案！
 
 * [BliKVM V4 Datasheet](./Datasheet-BliKVM-v4.md)
@@ -32,7 +32,7 @@ BliKVM v4是一款生产就绪、即插即用的 KVM-over-IP 设备，为专业�
 - **实时时钟 (RTC)**  
 
 ??? info "HDMI支持的分辨率类型"
-    ![](assets/images/v4/v4-hdmi.jpg){width="300"}  
+    ![](assets/images/v4/v4-hdmi.jpg){width="300"}
 
 ## **安装要求**
 !!! note "除v4套件外，您还需自备以下设备"

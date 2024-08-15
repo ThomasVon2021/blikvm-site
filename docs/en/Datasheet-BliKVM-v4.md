@@ -1,12 +1,10 @@
-
-
 # BliKVM v4 Allwinner (H616/H313 SOC)
 
  ![Main](assets/images/v4/Datasheet-BliKVM-v4.assets/Main.png){width="400"}
- 
+
 BliKVM is a production-ready, plug and play KVM-over-IP device that offers professional users a convenient solution **for remote server or workstation management**. It is based on Linux and fully open source. With BliKVM, you can easily **power on/off, restart your computer, configure UEFI/BIOS settings, and perform OS reinstallation using an emulated Mass Storage Device**. BliKVM simulates a keyboard, mouse, and monitor, all accessible through a web browser, ensuring a seamless user experience. **Its hardware-level access guarantees independence from specific remote ports, protocols, or services**, making it a highly flexible and reliable remote management solution for professionals!
 
-## Connectivity diagram
+## **Connectivity Diagram**
 
 ![Interface-Layout-Diagram](assets/images/v4/Datasheet-BliKVM-v4.assets/Interface-Layout-Diagram.png)
 
@@ -21,7 +19,7 @@ BliKVM is a production-ready, plug and play KVM-over-IP device that offers profe
 | 8     | HDMI input status LED (green)  | 17   | Micro SD card slot            |
 | 9     | HDMI output status LED (yellow) |      |                               |
 
-## Specifications
+## **Specifications**
 
 ![Topology-Diagram](assets/images/v4/Datasheet-BliKVM-v4.assets/Topology-Diagram.png)
 
@@ -81,6 +79,6 @@ BliKVM is a production-ready, plug and play KVM-over-IP device that offers profe
     | SCL              | GPIO3(SCL1,I^2^C) |
     | SDA              | GPIO2(SDA1,I^2^C) |
 
-## Dimensions Schematic Diagram
+## **Dimensions Schematic Diagram**
 
 ![Dimensions](assets/images/v4/Datasheet-BliKVM-v4.assets/Dimensions.png){width="400"}
