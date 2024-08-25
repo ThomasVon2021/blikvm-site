@@ -2,31 +2,31 @@
 
 ## **Introduction**
 
-!!! note "The currently available versions of the BLIKVM project are hosted in the release package of the github. The update software function needs to keep the device connected. There are currently two ways to update the software."
+!!! note "The currently available versions of the BLIKVM project are hosted in the release package of the GitHub. The update software function needs to keep the device connected. There are currently two ways to update the software."
     - Method 1: Click the update button through the web interface, and the program will be updated automatically. A restart is required after the update.
     - Method 2: Manually run the script on the KVM terminal to update, and restart after the update.
 
 !!! info "Common causes of upgrade errors"
     - The device is not connected to the network;
-    - Network access to github is limited;
+    - Network access to GitHub is limited;
 
 !!! warning "We strongly recommend performing the update while you are in close proximity to the BliKVM hardware you are upgrading. This way if anything goes wrong you can intervene."
     - If you are familiar with command-line operations, we recommend manually updating so that you can monitor the command-line status in real time.
-    - If the update is abnormal and the web interface cannot exit the update status, use ssh to the terminal can and restart to recover.
+    - If the update is abnormal and the web interface cannot exit the update status, use ssh to get you a terminal and reboot to recover.
 
 ## **Manually run the script to update**
 
-!!! info "In the terminal，if the current system terminal can see the `ro` keyword and it is a read-only system, it is necessary to use `rw` to make the system writable."
+!!! info "In the terminal，if the system terminal shows the `ro` keyword that means your system is currently in read-only, it is necessary to use the `rw` command to make the system writable."
     ```
     sudo -i
     cd /opt/bin/blikvm/
     git stash
     git pull --rebase
     python3 /opt/bin/blikvm/script/update.py
-    //if you want test newset version, use
+    # If you want test the newest alpha version, use:
     python3 /opt/bin/blikvm/script/update.py alpha
     ```
-   Observe the output of the terminal. When you see the message of successful upgrade, enter in the terminal the: `reboot` command and the reboot should take effect.
+   Observe the output of the terminal. When you see the message of a successful upgrade, enter in the terminal the: `reboot` command and the reboot should take effect.
 
 !!! warning "If you are unable to update successfully due to network issues, you can download the latest release.tar.gz package on another PC with a stable network connection and follow the instructions below for installation."
     - Download Address: https://github.com/ThomasVon2021/blikvm/releases
