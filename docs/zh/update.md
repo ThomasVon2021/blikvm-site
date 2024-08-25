@@ -20,6 +20,8 @@
     cd /opt/bin/blikvm/
     git pull --rebase
     python3 /opt/bin/blikvm/script/update.py
+    //如果你想测试最新的测试版本，使用下面的命令
+    python3 /opt/bin/blikvm/script/update.py alpha
     ```
     观察终端输出，当看到升级升级成功消息提醒时，终端输入reboot，重启生效。
 

@@ -20,8 +20,11 @@
     ```
     sudo -i
     cd /opt/bin/blikvm/
+    git stash
     git pull --rebase
     python3 /opt/bin/blikvm/script/update.py
+    //if you want test newset version, use
+    python3 /opt/bin/blikvm/script/update.py alpha
     ```
    Observe the output of the terminal. When you see the message of successful upgrade, enter in the terminal the: `reboot` command and the reboot should take effect.
 
