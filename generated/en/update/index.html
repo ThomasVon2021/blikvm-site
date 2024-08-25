@@ -487,7 +487,7 @@
 <h1 id="software-update-introduction">Software update introduction</h1>
 <h2 id="introduction"><strong>Introduction</strong></h2>
 <div class="admonition note">
-<p class="admonition-title">The currently available versions of the BLIKVM project are hosted in the release package of the github. The update software function needs to keep the device connected. There are currently two ways to update the software.</p>
+<p class="admonition-title">The currently available versions of the BLIKVM project are hosted in the release package of the GitHub. The update software function needs to keep the device connected. There are currently two ways to update the software.</p>
 <ul>
 <li>Method 1: Click the update button through the web interface, and the program will be updated automatically. A restart is required after the update.</li>
 <li>Method 2: Manually run the script on the KVM terminal to update, and restart after the update.</li>
@@ -497,29 +497,29 @@
 <p class="admonition-title">Common causes of upgrade errors</p>
 <ul>
 <li>The device is not connected to the network;</li>
-<li>Network access to github is limited;</li>
+<li>Network access to GitHub is limited;</li>
 </ul>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">We strongly recommend performing the update while you are in close proximity to the BliKVM hardware you are upgrading. This way if anything goes wrong you can intervene.</p>
 <ul>
 <li>If you are familiar with command-line operations, we recommend manually updating so that you can monitor the command-line status in real time.</li>
-<li>If the update is abnormal and the web interface cannot exit the update status, use ssh to the terminal can and restart to recover.</li>
+<li>If the update is abnormal and the web interface cannot exit the update status, use ssh to get you a terminal and reboot to recover.</li>
 </ul>
 </div>
 <h2 id="manually-run-the-script-to-update"><strong>Manually run the script to update</strong></h2>
 <div class="admonition info">
-<p class="admonition-title">In the terminal，if the current system terminal can see the <code>ro</code> keyword and it is a read-only system, it is necessary to use <code>rw</code> to make the system writable.</p>
+<p class="admonition-title">In the terminal，if the system terminal shows the <code>ro</code> keyword that means your system is currently in read-only, it is necessary to use the <code>rw</code> command to make the system writable.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo -i
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>cd /opt/bin/blikvm/
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>git stash
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>git pull --rebase
 <a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>python3 /opt/bin/blikvm/script/update.py
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>//if you want test newset version, use
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a># If you want test the newest alpha version, use:
 <a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>python3 /opt/bin/blikvm/script/update.py alpha
 </code></pre></div>
 </div>
-<p>Observe the output of the terminal. When you see the message of successful upgrade, enter in the terminal the: <code>reboot</code> command and the reboot should take effect.</p>
+<p>Observe the output of the terminal. When you see the message of a successful upgrade, enter in the terminal the: <code>reboot</code> command and the reboot should take effect.</p>
 <div class="admonition warning">
 <p class="admonition-title">If you are unable to update successfully due to network issues, you can download the latest release.tar.gz package on another PC with a stable network connection and follow the instructions below for installation.</p>
 <ul>
@@ -550,7 +550,7 @@ You can compare the versions before and after in <code>/usr/bin/blikvm/package.j
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 15, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 25, 2024</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 21, 2023</span>
