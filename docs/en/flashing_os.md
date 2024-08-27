@@ -25,7 +25,7 @@
 ### Base on PiKVM software
 
 !!! info "Raspberry 4B and CM4 board use different PiKVM software image. After entering the link, you can see the image named with each hardware version (HAT CM4 PCIe)"
-    * **[PiKVM image](https://drive.google.com/drive/folders/1DcpxSzjbhM7wijaldql2UI4pUyEhOTCJ?usp=share_link)**
+    * **[PiKVM image](https://zcwrego195.feishu.cn/drive/folder/fldcntj64syIznoYuTdRFattP2f)**
 
 ## Flash the image
 
