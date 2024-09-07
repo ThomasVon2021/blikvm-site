@@ -54,7 +54,7 @@ EDID文件作用为，设置被控计算机按照期望的分辨率进行输入�
         tc358743 = "/dev/kvmd-video"
     }
     ```
-## 2. **OLED启用**
+## 3. **OLED启用**
 !!! abstract "PiKVM镜像，按照下面的方法启用OLED。"
     如果您使用PiKVM镜像，请登录到PiKVM并运行以下命令：
     ```
@@ -64,3 +64,29 @@ EDID文件作用为，设置被控计算机按照期望的分辨率进行输入�
     ```
     如果OLED仍然无法工作，您需要检查"/boot/config.txt"文件中是否有"dtparam=i2c_arm=on"，以及"/etc/modules-load.d/i2c.conf"文件中是否有"i2c-dev"。如果没有，请创建并添加它们。
     如果在上述配置之后仍然无法工作，请刻录[blikvm提供的测试镜像](./flashing_os.md)来检查OLED硬件是否损坏。
+
+## 4.**关于 v4mini 镜像的配置**
+如果你想在 blikvm v1 和 v2 上使用 PiKVM v4mini 镜像，由于 v4mini 镜像使用了不同的 GPIO 引脚来控制 ATX，因此你需要进行以下覆盖配置。如果你希望在 blikvm v1 或 v2 版本上运行 v4mini 镜像并能够使用 ATX 控制，你必须进行这些修改；如果不进行更改，ATX 控制将无法正常工作（LED 引脚不同）。
+
+编辑 /etc/kvmd/override.yaml 文件，添加以下内容：
+```
+kvmd:
+    ### 禁用风扇插座检查 ###
+    info:
+        fan:
+            unix: ''
+    atx:
+        hdd_led_pin: 22
+        power_led_pin: 24
+        power_switch_pin: 23
+        reset_switch_pin: 27
+        type: gpio
+    gpio:
+        scheme:
+            __v3_usb_breaker__:
+                pin: 5
+                mode: output
+                initial: false
+                pulse:
+                    delay: 0
+```

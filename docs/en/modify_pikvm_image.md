@@ -68,3 +68,28 @@
     ```
     If the oled still can't work, you need to check whether there has "dtparam=i2c_arm=on" in "/boot/config.txt" file, and whether there has "i2c-dev" in "/etc/modules-load.d/i2c.conf" file. If not, please create and add them.
     If it still does not work after the above configuration, please burn [the image](./flashing_os.md) provided by blikvm for testing to check whether the OLED hardware is damaged.  
+
+## **Config about v4mini image**
+If you want to PiKVM v4mini image for blikvm v1 and v2, because  v4mini image uses different gpio pins for ATX controls, so you will need the following override if you want to run v4mini image on your blikvm v1 or v2 version and be able to use ATX controls; if you don't make this change, ATX controls won't work properly (the led pins are different);
+Edit the /etc/kvmd/override.yaml file and add the following:
+```
+kvmd:
+    ### disable fan socket check ###
+    info:
+        fan:
+            unix: ''
+    atx:
+        hdd_led_pin: 22
+        power_led_pin: 24
+        power_switch_pin: 23
+        reset_switch_pin: 27
+        type: gpio
+    gpio:
+        scheme:
+            __v3_usb_breaker__:
+                pin: 5
+                mode: output
+                initial: false
+                pulse:
+                    delay: 0
+```
