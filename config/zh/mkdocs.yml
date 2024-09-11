@@ -81,6 +81,7 @@ nav:
         - "Zerotier VPN": zerotier.md
         - "设置静态IP": static_ip.md
         - "Wifi配置": wifi.md
+        - "加密证书": https.md
     - "功能说明":
         - "更新软件": update.md
         - "视频&键鼠": hid.md

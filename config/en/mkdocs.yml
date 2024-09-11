@@ -81,6 +81,7 @@ nav:
         - "ZeroTier VPN": zerotier.md
         - "Set Static IP ": static_ip.md
         - "Wifi Config": wifi.md
+        - "Encrypt certificates": https.md
     - "Function":
         - "Upgrade": update.md
         - "Keyboard": hid.md
