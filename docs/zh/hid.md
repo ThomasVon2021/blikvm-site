@@ -1,21 +1,177 @@
 # 视频 键盘 鼠标
 
-# **视频**
-
-视频目前支持两种模式，mjepg和web-rtc(h264), 启动视频传输的脚本路径在`/usr/bin/blikvm/kvmd-video.sh`, 使用`/usr/bin/blikvm/ustreamer.bin`作为可执行程序，其中带有`--h264-sink=demo::ustreamer::h264`适用于Pi系列平台(v1,v2,v3)，带有`--format=MJPEG`的那一行适用于非Pi平台(v4)。 由于图像质量和网络带宽存在不同需求，你可以通过命令行的方式调整一些参数。如
+## **快捷键**
+在v1.4.5版本后，支持自定义快捷键,找到shortcuts配置项目, 其中key为web ui上的按钮名称，value为具体的按键。
 ```
-#传输分辨率，你可以修改为其它分辨率，如1280x720，修改更低分辨率会降低传输带宽需求，同时降低画面质量；
---resolution=1920x1080
-#传输帧率，你可以修改更低分辨率，可以有效降低传输带宽。
---desired-fps=30
+sudo -s
+vim /mnt/exec/release/config/app.json
+## 默认配置如下：
+"shortcuts": {
+    "Ctrl+Alt+Del": ["ControlLeft","AltLeft","Delete"],
+    "Alt+Tab": ["AltLeft","Tab"],
+    "Alt+F4": ["AltLeft","F4"],
+    "Alt+Enter": ["AltLeft","Enter"],
+    "Ctrl+W": ["ControlLeft","KeyW"]
+}
 ```
+??? info "其中按键名称具有唯一性，下面提供具体的按键名称"
+    ```
+        "{backspace}": "Backspace",
+        "{tab}": "Tab",
+        "{enter}": "Enter",
+        "{shiftleft}": "ShiftLeft",
+        "{shiftright}": "ShiftRight",
+        "{altleft}": "AltLeft",
+        "{altright}": "AltRight",
+        "{prtscr}": "PrtScr",
+        "{pause}": "Pause",
+        "{scrolllock}": "ScrollLock",
+        "{controlleft}": "ControlLeft",
+        "{controlright}": "ControlRight",
+        "{metaleft}": "MetaLeft",
+        "{metaright}": "MetaRight",
+        "{capslock}": "CapsLock",
+        "{escape}": "Escape",
+        "{space}": "Space",
+        "{pageup}": "PageUp",
+        "{pagedown}": "PageDown",
+        "{end}": "End",
+        "{home}": "Home",
+        "{arrowleft}": "ArrowLeft",
+        "{arrowup}": "ArrowUp",
+        "{arrowright}": "ArrowRight",
+        "{arrowdown}": "ArrowDown",
+        "{insert}": "Insert",
+        "{delete}": "Delete",
+        // Digits keys
+        1: "Digit1",
+        2: "Digit2",
+        3: "Digit3",
+        4: "Digit4",
+        5: "Digit5",
+        6: "Digit6",
+        7: "Digit7",
+        8: "Digit8",
+        9: "Digit9",
+        0: "Digit0",
+        //
+        "!": "Digit1", // ! maps to the '1' key
+        "@": "Digit2", // @ maps to the '2' key
+        "#": "Digit3", // # maps to the '3' key
+        $: "Digit4", // $ maps to the '4' key
+        "%": "Digit5", // % maps to the '5' key
+        "^": "Digit6", // ^ maps to the '6' key
+        "&": "Digit7", // & maps to the '7' key
+        "*": "Digit8", // * maps to the '8' key
+        "(": "Digit9", // ( maps to the '9' key
+        ")": "Digit0", // ) maps to the '0' key
 
-??? info "再测试时，可以先使用如 `ps -aux | grep ustreamer` 命令将现有的图像传输进程kill掉，手动修改脚本后，重新终端运行`bash /usr/bin/blikvm/kvmd-video.sh`来重新启动图传进程，参数调整符合需求后，可以重新使用`systemctl restart kvmd-video.service`此命令后台运行图传进程"
+        a: "KeyA",
+        b: "KeyB",
+        c: "KeyC",
+        d: "KeyD",
+        e: "KeyE",
+        f: "KeyF",
+        g: "KeyG",
+        h: "KeyH",
+        i: "KeyI",
+        j: "KeyJ",
+        k: "KeyK",
+        l: "KeyL",
+        m: "KeyM",
+        n: "KeyN",
+        o: "KeyO",
+        p: "KeyP",
+        q: "KeyQ",
+        r: "KeyR",
+        s: "KeyS",
+        t: "KeyT",
+        u: "KeyU",
+        v: "KeyV",
+        w: "KeyW",
+        x: "KeyX",
+        y: "KeyY",
+        z: "KeyZ",
+        //
+        A: "KeyA",
+        B: "KeyB",
+        C: "KeyC",
+        D: "KeyD",
+        E: "KeyE",
+        F: "KeyF",
+        G: "KeyG",
+        H: "KeyH",
+        I: "KeyI",
+        J: "KeyJ",
+        K: "KeyK",
+        L: "KeyL",
+        M: "KeyM",
+        N: "KeyN",
+        O: "KeyO",
+        P: "KeyP",
+        Q: "KeyQ",
+        R: "KeyR",
+        S: "KeyS",
+        T: "KeyT",
+        U: "KeyU",
+        V: "KeyV",
+        W: "KeyW",
+        X: "KeyX",
+        Y: "KeyY",
+        Z: "KeyZ",
+        "-": "Minus",
+        _: "Minus",
+        "=": "Equal",
+        "+": "Equal",
+        "[": "BracketLeft",
+        "{": "BracketLeft",
+        "]": "BracketRight",
+        "}": "BracketRight",
+        "|": "Backslash",
+        "\\": "Backslash",
+        "`": "Backquote",
+        "~": "Backquote",
+        ";": "Semicolon",
+        ":": "Semicolon",
+        "'": "Quote",
+        '"': "Quote",
+        ",": "Comma",
+        "<": "Comma",
+        ".": "Period",
+        ">": "Period",
+        "/": "Slash",
+        "?": "Slash",
 
-
-## **键盘**
-虚拟键盘支持组合键使用，具体方法如下，用鼠标点住对应虚拟按键，按下不放，拖到虚拟键盘外再松开，即可完成组合按键的操作。如使用ctrl+alt+del组合键,效果如下:
-![](assets/images/hid/virtually.png){width="500"} 
-
-!!! warning "目前mac电脑cmd+其它按键，同时按下，当松开cmd时，其它按键不会松开，此bug尚未修复。用户可通过点击虚拟键盘未被正确释放的按键先解决此问题"
+        // Numpad keys
+        "{numpad0}": "Numpad0",
+        "{numpad1}": "Numpad1",
+        "{numpad2}": "Numpad2",
+        "{numpad3}": "Numpad3",
+        "{numpad4}": "Numpad4",
+        "{numpad5}": "Numpad5",
+        "{numpad6}": "Numpad6",
+        "{numpad7}": "Numpad7",
+        "{numpad8}": "Numpad8",
+        "{numpad9}": "Numpad9",
+        "{numlock}": "numlock",
+        "{numpadmultiply}": "NumpadMultiply",
+        "{numpadadd}": "NumpadAdd",
+        "{numpadsubtract}": "NumpadSubtract",
+        "{numpaddecimal}": "NumpadDecimal",
+        "{numpaddivide}": "NumpadDivide",
+        "{numpadenter}": "NumpadEnter",
+        // Function keys
+        "{f1}": "F1",
+        "{f2}": "F2",
+        "{f3}": "F3",
+        "{f4}": "F4",
+        "{f5}": "F5",
+        "{f6}": "F6",
+        "{f7}": "F7",
+        "{f8}": "F8",
+        "{f9}": "F9",
+        "{f10}": "F10",
+        "{f11}": "F11",
+        "{f12}": "F12"
+    ```
 
