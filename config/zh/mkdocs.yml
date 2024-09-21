@@ -94,6 +94,7 @@ nav:
         - "HDMI EDID设置": edid.md
         - "修改账号密码": user-manager.md
         - "Wake-on-LAN": wake-on-lan.md
+        - "SSH终端": ssh.md 
     - "安装说明":
         - "v3 HAT安装说明": BLIHAT-Installation.md
         - "v2 PCIe安装说明": BLIKVM-PCIe-installation-zh.md
