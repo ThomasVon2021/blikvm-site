@@ -92,7 +92,6 @@ nav:
         - "U盘驱动": msd.md
         - "串口终端": serial_over_usb.md
         - "HDMI EDID设置": edid.md
-        - "修改账号密码": user-manager.md
         - "Wake-on-LAN": wake-on-lan.md
         - "SSH终端": ssh.md 
     - "安装说明":

@@ -36,14 +36,6 @@
     python3 install_release.py --releasepath=./
     ```
     可以观察/usr/bin/blikvm/package.json前后的版本对比，若升级到了指定版本，则成功，重启生效。
-    
-## **Web界面更新**
-!!! warning "当前web升级功能暂时关闭，请使用命令行更新"
-!!! info "点击更多选项按钮后，找到**检查更新**按钮并点击,若发现可用版本，会出现下图中的弹框，点击**OK**,即进入升级，升级过程中web界面暂时不可操作。通过手动刷新页面，查看目前更新状态。当出现更新成功的消息提醒时，即表示更新已成功，点击重启按钮，新版本软件就会生效。"
-    ![IMG_8366](assets/images/update/update_button.png){width="300"}
-    ![IMG_8366](assets/images/update/update_info.png){width="300"}
-    ![IMG_8366](assets/images/update/upgrading.png){width="300"}
-    ![IMG_8366](assets/images/update/update_reboot.png){width="300"}
 
 
 

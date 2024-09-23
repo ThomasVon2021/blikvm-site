@@ -39,13 +39,3 @@
     python3 install_release.py --releasepath=./
     ```
     You can compare the versions before and after in `/usr/bin/blikvm/package.json`. If you have upgraded to the specified version, the installation is successful, and you can reboot for the changes to take effect.
-
-## **Web UI Update**
-
-!!! warning "The current web upgrade function is temporarily disabled. Please use the command line to update"
-
-!!! info "After clicking the More Options button, find the Check Update button and click it. If the available version is found, the pop-up box in the figure below will appear. Click OK to enter the upgrade process. The web interface is temporarily inoperable during the upgrade process. View the current update status by manually refreshing the page. When the message of successful update appears, it means that the update has been successful. Click the restart button, and the new version of software will take effect."
-    ![IMG_8366](assets/images/update/update_button.png){width="300"}
-    ![IMG_8366](assets/images/update/update_info.png){width="300"}
-    ![IMG_8366](assets/images/update/upgrading.png){width="300"}
-    ![IMG_8366](assets/images/update/update_reboot.png){width="300"}

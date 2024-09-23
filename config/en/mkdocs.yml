@@ -92,7 +92,6 @@ nav:
         - "Serial-over-USB": serial_over_usb.md 
         - "MSD": msd.md
         - "HDMI EDID": edid.md
-        - "User Manager": user-manager.md
         - "Wake-on-LAN": wake-on-lan.md
         - "SSH Terminal": ssh.md 
     - "Installation Instructions":

@@ -316,11 +316,6 @@
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../user-manager/">
-        User Manager
-      </a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="../wake-on-lan/">
         Wake-on-LAN
       </a>
@@ -447,14 +442,12 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="port-forwarding"><strong>Port forwarding</strong></h1>
-<p>If your ISP provides an external IP address for the router, you can configure Port forwarding to access BliKVM:</p>
+<p>After v1.4.7 version If your ISP provides an external IP address for the router, you can configure Port forwarding to access BliKVM:</p>
 <ul>
-<li>The web interface uses the HTTP protocol and occupies port 80;</li>
-<li>If your hardware is v1 v2 v3 and you are using web rtc transmission, the port is 8188;</li>
-<li>If your hardware is v4 and you are using mjepg transmission, the port is 8008;</li>
-<li>Note that the port does not support modification and can only be configured for forwarding;</li>
+<li>If the web interface uses the HTTP protocol and occupies port 80;</li>
+<li>If the web interface uses the HTTPS protocol and occupies port 443;
+If you do not have an external IP address, we suggest trying to use <a href="../tailscale/">Tailscale VPN</a>。</li>
 </ul>
-<p>If you do not have an external IP address, we suggest trying to use <a href="../tailscale/">Tailscale VPN</a>。</p>
 <hr/>
 <div class="md-source-file">
 <small>
