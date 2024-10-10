@@ -101,7 +101,8 @@ nav:
         - "ATX用户手册": atx-guide.md
         - "HDMI转CSI & Audio模块用户手册": hdmi-csi-i2s.md
         - "USB一分二用户手册": usb-splitter-guide.md
-        - "switch切换器手册": switch-guide.md
+        - "switchV1切换器手册": switch-guide.md
+        - "switchV2切换器手册": switchv2-guide.md 
     - "开发者":
         - "制作镜像": make-image.md
         - "配置PiKVM OS": modify_pikvm_image.md

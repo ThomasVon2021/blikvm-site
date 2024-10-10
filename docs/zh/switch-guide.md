@@ -1,4 +1,4 @@
-# **HDMI切换器手册**
+# **BliKVM switch v1 KVM切换器手册**
 !!! tip " BliKVM-Switch-V1.0实际使用和测试视频，支持BliKVM和PiKVM"
     <iframe width="560" height="315" src="//player.bilibili.com/player.html?aid=349888644&bvid=BV16R4y1m7Pt&cid=955481186&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 ## **简介**
@@ -118,8 +118,6 @@ sudo vim /usr/bin/blikvm/package.json
     * 切换到3通道发送给switch的消息为**SW3\r\nG03gA**
     * 切换到4通道发送给switch的消息为**SW4\r\nG04gA**
     * switch返回当前所在通道消息为:**G01gA**,**G02gA**,**G03gA**,**G04gA**
-
-
 
 ## **发货清单**
 

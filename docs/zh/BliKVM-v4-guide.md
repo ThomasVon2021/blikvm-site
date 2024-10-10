@@ -51,7 +51,7 @@ BliKVM v4是一款生产就绪、即插即用的 KVM-over-IP 设备，为专业�
 
 ## **安装步骤**
 **1.** 打开v4套件包装，根据下面所示的连接示意图，将BliKVM和被控计算机连接起来；
-![](assets/images/v4/v4-Connection-Diagram.png)
+![v4-Connection-Diagram](assets/images/v4/v4-Connection-Diagram.png)
 
 **ATX连接**
 请参考[ATX连接指南](./atx.md)。
