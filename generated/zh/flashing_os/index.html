@@ -34,7 +34,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#flashing-the-os-image">
+<a class="md-skip" href="#_1">
           Skip to content
         </a>
 </div>
@@ -300,33 +300,33 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#download-the-image">
-    Download the image
+<a class="md-nav__link" href="#_2">
+    下载镜像
   </a>
-<nav aria-label="Download the image" class="md-nav">
+<nav aria-label="下载镜像" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#blikvm-software">
-    BLIKVM software
+<a class="md-nav__link" href="#blikvm">
+    BLIKVM 软件
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#base-on-pikvm-software">
-    Base on PiKVM software
+<a class="md-nav__link" href="#pikvm">
+    基于 PiKVM 的软件
   </a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#flash-the-image">
-    Flash the image
+<a class="md-nav__link" href="#_3">
+    烧录镜像
   </a>
-<nav aria-label="Flash the image" class="md-nav">
+<nav aria-label="烧录镜像" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#board-link">
-    Board Link
+<a class="md-nav__link" href="#_4">
+    板子链接
   </a>
 </li>
 <li class="md-nav__item">
@@ -335,8 +335,8 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#using-rpi-imager-linux-macos-and-windows">
-    Using RPi Imager (Linux, MacOS and Windows)
+<a class="md-nav__link" href="#rpi-imager-linux-macos-windows">
+    使用 RPi Imager (Linux, MacOS 和 Windows)
   </a>
 </li>
 </ul>
@@ -493,33 +493,33 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#download-the-image">
-    Download the image
+<a class="md-nav__link" href="#_2">
+    下载镜像
   </a>
-<nav aria-label="Download the image" class="md-nav">
+<nav aria-label="下载镜像" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#blikvm-software">
-    BLIKVM software
+<a class="md-nav__link" href="#blikvm">
+    BLIKVM 软件
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#base-on-pikvm-software">
-    Base on PiKVM software
+<a class="md-nav__link" href="#pikvm">
+    基于 PiKVM 的软件
   </a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#flash-the-image">
-    Flash the image
+<a class="md-nav__link" href="#_3">
+    烧录镜像
   </a>
-<nav aria-label="Flash the image" class="md-nav">
+<nav aria-label="烧录镜像" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#board-link">
-    Board Link
+<a class="md-nav__link" href="#_4">
+    板子链接
   </a>
 </li>
 <li class="md-nav__item">
@@ -528,8 +528,8 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#using-rpi-imager-linux-macos-and-windows">
-    Using RPi Imager (Linux, MacOS and Windows)
+<a class="md-nav__link" href="#rpi-imager-linux-macos-windows">
+    使用 RPi Imager (Linux, MacOS 和 Windows)
   </a>
 </li>
 </ul>
@@ -545,12 +545,12 @@
 <a class="md-content__button md-icon" href="https://github.com/ThomasVon2021/blikvm-site/edit/master/docs/zh/flashing_os.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
-<h1 id="flashing-the-os-image">Flashing the OS image</h1>
+<h1 id="_1">烧录镜像</h1>
 <div class="admonition warning">
-<p class="admonition-title">Micro-SD Card Requirements</p>
+<p class="admonition-title">Micro-SD卡配置</p>
 <ul>
-<li>Minimum <strong>16 Gb</strong></li>
-<li><strong>Class 10</strong> is strongly recommended</li>
+<li>最小建议<strong>16 Gb</strong>以上</li>
+<li>推荐使用<strong>Class 10</strong></li>
 </ul>
 </div>
 <div class="admonition example">
@@ -562,103 +562,107 @@
 <li>可以使用PiKVM官方镜像，但需要您根据硬件的不同做一些适配，主要涉及到的有屏幕、风扇等，因PiKVM官网镜像一直再更新，所以具体适配情况需根据当时您使用具体遇到的情况再看；</li>
 </ul>
 </div>
-<h2 id="download-the-image">Download the image</h2>
+<h2 id="_2">下载镜像</h2>
 <div class="admonition info">
 <p class="admonition-title">需要在v4上运行自行安装PiKVM的用户可以参考此<a href="https://github.com/RainCat1998/Bli-PiKVM">说明</a>。</p>
 </div>
-<h3 id="blikvm-software">BLIKVM software</h3>
+<h3 id="blikvm">BLIKVM 软件</h3>
 <div class="admonition info">
-<p class="admonition-title">You可以从下面的链接中下载BliKVM v1 CM4, v2 PCIe, v3 HAT, v4 Allwinner的BliKVM镜像, v1 v2 v3使用同一个镜像。</p>
+<p class="admonition-title">你可以从下面的链接中下载BliKVM v1 CM4, v2 PCIe, v3 HAT, v4 Allwinner的BliKVM镜像, v1 v2 v3使用同一个镜像。</p>
 <ul>
-<li><strong><a href="https://zcwrego195.feishu.cn/drive/folder/fldcn0KhmkuC2DC8nKWcHAMLA6f">BLIKVM image </a></strong> <br/>
+<li><strong><a href="https://zcwrego195.feishu.cn/drive/folder/fldcn0KhmkuC2DC8nKWcHAMLA6f">BLIKVM 镜像</a></strong> <br/>
 Web UI风格如下:<br/>
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/flash_os/english-web-ui.png"><img alt="Image title" src="../assets/images/flash_os/english-web-ui.png" width="300"/></a>
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/flash_os/chinese-web-ui.png"><img alt="Image title" src="../assets/images/flash_os/chinese-web-ui.png" width="300"/></a></li>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/flash_os/english-web-ui.png"><img alt="图片标题" src="../assets/images/flash_os/english-web-ui.png" width="300"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/flash_os/chinese-web-ui.png"><img alt="图片标题" src="../assets/images/flash_os/chinese-web-ui.png" width="300"/></a></li>
 </ul>
 </div>
-<h3 id="base-on-pikvm-software">Base on PiKVM software</h3>
+<h3 id="pikvm">基于 PiKVM 的软件</h3>
 <div class="admonition info">
-<p class="admonition-title">基于PiIKVM的镜像，树莓派4B和CM4不公用一个镜像，进入链接后可看到以各硬件版本(HAT CM4 PCIe)命名的镜像。</p>
+<p class="admonition-title">基于PiKVM的镜像，树莓派4B和CM4不公用一个镜像，进入链接后可看到以各硬件版本(HAT CM4 PCIe)命名的镜像。</p>
 <ul>
-<li><strong><a href="https://zcwrego195.feishu.cn/drive/folder/fldcntj64syIznoYuTdRFattP2f">PiKVM image </a></strong></li>
+<li><strong><a href="https://zcwrego195.feishu.cn/drive/folder/fldcntj64syIznoYuTdRFattP2f">PiKVM 镜像</a></strong></li>
 </ul>
 </div>
-<h2 id="flash-the-image">Flash the image</h2>
+<h2 id="_3">烧录镜像</h2>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Ignore request to format your sd card, this step is not nessessary. Choose the most suitable method for you.
-<a href="https://www.youtube.com/watch?v=jp_mF1RknU4">How to flash the eMMC on a Raspberry Pi Compute Module 4</a></p>
+<p>忽略格式化SD卡的请求，这一步不是必须的。选择最适合你的方法。
+<a href="https://www.youtube.com/watch?v=jp_mF1RknU4">如何在树莓派计算模块4上烧录eMMC</a></p>
 </div>
-<h3 id="board-link">Board Link</h3>
+<h3 id="_4">板子链接</h3>
 <p>如果你使用的CM4是含eMMC的版本，如CM4102016型号。你可以使用v1和v2硬件直接对CM4的eMMC进行烧录。如果你的CM4不带eMMC，而是使用SD卡，你则不需要看此章节。首先在blikvm硬件上对CM4的eMMC进行烧录，你需要先短接boot引脚。</p>
 <div class="admonition info">
-<p class="admonition-title">If you use BLIKVM CM4 version</p>
-<p>Then connect the data cable to the USB OTG interface. Power on blikvm and observe the act light, the green light is always on.<br/>
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/flash_os/flash_led-300x300.png"><img alt="Image title" src="../assets/images/flash_os/flash_led-300x300.png" width="300"/></a></p>
+<p class="admonition-title">如果你使用 BLIKVM CM4 版本</p>
+<p>然后将数据线连接到USB OTG接口。打开blikvm电源并观察act灯，绿灯常亮。<br/>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/flash_os/flash_led-300x300.png"><img alt="图片标题" src="../assets/images/flash_os/flash_led-300x300.png" width="300"/></a></p>
 </div>
 <div class="admonition info">
-<p class="admonition-title">If you use BLIKVM PCIe version</p>
-<p>Then connect the data cable to the USB-PC interface. Power on blikvm and observe the ACT and PWR LED isn't light. 
-After initialize EMMC through the usbboot/rpiboot, the ACT and PWR LED light is always on.<br/>
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/flash_os/pcie-flash-boot.jpg"><img alt="Image title" src="../assets/images/flash_os/pcie-flash-boot.jpg" width="300"/></a>
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/flash_os/pcie_flash_after_rpiboot.jpg"><img alt="Image title" src="../assets/images/flash_os/pcie_flash_after_rpiboot.jpg" width="300"/></a></p>
+<p class="admonition-title">如果你使用 BLIKVM PCIe 版本</p>
+<p>然后将数据线连接到USB-PC接口。打开blikvm电源并观察ACT和PWR LED灯不亮。
+通过usbboot/rpiboot初始化EMMC后，ACT和PWR LED灯常亮。<br/>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/flash_os/pcie-flash-boot.jpg"><img alt="图片标题" src="../assets/images/flash_os/pcie-flash-boot.jpg" width="300"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/flash_os/pcie_flash_after_rpiboot.jpg"><img alt="图片标题" src="../assets/images/flash_os/pcie_flash_after_rpiboot.jpg" width="300"/></a></p>
 </div>
 <div class="admonition tip">
-<p class="admonition-title">EMMC knowledge</p>
-<p>If you use raspberry pi computing modules such as CM3 or CM4 EMMC，you can initialize EMMC through the usbboot. Note that the EMMC version cannot directly use the SD card to start the image.
-From this video you can learn how to flash image quickly.<a href="https://www.youtube.com/watch?v=jp_mF1RknU4">How to flash the eMMC on a Raspberry Pi Compute Module 4 video</a></p>
+<p class="admonition-title">EMMC 知识</p>
+<p>如果你使用树莓派计算模块如CM3或CM4 EMMC，你可以通过usbboot初始化EMMC。注意EMMC版本不能直接使用SD卡启动镜像。
+从这个视频中你可以快速学习如何烧录镜像。<a href="https://www.youtube.com/watch?v=jp_mF1RknU4">如何在树莓派计算模块4上烧录eMMC视频</a></p>
 </div>
-<p><strong>Taking Ubuntu system as an example:</strong></p>
+<p><strong>以Ubuntu系统为参考例子</strong></p>
 <h3 id="linux-usbboot">Linux usbboot</h3>
-<p>If you use an Micro-SD Card, you don't need to care about that.
+<p>如果你使用Micro-SD卡，你不需要关心这个。
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a># sudo apt-get install libusb-1.0-0-dev  
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a># git clone --depth=1 https://github.com/raspberrypi/usbboot
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a># cd usbboot
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a># make
 <a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a># sudo ./rpiboot
 </code></pre></div>
-If the content shown in the figure below appears, it indicates that EMMC initialization is successful.<br/>
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/flash_os/flash_rpiboot.png"><img alt="Image title" src="../assets/images/flash_os/flash_rpiboot.png" width="300"/></a></p>
-<h3 id="using-rpi-imager-linux-macos-and-windows">Using RPi Imager (Linux, MacOS and Windows)</h3>
+如果出现下图所示的内容，则表示EMMC初始化成功。<br/>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/flash_os/flash_rpiboot.png"><img alt="图片标题" src="../assets/images/flash_os/flash_rpiboot.png" width="300"/></a></p>
+<h3 id="rpi-imager-linux-macos-windows">使用 RPi Imager (Linux, MacOS 和 Windows)</h3>
+<div class="admonition warning">
+<p class="admonition-title">请注意不要在RPi Imager对镜像进行任何额外设置，否则大概率会导致镜像启动不了或者反复重启问题。</p>
+</div>
 <ol>
 <li>
-<p>Download and install <strong>the latest version</strong> of <a href="https://github.com/raspberrypi/rpi-imager/releases">RPi Imager</a>.</p>
+<p>下载并安装<strong>最新版本</strong>的<a href="https://github.com/raspberrypi/rpi-imager/releases">RPi Imager</a>。</p>
 </li>
 <li>
-<p>Run RPi Imager:<br/>
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/flash_os/flash_rpi.png"><img alt="Image title" src="../assets/images/flash_os/flash_rpi.png" width="300"/></a></p>
+<p>运行 RPi Imager:<br/>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/flash_os/flash_rpi.png"><img alt="图片标题" src="../assets/images/flash_os/flash_rpi.png" width="300"/></a></p>
 </li>
 <li>
-<p>Press <strong>CHOOSE OS</strong> and select <strong>Use custom</strong> image at bottom of the list:<br/>
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/flash_os/flash_choose_os.png"><img alt="Image title" src="../assets/images/flash_os/flash_choose_os.png" width="300"/></a></p>
+<p>按 <strong>CHOOSE OS</strong> 并在列表底部选择 <strong>Use custom</strong> 镜像:<br/>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/flash_os/flash_choose_os.png"><img alt="图片标题" src="../assets/images/flash_os/flash_choose_os.png" width="300"/></a></p>
 </li>
 <li>
-<p>After clicking on this item, select the image file (<code>.img.xz</code>), then click <strong>CHOOSE STORAGE</strong>:<br/>
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/flash_os/flash_img.png"><img alt="Image title" src="../assets/images/flash_os/flash_img.png" width="300"/></a></p>
+<p>点击此项后，选择镜像文件 (<code>.img.xz</code>)，然后点击 <strong>CHOOSE STORAGE</strong>:<br/>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/flash_os/flash_img.png"><img alt="图片标题" src="../assets/images/flash_os/flash_img.png" width="300"/></a></p>
 </li>
 <li>
-<p>Insert the memory card into the card reader. Choose the card reader from this list. <strong>Be careful</strong> 
-and choose the right device:   </p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/flash_os/flash_storage.png"><img alt="Image title" src="../assets/images/flash_os/flash_storage.png" width="300"/></a></p>
+<p>将内存卡插入读卡器。从此列表中选择读卡器。<strong>小心</strong>并选择正确的设备: <br/>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/flash_os/flash_storage.png"><img alt="图片标题" src="../assets/images/flash_os/flash_storage.png" width="300"/></a></p>
 </li>
 <li>
-<p>After choosing the memory card, press the <strong>WRITE</strong> button. Confirm the operation when you are asked about it:<br/>
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/flash_os/flash_write.png"><img alt="Image title" src="../assets/images/flash_os/flash_write.png" width="300"/></a> </p>
+<p>选择内存卡后，按 <strong>WRITE</strong> 按钮。当被询问时确认操作:<br/>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/flash_os/flash_write.png"><img alt="图片标题" src="../assets/images/flash_os/flash_write.png" width="300"/></a> </p>
 </li>
 <li>
-<p>Wait for the process to finish. Get yourself a coffee or do some stretching :)  </p>
+<p>等待过程完成。喝杯咖啡或做些伸展运动 :)  </p>
 </li>
 </ol>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The process may hang at 99% for a long time, this is okay, just wait for it to complete</p>
+<p>过程可能会在99%时挂起很长时间，这没关系，只需等待完成</p>
 </div>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/flash_os/flash_wait_process.png"><img alt="Image title" src="../assets/images/flash_os/flash_wait_process.png" width="300"/></a></p>
-<p>8.Remove the memory card after successful completion:  </p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/flash_os/flash_write_successful.png"><img alt="Image title" src="../assets/images/flash_os/flash_write_successful.png" width="300"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/flash_os/flash_wait_process.png"><img alt="图片标题" src="../assets/images/flash_os/flash_wait_process.png" width="300"/></a></p>
+<ol>
+<li>成功完成后取出内存卡:<br/>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/flash_os/flash_write_successful.png"><img alt="图片标题" src="../assets/images/flash_os/flash_write_successful.png" width="300"/></a></li>
+</ol>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>If an error occurs during flashing or booting PiKVM, repeat the process.</p>
+<p>如果在烧录或启动PiKVM时发生错误，请重复此过程。</p>
 </div>
 <hr/>
 <div class="md-source-file">

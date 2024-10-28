@@ -299,6 +299,9 @@ Linux raspberrypi 5.10.63-v7l+ #1459 SMP Wed Oct 6 16:41:57 BST 2021 armv7l GNU/
     (Query the car number via ‘arecord –l’, refer to step 9)
 
 ??? note "Pi5B platforms HDMI to CSI module test demo reference."
+
+    !!! warning "In the following test, the CAM1 channel is used, and the input resolution is 1080P24Hz. During the Raspberry Pi 5B test, it was found that the EDID settings were invalid, so an HDMI emulator needs to be added to force the target to output HDMI. Otherwise, the Raspberry Pi 5B may not receive any input. Due to the lack of corresponding hardware encoding on the Raspberry Pi 5B, the image capture performance of the Raspberry Pi 5B + C790 is generally inferior to that of the Raspberry Pi 4B."
+
     Edit /boot/config.txt (sudo permission required).
     ```
     sudo nano /boot/config.txt

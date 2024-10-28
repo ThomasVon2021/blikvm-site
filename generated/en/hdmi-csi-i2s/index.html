@@ -453,7 +453,12 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../switch-guide/">
-        Multiport KVM-over-IP
+        Multiport BliKVM switch V1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../switchv2-guide/">
+        Multiport BliKVM switch V2
       </a>
 </li>
 </ul>
@@ -873,6 +878,9 @@ Note: alsasrc device=hw:1 – “1” means the audio card number, You must chan
 </details>
 <details class="note">
 <summary>Pi5B platforms HDMI to CSI module test demo reference.</summary>
+<div class="admonition warning">
+<p class="admonition-title">In the following test, the CAM1 channel is used, and the input resolution is 1080P24Hz. During the Raspberry Pi 5B test, it was found that the EDID settings were invalid, so an HDMI emulator needs to be added to force the target to output HDMI. Otherwise, the Raspberry Pi 5B may not receive any input. Due to the lack of corresponding hardware encoding on the Raspberry Pi 5B, the image capture performance of the Raspberry Pi 5B + C790 is generally inferior to that of the Raspberry Pi 4B.</p>
+</div>
 <p>Edit /boot/config.txt (sudo permission required).
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a>sudo nano /boot/config.txt
 </code></pre></div>

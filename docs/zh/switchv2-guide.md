@@ -35,12 +35,12 @@ BliSwitch v2是一款8通道KVM+ATX切换器，使8台主机共享一套键盘�
     * 切换到4通道发送给switch的消息为SW8\r\nG07gA
     * switch返回当前所在通道消息为:G01gA,G02gA,G03gA,G04gA,G05gA,G06gA,G07gA,G08gA
 
+## **连接参考**
+![connect](assets/images/Product-Datasheet-BliSwitch-v2.assets/connect.png)
+
 ## **尺寸**
 
 ![Dimensions](assets/images/Product-Datasheet-BliSwitch-v2.assets/Dimensions.png)
-
-## **连接参考**
-![connect](assets/images/Product-Datasheet-BliSwitch-v2.assets/connect.png)
 
 
 ## **发货清单**
@@ -55,9 +55,9 @@ BliSwitch v2是一款8通道KVM+ATX切换器，使8台主机共享一套键盘�
 | 半高PCIe挡板        | 8    | |
 | ATX板              | 8    | |
 | 控制线              | 1    | |
-| USB线         | 1    |1米 |
-| 胶垫         | 4    |1米 |
-| M2.5x5 沉头螺钉 | 10    |1米 |
+| USB线         | 1    | |
+| 胶垫         | 4    | |
+| M2.5x5 沉头螺钉 | 10    | |
 
 ![Dimensions](assets/images/Product-Datasheet-BliSwitch-v2.assets/packlist-removebg-preview.png)
 

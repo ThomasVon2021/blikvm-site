@@ -101,7 +101,8 @@ nav:
         - "ATX Guide": atx-guide.md
         - "HDMI to CSI & Audio": hdmi-csi-i2s.md
         - "USB Splitter": usb-splitter-guide.md
-        - "Multiport KVM-over-IP": switch-guide.md
+        - "Multiport BliKVM switch V1": switch-guide.md
+        - "Multiport BliKVM switch V2": switchv2-guide.md 
     - "Development":
         - "Make Image": make-image.md
         - "Config for PiKVM OS": modify_pikvm_image.md

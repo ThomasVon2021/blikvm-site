@@ -288,6 +288,7 @@ Linux raspberrypi 5.10.63-v7l+ #1459 SMP Wed Oct 6 16:41:57 BST 2021 armv7l GNU/
     (Query the car number via ‘arecord –l’, refer to step 9)
 
 ??? note "Pi5B等平台HDMI转CSI模块测试demo参考"
+    !!! warning "下面测试中，使用cam1通道进行测试，测试输入分辨率为1080P24Hz。树莓派5b测试过程中发现edid设置无效，因此需要通过添加HDMI诱骗器来强制目标设置输出HDMI，否则树莓派5b很有可能获取不到任何输入。由于树莓派5b没有对应的硬编码硬件，所以树莓派5b+C790图像采集能力性能一般，不如用树莓派4b"
     编辑 /boot/config.txt (需要sudo权限)
     ```
     sudo nano /boot/config.txt

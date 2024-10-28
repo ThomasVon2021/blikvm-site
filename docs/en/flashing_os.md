@@ -70,6 +70,8 @@ If the content in the image below appears, that indicates that the eMMC initiali
 
 ### Flash the Image (Linux, MacOS and Windows)
 
+!!! warning "Please do not make any additional settings to the image in RPi Imager, as this will most likely cause the image to fail to boot or repeatedly restart."
+
 We are using the "RPi Imager" application to flash the image in this example.
 
 1. Download and install **the latest version** of [RPi Imager](https://github.com/raspberrypi/rpi-imager/releases).
