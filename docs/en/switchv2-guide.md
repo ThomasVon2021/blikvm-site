@@ -1,4 +1,4 @@
-# **8-port KVM+ATX switch BliSwitch v2**
+# **BliSwitch v2 8-port KVM+ATX switch**
 ![main](assets/images/Product-Datasheet-BliSwitch-v2.assets/front.png)
 ![main](assets/images/Product-Datasheet-BliSwitch-v2.assets/back.png)
 BliSwitch v2 is an 8-channel KVM+ATX switcher that allows 8 hosts to share a set of keyboard, mouse, and HDMI screen, and enables power control of 8 hosts.
