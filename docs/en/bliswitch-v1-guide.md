@@ -1,4 +1,4 @@
-# **HDMI Switch Manual**
+# **BliSwitch v1 4-port KVM switch**
 
 !!! tip "BliKVM-Switch-V1.0 uses and tests video, supporting BliKVM and PiKVM"
     <iframe width="560" height="315" src="https://www.youtube.com/embed/RQ3KxvUsZv8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -115,10 +115,10 @@ BliKVM-Switch-V1.0 uses the same hardware solution as XH-HK4401, AG7210 HDMI swi
 
 !!! info "If you want to use the blicube switch on other platforms, please refer to the following protocol"
     - The communication baud rate is 19200
-    - The message sent to switch by switching to channel 1 is**SW1\r\nG01gA**
-    - The message sent to switch by switching to channel 2 is**SW2\r\nG02gA**
-    - The message sent to switch by switching to channel 3 is**SW3\r\nG03gA**
-    - The message sent to switch by switching to channel 4 is**SW4\r\nG04gA**
+    - The message to switch to channel 1 is**SW1\r\nG01gA**
+    - The message to switch to channel 2 is**SW2\r\nG02gA**
+    - The message to switch to channel 3 is**SW3\r\nG03gA**
+    - The message to switch to channel 4 is**SW4\r\nG04gA**
     - The message returned by the switch for the current channel is:**G01gA**,**G02gA**,**G03gA**,**G04gA**
 
 ## **Packing List**
