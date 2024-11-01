@@ -30,7 +30,7 @@ BliSwitch v2 is an 8-channel KVM+ATX switcher that allows 8 hosts to share a set
     * The message to switch to channel 5 is SW5\r\nG05gA
     * The message to switch to channel 6 is SW6\r\nG06gA
     * The message to switch to channel 7 is SW7\r\nG07gA
-    * The message to switch to channel 8 is SW8\r\nG07gA
+    * The message to switch to channel 8 is SW8\r\nG08gA
     * The message returned by the switch for the current channel is: G01gA, G02gA, G03gA, G04gA, G05gA, G06gA, G07gA, G08gA
 
 ## **Connection Reference**
