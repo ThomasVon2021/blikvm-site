@@ -1,8 +1,16 @@
 # **BliSwitch v2 8-port KVM+ATX switch**
 ![main](assets/images/Product-Datasheet-BliSwitch-v2.assets/front.png)
 ![main](assets/images/Product-Datasheet-BliSwitch-v2.assets/back.png)
-BliSwitch v2 is an 8-channel KVM+ATX switcher that allows 8 hosts to share a set of keyboard, mouse, and HDMI screen, and enables power control of 8 hosts.
+The BliSwitch v2 is an 8-channel KVM+ATX switch for 8 hosts to share input and power.
+Function: 8 hosts share a keyboard, mouse, and display, with power control for all.
+Switch Method: Button or USB control.
 ![main](assets/images/Product-Datasheet-BliSwitch-v2.assets/main.png)
+
+## **Features**
+* **ATX on each port(support button and remote control)**
+* **Full control via web ui**
+* **Compatible with BLIKVM V1, V2, V3 V4 and PikVM hardware.**
+
 
 ## **Port Definition**
 
@@ -30,7 +38,7 @@ BliSwitch v2 is an 8-channel KVM+ATX switcher that allows 8 hosts to share a set
     * The message to switch to channel 5 is SW5\r\nG05gA
     * The message to switch to channel 6 is SW6\r\nG06gA
     * The message to switch to channel 7 is SW7\r\nG07gA
-    * The message to switch to channel 8 is SW8\r\nG08gA
+    * The message to switch to channel 8 is SW8\r\nG08gigA
     * The message returned by the switch for the current channel is: G01gA, G02gA, G03gA, G04gA, G05gA, G06gA, G07gA, G08gA
 
 ## **Connection Reference**
@@ -58,3 +66,7 @@ BliSwitch v2 is an 8-channel KVM+ATX switcher that allows 8 hosts to share a set
 | M2.5x5 countersunk screws | 10     |         |
 
 ![Dimensions](assets/images/Product-Datasheet-BliSwitch-v2.assets/packlist-removebg-preview.png)
+
+## **Buy link**
+
+[Buy Bliswitch v2](https://www.aliexpress.com/item/1005008024603865.html)
