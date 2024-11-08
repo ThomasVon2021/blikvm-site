@@ -1,12 +1,29 @@
-# **OLED display**
+## 策略
+在版本 v1.5.0 之后, 为了避免 OLED/LCD 显示屏烧屏，显示屏的开启时间仅根据其配置进行控制。
 
-由于OLED长期运行，会出现烧屏等问题，故OLED有以下逻辑，首次启动时，oled_enable默认设置为1，即OLED屏幕会常亮。若oled_enable设置为0，则在设备启动300分钟,然后间隔5分钟显示一次，从而大大增加屏幕的生命周期。  
-你可以在/usr/bin/blikvm/package.json配置文件中，找到下面配置，通过修改restart_show_time和interval_display_time时间，达到不同的控制效果，单位为分钟。
+## 配置
 ```
-"oled":{
-    "oled_enable": 1,
-    "restart_show_time": 300,
-    "interval_display_time": 5
+// 所有时间参数均以秒为单位，且必须为 5 的整数倍。
+"Display":{
+    "isActive": true,
+    "mode": 1,              
+    "onBootTime": 3600,     
+    "cycleInterval": 300,
+    "displayTime": 30,
 }
 ```
+使用 `isActive` 激活显示屏 :rotating_light: 。当 `"isActive": "false"` 时，显示屏将不会工作。
 
+## 所有 BliKVM 版本
+
+|模式|描述|
+|-|-|
+|0|始终开启，不考虑任何参数|
+|1|显示屏保持开启 `onBootTime` 秒，然后关闭。取决于 "onBootTime"|
+|2|每个 `cycleInterval` 周期内，显示屏开启 `displayTime` 秒，然后关闭。:rotating_light: 取决于 "cycleInterval" 和 "displayTime"|
+
+## 仅 BliKVM v4 Allwinner
+* 由于 v4 具有 sw1 按钮，如果设置模式为 1。
+行为：
+* 启动时：显示屏开启 `onBootTime` 秒，然后自动关闭。
+* 按下按钮 (sw1)：按下 sw1 显示屏开启 `displayTime` 秒。如果显示屏已经开启，按下 sw1 将没有任何影响。

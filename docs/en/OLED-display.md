@@ -1,19 +1,30 @@
-# OLED display
+## Principle
+After v1.5.0 version, to avoid OLED/LCD display burn-in the display's on-time is only turned on according to its configuration.
 
-Due to prolonged operation, issues such as screen burn-in may occur with the OLED. Therefore, the OLED has the following logic: upon initial startup, `oled_enable` is set to `1` by default, meaning the OLED screen will remain constantly on. If `oled_enable` is set to `0`, the screen will display every 5 minutes after the device has been running for 300 minutes, significantly extending the screen's lifespan.
-
-To customize this behavior, you can locate the following configuration in `/usr/bin/blikvm/package.json`.
-
-```json
-"oled":{
-    "oled_enable": 1,
-    "restart_show_time": 300,
-    "interval_display_time": 5
+## Configuration 
+```
+// All time-parameters are in seconds, and are required to be integer multiples of 5.
+"Display":{
+    "isActive": true,
+    "mode": 1,              
+    "onBootTime": 3600,     
+    "cycleInterval": 300,
+    "displayTime": 30,
 }
 ```
+Use `isActive` to activate the display :rotating_light:  . While `"isActive": "false"`, the display will not function.
 
-Modify the values of `restart_show_time` and `interval_display_time` in minutes to achieve different control effects.
+## All BliKVM versions
 
-## **BliKVM v4 Allwinner**
+|mode||
+|-|-|
+|0|always on, doesn't care about any of the paramters|
+|1|Display remains on for `onBootTime` seconds,  after which the display turns off. Depends on "onBootTime"|
+|2|Every period of `cycleInterval`, the display turns on for `displayTime` seconds`, then turns off. :rotating_light: Depends on "cycleInterval"and "displayTime"|
 
-To power ON/OFF the display manually, please press and hold the `SW2` button on the front panel.
+## Only BliKVM v4 Allwinner
+* Since v4 has the sw1 buttons, if set mode to 1.
+Behavior:
+* On Boot: the display turns on for `onBootTime` seconds, then automatically turns off.
+* On Button Press (sw1): Pressing sw1 turns on the display for `displayTime` seconds. If the display is already on, pressing sw1 will have no impact at all.
+

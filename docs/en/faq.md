@@ -5,7 +5,7 @@ As a first step, we recommend carefully reading our documentation. Most steps to
 ## **Common Questions**
 
 ??? question "Can I connect multiple servers to a single BLIKVM?"
-    Yes, but it requires additional work to set up. See [this page](switch-guide.md).
+    Yes, but it requires additional work to set up. See [this page](bliswitch-v2-guide.md).
 
 ??? question "How can I get the access to PiKVM in my local network over Internet?"
     If your router has an external IP address, you can use port forwarding to forward port 80 (Web), port 8008 (mjpeg), and port 8188 (webrtc) In all other cases, you can use the excellent free VPN service Tailscale.

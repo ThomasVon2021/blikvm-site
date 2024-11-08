@@ -5,7 +5,7 @@
 ## 常见问题
 
 ??? question "我可以将多台服务器连接到单个BLIKVM吗？"
-    可以，但需要进行额外的设置工作。请参考[此页面](switch-guide.md)。
+    可以，但需要进行额外的设置工作。请参考[此页面](bliswitch-v2-guide.md)。
 
 ??? question "如何在本地网络上通过互联网访问BliKVM？"
     如果您的路由器具有外部IP地址，您可以使用端口转发来转发80端口(Web),8008端口(mjpeg)，8188端口（webrtc）。在其他情况下，您可以使用出色的免费VPN服务Tailscale。
