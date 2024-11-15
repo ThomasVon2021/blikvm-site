@@ -1,5 +1,7 @@
 # Software update introduction
 
+!!! info "If you are running an older version then we recommend first reflashing and subsequently running the update process, while you are next to your BliKVM device. "
+
 ## **Introduction**
 
 !!! note "The currently available versions of the BLIKVM project are hosted in the release package of the GitHub. The update software function needs to keep the device connected. There are currently two ways to update the software."

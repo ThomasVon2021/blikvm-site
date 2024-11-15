@@ -509,13 +509,14 @@
 <p>After v1.5.0 version, to avoid OLED/LCD display burn-in the display's on-time is only turned on according to its configuration.</p>
 <h2 id="configuration">Configuration</h2>
 <p><div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>// All time-parameters are in seconds, and are required to be integer multiples of 5.
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>"Display":{
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    "isActive": true,
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    "mode": 1,              
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    "onBootTime": 3600,     
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    "cycleInterval": 300,
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>    "displayTime": 30,
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>}
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>// This json file is on /mnt/exec/release/config/app.json
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>"Display":{
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    "isActive": true,
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    "mode": 1,              
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    "onBootTime": 3600,     
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>    "cycleInterval": 300,
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>    "displayTime": 30,
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>}
 </code></pre></div>
 Use <code>isActive</code> to activate the display :rotating_light:  . While <code>"isActive": "false"</code>, the display will not function.</p>
 <h2 id="all-blikvm-versions">All BliKVM versions</h2>
@@ -553,7 +554,7 @@ Behavior:</li>
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 15, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 8, 2024</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 10, 2022</span>

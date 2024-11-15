@@ -14,10 +14,16 @@
 
 !!! info "需要在v4上运行自行安装PiKVM的用户可以参考此[说明](https://github.com/RainCat1998/Bli-PiKVM)。"
 
-### BLIKVM 软件
-!!! info "你可以从下面的链接中下载BliKVM v1 CM4, v2 PCIe, v3 HAT, v4 Allwinner的BliKVM镜像, v1 v2 v3使用同一个镜像。"
-    * **[BLIKVM 镜像](https://zcwrego195.feishu.cn/drive/folder/fldcn0KhmkuC2DC8nKWcHAMLA6f)**   
-    Web UI风格如下:  
+### BliKVM 版本和软件镜像兼容性
+
+!!! info "以下 BliKVM 版本使用相同的 BliKVM v1-3 软件镜像："
+    [BliKVM v1 CM4 BliKVM v2 PCIe BliKVM v3 HAT](https://zcwrego195.feishu.cn/drive/folder/JgKdfGYX0lxLQ9ddqCscxwFnnhb?from=from_copylink)
+
+!!! info "BliKVM v4 Allwinner 使用单独的 Allwinner BliKVM 镜像。"
+    [BliKVM v4](https://zcwrego195.feishu.cn/drive/folder/MhU7f2LFKlIe4JdJjKMcXDzDnoc?from=from_copylink)
+
+!!! info "Web UI"
+    所有支持的版本的 Web UI 都保持一致，便于远程管理。
     ![图片标题](assets/images/flash_os/english-web-ui.png){width="300"}
     ![图片标题](assets/images/flash_os/chinese-web-ui.png){width="300"}
 

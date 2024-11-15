@@ -4,6 +4,7 @@
 ## 配置
 ```
 // 所有时间参数均以秒为单位，且必须为 5 的整数倍。
+// 配置文件路径在/mnt/exec/release/config/app.json
 "Display":{
     "isActive": true,
     "mode": 1,              

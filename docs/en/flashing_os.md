@@ -14,11 +14,16 @@
 
 !!! info "Users who need to run PiKVM on v4 by yourself can refer to this [doc](https://github.com/RainCat1998/Bli-PiKVM)."
 
-### BLIKVM software
+### BliKVM Versions and Software Image Compatibility
 
-!!! info "You can find BliKVM v1 CM4, v2 PCIe, v3 HAT, v4 Allwinner BLIKVM software image, v1 v2 v3 use a same image."
-    - [**BLIKVM image**](https://zcwrego195.feishu.cn/drive/folder/fldcn0KhmkuC2DC8nKWcHAMLA6f)
-    The web UI style is as follows:  
+!!! info "The following BliKVM versions use the same BliKVM v1-3 software image:"
+    [BliKVM v1 CM4 BliKVM v2 PCIe BliKVM v3 HAT](https://zcwrego195.feishu.cn/drive/folder/JgKdfGYX0lxLQ9ddqCscxwFnnhb?from=from_copylink)
+
+!!! info "BliKVM v4 Allwinner, uses a separate Allwinner BliKVM image."
+    [BliKVM v4](https://zcwrego195.feishu.cn/drive/folder/MhU7f2LFKlIe4JdJjKMcXDzDnoc?from=from_copylink)
+
+!!! info "Web UI"
+    The web UI is consistent across all supported versions for easy remote administration. 
     ![Image title](assets/images/flash_os/english-web-ui.png){width="300"}
     ![Image title](assets/images/flash_os/chinese-web-ui.png){width="300"}
 

@@ -4,6 +4,7 @@ After v1.5.0 version, to avoid OLED/LCD display burn-in the display's on-time is
 ## Configuration 
 ```
 // All time-parameters are in seconds, and are required to be integer multiples of 5.
+// This json file is on /mnt/exec/release/config/app.json
 "Display":{
     "isActive": true,
     "mode": 1,              
