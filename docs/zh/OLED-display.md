@@ -13,7 +13,7 @@
     "displayTime": 30,
 }
 ```
-使用 `isActive` 激活显示屏 :rotating_light: 。当 `"isActive": "false"` 时，显示屏将不会工作。
+当 `isActive`: `true` 激活显示屏 。当 `"isActive": "false"` 时，显示屏将不会工作。
 
 ## 所有 BliKVM 版本
 
