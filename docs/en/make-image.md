@@ -2,6 +2,12 @@
 
 When you have made modifications to an image and want to create your own image, you can follow the steps below on Linux to create a minimal image.
 
+0. 
+```
+touch /mnt/tmp/firstboot
+> ~/.bash_history
+```
+
 1. Firstly, use the `gparted` software to open the SD card of the image you want to create. Use `gparted` to partition the unused space and set it as unallocated. This ensures that this portion of empty space without any valid content is not included in the image creation.
    ![Image title](assets/images/make-image/gparted.png){width="400"}
 

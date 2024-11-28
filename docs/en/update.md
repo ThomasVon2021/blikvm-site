@@ -21,12 +21,7 @@
 !!! info "In the terminal，if the system terminal shows the `ro` keyword that means your system is currently in read-only, it is necessary to use the `rw` command to make the system writable."
     ```
     sudo -i
-    cd /opt/bin/blikvm/
-    git stash
-    git pull --rebase
-    python3 /opt/bin/blikvm/script/update.py
-    # If you want test the newest alpha version, use:
-    python3 /opt/bin/blikvm/script/update.py alpha
+    curl -L https://raw.githubusercontent.com/ThomasVon2021/blikvm/master/script/update.py -o /tmp/update.py && python3 /tmp/update.py
     ```
    Observe the output of the terminal. When you see the message of a successful upgrade, enter in the terminal the: `reboot` command and the reboot should take effect.
 

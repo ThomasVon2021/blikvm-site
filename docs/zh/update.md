@@ -20,11 +20,7 @@
 !!! info "ssh进入设备终端。若当前系统终端可以看到ro关键字，为只读系统，需使用`rw`让系统为可写权限。"
     ```
     sudo -i
-    cd /opt/bin/blikvm/
-    git pull --rebase
-    python3 /opt/bin/blikvm/script/update.py
-    //如果你想测试最新的测试版本，使用下面的命令
-    python3 /opt/bin/blikvm/script/update.py alpha
+    curl -L https://raw.githubusercontent.com/ThomasVon2021/blikvm/master/script/update.py -o /tmp/update.py && python3 /tmp/update.py
     ```
     观察终端输出，当看到升级升级成功消息提醒时，终端输入reboot，重启生效。
 
