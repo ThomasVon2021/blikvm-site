@@ -60,10 +60,10 @@ To configure a static IP address on a BliKVM image, you can follow these steps:
    Adjust the values according to your network configuration.
 
 5. Save the changes.
-6. Restart the BliKVM for the changes to take effect:
+6. Restart the NetworkManager for the changes to take effect:
 
    ```bash
-   sudo reboot
+   sudo systemctl restart NetworkManager
    ```
 
 After the reboot, your BliKVM will use the configured static IP address instead of obtaining one dynamically from a DHCP server. Make sure the static IP address you choose is not already assigned to another device on the network and is within the same subnet.

@@ -446,7 +446,7 @@
 <a class="md-content__button md-icon" href="https://github.com/ThomasVon2021/blikvm-site/edit/master/docs/en/https.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
-<h1 id="encryption-certificate">Encryption Certificate</h1>
+<h1 id="encryption-certificate"><strong>Encryption Certificate</strong></h1>
 <p>From version v1.4.9, blikvm defaults to HTTPS. Even if you access via HTTP, it will automatically redirect to HTTPS:
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo -s
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>vim /mnt/exec/release/config/app.json
@@ -458,6 +458,91 @@ Find the following configuration content. The key and cert are located in the pa
 <a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>    "cert": "./lib/https/cert.pem"
 <a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>}
 </code></pre></div></p>
+<h1 id="lets-encrypt"><strong>Let's Encrypt</strong></h1>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>You need a publicly valid domain name to use Let's Encrypt. This example uses the domain blikvm.space.</p>
+</div>
+<ol>
+<li>Start applying for the certificate
+Run the following command to start applying for the certificate:
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>certbot certonly --manual --preferred-challenges dns -d example.com
+</code></pre></div></li>
+<li>
+<p>Add a DNS record in the domain console.
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>Saving debug log to /var/log/letsencrypt/letsencrypt.log
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>Plugins selected: Authenticator manual, Installer None
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>Requesting a certificate for blikvm.space
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>Performing the following challenges:
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>dns-01 challenge for blikvm.space
+<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>
+<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>Please deploy a DNS TXT record under the name
+<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>_acme-challenge.blikvm.space with the following value:
+<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a>
+<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a>UyC2WAhvG9zDuyDPKAHovW6y-RxpZ1_KB8XnT4UyAnc
+<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a>
+<a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a>Before continuing, verify the record is deployed.
+<a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+<a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a>Press Enter to Continue
+</code></pre></div>
+After executing the above command, you will see similar output. Follow the prompts to log in to the domain backend (such as Amazon Cloud, Alibaba Cloud, Tencent Cloud, etc.), add a TXT record named _acme-challenge.example.com, and use UyC2WAhvG9zDuyDPKAHovW6y-RxpZ1_KB8XnT4UyAnc as the record value.</p>
+</li>
+<li>
+<p>When the DNS record takes effect, press Enter to continue.</p>
+</li>
+</ol>
+<div class="admonition warn">
+<p class="admonition-title">Warn</p>
+<ul>
+<li>DNS records do not take effect immediately, so press Enter later.</li>
+<li>Use the command nslookup -type=TXT _acme-challenge.blikvm.space to verify if the DNS is effective, as shown below:
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>root@blikvm(rw):/mnt/tmp# nslookup -type=TXT _acme-challenge.blikvm.space
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>Server:     192.168.8.1
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>Address:    192.168.8.1#53
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>Non-authoritative answer:
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a>_acme-challenge.blikvm.space    text = "UyC2WAhvG9zDuyDPKAHovW6y-RxpZ1_KB8XnT4UyAnc"
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a>Authoritative answers can be found from:
+</code></pre></div></li>
+</ul>
+</div>
+<p>You will receive a certificate application success prompt (similar to the following content):
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>Waiting for verification...
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>Cleaning up challenges
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>Subscribe to the EFF mailing list (email: info@blicube.com).
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>IMPORTANT NOTES:
+<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a> - Congratulations! Your certificate and chain have been saved at:
+<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a>   /etc/letsencrypt/live/blikvm.space/fullchain.pem
+<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a>   Your key file has been saved at:
+<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a>   /etc/letsencrypt/live/blikvm.space/privkey.pem
+<a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a>   Your certificate will expire on 2025-03-04. To obtain a new or
+<a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a>   tweaked version of this certificate in the future, simply run
+<a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a>   certbot again. To non-interactively renew *all* of your
+<a href="#__codelineno-5-13" id="__codelineno-5-13" name="__codelineno-5-13"></a>   certificates, run "certbot renew"
+<a href="#__codelineno-5-14" id="__codelineno-5-14" name="__codelineno-5-14"></a> - If you like Certbot, please consider supporting our work by:
+<a href="#__codelineno-5-15" id="__codelineno-5-15" name="__codelineno-5-15"></a>
+<a href="#__codelineno-5-16" id="__codelineno-5-16" name="__codelineno-5-16"></a>   Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+<a href="#__codelineno-5-17" id="__codelineno-5-17" name="__codelineno-5-17"></a>   Donating to EFF:                    https://eff.org/donate-le
+</code></pre></div>
+4. Use the certificate
+According to step 3, you can see that the certificate path is in /etc/letsencrypt/live/blikvm.space/. Modify the configuration file:
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>vim /mnt/exec/release/config/app.json
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>Replace the following key and cert with
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a>"server": {
+<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a>    "ssl": {
+<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>    "key": "/etc/letsencrypt/live/blikvm.space/privkey.pem",
+<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a>    "cert": "/etc/letsencrypt/live/blikvm.space/fullchain.pem"
+<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a>}
+</code></pre></div>
+5. Set the local domain name for blikvm. Open /etc/hosts on the PC, and add the following line. The IP and domain name here depend on your actual situation.
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>192.168.8.16 blikvm.space
+</code></pre></div></p>
+<ol>
+<li>Then you can directly access blikvm using the domain name.
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/https/letsencrypt.png"><img alt="" src="../assets/images/https/letsencrypt.png" width="400"/></a></li>
+</ol>
 <hr/>
 <div class="md-source-file">
 <small>

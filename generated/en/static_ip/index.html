@@ -534,9 +534,9 @@
 <p>Adjust the values according to your network configuration.</p>
 <ol>
 <li>Save the changes.</li>
-<li>Restart the BliKVM for the changes to take effect:</li>
+<li>Restart the NetworkManager for the changes to take effect:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>sudo reboot
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>sudo systemctl restart NetworkManager
 </code></pre></div>
 <p>After the reboot, your BliKVM will use the configured static IP address instead of obtaining one dynamically from a DHCP server. Make sure the static IP address you choose is not already assigned to another device on the network and is within the same subnet.</p>
 <hr/>

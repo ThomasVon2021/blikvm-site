@@ -38,10 +38,10 @@
    dns-nameservers 192.168.0.1
    ```
    注意：根据您的网络设置，可能需要修改上述示例中的IP地址、网关和DNS服务器的值。
-4. 保存文件并退出编辑器。
-5. 重新启动BliKVM以使静态IP设置生效：
+4. 保存文件并退出编辑器, 
+5. 重新启动NetworkManager以使静态IP设置生效：
    ```
-   sudo reboot
+   sudo systemctl restart NetworkManager
    ```
 
 根据您的网络环境和需求，您可以根据上述步骤自定义配置静态IP地址。请确保IP地址、网关和DNS服务器的设置与您的网络设置相匹配。

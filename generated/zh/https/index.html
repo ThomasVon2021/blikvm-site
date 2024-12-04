@@ -441,7 +441,7 @@
 <a class="md-content__button md-icon" href="https://github.com/ThomasVon2021/blikvm-site/edit/master/docs/zh/https.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
-<h1 id="_1">加密证书</h1>
+<h1 id="_1"><strong>加密证书</strong></h1>
 <p>blikvm v1.4.9版本后,默认为https启动，即使访问http也会自动被重定向到https:
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo -s
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>vim /mnt/exec/release/config/app.json
@@ -453,6 +453,91 @@
 <a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>    "cert": "./lib/https/cert.pem"
 <a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>}
 </code></pre></div></p>
+<h1 id="lets-encrypt">Let's Encrypt申请合法证书:</h1>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>你需要有一个公网合法的域名才能使用Let's Encrypt,本说明以blikvm.space域名为例</p>
+</div>
+<ol>
+<li>开始申请证书
+执行如下命令开始申请证书：
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>certbot certonly --manual --preferred-challenges dns -d example.com
+</code></pre></div></li>
+<li>
+<p>在域名控制台中添加解析记录.
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>Saving debug log to /var/log/letsencrypt/letsencrypt.log
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>Plugins selected: Authenticator manual, Installer None
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>Requesting a certificate for blikvm.space
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>Performing the following challenges:
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>dns-01 challenge for blikvm.space
+<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>
+<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>Please deploy a DNS TXT record under the name
+<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>_acme-challenge.blikvm.space with the following value:
+<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a>
+<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a>UyC2WAhvG9zDuyDPKAHovW6y-RxpZ1_KB8XnT4UyAnc
+<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a>
+<a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a>Before continuing, verify the record is deployed.
+<a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+<a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a>Press Enter to Continue
+</code></pre></div>
+执行完上面命令后,会有如上类似输出，根据上面提示，登录域名后台（比如亚马逊云，阿里云、腾讯云等等），添加名为 _acme-challenge.example.com 的 TXT 记录，并使用 UyC2WAhvG9zDuyDPKAHovW6y-RxpZ1_KB8XnT4UyAnc 作为记录值。 </p>
+</li>
+<li>
+<p>当DNS记录生效后，点击回车继续  </p>
+</li>
+</ol>
+<div class="admonition warn">
+<p class="admonition-title">Warn</p>
+<ul>
+<li>由于 DNS 记录不会马上生效，所以稍后再按回车键。</li>
+<li>使用 nslookup -type=TXT _acme-challenge.blikvm.space 命令验证 DNS 是否生效，生效如下:
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>root@blikvm(rw):/mnt/tmp# nslookup -type=TXT _acme-challenge.blikvm.space
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>Server:     192.168.8.1
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>Address:    192.168.8.1#53
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>Non-authoritative answer:
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a>_acme-challenge.blikvm.space    text = "UyC2WAhvG9zDuyDPKAHovW6y-RxpZ1_KB8XnT4UyAnc"
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a>Authoritative answers can be found from:
+</code></pre></div></li>
+</ul>
+</div>
+<p>将会收到证书申请成功的提示（类似如下内容）：
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>Waiting for verification...
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>Cleaning up challenges
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>Subscribe to the EFF mailing list (email: info@blicube.com).
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>IMPORTANT NOTES:
+<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a> - Congratulations! Your certificate and chain have been saved at:
+<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a>   /etc/letsencrypt/live/blikvm.space/fullchain.pem
+<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a>   Your key file has been saved at:
+<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a>   /etc/letsencrypt/live/blikvm.space/privkey.pem
+<a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a>   Your certificate will expire on 2025-03-04. To obtain a new or
+<a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a>   tweaked version of this certificate in the future, simply run
+<a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a>   certbot again. To non-interactively renew *all* of your
+<a href="#__codelineno-5-13" id="__codelineno-5-13" name="__codelineno-5-13"></a>   certificates, run "certbot renew"
+<a href="#__codelineno-5-14" id="__codelineno-5-14" name="__codelineno-5-14"></a> - If you like Certbot, please consider supporting our work by:
+<a href="#__codelineno-5-15" id="__codelineno-5-15" name="__codelineno-5-15"></a>
+<a href="#__codelineno-5-16" id="__codelineno-5-16" name="__codelineno-5-16"></a>   Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+<a href="#__codelineno-5-17" id="__codelineno-5-17" name="__codelineno-5-17"></a>   Donating to EFF:                    https://eff.org/donate-le
+</code></pre></div>
+4. 使用证书
+根据步骤3可以看到证书路径在/etc/letsencrypt/live/blikvm.space/，修改配置文件：
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>vim /mnt/exec/release/config/app.json
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>将下面key和cert替换为
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a>"server": {
+<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a>    "ssl": {
+<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>    "key": "/etc/letsencrypt/live/blikvm.space/privkey.pem",
+<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a>    "cert": "/etc/letsencrypt/live/blikvm.space/fullchain.pem"
+<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a>}
+</code></pre></div>
+5. 设置blikvm的局域网域名，在pc上打开/etc/hosts,如可以增加下面这一行，这里的ip和域名根据你的实际情况而定
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>192.168.8.16 blikvm.space
+</code></pre></div></p>
+<ol>
+<li>然后你就可以直接用域名访问blikvm。
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/https/letsencrypt.png"><img alt="" src="../assets/images/https/letsencrypt.png" width="400"/></a> </li>
+</ol>
 <hr/>
 <div class="md-source-file">
 <small>
