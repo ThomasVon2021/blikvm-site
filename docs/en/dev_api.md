@@ -6,10 +6,10 @@ This document is the HTTP API development manual for BLIKVM OS. If you have new 
 
 ### **Authentication**
 
-This API is used for user login and returns an access token. Some APIs within the system require a valid token for access.
+This API is used for user login and returns an access token. This token expires after 12 hours and can be presented as a bearer token for APIs that require authentication.
 
-- Request URL: `http://kvmip/login_api`  
-- Request Method: GET  
+- Request URL: `https://kvmip/api/login`
+- Request Method: POST
 - Request Body: JSON format, for example:
 
 ```
