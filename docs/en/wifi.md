@@ -22,7 +22,7 @@
 
 ## **v4 Hardware using Armbian System with armbian-config**
 
-1. Log in via SSH using the command: `ssh blikvm@ip` to access the Armbian system.
+1. Log in via SSH using the command: `ssh blikvm@ip` to access the Armbian system. If it is a read-only system, you need to first use the command 'rw' to make it read-write, and use the command 'sudo chmod 777-R/etc/NetworkManager/system connections' to give the corresponding folder permissions.
 2. Enter the following command to launch the `armbian-config` tool:
 
 ```bash

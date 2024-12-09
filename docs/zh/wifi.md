@@ -21,7 +21,7 @@
 
 ## **v4硬件使用的为armbian系统，使用armbian-config**
 
-1. 登录ssh,命令: ssh blikvm@ip，登录到 Armbian 系统。
+1. 登录ssh,命令: ssh blikvm@ip，登录到 Armbian 系统. 如果是只读系统需要先使用命令`rw`变为可读写,并且使用命令`sudo chmod 777 -R /etc/NetworkManager/system-connections`给对应文件夹权限。
 2. 输入以下命令以启动 `armbian-config` 工具：
    ```
    sudo armbian-config

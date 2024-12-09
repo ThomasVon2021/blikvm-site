@@ -505,7 +505,7 @@
 </ol>
 <h2 id="v4armbianarmbian-config"><strong>v4硬件使用的为armbian系统，使用armbian-config</strong></h2>
 <ol>
-<li>登录ssh,命令: ssh blikvm@ip，登录到 Armbian 系统。</li>
+<li>登录ssh,命令: ssh blikvm@ip，登录到 Armbian 系统. 如果是只读系统需要先使用命令<code>rw</code>变为可读写,并且使用命令<code>sudo chmod 777 -R /etc/NetworkManager/system-connections</code>给对应文件夹权限。</li>
 <li>输入以下命令以启动 <code>armbian-config</code> 工具：
    <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo armbian-config
 </code></pre></div></li>

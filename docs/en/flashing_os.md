@@ -3,6 +3,7 @@
 !!! warning "Micro-SD Card Requirements"
     - Minimum **16 Gb**
     - **Class 10** is strongly recommended
+    - When flashing an image, if using tools such as RPi Imager, please do not make any presets before flashing, otherwise it will cause the image to fail to start.
 
 !!! Example "Why are there two versions of software, BLIKVM and PiKVM? What is the difference between the two versions? Which one should I choose? Can I use the official image of PiKVM?"
     - At the beginning of the BLIKVM project, the hardware was developed, and the software directly used PiKVM. With the continuous progress of the project, BLIKVM has developed its own software version of new architecture, which also lays the foundation for deeper cooperation with its own hardware;

@@ -510,7 +510,7 @@
 </ol>
 <h2 id="v4-hardware-using-armbian-system-with-armbian-config"><strong>v4 Hardware using Armbian System with armbian-config</strong></h2>
 <ol>
-<li>Log in via SSH using the command: <code>ssh blikvm@ip</code> to access the Armbian system.</li>
+<li>Log in via SSH using the command: <code>ssh blikvm@ip</code> to access the Armbian system. If it is a read-only system, you need to first use the command 'rw' to make it read-write, and use the command 'sudo chmod 777-R/etc/NetworkManager/system connections' to give the corresponding folder permissions.</li>
 <li>Enter the following command to launch the <code>armbian-config</code> tool:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo armbian-config
