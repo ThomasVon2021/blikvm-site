@@ -551,15 +551,10 @@ BliKVM-Switch-V1.0 uses the same hardware solution as XH-HK4401, AG7210 HDMI swi
 </div>
 <h2 id="software-configuration"><strong>Software Configuration</strong></h2>
 <div class="admonition info">
-<p class="admonition-title">If you are using BliKVM software and have powered on the switch and connected the cables before starting BliKVM, no additional configuration is needed. BliKVM will automatically detect the switch when it starts.</p>
-<p>If automatic detection fails, you can manually specify the switch device:</p>
-<ol>
-<li>Confirm the device descriptor name of the switch by using the terminal, such as <code>/dev/ttyUSB0</code>.</li>
-<li>Edit the <code>switch_handle</code> field in <code>/usr/bin/blikvm/package.json</code>. Set <code>switch_enable</code> to <code>1</code> and <code>switch_path</code> to <code>/dev/ttyUSB0</code> in the configuration.</li>
-<li>Restart BliKVM.</li>
-<li>Click <strong>MORE</strong> in  the lower left corner, find the BliKVM switch column, and then switch. Note that the flashing blue dot of the corresponding channel indicates that the switch insertion is recognized and is in the current channel. If there is no blue dot, the switch insertion is not recognized.
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/switch/blikvm-soft-switch.png"><img alt="" src="../assets/images/switch/blikvm-soft-switch.png" width="600"/></a></li>
-</ol>
+<p class="admonition-title">If you are using BliKVM software, from version 1.5.3 onwards, power on the switch and connect the cables before starting BliKVM, then enable and configure it through the web interface.</p>
+<ul>
+<li>If multiple USB devices are connected, use the command <code>ls /dev/ttyUSB*</code> to identify the switch's device name, then configure it through the web interface.</li>
+</ul>
 </div>
 <div class="admonition info">
 <p class="admonition-title">If you use PiKVM software, please configure it according to the following instructions.</p>
@@ -617,7 +612,12 @@ BliKVM-Switch-V1.0 uses the same hardware solution as XH-HK4401, AG7210 HDMI swi
 <a href="#__codelineno-0-48" id="__codelineno-0-48" name="__codelineno-0-48"></a>                - ["#Input 3", ch2_led, ch2_button]
 <a href="#__codelineno-0-49" id="__codelineno-0-49" name="__codelineno-0-49"></a>                - ["#Input 4", ch3_led, ch3_button]
 </code></pre></div></li>
+<li>Use the <code>ro</code> command on the terminal to reset the system to a read-only system;</li>
+<li>Use <code>systemctl restart kvmd</code> on the terminal to restart the service;</li>
+<li>Enter the PiKVM web interface and click the "GPIO" menu. You should see 4 inputs, one of which has a green circle to indicate that it is currently selected. Click a different input to change the selected host.
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/switch/pikvm-soft-switch.png"><img alt="soft-sw" src="../assets/images/switch/pikvm-soft-switch.png" width="600"/></a></li>
 </ol>
+</div>
 <div class="admonition warning">
 <p class="admonition-title"> The above configuration is based on the 2022 PiKVM image. If you are using the latest PiKVM image or latest software version, edit <code>/etc/kvmd/override.yaml</code> and add the line: <code>protocol: 2</code>. Example:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>kvmd:
@@ -632,13 +632,6 @@ BliKVM-Switch-V1.0 uses the same hardware solution as XH-HK4401, AG7210 HDMI swi
 <a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>        driver: hk
 <a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>        ...
 </code></pre></div>
-</div>
-<ol>
-<li>Use the <code>ro</code> command on the terminal to reset the system to a read-only system;</li>
-<li>Use <code>systemctl restart kvmd</code> on the terminal to restart the service;</li>
-<li>Enter the PiKVM web interface and click the "GPIO" menu. You should see 4 inputs, one of which has a green circle to indicate that it is currently selected. Click a different input to change the selected host.
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/switch/pikvm-soft-switch.png"><img alt="soft-sw" src="../assets/images/switch/pikvm-soft-switch.png" width="600"/></a></li>
-</ol>
 </div>
 <h2 id="control-protocol"><strong>Control Protocol</strong></h2>
 <div class="admonition info">
@@ -704,7 +697,7 @@ BliKVM-Switch-V1.0 uses the same hardware solution as XH-HK4401, AG7210 HDMI swi
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 31, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 11, 2024</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 7, 2023</span>

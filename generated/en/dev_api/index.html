@@ -500,10 +500,10 @@
 </div>
 <p>This document is the HTTP API development manual for BLIKVM OS. If you have new API requirements not covered in this document, you can submit a pull request on GitHub to seek support. Please replace the kvmip in the request URL with the actual IP address of your KVM.</p>
 <h3 id="authentication"><strong>Authentication</strong></h3>
-<p>This API is used for user login and returns an access token. Some APIs within the system require a valid token for access.</p>
+<p>This API is used for user login and returns an access token. This token expires after 12 hours and can be presented as a bearer token for APIs that require authentication.</p>
 <ul>
-<li>Request URL: <code>http://kvmip/login_api</code> </li>
-<li>Request Method: GET  </li>
+<li>Request URL: <code>https://kvmip/api/login</code></li>
+<li>Request Method: POST</li>
 <li>Request Body: JSON format, for example:</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>{
@@ -651,7 +651,7 @@
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 25, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 7, 2024</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 3, 2023</span>

@@ -416,16 +416,21 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_4">
-    连接参考
+    软件配置
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_5">
-    尺寸
+    连接参考
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_6">
+    尺寸
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
     发货清单
   </a>
 </li>
@@ -496,16 +501,21 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_4">
-    连接参考
+    软件配置
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_5">
-    尺寸
+    连接参考
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_6">
+    尺寸
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
     发货清单
   </a>
 </li>
@@ -577,15 +587,25 @@ BliSwitch v2是一款8通道KVM+ATX切换器，使8台主机共享一套键盘�
 <li>切换到1通道发送给switch的消息为SW5\r\nG05gA</li>
 <li>切换到2通道发送给switch的消息为SW6\r\nG06gA</li>
 <li>切换到3通道发送给switch的消息为SW7\r\nG07gA</li>
-<li>切换到4通道发送给switch的消息为SW8\r\nG07gA</li>
+<li>切换到4通道发送给switch的消息为SW8\r\nG08gA</li>
 <li>switch返回当前所在通道消息为:G01gA,G02gA,G03gA,G04gA,G05gA,G06gA,G07gA,G08gA</li>
 </ul>
 </div>
-<h2 id="_4"><strong>连接参考</strong></h2>
+<h2 id="_4"><strong>软件配置</strong></h2>
+<div class="admonition info">
+<p class="admonition-title">如果你使用的是BliKVM软件，在1.5.3版本后,在BliKVM启动前先把switch通电并接好线，然后通过web界面进行使能和配置即可。</p>
+<ul>
+<li>如果插入了多个USB设备，需要用命令<code>ls /dev/ttyUSB*</code>判断出switch的设备名称, 然后在web界面进行配置。</li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">若您使用的PiKVM软件，参考switch v1中的配置，将4通道拓展为8通道,类型配置仍为:<code>type: xh_hk4401</code></p>
+</div>
+<h2 id="_5"><strong>连接参考</strong></h2>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/Product-Datasheet-BliSwitch-v2.assets/connect.png"><img alt="connect" src="../assets/images/Product-Datasheet-BliSwitch-v2.assets/connect.png"/></a></p>
-<h2 id="_5"><strong>尺寸</strong></h2>
+<h2 id="_6"><strong>尺寸</strong></h2>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/Product-Datasheet-BliSwitch-v2.assets/Dimensions.png"><img alt="Dimensions" src="../assets/images/Product-Datasheet-BliSwitch-v2.assets/Dimensions.png"/></a></p>
-<h2 id="_6"><strong>发货清单</strong></h2>
+<h2 id="_7"><strong>发货清单</strong></h2>
 <table>
 <thead>
 <tr>
@@ -658,7 +678,7 @@ BliSwitch v2是一款8通道KVM+ATX切换器，使8台主机共享一套键盘�
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 31, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 11, 2024</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 10, 2024</span>

@@ -28,14 +28,8 @@ BliKVM-Switch-V1.0 uses the same hardware solution as XH-HK4401, AG7210 HDMI swi
 
 ## **Software Configuration**
 
-!!! info "If you are using BliKVM software and have powered on the switch and connected the cables before starting BliKVM, no additional configuration is needed. BliKVM will automatically detect the switch when it starts."
-    If automatic detection fails, you can manually specify the switch device:
-
-    1. Confirm the device descriptor name of the switch by using the terminal, such as `/dev/ttyUSB0`.
-    2. Edit the `switch_handle` field in `/usr/bin/blikvm/package.json`. Set `switch_enable` to `1` and `switch_path` to `/dev/ttyUSB0` in the configuration.
-    3. Restart BliKVM.
-    4. Click **MORE** in  the lower left corner, find the BliKVM switch column, and then switch. Note that the flashing blue dot of the corresponding channel indicates that the switch insertion is recognized and is in the current channel. If there is no blue dot, the switch insertion is not recognized.
-    ![](assets/images/switch/blikvm-soft-switch.png){width="600"}
+!!! info "If you are using BliKVM software, from version 1.5.3 onwards, power on the switch and connect the cables before starting BliKVM, then enable and configure it through the web interface."
+    - If multiple USB devices are connected, use the command `ls /dev/ttyUSB*` to identify the switch's device name, then configure it through the web interface.
 
 !!! info "If you use PiKVM software, please configure it according to the following instructions."
     1. Log in to PiKVM through SSH. The user name and password are root;
@@ -92,24 +86,25 @@ BliKVM-Switch-V1.0 uses the same hardware solution as XH-HK4401, AG7210 HDMI swi
                         - ["#Input 3", ch2_led, ch2_button]
                         - ["#Input 4", ch3_led, ch3_button]
         ```
-    !!! warning " The above configuration is based on the 2022 PiKVM image. If you are using the latest PiKVM image or latest software version, edit `/etc/kvmd/override.yaml` and add the line: `protocol: 2`. Example:"
-        ```
-        kvmd:
-        gpio:
-            drivers:
-                hk:
-                    type: xh_hk4401
-                    protocol: 2
-                    device: /dev/ttyUSB0
-            scheme:
-                ch0_led:
-                driver: hk
-                ...
-        ```
     4. Use the `ro` command on the terminal to reset the system to a read-only system;
     5. Use `systemctl restart kvmd` on the terminal to restart the service;
     6. Enter the PiKVM web interface and click the "GPIO" menu. You should see 4 inputs, one of which has a green circle to indicate that it is currently selected. Click a different input to change the selected host.
     ![soft-sw](assets/images/switch/pikvm-soft-switch.png){width="600"}
+
+!!! warning " The above configuration is based on the 2022 PiKVM image. If you are using the latest PiKVM image or latest software version, edit `/etc/kvmd/override.yaml` and add the line: `protocol: 2`. Example:"
+    ```
+    kvmd:
+    gpio:
+        drivers:
+            hk:
+                type: xh_hk4401
+                protocol: 2
+                device: /dev/ttyUSB0
+        scheme:
+            ch0_led:
+            driver: hk
+            ...
+    ```
 
 ## **Control Protocol**
 

@@ -38,8 +38,14 @@ Switch Method: Button or USB control.
     * The message to switch to channel 5 is SW5\r\nG05gA
     * The message to switch to channel 6 is SW6\r\nG06gA
     * The message to switch to channel 7 is SW7\r\nG07gA
-    * The message to switch to channel 8 is SW8\r\nG08gigA
+    * The message to switch to channel 8 is SW8\r\nG08gA
     * The message returned by the switch for the current channel is: G01gA, G02gA, G03gA, G04gA, G05gA, G06gA, G07gA, G08gA
+
+## **Software Configuration**
+!!! info "If you are using BliKVM software, from version 1.5.3 onwards, power on the switch and connect the cables before starting BliKVM, then enable and configure it through the web interface."
+    - If multiple USB devices are connected, use the command `ls /dev/ttyUSB*` to identify the switch's device name, then configure it through the web interface.
+
+!!! info "If you are using PiKVM software, refer to the configuration in switch v1, expanding from 4 channels to 8 channels. The type configuration remains: `type: xh_hk4401`"
 
 ## **Connection Reference**
 ![connect](assets/images/Product-Datasheet-BliSwitch-v2.assets/connect.png)

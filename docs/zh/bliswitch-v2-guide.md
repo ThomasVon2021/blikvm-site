@@ -32,8 +32,15 @@ BliSwitch v2是一款8通道KVM+ATX切换器，使8台主机共享一套键盘�
     * 切换到1通道发送给switch的消息为SW5\r\nG05gA
     * 切换到2通道发送给switch的消息为SW6\r\nG06gA
     * 切换到3通道发送给switch的消息为SW7\r\nG07gA
-    * 切换到4通道发送给switch的消息为SW8\r\nG07gA
+    * 切换到4通道发送给switch的消息为SW8\r\nG08gA
     * switch返回当前所在通道消息为:G01gA,G02gA,G03gA,G04gA,G05gA,G06gA,G07gA,G08gA
+
+
+## **软件配置**
+!!! info "如果你使用的是BliKVM软件，在1.5.3版本后,在BliKVM启动前先把switch通电并接好线，然后通过web界面进行使能和配置即可。"
+    - 如果插入了多个USB设备，需要用命令`ls /dev/ttyUSB*`判断出switch的设备名称, 然后在web界面进行配置。
+
+!!! info "若您使用的PiKVM软件，参考switch v1中的配置，将4通道拓展为8通道,类型配置仍为:`type: xh_hk4401`"
 
 ## **连接参考**
 ![connect](assets/images/Product-Datasheet-BliSwitch-v2.assets/connect.png)
