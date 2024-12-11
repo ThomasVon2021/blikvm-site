@@ -47,7 +47,9 @@ Switch Method: Button or USB control.
 
 !!! info "If you are using PiKVM software, refer to the configuration in switch v1, expanding from 4 channels to 8 channels. The type configuration remains: `type: xh_hk4401`"
     - Currently, the PiKVM software with type `xh_hk4401` has limitations and cannot be expanded to 8 channels. Adaptation is in progress.
-    - You can first enable 4 channels in the web interface, then use the command line to switch to other channels with a command like `echo -ne "SW8\r\nG08gA" > /dev/ttyUSB0`.
+
+- After initializing `/dev/ttyUSB0`, use the command `echo -ne "SW8\r\nG08gA" > /dev/ttyUSB0` to switch to other channels.
+- After initializing `/dev/ttyUSB0`, use the command `cat /dev/ttyUSB0` to check the current channel.
 
 ## **Connection Reference**
 ![connect](assets/images/Product-Datasheet-BliSwitch-v2.assets/connect.png)
