@@ -45,11 +45,242 @@ Switch Method: Button or USB control.
 !!! info "If you are using BliKVM software, from version 1.5.3 onwards, power on the switch and connect the cables before starting BliKVM, then enable and configure it through the web interface."
     - If multiple USB devices are connected, use the command `ls /dev/ttyUSB*` to identify the switch's device name, then configure it through the web interface.
 
-!!! info "If you are using PiKVM software, refer to the configuration in switch v1, expanding from 4 channels to 8 channels. The type configuration remains: `type: xh_hk4401`"
-    - Currently, the PiKVM software with type `xh_hk4401` has limitations and cannot be expanded to 8 channels. Adaptation is in progress.
+??? info "If you are using PiKVM software, the configuration for Raspberry Pi versions (v1, v2, v3) and the Allwinner-based v4 version is slightly different, with v4 having additional ATX configuration."
+    v4 usage demonstration
+    ![Interface](assets/images/Product-Datasheet-BliSwitch-v2.assets/pikvm-ui-bliswitch-v2.png)
+    1. Modify xh_hk4401.py to support 8 channels
+    ```
+    Modify /usr/lib/python3/dist-packages/kvmd/plugins/ugpio/xh_hk4401.py
+    https://github.com/pikvm/kvmd/blob/master/kvmd/plugins/ugpio/xh_hk4401.py#L90 need to be changed from 3 to 7 also
+    https://github.com/pikvm/kvmd/blob/master/kvmd/plugins/ugpio/xh_hk4401.py#L175 change [1-4] to [1-8]   (used to get which input switch is on) 
+    https://github.com/pikvm/kvmd/blob/master/kvmd/plugins/ugpio/xh_hk4401.py#L185 change channel <= 3 to <= 7  (used to change inputs)
+    ```
+    You can directly download and replace [xh_hk4401.py](https://zcwrego195.feishu.cn/file/TomlbzbE9oxHTNxVVRJcL5Z5nId?from=from_copylink)
+    2. For Raspberry Pi versions (e.g., BliKVM v1, v2, v3), /etc/kvmd/override.yaml configuration
+    ```
+    kvmd:
+    gpio:
+        drivers:
+            hk:
+                type: xh_hk4401
+                protocol: 1
+                device: /dev/ttyUSB0
+        scheme:
+            ch0_led:
+                driver: hk
+                pin: 0
+                mode: input
+            ch1_led:
+                driver: hk
+                pin: 1
+                mode: input
+            ch2_led:
+                driver: hk
+                pin: 2
+                mode: input
+            ch3_led:
+                driver: hk
+                pin: 3
+                mode: input
+            ch4_led:
+                driver: hk
+                pin: 4
+                mode: input
+            ch5_led:
+                driver: hk
+                pin: 5
+                mode: input
+            ch6_led:
+                driver: hk
+                pin: 6
+                mode: input
+            ch7_led:
+                driver: hk
+                pin: 7
+                mode: input
+            ch0_button:
+                driver: hk
+                pin: 0
+                mode: output
+                switch: false
+            ch1_button:
+                driver: hk
+                pin: 1
+                mode: output
+                switch: false
+            ch2_button:
+                driver: hk
+                pin: 2
+                mode: output
+                switch: false
+            ch3_button:
+                driver: hk
+                pin: 3
+                mode: output
+                switch: false
+            ch4_button:
+                driver: hk
+                pin: 4
+                mode: output
+                switch: false
+            ch5_button:
+                driver: hk
+                pin: 5
+                mode: output
+                switch: false
+            ch6_button:
+                driver: hk
+                pin: 6
+                mode: output
+                switch: false
+            ch7_button:
+                driver: hk
+                pin: 7
+                mode: output
+                switch: false
+        view:
+            table:
+                - ["#Input 1", ch0_led, ch0_button]
+                - ["#Input 2", ch1_led, ch1_button]
+                - ["#Input 3", ch2_led, ch2_button]
+                - ["#Input 4", ch3_led, ch3_button]
+                - ["#INPUT 5", ch4_led, ch4_button]
+                - ["#INPUT 6", ch5_led, ch5_button]
+                - ["#INPUT 7", ch6_led, ch6_button]
+                - ["#INPUT 8", ch7_led, ch7_button]
+    ```
+    3. For BliKVM v4 version, /etc/kvmd/override.yaml configuration
+    ```
+    kvmd:
+    gpio:
+        drivers:
+            ### requires compiled atx binary per https://github.com/RainCat1998/Bli-PiKVM#configure-atx-controller
+            power_short:
+                type: cmd
+                cmd: [/usr/bin/sudo, /usr/bin/atx, --v, v4, --c, power_on]
+            power_long:
+                type: cmd
+                cmd: [/usr/bin/sudo, /usr/bin/atx, --v, v4, --c, power_off]
+            reset_sw:
+                type: cmd
+                cmd: [/usr/bin/sudo, /usr/bin/atx, --v, v4, --c, power_reset]
 
-- After initializing `/dev/ttyUSB0`, use the command `echo -ne "SW8\r\nG08gA" > /dev/ttyUSB0` to switch to other channels.
-- After initializing `/dev/ttyUSB0`, use the command `cat /dev/ttyUSB0` to check the current channel.
+            ### BliKVM v2 Switch ###
+            hk:
+                type: xh_hk4401
+                protocol: 1
+                device: /dev/ttyUSB0
+
+        scheme:
+            on-off-button:
+                driver: power_short
+                pin: 0
+                mode: output
+                switch: false
+            force-off-button:
+                driver: power_long
+                pin: 0
+                mode: output
+                switch: false
+            reset-button:
+                driver: reset_sw
+                pin: 0
+                mode: output
+                switch: false
+
+            ch0_led:
+                driver: hk
+                pin: 0
+                mode: input
+            ch1_led:
+                driver: hk
+                pin: 1
+                mode: input
+            ch2_led:
+                driver: hk
+                pin: 2
+                mode: input
+            ch3_led:
+                driver: hk
+                pin: 3
+                mode: input
+            ch4_led:
+                driver: hk
+                pin: 4
+                mode: input
+            ch5_led:
+                driver: hk
+                pin: 5
+                mode: input
+            ch6_led:
+                driver: hk
+                pin: 6
+                mode: input
+            ch7_led:
+                driver: hk
+                pin: 7
+                mode: input
+
+            ch0_button:
+                driver: hk
+                pin: 0
+                mode: output
+                switch: false
+            ch1_button:
+                driver: hk
+                pin: 1
+                mode: output
+                switch: false
+            ch2_button:
+                driver: hk
+                pin: 2
+                mode: output
+                switch: false
+            ch3_button:
+                driver: hk
+                pin: 3
+                mode: output
+                switch: false
+            ch4_button:
+                driver: hk
+                pin: 4
+                mode: output
+                switch: false
+            ch5_button:
+                driver: hk
+                pin: 5
+                mode: output
+                switch: false
+            ch6_button:
+                driver: hk
+                pin: 6
+                mode: output
+                switch: false
+            ch7_button:
+                driver: hk
+                pin: 7
+                mode: output
+                switch: false
+
+        view:
+            table:
+                - []
+                - ["#BliKVM v2 Switch"]
+                - []
+                - ["#INPUT 1", ch0_led, ch0_button]
+                - ["#INPUT 2", ch1_led, ch1_button]
+                - ["#INPUT 3", ch2_led, ch2_button]
+                - ["#INPUT 4", ch3_led, ch3_button]
+                - ["#INPUT 5", ch4_led, ch4_button]
+                - ["#INPUT 6", ch5_led, ch5_button]
+                - ["#INPUT 7", ch6_led, ch6_button]
+                - ["#INPUT 8", ch7_led, ch7_button]
+                - []
+                - ["#ATX on BliKVM hardware - selected INPUT ONLY"]
+                - []
+                - ["on-off-button|confirm|On/Off", "force-off-button|confirm|Force Off", "reset-button|confirm|Reset"]
+    ```
+
 
 ## **Connection Reference**
 ![connect](assets/images/Product-Datasheet-BliSwitch-v2.assets/connect.png)
