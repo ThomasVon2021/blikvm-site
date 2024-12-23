@@ -8,7 +8,7 @@ As a first step, we recommend carefully reading our documentation. Most steps to
     Yes, but it requires additional work to set up. See [this page](bliswitch-v2-guide.md).
 
 ??? question "How can I get the access to PiKVM in my local network over Internet?"
-    If your router has an external IP address, you can use port forwarding to forward port 80 (Web), port 8008 (mjpeg), and port 8188 (webrtc) In all other cases, you can use the excellent free VPN service Tailscale.
+    If your router has an external IP address, you can use port forwarding to forward port 443. In all other cases, you can use the excellent free VPN service Tailscale.
 
 ??? question "Which BLiKVM hardware version should I choose, such as BLiKVM V1 CM4, BLiKVM V2 PCIe, and BLiKVM V3 Hat?"
     - First, please refer to [this page](index.md) for a comparison of the main parameters of each version.

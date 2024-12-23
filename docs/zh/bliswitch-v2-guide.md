@@ -1,6 +1,5 @@
 # **8口KVM+ATX切换器 BliSwitch v2**
 
-
 ![main](assets/images/Product-Datasheet-BliSwitch-v2.assets/front.png)
 ![main](assets/images/Product-Datasheet-BliSwitch-v2.assets/back.png)
 BliSwitch v2是一款8通道KVM+ATX切换器，使8台主机共享一套键盘、鼠标和HDMI屏幕，且实现对8台主机的开关机控制。

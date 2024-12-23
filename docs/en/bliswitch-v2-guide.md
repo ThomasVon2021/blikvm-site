@@ -6,6 +6,9 @@ Function: 8 hosts share a keyboard, mouse, and display, with power control for a
 Switch Method: Button or USB control.
 ![main](assets/images/Product-Datasheet-BliSwitch-v2.assets/main.png)
 
+!!! info "BliSwitchv2 Introduction"
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/BipzzTIIIQg?si=8Ygw3gYhE-Sgm6mF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## **Features**
 * **ATX on each port(support button and remote control)**
 * **Full control via web ui**
