@@ -5,12 +5,13 @@
 ## **Introduction**
 
 !!! note "The currently available versions of the BLIKVM project are hosted in the release package of the GitHub. The update software function needs to keep the device connected. There are currently two ways to update the software."
-    - Method 1: Click the update button through the web interface, and the program will be updated automatically. A restart is required after the update.
-    - Method 2: Manually run the script on the KVM terminal to update, and restart after the update.
+    - Method 1: Manually run the script on the KVM terminal to update.
+    - Method 2: Manually download the release package, then run the installation update on the KVM terminal.
 
 !!! info "Common causes of upgrade errors"
     - The device is not connected to the network;
     - Network access to GitHub is limited;
+    - Your local version may be incompatible with the latest version. If the update is successful but runs abnormally, you need to reflash the latest system to recover;
 
 !!! warning "We strongly recommend performing the update while you are in close proximity to the BliKVM hardware you are upgrading. This way if anything goes wrong you can intervene."
     - If you are familiar with command-line operations, we recommend manually updating so that you can monitor the command-line status in real time.
