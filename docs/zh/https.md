@@ -1,13 +1,16 @@
 # **加密证书**
 
-blikvm v1.4.9版本后,默认为https启动，即使访问http也会自动被重定向到https:
+blikvm v1.5.6版本后,默认为https启动，即使你使用http访问，也会被重定向为http协议;
 ```
 sudo -s
 vim /mnt/exec/release/config/app.json
 ```
-找到下面配置内容，其中key和cert在 /mnt/exec/release/lib/https/ 此路径，用户可以自己进行替换。
+找到下面配置内容，其中key和cert在 /mnt/exec/release/lib/https/ 此路径，用户可以自己进行替换；
+如果希望使用http协议，将protocol字段改为http；
+修改配置后，命令行使用`systemctl restart  kvmd-web`重启即可；
 ```
 "server": {
+    "protocol": "https",
     "ssl": {
     "key": "./lib/https/key.pem",
     "cert": "./lib/https/cert.pem"

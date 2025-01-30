@@ -94,6 +94,7 @@ nav:
         - "HDMI EDID": edid.md
         - "Wake-on-LAN": wake-on-lan.md
         - "SSH Terminal": ssh.md 
+        - "security": security.md
     - "Installation Instructions":
         - "v3 HAT Illustrated Instructions": BLIHAT-Installation.md
         - "v2 PCIe Illustrated Instructions": BLIKVM-PCIe-installation.md

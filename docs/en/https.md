@@ -5,6 +5,7 @@ sudo -s
 vim /mnt/exec/release/config/app.json
 ```
 Find the following configuration content. The key and cert are located in the path /mnt/exec/release/lib/https/. Users can replace them as needed.
+If you want to use the HTTP protocol, change the `protocol` field to `http`. After modifying the configuration, restart using the command `systemctl restart kvmd-web`.
 ```
 "server": {
     "ssl": {
