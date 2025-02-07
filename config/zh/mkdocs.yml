@@ -76,9 +76,11 @@ nav:
       - "第一步": first_steps.md
       - "常见问题解答": faq.md
     - "网络":
-        - "端口转发": port-forwarding.md
-        - "Tailscale VPN": tailscale.md
-        - "Zerotier VPN": zerotier.md
+        - "公网访问":
+          - "端口转发": port-forwarding.md
+          - "Tailscale VPN": tailscale.md
+          - "Zerotier VPN": zerotier.md
+          - "Cloudflare 隧道": cloudflare-tunnels.md
         - "设置静态IP": static_ip.md
         - "Wifi配置": wifi.md
         - "加密证书": https.md

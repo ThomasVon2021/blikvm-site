@@ -76,9 +76,11 @@ nav:
         - "First Steps": first_steps.md
         - "FAQ": faq.md
     - "Network":
-        - "Port Forwarding": port-forwarding.md
-        - "Tailscale VPN": tailscale.md
-        - "ZeroTier VPN": zerotier.md
+        - "Internet Access":
+            - "Port Forwarding": port-forwarding.md
+            - "Tailscale VPN": tailscale.md
+            - "ZeroTier VPN": zerotier.md
+            - "Cloudflare Tunnel": cloudflare-tunnels.md
         - "Set Static IP ": static_ip.md
         - "Wifi Config": wifi.md
         - "Encrypt certificates": https.md
