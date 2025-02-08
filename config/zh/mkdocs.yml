@@ -45,12 +45,6 @@ extra:
     - name: 中文
       link: /blikvm/zh/
       lang: zh
-    - name: 日本語
-      link: /blikvm/ja/
-      lang: ja
-    - name: Русский
-      link: /blikvm/ru/
-      lang: ru
 repo_name: blikvm-site
 repo_url: https://github.com/ThomasVon2021/blikvm-site
 edit_uri: edit/master/docs/zh/
@@ -84,6 +78,11 @@ nav:
         - "设置静态IP": static_ip.md
         - "Wifi配置": wifi.md
         - "加密证书": https.md
+    - "视频":
+      - "视频模式": video-modes.md
+      - "WebRTC 配置": webrtc.md
+      - "HDMI EDID设置": edid.md
+      - "HDMI环出": hdmi-passthrough.md
     - "功能说明":
         - "更新软件": update.md
         - "视频&键鼠": hid.md
@@ -93,7 +92,6 @@ nav:
         - "存储卡扩容": Expand_Filesystem.md
         - "U盘驱动": msd.md
         - "串口终端": serial_over_usb.md
-        - "HDMI EDID设置": edid.md
         - "Wake-on-LAN": wake-on-lan.md
         - "SSH终端": ssh.md 
         - "安全": security.md

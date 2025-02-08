@@ -45,12 +45,6 @@ extra:
     - name: 中文
       link: /blikvm/zh/
       lang: zh
-    - name: 日本語
-      link: /blikvm/ja/
-      lang: ja
-    - name: Русский
-      link: /blikvm/ru/
-      lang: ru
 repo_name: blikvm-site
 repo_url: https://github.com/ThomasVon2021/blikvm-site
 edit_uri: edit/master/docs/en/
@@ -84,6 +78,11 @@ nav:
         - "Set Static IP ": static_ip.md
         - "Wifi Config": wifi.md
         - "Encrypt certificates": https.md
+    - "Video":
+      - "Video modes": video-modes.md
+      - "WebRTC configuration": webrtc.md
+      - "HDMI EDID": edid.md
+      - "HDMI passthrough": hdmi-passthrough.md
     - "Function":
         - "Upgrade": update.md
         - "Keyboard": hid.md
@@ -93,7 +92,6 @@ nav:
         - "Expand Filesystem": Expand_Filesystem.md
         - "Serial-over-USB": serial_over_usb.md 
         - "MSD": msd.md
-        - "HDMI EDID": edid.md
         - "Wake-on-LAN": wake-on-lan.md
         - "SSH Terminal": ssh.md 
         - "security": security.md
