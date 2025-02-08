@@ -7,6 +7,12 @@ Join our [BLIKVM Discord Community](https://discord.com/invite/9Y374gUF6C) for S
 
 ![Image title](assets/images/version_all.png)
 
+??? note "How to quickly choose the BliKVM model you need"
+    * If you need remote access over the internet, since v4 does not support h264 mode, it is recommended to choose v1, v2, or v3; for local area network use, v4 is currently the most comprehensive and highly recommended;
+    * If you want to install the KVM inside the chassis, you can choose the v2 PCIe version;
+    * v1 and v2 are built on Raspberry Pi CM4, supporting a maximum input resolution of 1080P@60Hz, while v3 is built on Raspberry Pi 4B, supporting up to 1080P@50Hz. If your controlled PC only supports 1080P@60Hz input, then you cannot choose the v3 version;
+    * If you have a Raspberry Pi 4B and your controlled computer can output 1080P@50Hz or below, then you can consider purchasing the v3 Hat;
+
 |FEATURE|BliKVM v1 CM4|BliKVM v2 PCIe|BliKVM v3 HAT|BliKVM v4 /H313|
 |-|-|-|-|-|
 |SOC|Raspberry CM4|Raspberry CM4|Raspberry 4B|Allwinner H616/H313|
