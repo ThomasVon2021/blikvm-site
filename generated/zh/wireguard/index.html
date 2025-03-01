@@ -9,7 +9,7 @@
 <meta content="Thomas Von" name="author"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
-<title>Expand Filesystem - BliKVM Handbook</title>
+<title>WireGuard VPN - BLIKVM 用户手册</title>
 <link href="../assets/stylesheets/main.472b142f.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.08040f6c.min.css" rel="stylesheet"/>
 <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 7.775V2.75a.25.25 0 0 1 .25-.25h5.025a.25.25 0 0 1 .177.073l6.25 6.25a.25.25 0 0 1 0 .354l-5.025 5.025a.25.25 0 0 1-.354 0l-6.25-6.25a.25.25 0 0 1-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.75 1.75 0 0 1 1 7.775zM6 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 0 1 .25-.25h8.5a.25.25 0 0 1 .25.25v7.736a.75.75 0 1 0 1.5 0V1.75A1.75 1.75 0 0 0 11.25 0h-8.5A1.75 1.75 0 0 0 1 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 0 0 0-1.5H2.75a.25.25 0 0 1-.25-.25V1.75zM4.75 4a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5zM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75zm11.774 3.537a.75.75 0 0 0-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 0 0-1.062 1.058l1.943 1.95a.75.75 0 0 0 1.055.008l4.557-4.45z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm6.5-.25A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75zM8 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.489 4.489 0 0 1-.563-1.191 3.833 3.833 0 0 1-.05-2.063 4.636 4.636 0 0 1-2.025-.293.75.75 0 1 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.748.748 0 0 1 1.06 0 .75.75 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.404 2.404 0 0 1-.507-.441 3.063 3.063 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.753.753 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768a85.08 85.08 0 0 0-.317-.265c-.814-.68-1.75-1.462-2.692-2.619a3.74 3.74 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm9 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM6.92 6.085c.081-.16.19-.299.34-.398.145-.097.371-.187.74-.187.28 0 .553.087.738.225A.613.613 0 0 1 9 6.25c0 .177-.04.264-.077.318a.956.956 0 0 1-.277.245c-.076.051-.158.1-.258.161l-.007.004a7.728 7.728 0 0 0-.313.195 2.416 2.416 0 0 0-.692.661.75.75 0 0 0 1.248.832.956.956 0 0 1 .276-.245 6.3 6.3 0 0 1 .26-.16l.006-.004c.093-.057.204-.123.313-.195.222-.149.487-.355.692-.662.214-.32.329-.702.329-1.15 0-.76-.36-1.348-.863-1.725A2.76 2.76 0 0 0 8 4c-.631 0-1.155.16-1.572.438-.413.276-.68.638-.849.977a.75.75 0 1 0 1.342.67z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047zM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-.25-5.25a.75.75 0 0 0-1.5 0v2.5a.75.75 0 0 0 1.5 0v-2.5z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.404 12.596a6.5 6.5 0 1 1 9.192-9.192 6.5 6.5 0 0 1-9.192 9.192zM2.344 2.343a8 8 0 1 0 11.313 11.314A8 8 0 0 0 2.343 2.343zM6.03 4.97a.75.75 0 0 0-1.06 1.06L6.94 8 4.97 9.97a.75.75 0 1 0 1.06 1.06L8 9.06l1.97 1.97a.75.75 0 1 0 1.06-1.06L9.06 8l1.97-1.97a.75.75 0 1 0-1.06-1.06L8 6.94 6.03 4.97z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M10.561 1.5a.016.016 0 0 0-.01.004L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.02.02 0 0 0-.004-.009.02.02 0 0 0-.006-.006L10.56 1.5zM9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.25 1.25 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.492 3.492 0 0 1 2.441 0l.999-1a.75.75 0 1 1 1.06 1.061l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.013 5.013 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.684 1.684 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06zM6.173 5h3.654A.173.173 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173zM5.25 6.5a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75h-5.5z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458L5 5.782zM9.5 2.5h-3V6a.75.75 0 0 1-.117.403L4.73 9h6.54L9.617 6.403A.75.75 0 0 1 9.5 6V2.5zm-6.9 9.847L3.775 10.5h8.45l1.175 1.847a.75.75 0 0 1-.633 1.153H3.233a.75.75 0 0 1-.633-1.153z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.75 2.5a.75.75 0 0 0 0 1.5h10.5a.75.75 0 0 0 0-1.5H1.75zm4 5a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5zm0 5a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5zM2.5 7.75a.75.75 0 0 0-1.5 0v6a.75.75 0 0 0 1.5 0v-6z"/></svg>');}</style>
@@ -34,7 +34,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#expand-filesystem">
+<a class="md-skip" href="#_1">
           Skip to content
         </a>
 </div>
@@ -42,7 +42,7 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="BliKVM Handbook" class="md-header__button md-logo" data-md-component="logo" href="https://www.blicube.com" title="BliKVM Handbook">
+<a aria-label="BLIKVM 用户手册" class="md-header__button md-logo" data-md-component="logo" href="https://www.blicube.com" title="BLIKVM 用户手册">
 <img alt="logo" src="../assets/images/logo.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -52,13 +52,13 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            BliKVM Handbook
+            BLIKVM 用户手册
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Expand Filesystem
+              WireGuard VPN
             
           </span>
 </div>
@@ -139,10 +139,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="BliKVM Handbook" class="md-nav__button md-logo" data-md-component="logo" href="https://www.blicube.com" title="BliKVM Handbook">
+<a aria-label="BLIKVM 用户手册" class="md-nav__button md-logo" data-md-component="logo" href="https://www.blicube.com" title="BLIKVM 用户手册">
 <img alt="logo" src="../assets/images/logo.png"/>
 </a>
-    BliKVM Handbook
+    BLIKVM 用户手册
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/ThomasVon2021/blikvm-site" title="Go to repository">
@@ -158,87 +158,87 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="..">Getting Started</a>
+<a href="..">快速开始</a>
 <label for="__nav_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-label="Getting Started" class="md-nav" data-md-level="1">
+<nav aria-label="快速开始" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_1">
 <span class="md-nav__icon md-icon"></span>
-          Getting Started
+          快速开始
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BliKVM-v4-guide/">
-        BliKVM v4 Allwinner Guide
+        BliKVM v4 Allwinner导览
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BLIKVM-HAT-guide/">
-        BliKVM v3 HAT Guide
+        BliKVM v3 HAT导览
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../BLIKVM-PCIE-guide/">
-        BliKVM v2 PCIe Guide
+<a class="md-nav__link" href="../BLIKVM-PCIE-guide-zh/">
+        BliKVM v2 PCIe导览
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BLIKVM-CM4-guide/">
-        BliKVM v1 CM4 Guide
+        BliKVM v1 CM4导览
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../bliswitch-v1-guide/">
-        Multiport BliSwitch v1 (4-port)
+        switchV1切换器手册
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../bliswitch-v2-guide/">
-        Multiport BliSwitch v2 (8-port)
+        switchV2切换器手册
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../first_steps/">
-        First Steps
+        第一步
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../faq/">
-        FAQ
+        常见问题解答
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2">
-          Network
+          网络
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Network" class="md-nav" data-md-level="1">
+<nav aria-label="网络" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
-          Network
+          网络
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2_1" id="__nav_2_1" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" id="__nav_2_1" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_1">
-          Internet Access
+          公网访问
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Internet Access" class="md-nav" data-md-level="2">
+<nav aria-label="公网访问" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_2_1">
 <span class="md-nav__icon md-icon"></span>
-          Internet Access
+          公网访问
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../port-forwarding/">
-        Port Forwarding
+        端口转发
       </a>
 </li>
 <li class="md-nav__item">
@@ -248,120 +248,17 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../zerotier/">
-        ZeroTier VPN
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../wireguard/">
-        WireGuard VPN
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../cloudflare-tunnels/">
-        Cloudflare Tunnel
-      </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../static_ip/">
-        Set Static IP 
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../wifi/">
-        Wifi Config
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../https/">
-        Encrypt certificates
-      </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3">
-          Video
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-label="Video" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_3">
-<span class="md-nav__icon md-icon"></span>
-          Video
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../video-modes/">
-        Video modes
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../webrtc/">
-        WebRTC configuration
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../edid/">
-        HDMI EDID
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../hdmi-passthrough/">
-        HDMI passthrough
-      </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4">
-          Function
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-label="Function" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_4">
-<span class="md-nav__icon md-icon"></span>
-          Function
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../update/">
-        Upgrade
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../hid/">
-        Keyboard
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../rtc/">
-        RTC clock
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../flashing_os/">
-        Flashing OS
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../OLED-display/">
-        OLED Display
+        Zerotier VPN
       </a>
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-          Expand Filesystem
+          WireGuard VPN
           <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
-        Expand Filesystem
+        WireGuard VPN
       </a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
@@ -370,31 +267,163 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#method-1-use-raspi-config-tool">
-    Method 1: Use raspi-config tool
+<a class="md-nav__link" href="#_1">
+    安装步骤
+  </a>
+<nav aria-label="安装步骤" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#wireguard">
+    安装 WireGuard
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#method-2-use-gparted-tool">
-    Method 2: Use GParted tool
+<a class="md-nav__link" href="#wireguard_1">
+    配置 WireGuard
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#method-3-use-script">
-    Method 3: Use script
+<a class="md-nav__link" href="#wireguard_2">
+    启动 WireGuard
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    配置防火墙（如果需要）
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    测试连接
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    开机自启动
   </a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../serial_over_usb/">
-        Serial-over-USB
+<a class="md-nav__link" href="#_5">
+    总结
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../cloudflare-tunnels/">
+        Cloudflare 隧道
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../static_ip/">
+        设置静态IP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../wifi/">
+        Wifi配置
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../https/">
+        加密证书
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+          视频
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="视频" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          视频
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../video-modes/">
+        视频模式
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../webrtc/">
+        WebRTC 配置
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../edid/">
+        HDMI EDID设置
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../hdmi-passthrough/">
+        HDMI环出
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+          功能说明
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="功能说明" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          功能说明
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../update/">
+        更新软件
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../hid/">
+        视频&amp;键鼠
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rtc/">
+        RTC时钟
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../flashing_os/">
+        烧录镜像
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../OLED-display/">
+        OLED显示器
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Expand_Filesystem/">
+        存储卡扩容
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../msd/">
-        MSD
+        U盘驱动
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../serial_over_usb/">
+        串口终端
       </a>
 </li>
 <li class="md-nav__item">
@@ -404,12 +433,12 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../ssh/">
-        SSH Terminal
+        SSH终端
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../security/">
-        security
+        安全
       </a>
 </li>
 </ul>
@@ -418,23 +447,23 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
 <label class="md-nav__link" for="__nav_5">
-          Installation Instructions
+          安装说明
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Installation Instructions" class="md-nav" data-md-level="1">
+<nav aria-label="安装说明" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
-          Installation Instructions
+          安装说明
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BLIHAT-Installation/">
-        v3 HAT Illustrated Instructions
+        v3 HAT安装说明
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../BLIKVM-PCIe-installation/">
-        v2 PCIe Illustrated Instructions
+<a class="md-nav__link" href="../BLIKVM-PCIe-installation-zh/">
+        v2 PCIe安装说明
       </a>
 </li>
 </ul>
@@ -443,28 +472,28 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
 <label class="md-nav__link" for="__nav_6">
-          Accessories
+          配件手册
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Accessories" class="md-nav" data-md-level="1">
+<nav aria-label="配件手册" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_6">
 <span class="md-nav__icon md-icon"></span>
-          Accessories
+          配件手册
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../atx-guide/">
-        ATX Guide
+        ATX用户手册
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../hdmi-csi-i2s/">
-        HDMI to CSI &amp; Audio
+        HDMI转CSI &amp; Audio模块用户手册
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../usb-splitter-guide/">
-        USB Splitter
+        USB一分二用户手册
       </a>
 </li>
 </ul>
@@ -473,33 +502,28 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
 <label class="md-nav__link" for="__nav_7">
-          Development
+          开发者
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Development" class="md-nav" data-md-level="1">
+<nav aria-label="开发者" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_7">
 <span class="md-nav__icon md-icon"></span>
-          Development
+          开发者
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../make-image/">
-        Make Image
+        制作镜像
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../modify_pikvm_image/">
-        Config for PiKVM OS
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../Dev-BliKVM-v4-Allwinner/">
-        v4 Allwinner Dev Guide
+        配置PiKVM OS
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../dev_api/">
-        HTTP API
+        http API
       </a>
 </li>
 </ul>
@@ -520,18 +544,47 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#method-1-use-raspi-config-tool">
-    Method 1: Use raspi-config tool
+<a class="md-nav__link" href="#_1">
+    安装步骤
+  </a>
+<nav aria-label="安装步骤" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#wireguard">
+    安装 WireGuard
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#method-2-use-gparted-tool">
-    Method 2: Use GParted tool
+<a class="md-nav__link" href="#wireguard_1">
+    配置 WireGuard
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#method-3-use-script">
-    Method 3: Use script
+<a class="md-nav__link" href="#wireguard_2">
+    启动 WireGuard
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    配置防火墙（如果需要）
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    测试连接
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    开机自启动
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    总结
   </a>
 </li>
 </ul>
@@ -541,108 +594,132 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ThomasVon2021/blikvm-site/edit/master/docs/en/Expand_Filesystem.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ThomasVon2021/blikvm-site/edit/master/docs/zh/wireguard.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
-<h1 id="expand-filesystem">Expand Filesystem</h1>
-<p>If you find that the free space of the raspberry pi SD card or eMMC is smaller than the capacity of the actual SD card or eMMC, you need to do the following to expand the raspberry pi. If you find that the system does not have the raspi config tool, you can use Method 2 (use the GParted partition tool).  </p>
-<h2 id="method-1-use-raspi-config-tool">Method 1: Use raspi-config tool</h2>
-<p>If you are using a mirror after June 2023 and have added a third read-write partition, this method is no longer applicable. Please refer to method 2 and method 3.</p>
-<p><strong>1.</strong> Open raspi-config.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo raspi-config
-</code></pre></div>
-<p><strong>2.</strong> Choose Advancd Options：<br/>
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/expand_filesystem/advance_option.png"><img alt="IMG_8366" src="../assets/images/expand_filesystem/advance_option.png" width="300"/></a></p>
-<p><strong>3.</strong> Choose Expand Filesystem：<br/>
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/expand_filesystem/expand.png"><img alt="IMG_8366" src="../assets/images/expand_filesystem/expand.png" width="300"/></a></p>
-<p><strong>4.</strong> Ok:<br/>
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/expand_filesystem/expand_ok.png"><img alt="IMG_8366" src="../assets/images/expand_filesystem/expand_ok.png" width="300"/></a></p>
-<p><strong>5.</strong> Execute the command <code>resize2fs /dev/mmcblk0p2</code> in the terminal to see that the SD card has been successfully expanded.</p>
-<h2 id="method-2-use-gparted-tool">Method 2: Use GParted tool</h2>
-<p><strong>1.</strong> Connect the SD card or EMMc that has burned the image to the computer through USB. Take the GParted partition tool on Linux as an example. Other platforms also have similar partition tools.</p>
-<p>Open GParted software and select SD card:</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/expand_filesystem/gparted01.png"><img alt="gparted1" src="../assets/images/expand_filesystem/gparted01.png" width="300"/></a></p>
-<p><strong>2.</strong> By observing the partition of the SD card in the above figure, we can find that 2.01GB and 21.87GB of space are unused before and after the sdb3 partition, which is the space we want to expand.</p>
-<p>Select the sdb3 partition and click Resize.  </p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/expand_filesystem/gparted02.png"><img alt="gparted2" src="../assets/images/expand_filesystem/gparted02.png" width="300"/></a>
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/expand_filesystem/gparted03.png"><img alt="gparted3" src="../assets/images/expand_filesystem/gparted03.png" width="300"/></a></p>
-<p><strong>3.</strong> You can drag the white partition of sdb3 to the leftmost and rightmost, or fill in 25958 with "Previous Free Space" as "0" and "New Size" as "Maximum Size", and then click Resize in the lower right corner. Then click OK to see that all unused space of sd has been used.<br/>
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/expand_filesystem/gparted04.png"><img alt="gparted4" src="../assets/images/expand_filesystem/gparted04.png" width="300"/></a>
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/expand_filesystem/gparted05.png"><img alt="gparted5" src="../assets/images/expand_filesystem/gparted05.png" width="300"/></a></p>
-<p><strong>4.</strong> Insert the SD card into the device and start it.  </p>
-<h2 id="method-3-use-script">Method 3: Use script</h2>
+<h1>WireGuard VPN</h1>
+<p>WireGuard 是一个现代化的、简洁高效的 VPN 技术，它使用公钥加密和端到端的加密通信来保护网络流量。当你有公网服务器时，你可以通过 WireGuard 组建一个虚拟私有网络（VPN），你的每一台kvm都可以加入到WireGuard组建的虚拟局域网里，从而实现远程异地访问。</p>
+<div class="admonition warning">
+<p class="admonition-title">使用WireGuard组建虚拟局域网，延迟的大小，取决于你的公网服务器带宽和公网服务器的线路延迟</p>
 <ul>
-<li>If you are using a BliKVM image, you can run the following script on KVM to automatically expand the space.</li>
+<li>如果你的KVM需要进行异国访问，不清楚如果选择合适的服务器和线路，可以加入discord获得支持。</li>
 </ul>
-<p><strong>1.</strong> Log in to the KVM terminal, confirm that the system has read and write permissions, run <code>vim expand.sh</code> on any path, and write the following content to expand.sh.</p>
-<p>If your hardware is <strong>v1</strong>,<strong>v2</strong> or <strong>v3</strong>, use:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="ch">#!/bin/bash</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="nb">set</span> -x
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>resize_mmcblk0p3<span class="o">()</span> <span class="o">{</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>  <span class="nb">echo</span> <span class="s2">"Resizing mmcblk0p3 partition..."</span>
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>  parted /dev/mmcblk0 resizepart <span class="m">3</span> <span class="m">100</span>%
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>  resize2fs /dev/mmcblk0p3
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>  <span class="nb">echo</span> <span class="s2">"mmcblk0p3 partition resized successfully."</span>
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="o">}</span>
-<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>
-<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="nb">echo</span> <span class="s2">"Starting partition resizing..."</span>
-<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>
-<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a>resize_mmcblk0p3
-<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>
-<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="nb">echo</span> <span class="s2">"Partition resizing completed."</span>
+</div>
+<h2 id="_1"><strong>安装步骤</strong></h2>
+<h3 id="wireguard"><strong>安装 WireGuard</strong></h3>
+<ol>
+<li>
+<p>在 Linux 上安装 WireGuard
+对于大多数基于 Debian 的系统（如 Ubuntu），可以运行以下命令安装 WireGuard,在KVM上安装即要参考此方法,KVM是只读系统，需要先试用<code>rw</code>指令改为可读写系统；
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo apt update
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>sudo apt install wireguard
 </code></pre></div>
-<p>If your hardware is <strong>v4</strong>, use:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="ch">#!/bin/bash</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="nb">set</span> -x
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>resize_mmcblk0p1<span class="o">()</span> <span class="o">{</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>  <span class="nb">echo</span> <span class="s2">"Resizing mmcblk0p1 partition..."</span>
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>  parted /dev/mmcblk0 resizepart <span class="m">1</span> <span class="m">100</span>%
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>  resize2fs /dev/mmcblk0p1
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>  <span class="nb">echo</span> <span class="s2">"mmcblk0p1 partition resized successfully."</span>
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="o">}</span>
-<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a>
-<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="nb">echo</span> <span class="s2">"Starting partition resizing..."</span>
-<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a>
-<a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a>resize_mmcblk0p1
-<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="nb">echo</span> <span class="s2">"Partition resizing completed."</span>
+对于其他 Linux 发行版，可以根据相应的包管理器进行安装，或者使用 WireGuard 官方安装指南。</p>
+</li>
+<li>
+<p>在 Windows或者mac上安装WireGuard, 直接在<a href="https://www.wireguard.com/install/">WireGuard官网</a>下载页面,下载适用于你PC系统的安装包。
+完成安装后，通过图形界面进行配置。</p>
+</li>
+</ol>
+<h3 id="wireguard_1"><strong>配置 WireGuard</strong></h3>
+<p>WireGuard配置包括两部分：
+服务器端配置：运行 WireGuard服务器的机器。(一般是指公网服务器)
+客户端配置：连接到 WireGuard VPN 的客户端机器。(一般是指KVM设备和用来的控制电脑（不是被控电脑）)</p>
+<div class="admonition info">
+<p class="admonition-title">配置服务器</p>
+<ul>
+<li>在服务器上生成 WireGuard 的私钥和公钥，在任意你可以读写的路径，执行下面命令，会得到server_private_key和server_public_key文件。
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>    wg genkey | tee server_private_key | wg pubkey &gt; server_public_key
+</code></pre></div></li>
+<li>创建或编辑 /etc/wireguard/wg0.conf 文件，配置 WireGuard 接口。下面是一个示例配置：
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>    [Interface]
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>    PrivateKey = &lt;服务器私钥&gt;
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>    Address = 10.0.0.1/24  # 这是 VPN 网络中的 IP 地址池，10.0.0.1 是 WireGuard 服务器的虚拟 IP
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>    ListenPort = 51820  # WireGuard 默认端口，可以更改为需要的端口
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>    # 允许的客户端1，假设是一台KVM
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>    [Peer]
+<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>    PublicKey = &lt;客户端公钥&gt;
+<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>    AllowedIPs = 10.0.0.2/32  # 客户端的 IP 地址
+<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a>    这里的 PrivateKey 是服务器端生成的私钥，Address 是服务器在 VPN 网络中的地址。
+<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a>
+<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a>    # 允许的客户端2，假设是一台MAC
+<a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a>    [Peer]
+<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a>    PublicKey = &lt;客户端公钥&gt;
+<a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a>    AllowedIPs = 10.0.0.3/32  # 客户端的 IP 地址
+<a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a>    这里的 PrivateKey 是服务器端生成的私钥，Address 是服务器在 VPN 网络中的地址。
+</code></pre></div></li>
+<li>这里<strong>服务器私钥</strong>是指上面生成的server_private_key内容，你需要将server_private_key内容复制粘贴到配置文件里，而不是填写文件路径；</li>
+<li>这里的<strong>客户端公钥</strong>是后面步骤中，在客户端生成的client_public_key的内容，你需要将client_public_key内容复制粘贴到配置文件里；</li>
+<li>需要注意的是，每增加一个客户端，服务端的配置都需要对应增加一个[Peer]部分</li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">配置客户端</p>
+<p>在客户端上生成 WireGuard 的私钥和公钥,以KVM的linux系统为例子:
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>    wg genkey | tee client_private_key | wg pubkey &gt; client_public_key
 </code></pre></div>
-<hr/>
-<p>If you are using a PiKVM image, you can run the script below on the KVM to automatically expand the space.</p>
-<p><strong>1.</strong> Log in to the KVM terminal, confirm that the system has read and write permissions, run <code>vim expand.sh</code> on any path, and write the following content to <code>expand.sh</code></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="ch">#!/bin/bash</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="nb">set</span> -x
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>        <span class="k">if</span> grep -q <span class="s1">'X-kvmd\.otgmsd'</span> /etc/fstab<span class="p">;</span> <span class="k">then</span>
-<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>                <span class="nv">part</span><span class="o">=</span><span class="k">$(</span>grep <span class="s1">'X-kvmd\.otgmsd'</span> /etc/fstab <span class="p">|</span> awk <span class="s1">'{print $1}'</span><span class="k">)</span>
-<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>                <span class="c1"># shellcheck disable=SC2206</span>
-<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>                <span class="nv">splitted</span><span class="o">=(</span><span class="si">${</span><span class="nv">part</span><span class="p">//=/ </span><span class="si">}</span><span class="o">)</span>
-<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a>                <span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="si">${</span><span class="nv">splitted</span><span class="p">[0]</span><span class="si">}</span><span class="s2">"</span> <span class="o">==</span> LABEL <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>                        <span class="nv">label</span><span class="o">=</span><span class="si">${</span><span class="nv">splitted</span><span class="p">[1]</span><span class="si">}</span>
-<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>                        <span class="nv">part</span><span class="o">=</span><span class="k">$(</span>blkid -c /dev/null -L <span class="s2">"</span><span class="nv">$label</span><span class="s2">"</span><span class="k">)</span>
-<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a>                <span class="k">else</span>
-<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a>                        <span class="nv">label</span><span class="o">=</span>PIMSD
-<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a>                <span class="k">fi</span>
-<a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a>                <span class="nb">unset</span> splitted
-<a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a>                <span class="nv">disk</span><span class="o">=</span>/dev/<span class="k">$(</span>lsblk -no pkname <span class="s2">"</span><span class="nv">$part</span><span class="s2">"</span><span class="k">)</span>
-<a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a>                <span class="nv">npart</span><span class="o">=</span><span class="k">$(</span>cat <span class="s2">"/sys/class/block/</span><span class="si">${</span><span class="nv">part</span><span class="p">//</span><span class="se">\/</span><span class="nv">dev</span><span class="se">\/</span><span class="p">/</span><span class="si">}</span><span class="s2">/partition"</span><span class="k">)</span>
-<a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a>                umount <span class="s2">"</span><span class="nv">$part</span><span class="s2">"</span>
-<a href="#__codelineno-3-17" id="__codelineno-3-17" name="__codelineno-3-17"></a>                parted <span class="s2">"</span><span class="nv">$disk</span><span class="s2">"</span> -a optimal -s resizepart <span class="s2">"</span><span class="nv">$npart</span><span class="s2">"</span> <span class="m">100</span>%
-<a href="#__codelineno-3-18" id="__codelineno-3-18" name="__codelineno-3-18"></a>                yes <span class="p">|</span> mkfs.ext4 -L <span class="s2">"</span><span class="nv">$label</span><span class="s2">"</span> -F -m <span class="m">0</span> <span class="s2">"</span><span class="nv">$part</span><span class="s2">"</span>
-<a href="#__codelineno-3-19" id="__codelineno-3-19" name="__codelineno-3-19"></a>                mount <span class="s2">"</span><span class="nv">$part</span><span class="s2">"</span>
-<a href="#__codelineno-3-20" id="__codelineno-3-20" name="__codelineno-3-20"></a>                <span class="nb">unset</span> disk part npart label
-<a href="#__codelineno-3-21" id="__codelineno-3-21" name="__codelineno-3-21"></a>        <span class="k">fi</span>
+创建或编辑 /etc/wireguard/wg0.conf 文件，配置 WireGuard 的客户端接口, Windows/macOS 图形界面配置,配文件内容是一样的。
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>    [Interface]
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>    PrivateKey = &lt;客户端私钥&gt;
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>    Address = 10.0.0.2/32  # 客户端的 IP 地址
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>    [Peer]
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a>    PublicKey = &lt;服务器公钥&gt;
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a>    Endpoint = &lt;服务器 IP 地址&gt;:51820  # 服务器的 IP 和端口
+<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a>    AllowedIPs = 10.0.0.0/24  # 路由所有流量通过 VPN
+<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a>    PersistentKeepalive = 25  # 保持连接的间隔时间，适合 NAT 网络
 </code></pre></div>
-<p><strong>2.</strong> Execute <code>bash expand.sh</code> on the terminal and wait for the execution to complete.</p>
+* <strong>客户端私钥</strong>是上面client_private_key文件的内容，<strong>服务器公钥</strong>为配置服务器部分生成的server_public_key文件内容;
+* 同理假设在MAC上配置，配置文件内容如下:
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>    [Interface]
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>    PrivateKey = &lt;客户端私钥&gt;
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>    Address = 10.0.0.3/32  # 客户端的 IP 地址
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>    [Peer]
+<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a>    PublicKey = &lt;服务器公钥&gt;
+<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a>    Endpoint = &lt;服务器 IP 地址&gt;:51820  # 服务器的 IP 和端口
+<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a>    AllowedIPs = 10.0.0.0/24  # 路由所有流量通过 VPN
+<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a>    PersistentKeepalive = 25  # 保持连接的间隔时间，适合 NAT 网络
+</code></pre></div></p>
+</div>
+<h3 id="wireguard_2"><strong>启动 WireGuard</strong></h3>
+<p>启动WireGuard服务器,在服务器上（例子服务器为ubuntu系统），启动 WireGuard 服务,可以使用以下命令
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>sudo wg-quick up wg0
+</code></pre></div>
+这将根据 /etc/wireguard/wg0.conf 配置文件启动服务器端接口。</p>
+<p>启动客户端,在客户端上，启动 WireGuard 服务,以KVM上为例，其他如MAC或者windows图形化界面启动方式一般是UI操作。
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>sudo wg-quick up wg0
+</code></pre></div></p>
+<h3 id="_2">配置防火墙（如果需要）</h3>
+<div class="highlight"><pre><span></span><code>服务器端放开上面服务端配置文件中的ListenPortdu端口；
+</code></pre></div>
+<h3 id="_3">测试连接</h3>
+<p>在KVM客户端上，使用 ping 命令测试与服务器和MAC的连接：
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a># 10.0.0.1和服务器进行测试
+<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>ping 10.0.0.1 
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a># 10.0.0.3和MAC进行测试
+<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a>ping 10.0.0.3
+</code></pre></div>
+另外，你可以直接使用命令查看状态:
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>sudo wg show
+</code></pre></div>
+如果一切配置正确，你应该能看到客户端成功连接并交换密钥。</p>
+<h3 id="_4">开机自启动</h3>
+<p>为了确保 WireGuard 配置在系统重启后自动启动，可以使用以下命令：
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>sudo systemctl enable wg-quick@wg0
+</code></pre></div></p>
+<h2 id="_5">总结</h2>
+<p>通过 WireGuard 组网涉及安装、配置密钥、配置接口、启动服务，并确保路由和防火墙配置正确。只要每个客户端和服务器的配置都正确，并且网络允许，它们就能够通过 WireGuard VPN 成功建立连接。</p>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 15, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 1, 2025</span>
 <br/>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 29, 2022</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 1, 2025</span>
 </small>
 </div>
 </article>
@@ -655,7 +732,7 @@
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: OLED Display" class="md-footer__link md-footer__link--prev" href="../OLED-display/" rel="prev">
+<a aria-label="Previous: Zerotier VPN" class="md-footer__link md-footer__link--prev" href="../zerotier/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -664,17 +741,17 @@
 <span class="md-footer__direction">
                 Previous
               </span>
-              OLED Display
+              Zerotier VPN
             </div>
 </div>
 </a>
-<a aria-label="Next: Serial-over-USB" class="md-footer__link md-footer__link--next" href="../serial_over_usb/" rel="next">
+<a aria-label="Next: Cloudflare 隧道" class="md-footer__link md-footer__link--next" href="../cloudflare-tunnels/" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
                 Next
               </span>
-              Serial-over-USB
+              Cloudflare 隧道
             </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -693,7 +770,7 @@
     </a>
 </div>
 <div class="md-social">
-<a class="md-social__link" href="https://github.com/ThomasVon2021/blikvm-site" rel="noopener" target="_blank" title="Join the translation work">
+<a class="md-social__link" href="https://github.com/ThomasVon2021/blikvm-site" rel="noopener" target="_blank" title="加入到翻译工作中">
 <svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
 </a>
 </div>

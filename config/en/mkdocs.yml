@@ -67,6 +67,8 @@ nav:
         - "BliKVM v3 HAT Guide": BLIKVM-HAT-guide.md
         - "BliKVM v2 PCIe Guide": BLIKVM-PCIE-guide.md
         - "BliKVM v1 CM4 Guide": BLIKVM-CM4-guide.md
+        - "Multiport BliSwitch v1 (4-port)": bliswitch-v1-guide.md
+        - "Multiport BliSwitch v2 (8-port)": bliswitch-v2-guide.md 
         - "First Steps": first_steps.md
         - "FAQ": faq.md
     - "Network":
@@ -74,6 +76,7 @@ nav:
             - "Port Forwarding": port-forwarding.md
             - "Tailscale VPN": tailscale.md
             - "ZeroTier VPN": zerotier.md
+            - "WireGuard VPN": wireguard.md
             - "Cloudflare Tunnel": cloudflare-tunnels.md
         - "Set Static IP ": static_ip.md
         - "Wifi Config": wifi.md
@@ -102,8 +105,6 @@ nav:
         - "ATX Guide": atx-guide.md
         - "HDMI to CSI & Audio": hdmi-csi-i2s.md
         - "USB Splitter": usb-splitter-guide.md
-        - "Multiport BliSwitch v1 (4-port)": bliswitch-v1-guide.md
-        - "Multiport BliSwitch v2 (8-port)": bliswitch-v2-guide.md 
     - "Development":
         - "Make Image": make-image.md
         - "Config for PiKVM OS": modify_pikvm_image.md
