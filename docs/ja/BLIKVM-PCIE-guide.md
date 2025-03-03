@@ -25,7 +25,7 @@ BLIKVM PCIeはRaspberry Pi CM4を使ったKVM Over IPのためのPCIeカード�
     ![BLIKVM_PCIe_main-back](assets/images/BLIKVM-PCIe/BLIKVM_PCIe_main-back.png){width="300"}
 
 !!! note "**HDMI IN**"
-    ビデオとオーディオ(I2S)のキャプチャをサポートする東芝のTC358743と言うチップを使用しています。そして、ビデオキャプチャの最大解像度は1080P 60fpsです。HDMIバックパワーによる問題は修正されています。
+    ビデオとオーディオ(I2S)のキャプチャをサポートする東芝のTC358743と言うチップを使用しています。そして、ビデオキャプチャの最大解像度は1080P 60hzです。HDMIバックパワーによる問題は修正されています。
 
 !!! note "**USB-PC**"
     製品には2つのUSB-PCポートがあります。USB-PCポートのどちらも利用できます。

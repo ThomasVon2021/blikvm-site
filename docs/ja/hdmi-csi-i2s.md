@@ -263,7 +263,7 @@ Linux raspberrypi 5.10.63-v7l+ #1459 SMP Wed Oct 6 16:41:57 BST 2021 armv7l GNU/
 
     ![Image title](assets/images/hdmi-csi-i2s/v4l2-rate.png){width="400"}
 
-    上記のHDMIデバイスの例ではフレームレートは60fpsなので、次のコマンドのようにパラメータを変更します。コマンドはビデオのみ録画します:
+    上記のHDMIデバイスの例ではフレームレートは60hzなので、次のコマンドのようにパラメータを変更します。コマンドはビデオのみ録画します:
     ```
     gst-launch-1.0 -vvv v4l2src ! "video/x-raw,framerate=60/1,format=UYVY" ! v4l2h264enc extra-controls="controls,h264_profile=4,h264_level=13,video_bitrate=256000;" ! "video/x-h264,profile=high, level=(string)4.2" ! h264parse ! queue ! matroskamux name=mux ! filesink location=foo.mkv
     ```

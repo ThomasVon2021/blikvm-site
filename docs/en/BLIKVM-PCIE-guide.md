@@ -54,7 +54,7 @@ BLIKVM PCIe is a PCIe add-in card based on Raspberry Pi CM4 for KVM Over IP. Thi
 | 11 |  USB-PC port       |   | |
 
 !!! note "**HDMI IN**"
-    The bridge chip is Toshiba TC358743, which supports both video and audio(I2S), and the highest input resolution is 1080p@60fps.
+    The bridge chip is Toshiba TC358743, which supports both video and audio(I2S), and the highest input resolution is 1080p@60hz.
     Fixed HDMI back power issue.
 
 !!! note "**USB-PC**"

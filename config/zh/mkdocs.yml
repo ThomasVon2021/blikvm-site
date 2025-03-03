@@ -61,16 +61,19 @@ markdown_extensions:
   - pymdownx.superfences
 
 nav:
-    - "快速开始":
+    - "设备指南":
       - "BliKVM介绍": index.md
       - "BliKVM v4 Allwinner导览": BliKVM-v4-guide.md
       - "BliKVM v3 HAT导览": BLIKVM-HAT-guide.md
       - "BliKVM v2 PCIe导览": BLIKVM-PCIE-guide-zh.md
       - "BliKVM v1 CM4导览": BLIKVM-CM4-guide.md
-      - "switchV1切换器手册": bliswitch-v1-guide.md
       - "switchV2切换器手册": bliswitch-v2-guide.md 
+      - "switchV1切换器手册": bliswitch-v1-guide.md
+    - "快速开始":
       - "第一步": first_steps.md
+      - "认证和2FA": auth.md
       - "常见问题解答": faq.md
+      - "烧录镜像": flashing_os.md
     - "网络":
         - "公网访问":
           - "端口转发": port-forwarding.md
@@ -90,7 +93,6 @@ nav:
         - "更新软件": update.md
         - "视频&键鼠": hid.md
         - "RTC时钟": rtc.md
-        - "烧录镜像": flashing_os.md
         - "OLED显示器": OLED-display.md
         - "存储卡扩容": Expand_Filesystem.md
         - "U盘驱动": msd.md

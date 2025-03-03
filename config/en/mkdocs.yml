@@ -61,16 +61,19 @@ markdown_extensions:
   - pymdownx.superfences
 
 nav:
-    - "Getting Started":
+    - "Device guides":
         - "BLIKVM Overview": index.md
         - "BliKVM v4 Allwinner Guide": BliKVM-v4-guide.md
         - "BliKVM v3 HAT Guide": BLIKVM-HAT-guide.md
         - "BliKVM v2 PCIe Guide": BLIKVM-PCIE-guide.md
         - "BliKVM v1 CM4 Guide": BLIKVM-CM4-guide.md
-        - "Multiport BliSwitch v1 (4-port)": bliswitch-v1-guide.md
         - "Multiport BliSwitch v2 (8-port)": bliswitch-v2-guide.md 
+        - "Multiport BliSwitch v1 (4-port)": bliswitch-v1-guide.md
+    - "Getting Started":
         - "First Steps": first_steps.md
+        - "Authentication & 2FA": auth.md
         - "FAQ": faq.md
+        - "Flashing OS": flashing_os.md
     - "Network":
         - "Internet Access":
             - "Port Forwarding": port-forwarding.md
@@ -90,14 +93,12 @@ nav:
         - "Upgrade": update.md
         - "Keyboard": hid.md
         - "RTC clock": rtc.md
-        - "Flashing OS": flashing_os.md
         - "OLED Display": OLED-display.md
         - "Expand Filesystem": Expand_Filesystem.md
         - "Serial-over-USB": serial_over_usb.md 
         - "MSD": msd.md
         - "Wake-on-LAN": wake-on-lan.md
         - "SSH Terminal": ssh.md 
-        - "security": security.md
     - "Installation Instructions":
         - "v3 HAT Illustrated Instructions": BLIHAT-Installation.md
         - "v2 PCIe Illustrated Instructions": BLIKVM-PCIe-installation.md
