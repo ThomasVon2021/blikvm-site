@@ -63,10 +63,10 @@ markdown_extensions:
 nav:
     - "Device guides":
         - "BLIKVM Overview": index.md
-        - "BliKVM v4 Allwinner Guide": BliKVM-v4-guide.md
-        - "BliKVM v3 HAT Guide": BLIKVM-HAT-guide.md
-        - "BliKVM v2 PCIe Guide": BLIKVM-PCIE-guide.md
-        - "BliKVM v1 CM4 Guide": BLIKVM-CM4-guide.md
+        - "BliKVM v4 Allwinner": BliKVM-v4-guide.md
+        - "BliKVM v3 HAT": BLIKVM-HAT-guide.md
+        - "BliKVM v2 PCIe": BLIKVM-PCIE-guide.md
+        - "BliKVM v1 CM4": BLIKVM-CM4-guide.md
         - "Multiport BliSwitch v2 (8-port)": bliswitch-v2-guide.md 
         - "Multiport BliSwitch v1 (4-port)": bliswitch-v1-guide.md
     - "Getting Started":
@@ -100,10 +100,10 @@ nav:
         - "Wake-on-LAN": wake-on-lan.md
         - "SSH Terminal": ssh.md 
     - "Installation Instructions":
-        - "v3 HAT Illustrated Instructions": BLIHAT-Installation.md
-        - "v2 PCIe Illustrated Instructions": BLIKVM-PCIe-installation.md
+        - "v3 HAT": BLIHAT-Installation.md
+        - "v2 PCIe": BLIKVM-PCIe-installation.md
     - "Accessories":
-        - "ATX Guide": atx-guide.md
+        - "ATX": atx-guide.md
         - "HDMI to CSI & Audio": hdmi-csi-i2s.md
         - "USB Splitter": usb-splitter-guide.md
     - "Development":

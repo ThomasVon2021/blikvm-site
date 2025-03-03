@@ -63,17 +63,17 @@ markdown_extensions:
 nav:
     - "设备指南":
       - "BliKVM介绍": index.md
-      - "BliKVM v4 Allwinner导览": BliKVM-v4-guide.md
-      - "BliKVM v3 HAT导览": BLIKVM-HAT-guide.md
-      - "BliKVM v2 PCIe导览": BLIKVM-PCIE-guide-zh.md
-      - "BliKVM v1 CM4导览": BLIKVM-CM4-guide.md
+      - "BliKVM v4 Allwinner": BliKVM-v4-guide.md
+      - "BliKVM v3 HAT": BLIKVM-HAT-guide.md
+      - "BliKVM v2 PCIe": BLIKVM-PCIE-guide-zh.md
+      - "BliKVM v1 CM4": BLIKVM-CM4-guide.md
       - "BliSwitch v2 (8通道)": bliswitch-v2-guide.md 
       - "BliSwitch v1 (4通道)": bliswitch-v1-guide.md
     - "快速开始":
       - "第一步": first_steps.md
       - "认证和2FA": auth.md
       - "常见问题解答": faq.md
-      - "烧录镜像": flashing_os.md
+      - "烧录系统": flashing_os.md
     - "网络":
         - "公网访问":
           - "端口转发": port-forwarding.md
@@ -99,7 +99,6 @@ nav:
         - "串口终端": serial_over_usb.md
         - "Wake-on-LAN": wake-on-lan.md
         - "SSH终端": ssh.md 
-        - "安全": security.md
     - "安装说明":
         - "v3 HAT安装说明": BLIHAT-Installation.md
         - "v2 PCIe安装说明": BLIKVM-PCIe-installation-zh.md
