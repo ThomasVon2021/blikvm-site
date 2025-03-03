@@ -67,8 +67,8 @@ nav:
       - "BliKVM v3 HAT导览": BLIKVM-HAT-guide.md
       - "BliKVM v2 PCIe导览": BLIKVM-PCIE-guide-zh.md
       - "BliKVM v1 CM4导览": BLIKVM-CM4-guide.md
-      - "switchV2切换器手册": bliswitch-v2-guide.md 
-      - "switchV1切换器手册": bliswitch-v1-guide.md
+      - "BliSwitch v2 (8通道)": bliswitch-v2-guide.md 
+      - "BliSwitch v1 (4通道)": bliswitch-v1-guide.md
     - "快速开始":
       - "第一步": first_steps.md
       - "认证和2FA": auth.md
