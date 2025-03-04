@@ -9,7 +9,7 @@
 <meta content="Thomas Von" name="author"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
-<title>BliKVM v2 PCIe - BLIKVM 用户手册</title>
+<title>Reverse proxy. - BliKVM Handbook</title>
 <link href="../assets/stylesheets/main.472b142f.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.08040f6c.min.css" rel="stylesheet"/>
 <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 7.775V2.75a.25.25 0 0 1 .25-.25h5.025a.25.25 0 0 1 .177.073l6.25 6.25a.25.25 0 0 1 0 .354l-5.025 5.025a.25.25 0 0 1-.354 0l-6.25-6.25a.25.25 0 0 1-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.75 1.75 0 0 1 1 7.775zM6 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 0 1 .25-.25h8.5a.25.25 0 0 1 .25.25v7.736a.75.75 0 1 0 1.5 0V1.75A1.75 1.75 0 0 0 11.25 0h-8.5A1.75 1.75 0 0 0 1 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 0 0 0-1.5H2.75a.25.25 0 0 1-.25-.25V1.75zM4.75 4a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5zM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75zm11.774 3.537a.75.75 0 0 0-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 0 0-1.062 1.058l1.943 1.95a.75.75 0 0 0 1.055.008l4.557-4.45z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm6.5-.25A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75zM8 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.489 4.489 0 0 1-.563-1.191 3.833 3.833 0 0 1-.05-2.063 4.636 4.636 0 0 1-2.025-.293.75.75 0 1 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.748.748 0 0 1 1.06 0 .75.75 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.404 2.404 0 0 1-.507-.441 3.063 3.063 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.753.753 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768a85.08 85.08 0 0 0-.317-.265c-.814-.68-1.75-1.462-2.692-2.619a3.74 3.74 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm9 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM6.92 6.085c.081-.16.19-.299.34-.398.145-.097.371-.187.74-.187.28 0 .553.087.738.225A.613.613 0 0 1 9 6.25c0 .177-.04.264-.077.318a.956.956 0 0 1-.277.245c-.076.051-.158.1-.258.161l-.007.004a7.728 7.728 0 0 0-.313.195 2.416 2.416 0 0 0-.692.661.75.75 0 0 0 1.248.832.956.956 0 0 1 .276-.245 6.3 6.3 0 0 1 .26-.16l.006-.004c.093-.057.204-.123.313-.195.222-.149.487-.355.692-.662.214-.32.329-.702.329-1.15 0-.76-.36-1.348-.863-1.725A2.76 2.76 0 0 0 8 4c-.631 0-1.155.16-1.572.438-.413.276-.68.638-.849.977a.75.75 0 1 0 1.342.67z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047zM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-.25-5.25a.75.75 0 0 0-1.5 0v2.5a.75.75 0 0 0 1.5 0v-2.5z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.404 12.596a6.5 6.5 0 1 1 9.192-9.192 6.5 6.5 0 0 1-9.192 9.192zM2.344 2.343a8 8 0 1 0 11.313 11.314A8 8 0 0 0 2.343 2.343zM6.03 4.97a.75.75 0 0 0-1.06 1.06L6.94 8 4.97 9.97a.75.75 0 1 0 1.06 1.06L8 9.06l1.97 1.97a.75.75 0 1 0 1.06-1.06L9.06 8l1.97-1.97a.75.75 0 1 0-1.06-1.06L8 6.94 6.03 4.97z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M10.561 1.5a.016.016 0 0 0-.01.004L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.02.02 0 0 0-.004-.009.02.02 0 0 0-.006-.006L10.56 1.5zM9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.25 1.25 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.492 3.492 0 0 1 2.441 0l.999-1a.75.75 0 1 1 1.06 1.061l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.013 5.013 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.684 1.684 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06zM6.173 5h3.654A.173.173 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173zM5.25 6.5a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75h-5.5z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458L5 5.782zM9.5 2.5h-3V6a.75.75 0 0 1-.117.403L4.73 9h6.54L9.617 6.403A.75.75 0 0 1 9.5 6V2.5zm-6.9 9.847L3.775 10.5h8.45l1.175 1.847a.75.75 0 0 1-.633 1.153H3.233a.75.75 0 0 1-.633-1.153z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.75 2.5a.75.75 0 0 0 0 1.5h10.5a.75.75 0 0 0 0-1.5H1.75zm4 5a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5zm0 5a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5zM2.5 7.75a.75.75 0 0 0-1.5 0v6a.75.75 0 0 0 1.5 0v-6z"/></svg>');}</style>
@@ -34,7 +34,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#blikvm-pcie">
+<a class="md-skip" href="#reverse-proxy">
           Skip to content
         </a>
 </div>
@@ -42,7 +42,7 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="BLIKVM 用户手册" class="md-header__button md-logo" data-md-component="logo" href="https://www.blicube.com" title="BLIKVM 用户手册">
+<a aria-label="BliKVM Handbook" class="md-header__button md-logo" data-md-component="logo" href="https://www.blicube.com" title="BliKVM Handbook">
 <img alt="logo" src="../assets/images/logo.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -52,13 +52,13 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            BLIKVM 用户手册
+            BliKVM Handbook
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              BliKVM v2 PCIe
+              Reverse proxy.
             
           </span>
 </div>
@@ -139,10 +139,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="BLIKVM 用户手册" class="md-nav__button md-logo" data-md-component="logo" href="https://www.blicube.com" title="BLIKVM 用户手册">
+<a aria-label="BliKVM Handbook" class="md-nav__button md-logo" data-md-component="logo" href="https://www.blicube.com" title="BliKVM Handbook">
 <img alt="logo" src="../assets/images/logo.png"/>
 </a>
-    BLIKVM 用户手册
+    BliKVM Handbook
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/ThomasVon2021/blikvm-site" title="Go to repository">
@@ -155,18 +155,18 @@
 </a>
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="..">设备指南</a>
+<a href="..">Device guides</a>
 <label for="__nav_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-label="设备指南" class="md-nav" data-md-level="1">
+<nav aria-label="Device guides" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_1">
 <span class="md-nav__icon md-icon"></span>
-          设备指南
+          Device guides
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -179,78 +179,10 @@
         BliKVM v3 HAT
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          BliKVM v2 PCIe
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../BLIKVM-PCIE-guide/">
         BliKVM v2 PCIe
       </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_1">
-    介绍
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
-    安装要求
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
-    功能
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
-    快速安装说明
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
-    产品特性
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
-    配件
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_7">
-    尺寸
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_8">
-    测试视频
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_9">
-    发货清单
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_10">
-    购买链接
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#3d">
-    3D外壳
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BLIKVM-CM4-guide/">
@@ -259,12 +191,12 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../bliswitch-v2-guide/">
-        BliSwitch v2 (8通道)
+        Multiport BliSwitch v2 (8-port)
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../bliswitch-v1-guide/">
-        BliSwitch v1 (4通道)
+        Multiport BliSwitch v1 (4-port)
       </a>
 </li>
 </ul>
@@ -273,71 +205,103 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2">
-          快速开始
+          Getting Started
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="快速开始" class="md-nav" data-md-level="1">
+<nav aria-label="Getting Started" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
-          快速开始
+          Getting Started
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../first_steps/">
-        第一步
+        First Steps
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../auth/">
-        认证和2FA
+        Authentication &amp; 2FA
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../faq/">
-        常见问题解答
+        FAQ
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../flashing_os/">
-        烧录系统
+        Flashing OS
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
 <label class="md-nav__link" for="__nav_3">
-          网络
+          Network
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="网络" class="md-nav" data-md-level="1">
+<nav aria-label="Network" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
-          网络
+          Network
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_1" id="__nav_3_1" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" id="__nav_3_1" type="checkbox"/>
 <label class="md-nav__link" for="__nav_3_1">
-          公网访问
+          Internet Access
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="公网访问" class="md-nav" data-md-level="2">
+<nav aria-label="Internet Access" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_3_1">
 <span class="md-nav__icon md-icon"></span>
-          公网访问
+          Internet Access
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../port-forwarding/">
-        端口转发
+        Port Forwarding
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../reverse_proxy/">
-        反向代理.
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Reverse proxy.
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Reverse proxy.
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#blikvm-configuration">
+    BliKVM Configuration
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#server-configuration">
+    Server Configuration
+  </a>
+<nav aria-label="Server Configuration" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nginx">
+    Nginx
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../tailscale/">
@@ -346,7 +310,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../zerotier/">
-        Zerotier VPN
+        ZeroTier VPN
       </a>
 </li>
 <li class="md-nav__item">
@@ -356,7 +320,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../cloudflare-tunnels/">
-        Cloudflare 隧道
+        Cloudflare Tunnel
       </a>
 </li>
 </ul>
@@ -364,17 +328,17 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../static_ip/">
-        设置静态IP
+        Set Static IP 
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../wifi/">
-        Wifi配置
+        Wifi Config
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../https/">
-        加密证书
+        Encrypt certificates
       </a>
 </li>
 </ul>
@@ -383,33 +347,33 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4">
-          视频
+          Video
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="视频" class="md-nav" data-md-level="1">
+<nav aria-label="Video" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
-          视频
+          Video
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../video-modes/">
-        视频模式
+        Video modes
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../webrtc/">
-        WebRTC 配置
+        WebRTC configuration
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../edid/">
-        HDMI EDID设置
+        HDMI EDID
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../hdmi-passthrough/">
-        HDMI环出
+        HDMI passthrough
       </a>
 </li>
 </ul>
@@ -418,48 +382,48 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
 <label class="md-nav__link" for="__nav_5">
-          功能说明
+          Function
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="功能说明" class="md-nav" data-md-level="1">
+<nav aria-label="Function" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
-          功能说明
+          Function
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../update/">
-        更新软件
+        Upgrade
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../hid/">
-        视频&amp;键鼠
+        Keyboard
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../rtc/">
-        RTC时钟
+        RTC clock
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../OLED-display/">
-        OLED显示器
+        OLED Display
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../Expand_Filesystem/">
-        存储卡扩容
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../msd/">
-        U盘驱动
+        Expand Filesystem
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../serial_over_usb/">
-        串口终端
+        Serial-over-USB
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../msd/">
+        MSD
       </a>
 </li>
 <li class="md-nav__item">
@@ -469,7 +433,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../ssh/">
-        SSH终端
+        SSH Terminal
       </a>
 </li>
 </ul>
@@ -478,23 +442,23 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
 <label class="md-nav__link" for="__nav_6">
-          安装说明
+          Installation Instructions
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="安装说明" class="md-nav" data-md-level="1">
+<nav aria-label="Installation Instructions" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_6">
 <span class="md-nav__icon md-icon"></span>
-          安装说明
+          Installation Instructions
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../BLIHAT-Installation/">
-        v3 HAT安装说明
+        v3 HAT
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../BLIKVM-PCIe-installation-zh/">
-        v2 PCIe安装说明
+<a class="md-nav__link" href="../BLIKVM-PCIe-installation/">
+        v2 PCIe
       </a>
 </li>
 </ul>
@@ -503,28 +467,28 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
 <label class="md-nav__link" for="__nav_7">
-          配件手册
+          Accessories
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="配件手册" class="md-nav" data-md-level="1">
+<nav aria-label="Accessories" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_7">
 <span class="md-nav__icon md-icon"></span>
-          配件手册
+          Accessories
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../atx-guide/">
-        ATX用户手册
+        ATX
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../hdmi-csi-i2s/">
-        HDMI转CSI &amp; Audio模块用户手册
+        HDMI to CSI &amp; Audio
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../usb-splitter-guide/">
-        USB一分二用户手册
+        USB Splitter
       </a>
 </li>
 </ul>
@@ -533,28 +497,33 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8" id="__nav_8" type="checkbox"/>
 <label class="md-nav__link" for="__nav_8">
-          开发者
+          Development
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="开发者" class="md-nav" data-md-level="1">
+<nav aria-label="Development" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_8">
 <span class="md-nav__icon md-icon"></span>
-          开发者
+          Development
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../make-image/">
-        制作镜像
+        Make Image
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../modify_pikvm_image/">
-        配置PiKVM OS
+        Config for PiKVM OS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Dev-BliKVM-v4-Allwinner/">
+        v4 Allwinner Dev Guide
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../dev_api/">
-        http API
+        HTTP API
       </a>
 </li>
 </ul>
@@ -575,59 +544,23 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_1">
-    介绍
+<a class="md-nav__link" href="#blikvm-configuration">
+    BliKVM Configuration
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
-    安装要求
+<a class="md-nav__link" href="#server-configuration">
+    Server Configuration
+  </a>
+<nav aria-label="Server Configuration" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nginx">
+    Nginx
   </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
-    功能
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
-    快速安装说明
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
-    产品特性
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
-    配件
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_7">
-    尺寸
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_8">
-    测试视频
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_9">
-    发货清单
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_10">
-    购买链接
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#3d">
-    3D外壳
-  </a>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -636,375 +569,122 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ThomasVon2021/blikvm-site/edit/master/docs/zh/BLIKVM-PCIE-guide-zh.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ThomasVon2021/blikvm-site/edit/master/docs/en/reverse_proxy.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
-<h1 id="blikvm-pcie">BLIKVM PCIe</h1>
-<h2 id="_1"><strong>介绍</strong></h2>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/BLIKVM-PCIe/BLIKVM_PCIe_main1.png"><img alt="main1" src="../assets/images/BLIKVM-PCIe/BLIKVM_PCIe_main1.png" width="500"/></a>
-BLIKVM PCIe是一款基于树莓派CM4的IPKVM扩展卡，可以安装到PC或者服务器的PCIe插槽，完美运行PiKVM项目。主要功能有：HDMI视频采集，键盘鼠标控制，ATX开关机控制，PoE供电，OLED屏幕显示，
-串口终端调试和RTC时钟功能。此PCIe卡配有全高和半高的挡板。 BLIKVM PCIe版本支持blikvm和pikvm的系统镜像。</p>
-<h2 id="_2"><strong>安装要求</strong></h2>
-<div class="admonition note">
-<p class="admonition-title">你需要下面的设备</p>
+<h1 id="reverse-proxy"><strong>Reverse Proxy</strong></h1>
+<p>A reverse proxy allows you to pass requests through your web server to another site or program.
+The reverse proxy will make it look like BliKVM Web UI is a page within your existing site.</p>
+<p>This is especially useful if:</p>
 <ul>
-<li>树莓派CM4(如果你只订购了PCIe卡).</li>
-<li>PoE供电设备或5V/3A USB供电设备.</li>
-<li>CR1220 纽扣电池.</li>
+<li>
+<p>You need to access the WebUI on port <code>80</code> or <code>443</code> but you already host a website on the same device.</p>
+</li>
+<li>
+<p>You want to share SSL certificates with an existing site.</p>
+</li>
+<li>
+<p>You want to share authentication with an existing setup.</p>
+</li>
 </ul>
-</div>
-<h2 id="_3">功能</h2>
+<hr/>
+<h2 id="blikvm-configuration"><strong>BliKVM Configuration</strong></h2>
+<p>BliKVM supports reverse proxying in the latest version. For older version, please update OS first:</p>
+<p>{!update.md!}</p>
+<p>By default, BliKVM redirects all requests from HTTP port <code>80</code> to HTTPS port <code>443</code> with self-signed
+certificate. For the simplest configuration, you can leave it as it is, and terminate
+SSL traffic from BliKVM on your web server.</p>
+<p>Alternatively, you can change the HTTP and HTTPS ports on BliKVM or disable HTTPS at all
+to deliver HTTP-only traffic to your server.</p>
+<p>In both cases you should take care of your own SSL certificate for your web server.</p>
+<details class="example">
+<summary>Various examples with changing HTTP/HTTPS settings</summary>
 <ul>
-<li><strong>视频捕获</strong> (HDMI,最高支持1080P@60Hz输入)</li>
-<li><strong>键盘转发</strong></li>
-<li><strong>鼠标转发</strong></li>
-<li><strong>虚拟U盘(重装系统)</strong></li>
-<li><strong>ATX</strong> 使用 ATX 功能控制服务器电源</li>
-<li><strong>全屏模式</strong></li>
-<li>通过 <strong>Web UI</strong> 访问</li>
-<li>支持 <strong>多语言</strong> 切换</li>
-<li>支持<strong>PoE</strong>供电</li>
-<li>支持串口终端</li>
-<li>支持 <strong>WiFi</strong>（可选）</li>
-<li><strong>OLED</strong> 屏幕</li>
-<li><strong>实时时钟 (RTC)</strong> </li>
-<li>PWM风扇</li>
+<li>
+<p>Changing HTTP and HTTPS ports. Place this config to <code>/mnt/exec/release/config/app.json</code> on BliKVM:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="w">    </span><span class="nt">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https"</span><span class="p">,</span><span class="w"></span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="nt">"https_port"</span><span class="p">:</span><span class="w"> </span><span class="mi">443</span><span class="p">,</span><span class="w"></span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="nt">"http_port"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w"></span>
+</code></pre></div>
+</li>
 </ul>
-<h2 id="_4"><strong>快速安装说明</strong></h2>
-<p><strong>1.</strong> <a href="../flashing_os/">如果你购买的是需要自己组装的版本，烧录系统镜像参考请点击此处 </a> <br/>
-<strong>2.组装 BLIKVM</strong> 参考的 <a href="../BLIKVM-PCIe-installation-zh/">说明文档</a></p>
-<details class="info">
-<summary>Geerling的测试视频</summary>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/cVWF3u-y-Zg" title="YouTube video player" width="560"></iframe></p>
 </details>
+<hr/>
+<h2 id="server-configuration"><strong>Server Configuration</strong></h2>
+<p>If you have access to your web server’s configuration use the following examples
+to pass the location <code>/</code> on the server to BliKVM Web UI hosted on <code>https://blikvm_ip</code>
+on HTTPS port <code>443</code>.</p>
+<h3 id="nginx"><strong>Nginx</strong></h3>
 <details class="info">
-<summary>Craft Computing: Never Pay For IPMI Again - BliKVM Review</summary>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/Wn5UXY4W6E0" title="YouTube video player" width="560"></iframe></p>
-</details>
-<h2 id="_5"><strong>产品特性</strong></h2>
-<div class="admonition note">
-<p class="admonition-title">硬件接口清单</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/BLIKVM-PCIe/BLIKVM_PCIe_main-define.png"><img alt="BLIKVM_PCIe_main-define" src="../assets/images/BLIKVM-PCIe/BLIKVM_PCIe_main-define.png" width="300"/></a>
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/BLIKVM-PCIe/BLIKVM_PCIe_main-back.png"><img alt="BLIKVM_PCIe_main-back" src="../assets/images/BLIKVM-PCIe/BLIKVM_PCIe_main-back.png" width="300"/></a></p>
-</div>
-<table>
-<thead>
-<tr>
-<th>1</th>
-<th>HDMI 视频输入端口</th>
-<th>2</th>
-<th>USB-PC 端口</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>HDMI 视频输入端口</td>
-<td>2</td>
-<td>USB-PC 端口</td>
-</tr>
-<tr>
-<td>3</td>
-<td>供电口 5V 3A</td>
-<td>4</td>
-<td>RJ45 100M 网口 &amp; PoE</td>
-</tr>
-<tr>
-<td>5</td>
-<td>ATX控制端口</td>
-<td>6</td>
-<td>OLED 显示屏接口</td>
-</tr>
-<tr>
-<td>7</td>
-<td>PWM 风扇</td>
-<td>8</td>
-<td>BOOT</td>
-</tr>
-<tr>
-<td>9</td>
-<td>RTC时钟</td>
-<td>10</td>
-<td>串行终端端口</td>
-</tr>
-<tr>
-<td>11</td>
-<td>USB-PC端口</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<div class="admonition note">
-<p class="admonition-title"><strong>HDMI IN</strong></p>
-<p>使用东芝的TC358743作为HDMI的桥接芯片，同时支持视频和音频采集，支持视频输入最高分辨率为1080P60Hz。</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title"><strong>USB-PC</strong></p>
-<p>BLIKVM PCIe卡提供两个usb接口，一个是PC-IN（type c接口），另一个是USB-PC2（排针接口）。这两个接口的作用都是为了连接被控电脑的usb，用于控制鼠标和键盘。同时两个接口只能使用一个，设计两个接口的目的是，当用户pc主机内有排针的usb接口时，可以直接使用usb-pc2，这样接线会更加简洁。</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title"><strong>POWER-IN</strong></p>
-<p>当使用PoE供电时，改接口不需要被使用。当不使用PoE供电时，连接该接口的电源适配器，推荐为5V/3A。</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title"><strong>以太网口-PoE</strong></p>
+<summary>How to install nginx on server? How to certificate your domain?</summary>
 <ul>
-<li>Gigabit Ethernet port</li>
-<li><strong>标准:</strong> IEEE 802.3af PoE</li>
-<li><strong>输入电压:</strong> 37-57 V DC</li>
-<li><strong>输出电压:</strong> 5 V DC/2.4 A</li>
+<li>Install nginx on ubuntu server
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>    apt update
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>    apt install nginx -y
+</code></pre></div></li>
+<li>Add a config for nginx, you can touch a file in <code>/etc/nginx/sites-available/</code>,like
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>    vim /etc/nginx/sites-available/reverse-proxy
+</code></pre></div></li>
+<li>Some useful command:
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a># check config
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>nginx -t    
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a># when you update the config, you need to restart the nginx
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>systemctl restart nginx
+</code></pre></div></li>
+<li>Apply for certificate
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>apt install certbot python3-certbot-nginx -y
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>certbot renew --dry-run
+</code></pre></div></li>
 </ul>
-</div>
-<div class="admonition note">
-<p class="admonition-title"><strong>ATX接口</strong></p>
-<ul>
-<li>改接口通过杜邦线链接被控计算机主板的电源控制接口。ATX功能可以开启或者重启被控计算机。</li>
-<li>PCIe板子上的BTN丝印为button的缩写。</li>
-<li>根据电脑主板说明，首先找到主板上ATX功能相关引脚位置，拔下主板已经接好的ATX线，拔下后电脑的电源按钮将失去作用。PCIe主板共有两排8PIN引脚，两排引脚功能完全相同使用时无需区分。其中一排引脚用于KVM控制ATX相关功能，另一排引脚接主板上拔下来的ATX杜邦头，保持原有机箱电源按钮功能。根据主板和PCIe上的具体引脚定义进行每根线的连接，连接关系可以参考下图：<br/>
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/BLIKVM-PCIe/atx-cp.png"><img alt="" src="../assets/images/BLIKVM-PCIe/atx-cp.png"/></a></li>
-</ul>
-</div>
-<div class="admonition note">
-<p class="admonition-title"><strong>OLED显示屏</strong></p>
-<p>显示屏分辨率为128x64，主芯片为SSD1306。通过改屏幕可以展示BLIKVM的CPU的温度、IP地址、启动时间等信息。</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title"><strong>风扇</strong></p>
-<p>风扇默认设置工作温度为60摄氏度，与树莓派CM4的通过GPIO12链接。</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title"><strong>BOOT</strong></p>
-<p>Fit jumper to disable eMMC Boot
-通过该短接口可以使用PCIe卡对eMMC版本的CM4进行镜像烧录。</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title"><strong>实时时钟 (RTC)</strong></p>
-<p>时钟芯片为PCF8563，与树莓派CM4的通信方式为I2C。RTC工作需要再安装CR1220电池后。</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title"><strong>串口</strong></p>
-<p>可以通过改串口登陆设备进行调试，一般在在网络链接故障等情况下使用。
-树莓派CM4的串口. G for GND, T(GPIO 14) for TXD, R(GPIO 15) for RXD.<br/>
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/gpio/uart_gpio.jpg"><img alt="" src="../assets/images/gpio/uart_gpio.jpg" width="300"/></a> 
-将USB转TTL模块的杜邦头连接到PCIe的<strong>GTR</strong>口，USB转ttl模块与<strong>GTR</strong>接线关系为（黑色线-G, 白色线-T, 绿色线-R）;具体方法可参考<a href="../serial_over_usb/">此文档</a></p>
-</div>
-<h2 id="_6"><strong>配件</strong></h2>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/BLIKVM-PCIe/accessories.png"><img alt="BLIKVM_PCIe_main-back" src="../assets/images/BLIKVM-PCIe/accessories.png" width="400"/></a></p>
-<div class="admonition note">
-<p class="admonition-title"><strong>HDMI EDID模拟器</strong></p>
-<p>如果被控计算机不能正确的输出HDMI图像，可以使用此设备进行测试。安装在被控设备的HDMI输出接口上，然后再通过HDMI线连接到BLIKVM。</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title"><strong>VGA转HDMI模块</strong></p>
-<p>当被控计算机不是HDMI输出接口，而是VGA输出接口，请使用该模块完成VGA转HDMI信号转换。</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title"><strong>USB转TTL模块</strong></p>
-<p>通过改模块，可以连接BLIKVM PCIe卡的串口，然后使用串口进入设备进行调试。</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title"><strong>风扇</strong></p>
-<p>Use a cooling fan to cool the Raspberry Pi CM4, but installing a fan will make the product thicker than a standard
-PCIe add-in card.
-使用风扇对树莓派CM4进行降温，但安装风扇后会使BLIKVM PCIe卡的厚度厚于标准的PCIe卡厚度。</p>
-</div>
-<h2 id="_7"><strong>尺寸</strong></h2>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/images/BLIKVM-PCIe/dimension.png"><img alt="dimension1" src="../assets/images/BLIKVM-PCIe/dimension.png" width="400"/></a></p>
-<h2 id="_8"><strong>测试视频 </strong></h2>
-<details class="info">
-<summary>BLIKVM PCIe版本实测视频，软件使用PiKVM</summary>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/0SEGeLFV-Wk" title="YouTube video player" width="560"></iframe></p>
 </details>
-<h2 id="_9"><strong>发货清单</strong></h2>
-<table>
-<thead>
-<tr>
-<th>BLIKVM only PCIe卡版本</th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>BLIKVM PCIe卡</td>
-<td>1</td>
-</tr>
-<tr>
-<td>风扇</td>
-<td>1</td>
-</tr>
-<tr>
-<td>OLED显示屏</td>
-<td>1</td>
-</tr>
-<tr>
-<td>USB转TTL模块</td>
-<td>1</td>
-</tr>
-<tr>
-<td>HDMI EDID模拟器</td>
-<td>1</td>
-</tr>
-<tr>
-<td>VGA转HDMI模块</td>
-<td>1</td>
-</tr>
-<tr>
-<td>32G Micro SD card</td>
-<td>1</td>
-</tr>
-<tr>
-<td>HDMI线 0.5m</td>
-<td>1</td>
-</tr>
-<tr>
-<td>HDMI 直通头</td>
-<td>1</td>
-</tr>
-<tr>
-<td>千兆网线 1m</td>
-<td>1</td>
-</tr>
-<tr>
-<td>USB-A转USB-C线 1m</td>
-<td>2</td>
-</tr>
-<tr>
-<td>USB杜邦线 0.4m</td>
-<td>1</td>
-</tr>
-<tr>
-<td>WiFi天线</td>
-<td>1</td>
-</tr>
-<tr>
-<td>杜邦线 8pin 母对母 40cm</td>
-<td>1</td>
-</tr>
-<tr>
-<td>杜邦线 8pin 母对公 40cm</td>
-<td>1</td>
-</tr>
-<tr>
-<td>金属散热片</td>
-<td>1</td>
-</tr>
-<tr>
-<td>十字套筒</td>
-<td>1</td>
-</tr>
-<tr>
-<td>十字螺丝刀</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>BLIKVM PCIe 到手即用版本</th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>BLIKVM PCIe卡</td>
-<td>1</td>
-</tr>
-<tr>
-<td>CM4 102000</td>
-<td>1</td>
-</tr>
-<tr>
-<td>风扇</td>
-<td>1</td>
-</tr>
-<tr>
-<td>OLED显示屏</td>
-<td>1</td>
-</tr>
-<tr>
-<td>USB转TTL模块</td>
-<td>1</td>
-</tr>
-<tr>
-<td>HDMI EDID模拟器</td>
-<td>1</td>
-</tr>
-<tr>
-<td>VGA转HDMI模块</td>
-<td>1</td>
-</tr>
-<tr>
-<td>32G Micro SD card</td>
-<td>1</td>
-</tr>
-<tr>
-<td>HDMI线 0.5m</td>
-<td>1</td>
-</tr>
-<tr>
-<td>HDMI 直通头</td>
-<td>1</td>
-</tr>
-<tr>
-<td>千兆网线 1m</td>
-<td>1</td>
-</tr>
-<tr>
-<td>USB-A转USB-C线 1m</td>
-<td>2</td>
-</tr>
-<tr>
-<td>USB杜邦线 0.4m</td>
-<td>1</td>
-</tr>
-<tr>
-<td>WiFi天线</td>
-<td>1</td>
-</tr>
-<tr>
-<td>杜邦线 8pin 母对母 40cm</td>
-<td>1</td>
-</tr>
-<tr>
-<td>杜邦线 8pin 母对公 40cm</td>
-<td>1</td>
-</tr>
-<tr>
-<td>金属散热片</td>
-<td>1</td>
-</tr>
-<tr>
-<td>十字套筒</td>
-<td>1</td>
-</tr>
-<tr>
-<td>十字螺丝刀</td>
-<td>1</td>
-</tr>
-<tr>
-<td>备注：由于树莓派CM4一直紧缺，到手即用版本中CM4版本可能会更换为eMMC版本，此中情况下将不带SD卡。</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h2 id="_10"><strong>购买链接</strong></h2>
-<p><a href="https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-24390589055.16.25da4adfmEV9JL&amp;id=679753758084">v2淘宝地址</a></p>
-<h2 id="3d"><strong>3D外壳</strong></h2>
-<div class="admonition info">
-<p class="admonition-title">一个简单的PCIe外壳</p>
-</div>
-<p><a href="https://www.printables.com/model/956469-blikvm-v2-pcie-box">Download file</a></p>
+<p>Nginx does not validate certificates by default. In the example given below, regarding domain names and certificates, you need to use your own actual ones.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">server</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">443</span><span class="w"> </span><span class="s">ssl</span><span class="w"> </span><span class="s">http2</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="s">[::]:443</span><span class="w"> </span><span class="s">ssl</span><span class="w"> </span><span class="s">http2</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">www.blikvm.space</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="kn">ssl_certificate</span><span class="w"> </span><span class="s">/etc/letsencrypt/live/www.blikvm.space/fullchain.pem</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">    </span><span class="kn">ssl_certificate_key</span><span class="w"> </span><span class="s">/etc/letsencrypt/live/www.blikvm.space/privkey.pem</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">    </span><span class="kn">rewrite</span><span class="w"> </span><span class="s">^/</span>$<span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="s">break</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">    </span><span class="kn">rewrite</span><span class="w"> </span><span class="s">^/\?(.*)</span>$<span class="w"> </span><span class="s">?</span><span class="nv">$1</span><span class="w"> </span><span class="s">break</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">    </span><span class="kn">rewrite</span><span class="w"> </span><span class="s">^//(.*)</span>$<span class="w"> </span><span class="s">/</span><span class="nv">$1</span><span class="w"> </span><span class="s">break</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="w">    </span><span class="kn">proxy_redirect</span><span class="w"> </span><span class="p">~</span><span class="sr">^(/.*)$</span><span class="w"> </span><span class="s">/</span><span class="nv">$1</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="w">    </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">https://10.0.0.2</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-5-13" id="__codelineno-5-13" name="__codelineno-5-13"></a>
+<a href="#__codelineno-5-14" id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="w">    </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Host</span><span class="w"> </span><span class="nv">$host</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-5-15" id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="w">    </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Real-IP</span><span class="w"> </span><span class="nv">$remote_addr</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-5-16" id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="w">    </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Scheme</span><span class="w"> </span><span class="nv">$scheme</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-5-17" id="__codelineno-5-17" name="__codelineno-5-17"></a><span class="w">    </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-Proto</span><span class="w"> </span><span class="nv">$scheme</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-5-18" id="__codelineno-5-18" name="__codelineno-5-18"></a><span class="w">    </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-Port</span><span class="w"> </span><span class="nv">$server_port</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-5-19" id="__codelineno-5-19" name="__codelineno-5-19"></a><span class="w">    </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-For</span><span class="w"> </span><span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-5-20" id="__codelineno-5-20" name="__codelineno-5-20"></a>
+<a href="#__codelineno-5-21" id="__codelineno-5-21" name="__codelineno-5-21"></a><span class="w">    </span><span class="c1"># For some handles (like MJPEG) buffering should be disabled</span>
+<a href="#__codelineno-5-22" id="__codelineno-5-22" name="__codelineno-5-22"></a><span class="w">    </span><span class="kn">postpone_output</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-5-23" id="__codelineno-5-23" name="__codelineno-5-23"></a><span class="w">    </span><span class="kn">proxy_buffering</span><span class="w"> </span><span class="no">off</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-5-24" id="__codelineno-5-24" name="__codelineno-5-24"></a><span class="w">    </span><span class="kn">proxy_ignore_headers</span><span class="w"> </span><span class="s">X-Accel-Buffering</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-5-25" id="__codelineno-5-25" name="__codelineno-5-25"></a>
+<a href="#__codelineno-5-26" id="__codelineno-5-26" name="__codelineno-5-26"></a><span class="w">    </span><span class="c1"># Some handles (ends with /ws) are WebSockets</span>
+<a href="#__codelineno-5-27" id="__codelineno-5-27" name="__codelineno-5-27"></a><span class="w">    </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Upgrade</span><span class="w"> </span><span class="nv">$http_upgrade</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-5-28" id="__codelineno-5-28" name="__codelineno-5-28"></a><span class="w">    </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Connection</span><span class="w"> </span><span class="s">"upgrade"</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-5-29" id="__codelineno-5-29" name="__codelineno-5-29"></a><span class="w">    </span><span class="kn">proxy_connect_timeout</span><span class="w"> </span><span class="s">7d</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-5-30" id="__codelineno-5-30" name="__codelineno-5-30"></a><span class="w">    </span><span class="kn">proxy_send_timeout</span><span class="w"> </span><span class="s">7d</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-5-31" id="__codelineno-5-31" name="__codelineno-5-31"></a><span class="w">    </span><span class="kn">proxy_read_timeout</span><span class="w"> </span><span class="s">7d</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-5-32" id="__codelineno-5-32" name="__codelineno-5-32"></a>
+<a href="#__codelineno-5-33" id="__codelineno-5-33" name="__codelineno-5-33"></a><span class="w">    </span><span class="c1"># Some other handles requires big POST payload</span>
+<a href="#__codelineno-5-34" id="__codelineno-5-34" name="__codelineno-5-34"></a><span class="w">    </span><span class="kn">client_max_body_size</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-5-35" id="__codelineno-5-35" name="__codelineno-5-35"></a><span class="w">    </span><span class="kn">proxy_request_buffering</span><span class="w"> </span><span class="no">off</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-5-36" id="__codelineno-5-36" name="__codelineno-5-36"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a href="#__codelineno-5-37" id="__codelineno-5-37" name="__codelineno-5-37"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 15, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 4, 2025</span>
 <br/>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 8, 2022</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 4, 2025</span>
 </small>
 </div>
 </article>
@@ -1017,7 +697,7 @@ PCIe add-in card.
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: BliKVM v3 HAT" class="md-footer__link md-footer__link--prev" href="../BLIKVM-HAT-guide/" rel="prev">
+<a aria-label="Previous: Port Forwarding" class="md-footer__link md-footer__link--prev" href="../port-forwarding/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -1026,17 +706,17 @@ PCIe add-in card.
 <span class="md-footer__direction">
                 Previous
               </span>
-              BliKVM v3 HAT
+              Port Forwarding
             </div>
 </div>
 </a>
-<a aria-label="Next: BliKVM v1 CM4" class="md-footer__link md-footer__link--next" href="../BLIKVM-CM4-guide/" rel="next">
+<a aria-label="Next: Tailscale VPN" class="md-footer__link md-footer__link--next" href="../tailscale/" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
                 Next
               </span>
-              BliKVM v1 CM4
+              Tailscale VPN
             </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -1055,7 +735,7 @@ PCIe add-in card.
     </a>
 </div>
 <div class="md-social">
-<a class="md-social__link" href="https://github.com/ThomasVon2021/blikvm-site" rel="noopener" target="_blank" title="加入到翻译工作中">
+<a class="md-social__link" href="https://github.com/ThomasVon2021/blikvm-site" rel="noopener" target="_blank" title="Join the translation work">
 <svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
 </a>
 </div>
