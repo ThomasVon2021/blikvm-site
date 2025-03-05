@@ -15,9 +15,7 @@ This is especially useful if:
 -----
 ## **BliKVM Configuration**
 
-BliKVM supports reverse proxying in the latest version. For older version, please update OS first:
-
-{!update.md!}
+BliKVM supports reverse proxying in the latest version. For older version, please [update software](./update.md) first.
 
 By default, BliKVM redirects all requests from HTTP port `80` to HTTPS port `443` with self-signed
 certificate. For the simplest configuration, you can leave it as it is, and terminate

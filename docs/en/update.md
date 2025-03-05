@@ -24,16 +24,12 @@
     sudo -i
     curl -L https://raw.githubusercontent.com/ThomasVon2021/blikvm/master/script/update.py -o /tmp/update.py && python3 /tmp/update.py
     ```
-   Observe the output of the terminal. When you see the message of a successful upgrade, enter in the terminal the: `reboot` command and the reboot should take effect.
+   Observe the output of the terminal. 
 
-!!! warning "If you are unable to update successfully due to network issues, you can download the latest release.tar.gz package on another PC with a stable network connection and follow the instructions below for installation."
-    - Download Address: https://github.com/ThomasVon2021/blikvm/releases
-    - v1 v2 v3 hardware use release.tar.gz
-    - v4 hardware use release-h616-v4.tar.gz
-    SSH into the device terminal and use `tar -zxvf release.tar.gz` to extract the release.tar.gz file.
-    ```
-    sudo -i
-    cd /your release path/
-    python3 install_release.py --releasepath=./
-    ```
-    You can compare the versions before and after in `/usr/bin/blikvm/package.json`. If you have upgraded to the specified version, the installation is successful, and you can reboot for the changes to take effect.
+!!! warning "If you are unable to update successfully due to network issues, you can download the latest release package on a PC with a stable network and then install it using the following commands."
+    - Download link: https://github.com/ThomasVon2021/blikvm/releases
+    - For v1, v2, and v3 hardware, use blikvm-v1-v2-v3.deb
+    - For v4 hardware, use blikvm-v4.deb
+    ssh into the device terminal and use `dpkg -i xxx.deb`
+
+You can compare the version in /usr/bin/blikvm/package.json before and after the update. If it has been upgraded to the specified version, the update is successful.

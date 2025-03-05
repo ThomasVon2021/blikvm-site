@@ -588,21 +588,17 @@
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>curl -L https://raw.githubusercontent.com/ThomasVon2021/blikvm/master/script/update.py -o /tmp/update.py &amp;&amp; python3 /tmp/update.py
 </code></pre></div>
 </div>
-<p>Observe the output of the terminal. When you see the message of a successful upgrade, enter in the terminal the: <code>reboot</code> command and the reboot should take effect.</p>
+<p>Observe the output of the terminal. </p>
 <div class="admonition warning">
-<p class="admonition-title">If you are unable to update successfully due to network issues, you can download the latest release.tar.gz package on another PC with a stable network connection and follow the instructions below for installation.</p>
+<p class="admonition-title">If you are unable to update successfully due to network issues, you can download the latest release package on a PC with a stable network and then install it using the following commands.</p>
 <ul>
-<li>Download Address: https://github.com/ThomasVon2021/blikvm/releases</li>
-<li>v1 v2 v3 hardware use release.tar.gz</li>
-<li>v4 hardware use release-h616-v4.tar.gz
-SSH into the device terminal and use <code>tar -zxvf release.tar.gz</code> to extract the release.tar.gz file.
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>sudo -i
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>cd /your release path/
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>python3 install_release.py --releasepath=./
-</code></pre></div>
-You can compare the versions before and after in <code>/usr/bin/blikvm/package.json</code>. If you have upgraded to the specified version, the installation is successful, and you can reboot for the changes to take effect.</li>
+<li>Download link: https://github.com/ThomasVon2021/blikvm/releases</li>
+<li>For v1, v2, and v3 hardware, use blikvm-v1-v2-v3.deb</li>
+<li>For v4 hardware, use blikvm-v4.deb
+ssh into the device terminal and use <code>dpkg -i xxx.deb</code></li>
 </ul>
 </div>
+<p>You can compare the version in /usr/bin/blikvm/package.json before and after the update. If it has been upgraded to the specified version, the update is successful.</p>
 <hr/>
 <div class="md-source-file">
 <small>

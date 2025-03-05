@@ -1,36 +1,31 @@
-# **Reverse Proxy**
+# **反向代理**
 
-A reverse proxy allows you to pass requests through your web server to another site or program.
-The reverse proxy will make it look like BliKVM Web UI is a page within your existing site.
+反向代理允许您通过您的 Web 服务器将请求传递到另一个站点或程序。反向代理会使 BliKVM Web UI 看起来像是您现有站点中的一个页面。
 
-This is especially useful if:
+这在以下情况下特别有用：
 
-* You need to access the WebUI on port `80` or `443` but you already host a website on the same device.
+* 您需要在端口 `80` 或 `443` 上访问 WebUI，但您已经在同一设备上托管了一个网站。
 
-* You want to share SSL certificates with an existing site.
+* 您希望与现有站点共享 SSL 证书。
 
-* You want to share authentication with an existing setup.
-
+* 您希望与现有设置共享身份验证。
 
 -----
-## **BliKVM Configuration**
+## **BliKVM 配置**
 
-BliKVM supports reverse proxying in the latest version. For older version, please update OS first:
+BliKVM 在最新版本中支持反向代理。对于旧版本，请先[更新]({./update.md})操作。
 
-{!update.md!}
 
-By default, BliKVM redirects all requests from HTTP port `80` to HTTPS port `443` with self-signed
-certificate. For the simplest configuration, you can leave it as it is, and terminate
-SSL traffic from BliKVM on your web server.
 
-Alternatively, you can change the HTTP and HTTPS ports on BliKVM or disable HTTPS at all
-to deliver HTTP-only traffic to your server.
+默认情况下，BliKVM 将所有来自 HTTP 端口 `80` 的请求重定向到带有自签名证书的 HTTPS 端口 `443`。对于最简单的配置，您可以保持默认设置，并在您的 Web 服务器上终止来自 BliKVM 的 SSL 流量。
 
-In both cases you should take care of your own SSL certificate for your web server.
+或者，您可以更改 BliKVM 上的 HTTP 和 HTTPS 端口，或者完全禁用 HTTPS 以仅传递 HTTP 流量到您的服务器。
 
-??? example "Various examples with changing HTTP/HTTPS settings"
+在这两种情况下，您都应该为您的 Web 服务器自行处理 SSL 证书。
 
-    * Changing HTTP and HTTPS ports. Place this config to `/mnt/exec/release/config/app.json` on BliKVM:
+??? example "更改 HTTP/HTTPS 设置的各种示例"
+
+    * 更改 HTTP 和 HTTPS 端口。将此配置放置在 BliKVM 的 `/mnt/exec/release/config/app.json` 中：
 
         ```json
             "protocol": "https",
@@ -39,39 +34,36 @@ In both cases you should take care of your own SSL certificate for your web serv
         ```
 
 -----
-## **Server Configuration**
+## **服务器配置**
 
-If you have access to your web server’s configuration use the following examples
-to pass the location `/` on the server to BliKVM Web UI hosted on `https://blikvm_ip`
-on HTTPS port `443`.
-
+如果您可以访问您的 Web 服务器配置，请使用以下示例将服务器上的位置 `/` 传递到托管在 HTTPS 端口 `443` 上的 `https://blikvm_ip` 的 BliKVM Web UI。
 
 ### **Nginx**
 
-??? info "How to install nginx on server? How to certificate your domain?"
-    * Install nginx on ubuntu server
+??? info "如何在服务器上安装 nginx？如何为您的域名申请证书？"
+    * 在 Ubuntu 服务器上安装 nginx
     ```
         apt update
         apt install nginx -y
     ```
-    * Add a config for nginx, you can touch a file in `/etc/nginx/sites-available/`,like
+    * 为 nginx 添加配置，您可以在 `/etc/nginx/sites-available/` 中创建一个文件，例如
     ```
         vim /etc/nginx/sites-available/reverse-proxy
     ```
-    * Some useful command:
+    * 一些有用的命令：
     ```
-    # check config
+    # 检查配置
     nginx -t    
-    # when you update the config, you need to restart the nginx
+    # 更新配置后，需要重启 nginx
     systemctl restart nginx
     ```
-    * Apply for certificate
+    * 申请证书
     ```
     apt install certbot python3-certbot-nginx -y
     certbot renew --dry-run
     ```
 
-Nginx does not validate certificates by default. In the example given below, regarding domain names and certificates, you need to use your own actual ones.
+Nginx 默认不验证证书。在下面给出的示例中，关于域名和证书，您需要使用您自己的实际信息。
 
 ```nginx
 server {
@@ -94,19 +86,19 @@ server {
     proxy_set_header X-Forwarded-Port $server_port;
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 
-    # For some handles (like MJPEG) buffering should be disabled
+    # 对于某些处理程序（如 MJPEG），应禁用缓冲
     postpone_output 0;
     proxy_buffering off;
     proxy_ignore_headers X-Accel-Buffering;
 
-    # Some handles (ends with /ws) are WebSockets
+    # 某些处理程序（以 /ws 结尾）是 WebSockets
     proxy_set_header Upgrade $http_upgrade;
     proxy_set_header Connection "upgrade";
     proxy_connect_timeout 7d;
     proxy_send_timeout 7d;
     proxy_read_timeout 7d;
 
-    # Some other handles requires big POST payload
+    # 某些其他处理程序需要大的 POST 负载
     client_max_body_size 0;
     proxy_request_buffering off;
     }

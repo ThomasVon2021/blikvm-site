@@ -588,13 +588,9 @@
 <p class="admonition-title">若您因网络原因，一直无法更新成功，可以采用在其它网络ok的PC上下载最新的release包，然后按照以下命令进行安装。</p>
 <ul>
 <li>下载地址: https://github.com/ThomasVon2021/blikvm/releases</li>
-<li>其中v1 v2 v3硬件使用 release.tar.gz</li>
-<li>v4硬件使用 release-h616-v4.tar.gz
-ssh进入设备终端，并使用<code>tar -zxvf release.tar.gz</code>解压release.tar.gz。
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>sudo -i
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>cd /your release path/
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>python3 install_release.py --releasepath=./
-</code></pre></div>
+<li>其中v1 v2 v3硬件使用 blikvm-v1-v2-v3.deb</li>
+<li>v4硬件使用 blikvm-v4.deb
+ssh进入设备终端，并使用<code>dpkg -i xxx.deb</code>
 可以观察/usr/bin/blikvm/package.json前后的版本对比，若升级到了指定版本，则成功，重启生效。</li>
 </ul>
 </div>

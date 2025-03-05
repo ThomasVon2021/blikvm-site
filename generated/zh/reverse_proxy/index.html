@@ -34,7 +34,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#reverse-proxy">
+<a class="md-skip" href="#_1">
           Skip to content
         </a>
 </div>
@@ -282,15 +282,15 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#blikvm-configuration">
-    BliKVM Configuration
+<a class="md-nav__link" href="#blikvm">
+    BliKVM 配置
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#server-configuration">
-    Server Configuration
+<a class="md-nav__link" href="#_2">
+    服务器配置
   </a>
-<nav aria-label="Server Configuration" class="md-nav">
+<nav aria-label="服务器配置" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#nginx">
@@ -539,15 +539,15 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#blikvm-configuration">
-    BliKVM Configuration
+<a class="md-nav__link" href="#blikvm">
+    BliKVM 配置
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#server-configuration">
-    Server Configuration
+<a class="md-nav__link" href="#_2">
+    服务器配置
   </a>
-<nav aria-label="Server Configuration" class="md-nav">
+<nav aria-label="服务器配置" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#nginx">
@@ -567,36 +567,31 @@
 <a class="md-content__button md-icon" href="https://github.com/ThomasVon2021/blikvm-site/edit/master/docs/zh/reverse_proxy.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
-<h1 id="reverse-proxy"><strong>Reverse Proxy</strong></h1>
-<p>A reverse proxy allows you to pass requests through your web server to another site or program.
-The reverse proxy will make it look like BliKVM Web UI is a page within your existing site.</p>
-<p>This is especially useful if:</p>
+<h1 id="_1"><strong>反向代理</strong></h1>
+<p>反向代理允许您通过您的 Web 服务器将请求传递到另一个站点或程序。反向代理会使 BliKVM Web UI 看起来像是您现有站点中的一个页面。</p>
+<p>这在以下情况下特别有用：</p>
 <ul>
 <li>
-<p>You need to access the WebUI on port <code>80</code> or <code>443</code> but you already host a website on the same device.</p>
+<p>您需要在端口 <code>80</code> 或 <code>443</code> 上访问 WebUI，但您已经在同一设备上托管了一个网站。</p>
 </li>
 <li>
-<p>You want to share SSL certificates with an existing site.</p>
+<p>您希望与现有站点共享 SSL 证书。</p>
 </li>
 <li>
-<p>You want to share authentication with an existing setup.</p>
+<p>您希望与现有设置共享身份验证。</p>
 </li>
 </ul>
 <hr/>
-<h2 id="blikvm-configuration"><strong>BliKVM Configuration</strong></h2>
-<p>BliKVM supports reverse proxying in the latest version. For older version, please update OS first:</p>
-<p>{!update.md!}</p>
-<p>By default, BliKVM redirects all requests from HTTP port <code>80</code> to HTTPS port <code>443</code> with self-signed
-certificate. For the simplest configuration, you can leave it as it is, and terminate
-SSL traffic from BliKVM on your web server.</p>
-<p>Alternatively, you can change the HTTP and HTTPS ports on BliKVM or disable HTTPS at all
-to deliver HTTP-only traffic to your server.</p>
-<p>In both cases you should take care of your own SSL certificate for your web server.</p>
+<h2 id="blikvm"><strong>BliKVM 配置</strong></h2>
+<p>BliKVM 在最新版本中支持反向代理。对于旧版本，请先<a href="{./update.md}">更新</a>操作。</p>
+<p>默认情况下，BliKVM 将所有来自 HTTP 端口 <code>80</code> 的请求重定向到带有自签名证书的 HTTPS 端口 <code>443</code>。对于最简单的配置，您可以保持默认设置，并在您的 Web 服务器上终止来自 BliKVM 的 SSL 流量。</p>
+<p>或者，您可以更改 BliKVM 上的 HTTP 和 HTTPS 端口，或者完全禁用 HTTPS 以仅传递 HTTP 流量到您的服务器。</p>
+<p>在这两种情况下，您都应该为您的 Web 服务器自行处理 SSL 证书。</p>
 <details class="example">
-<summary>Various examples with changing HTTP/HTTPS settings</summary>
+<summary>更改 HTTP/HTTPS 设置的各种示例</summary>
 <ul>
 <li>
-<p>Changing HTTP and HTTPS ports. Place this config to <code>/mnt/exec/release/config/app.json</code> on BliKVM:</p>
+<p>更改 HTTP 和 HTTPS 端口。将此配置放置在 BliKVM 的 <code>/mnt/exec/release/config/app.json</code> 中：</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="w">    </span><span class="nt">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https"</span><span class="p">,</span><span class="w"></span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="nt">"https_port"</span><span class="p">:</span><span class="w"> </span><span class="mi">443</span><span class="p">,</span><span class="w"></span>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="nt">"http_port"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w"></span>
@@ -605,34 +600,32 @@ to deliver HTTP-only traffic to your server.</p>
 </ul>
 </details>
 <hr/>
-<h2 id="server-configuration"><strong>Server Configuration</strong></h2>
-<p>If you have access to your web server’s configuration use the following examples
-to pass the location <code>/</code> on the server to BliKVM Web UI hosted on <code>https://blikvm_ip</code>
-on HTTPS port <code>443</code>.</p>
+<h2 id="_2"><strong>服务器配置</strong></h2>
+<p>如果您可以访问您的 Web 服务器配置，请使用以下示例将服务器上的位置 <code>/</code> 传递到托管在 HTTPS 端口 <code>443</code> 上的 <code>https://blikvm_ip</code> 的 BliKVM Web UI。</p>
 <h3 id="nginx"><strong>Nginx</strong></h3>
 <details class="info">
-<summary>How to install nginx on server? How to certificate your domain?</summary>
+<summary>如何在服务器上安装 nginx？如何为您的域名申请证书？</summary>
 <ul>
-<li>Install nginx on ubuntu server
+<li>在 Ubuntu 服务器上安装 nginx
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>    apt update
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>    apt install nginx -y
 </code></pre></div></li>
-<li>Add a config for nginx, you can touch a file in <code>/etc/nginx/sites-available/</code>,like
+<li>为 nginx 添加配置，您可以在 <code>/etc/nginx/sites-available/</code> 中创建一个文件，例如
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>    vim /etc/nginx/sites-available/reverse-proxy
 </code></pre></div></li>
-<li>Some useful command:
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a># check config
+<li>一些有用的命令：
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a># 检查配置
 <a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>nginx -t    
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a># when you update the config, you need to restart the nginx
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a># 更新配置后，需要重启 nginx
 <a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>systemctl restart nginx
 </code></pre></div></li>
-<li>Apply for certificate
+<li>申请证书
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>apt install certbot python3-certbot-nginx -y
 <a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>certbot renew --dry-run
 </code></pre></div></li>
 </ul>
 </details>
-<p>Nginx does not validate certificates by default. In the example given below, regarding domain names and certificates, you need to use your own actual ones.</p>
+<p>Nginx 默认不验证证书。在下面给出的示例中，关于域名和证书，您需要使用您自己的实际信息。</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">server</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">443</span><span class="w"> </span><span class="s">ssl</span><span class="w"> </span><span class="s">http2</span><span class="p">;</span><span class="w"></span>
 <a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="s">[::]:443</span><span class="w"> </span><span class="s">ssl</span><span class="w"> </span><span class="s">http2</span><span class="p">;</span><span class="w"></span>
@@ -653,19 +646,19 @@ on HTTPS port <code>443</code>.</p>
 <a href="#__codelineno-5-18" id="__codelineno-5-18" name="__codelineno-5-18"></a><span class="w">    </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-Port</span><span class="w"> </span><span class="nv">$server_port</span><span class="p">;</span><span class="w"></span>
 <a href="#__codelineno-5-19" id="__codelineno-5-19" name="__codelineno-5-19"></a><span class="w">    </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-For</span><span class="w"> </span><span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span><span class="w"></span>
 <a href="#__codelineno-5-20" id="__codelineno-5-20" name="__codelineno-5-20"></a>
-<a href="#__codelineno-5-21" id="__codelineno-5-21" name="__codelineno-5-21"></a><span class="w">    </span><span class="c1"># For some handles (like MJPEG) buffering should be disabled</span>
+<a href="#__codelineno-5-21" id="__codelineno-5-21" name="__codelineno-5-21"></a><span class="w">    </span><span class="c1"># 对于某些处理程序（如 MJPEG），应禁用缓冲</span>
 <a href="#__codelineno-5-22" id="__codelineno-5-22" name="__codelineno-5-22"></a><span class="w">    </span><span class="kn">postpone_output</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <a href="#__codelineno-5-23" id="__codelineno-5-23" name="__codelineno-5-23"></a><span class="w">    </span><span class="kn">proxy_buffering</span><span class="w"> </span><span class="no">off</span><span class="p">;</span><span class="w"></span>
 <a href="#__codelineno-5-24" id="__codelineno-5-24" name="__codelineno-5-24"></a><span class="w">    </span><span class="kn">proxy_ignore_headers</span><span class="w"> </span><span class="s">X-Accel-Buffering</span><span class="p">;</span><span class="w"></span>
 <a href="#__codelineno-5-25" id="__codelineno-5-25" name="__codelineno-5-25"></a>
-<a href="#__codelineno-5-26" id="__codelineno-5-26" name="__codelineno-5-26"></a><span class="w">    </span><span class="c1"># Some handles (ends with /ws) are WebSockets</span>
+<a href="#__codelineno-5-26" id="__codelineno-5-26" name="__codelineno-5-26"></a><span class="w">    </span><span class="c1"># 某些处理程序（以 /ws 结尾）是 WebSockets</span>
 <a href="#__codelineno-5-27" id="__codelineno-5-27" name="__codelineno-5-27"></a><span class="w">    </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Upgrade</span><span class="w"> </span><span class="nv">$http_upgrade</span><span class="p">;</span><span class="w"></span>
 <a href="#__codelineno-5-28" id="__codelineno-5-28" name="__codelineno-5-28"></a><span class="w">    </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Connection</span><span class="w"> </span><span class="s">"upgrade"</span><span class="p">;</span><span class="w"></span>
 <a href="#__codelineno-5-29" id="__codelineno-5-29" name="__codelineno-5-29"></a><span class="w">    </span><span class="kn">proxy_connect_timeout</span><span class="w"> </span><span class="s">7d</span><span class="p">;</span><span class="w"></span>
 <a href="#__codelineno-5-30" id="__codelineno-5-30" name="__codelineno-5-30"></a><span class="w">    </span><span class="kn">proxy_send_timeout</span><span class="w"> </span><span class="s">7d</span><span class="p">;</span><span class="w"></span>
 <a href="#__codelineno-5-31" id="__codelineno-5-31" name="__codelineno-5-31"></a><span class="w">    </span><span class="kn">proxy_read_timeout</span><span class="w"> </span><span class="s">7d</span><span class="p">;</span><span class="w"></span>
 <a href="#__codelineno-5-32" id="__codelineno-5-32" name="__codelineno-5-32"></a>
-<a href="#__codelineno-5-33" id="__codelineno-5-33" name="__codelineno-5-33"></a><span class="w">    </span><span class="c1"># Some other handles requires big POST payload</span>
+<a href="#__codelineno-5-33" id="__codelineno-5-33" name="__codelineno-5-33"></a><span class="w">    </span><span class="c1"># 某些其他处理程序需要大的 POST 负载</span>
 <a href="#__codelineno-5-34" id="__codelineno-5-34" name="__codelineno-5-34"></a><span class="w">    </span><span class="kn">client_max_body_size</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <a href="#__codelineno-5-35" id="__codelineno-5-35" name="__codelineno-5-35"></a><span class="w">    </span><span class="kn">proxy_request_buffering</span><span class="w"> </span><span class="no">off</span><span class="p">;</span><span class="w"></span>
 <a href="#__codelineno-5-36" id="__codelineno-5-36" name="__codelineno-5-36"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
