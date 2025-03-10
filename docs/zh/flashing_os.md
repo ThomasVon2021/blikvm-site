@@ -96,4 +96,4 @@
 ![图片标题](assets/images/flash_os/flash_write_successful.png){width="300"}
 
 !!! tip
-    如果在烧录或启动PiKVM时发生错误，请重复此过程。
+    如果在烧录或启动时发生错误，请重复此过程。

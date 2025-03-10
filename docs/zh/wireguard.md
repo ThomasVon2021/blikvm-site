@@ -94,7 +94,12 @@ sudo wg-quick up wg0
 ```
 
 ### 配置防火墙（如果需要）
-    服务器端放开上面服务端配置文件中的ListenPortdu端口；
+    * 服务器端放开上面服务端配置文件中的ListenPortdu端口；
+    * 如果出现了，各个客户端可以ping通服务器，但是客户端之间ping不通，那么需要打开服务器的转发功能，使用以下命令：
+    ```
+    echo "net.ipv4.ip_forward=1" | tee -a /etc/sysctl.conf
+    sysctl -p
+    ```
 
 ### 测试连接
 在KVM客户端上，使用 ping 命令测试与服务器和MAC的连接：

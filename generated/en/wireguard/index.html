@@ -715,22 +715,27 @@ This will start the server-side interface according to the /etc/wireguard/wg0.co
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>sudo wg-quick up wg0
 </code></pre></div></p>
 <h3 id="configure-firewall-if-needed">Configure Firewall (if needed)</h3>
-<div class="highlight"><pre><span></span><code>Open the ListenPort port in the server-side configuration file on the server side.
+<div class="highlight"><pre><span></span><code>* Open the ListenPort port in the server-side configuration file on the server side.
+* If the clients can ping the server but cannot ping each other, you need to enable forwarding on the server using the following command:
+```
+echo "net.ipv4.ip_forward=1" | tee -a /etc/sysctl.conf
+sysctl -p
+```
 </code></pre></div>
 <h3 id="test-connection">Test Connection</h3>
 <p>On the KVM client, use the ping command to test the connection with the server and MAC:
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a># Test with the server at 10.0.0.1
-<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>ping 10.0.0.1 
-<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a># Test with the MAC at 10.0.0.3
-<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a>ping 10.0.0.3
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a># Test with the server at 10.0.0.1
+<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>ping 10.0.0.1 
+<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a># Test with the MAC at 10.0.0.3
+<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a>ping 10.0.0.3
 </code></pre></div>
 Additionally, you can directly use the command to check the status:
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>sudo wg show
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>sudo wg show
 </code></pre></div>
 If everything is configured correctly, you should see the client successfully connected and exchanging keys.</p>
 <h3 id="enable-auto-start-on-boot">Enable Auto-Start on Boot</h3>
 <p>To ensure the WireGuard configuration automatically starts after a system reboot, use the following command:
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>sudo systemctl enable wg-quick@wg0
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>sudo systemctl enable wg-quick@wg0
 </code></pre></div></p>
 <h2 id="summary">Summary</h2>
 <p>Setting up a network with WireGuard involves installation, key configuration, interface configuration, starting the service, and ensuring correct routing and firewall configuration. As long as each client and server configuration is correct and the network allows, they can successfully establish a connection through the WireGuard VPN.</p>

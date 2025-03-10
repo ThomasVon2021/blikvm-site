@@ -712,22 +712,27 @@
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>sudo wg-quick up wg0
 </code></pre></div></p>
 <h3 id="_2">配置防火墙（如果需要）</h3>
-<div class="highlight"><pre><span></span><code>服务器端放开上面服务端配置文件中的ListenPortdu端口；
+<div class="highlight"><pre><span></span><code>* 服务器端放开上面服务端配置文件中的ListenPortdu端口；
+* 如果出现了，各个客户端可以ping通服务器，但是客户端之间ping不通，那么需要打开服务器的转发功能，使用以下命令：
+```
+echo "net.ipv4.ip_forward=1" | tee -a /etc/sysctl.conf
+sysctl -p
+```
 </code></pre></div>
 <h3 id="_3">测试连接</h3>
 <p>在KVM客户端上，使用 ping 命令测试与服务器和MAC的连接：
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a># 10.0.0.1和服务器进行测试
-<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>ping 10.0.0.1 
-<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a># 10.0.0.3和MAC进行测试
-<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a>ping 10.0.0.3
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a># 10.0.0.1和服务器进行测试
+<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>ping 10.0.0.1 
+<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a># 10.0.0.3和MAC进行测试
+<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a>ping 10.0.0.3
 </code></pre></div>
 另外，你可以直接使用命令查看状态:
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>sudo wg show
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>sudo wg show
 </code></pre></div>
 如果一切配置正确，你应该能看到客户端成功连接并交换密钥。</p>
 <h3 id="_4">开机自启动</h3>
 <p>为了确保 WireGuard 配置在系统重启后自动启动，可以使用以下命令：
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>sudo systemctl enable wg-quick@wg0
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>sudo systemctl enable wg-quick@wg0
 </code></pre></div></p>
 <h2 id="_5">总结</h2>
 <p>通过 WireGuard 组网涉及安装、配置密钥、配置接口、启动服务，并确保路由和防火墙配置正确。只要每个客户端和服务器的配置都正确，并且网络允许，它们就能够通过 WireGuard VPN 成功建立连接。</p>

@@ -92,7 +92,12 @@ sudo wg-quick up wg0
 ```
 
 ### Configure Firewall (if needed)
-    Open the ListenPort port in the server-side configuration file on the server side.
+    * Open the ListenPort port in the server-side configuration file on the server side.
+    * If the clients can ping the server but cannot ping each other, you need to enable forwarding on the server using the following command:
+    ```
+    echo "net.ipv4.ip_forward=1" | tee -a /etc/sysctl.conf
+    sysctl -p
+    ```
 
 ### Test Connection
 On the KVM client, use the ping command to test the connection with the server and MAC:

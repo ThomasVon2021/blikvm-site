@@ -109,4 +109,4 @@ and choose the right device:
 ![Image title](assets/images/flash_os/flash_write_successful.png){width="300"}
 
 !!! tip
-    If an error occurs during flashing or booting PiKVM, repeat the process.
+    If an error occurs during flashing or booting, repeat the process.
