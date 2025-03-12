@@ -517,12 +517,14 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="port-forwarding"><strong>Port forwarding</strong></h1>
-<p>After v1.4.7 version If your ISP provides an external IP address for the router, you can configure Port forwarding to access BliKVM:</p>
+<p>After v1.5.7 version If your ISP provides an external IP address for the router, you can configure Port forwarding to access BliKVM:</p>
 <ul>
-<li>If the web interface uses the HTTP protocol and occupies port 80;</li>
-<li>If the web interface uses the HTTPS protocol and occupies port 443;
-If you do not have an external IP address, we suggest trying to use <a href="../tailscale/">Tailscale VPN</a>。</li>
+<li>The HTTP protocol uses port 80, and the HTTPS protocol uses port 443. You can modify the configuration file <code>vim /mnt/exec/release/config/app.json</code> to change the default ports:
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>    "https_port": 443,
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    "http_port": 80,
+</code></pre></div></li>
 </ul>
+<p>If you do not have an external IP address, we suggest trying to use <a href="../tailscale/">Tailscale VPN</a>。</p>
 <hr/>
 <div class="md-source-file">
 <small>

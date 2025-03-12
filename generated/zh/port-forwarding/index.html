@@ -512,9 +512,12 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="_1"><strong>端口转发</strong></h1>
-<p>在v1.4.7版本后,如果您的ISP为路由器提供了外部IP地址，您可以配置端口转发以访问BliKVM。</p>
+<p>在v1.5.7版本后,如果您的ISP为路由器提供了外部IP地址，您可以配置端口转发以访问BliKVM。</p>
 <ul>
-<li>Web如果选择为http协议，占用的是80端口，如果选择的为https协议占用的是443；</li>
+<li>http协议，占用的是80端口，https协议占用的是443, 你可以修改配置文件<code>vim /mnt/exec/release/config/app.json</code>来修改默认端口:
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>    "https_port": 443,
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    "http_port": 80,
+</code></pre></div></li>
 </ul>
 <p>如果您没有外部IP地址，我们建议尝试使用<a href="../tailscale/">Tailscale VPN</a>。</p>
 <hr/>
