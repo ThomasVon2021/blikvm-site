@@ -59,6 +59,17 @@ sudo -s
 换句话说，**所有用户的密钥是相同的**。
 
 ----
+## 白名单模式
+默认所有ip均可以访问，打开白名单模式，只有list列表里的指定IP可以访问,list列表格式为:["xxx.xxx.xxx.xxx","xxx.xxx.xxx.xxx"]
+编辑配置文件打开此功能: `vim /mnt/exec/release/config/app.json`
+```
+    "ipWhite": {
+      "enable": false,
+      "list": []
+    }
+```
+
+----
 ## 会话过期
 
 开发中。
@@ -69,3 +80,4 @@ sudo -s
 如有必要，您可以禁用 KVM 访问（Web UI，除 SSH 外）的认证。
 
 将 `/mnt/exec/release/config/app.json` 中的 `auth` 字段修改为 `false`。在禁用登录认证之前，请确保您处于足够安全的环境中。
+

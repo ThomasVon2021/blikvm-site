@@ -256,11 +256,16 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_3">
-    会话过期
+    白名单模式
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_4">
+    会话过期
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
     禁用认证
   </a>
 </li>
@@ -571,11 +576,16 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_3">
-    会话过期
+    白名单模式
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_4">
+    会话过期
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
     禁用认证
   </a>
 </li>
@@ -646,10 +656,19 @@
 <p>所有 Web UI 用户在登录时都需要输入一次性密码。
 换句话说，<strong>所有用户的密钥是相同的</strong>。</p>
 <hr/>
-<h2 id="_3">会话过期</h2>
+<h2 id="_3">白名单模式</h2>
+<p>默认所有ip均可以访问，打开白名单模式，只有list列表里的指定IP可以访问,list列表格式为:["xxx.xxx.xxx.xxx","xxx.xxx.xxx.xxx"]
+编辑配置文件打开此功能: <code>vim /mnt/exec/release/config/app.json</code>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>    "ipWhite": {
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>      "enable": false,
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>      "list": []
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>    }
+</code></pre></div></p>
+<hr/>
+<h2 id="_4">会话过期</h2>
 <p>开发中。</p>
 <hr/>
-<h2 id="_4">禁用认证</h2>
+<h2 id="_5">禁用认证</h2>
 <p>如有必要，您可以禁用 KVM 访问（Web UI，除 SSH 外）的认证。</p>
 <p>将 <code>/mnt/exec/release/config/app.json</code> 中的 <code>auth</code> 字段修改为 <code>false</code>。在禁用登录认证之前，请确保您处于足够安全的环境中。</p>
 <hr/>

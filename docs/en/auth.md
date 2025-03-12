@@ -62,6 +62,18 @@ It is strongly recommended to enable it if you expose the BliKVM in the big and 
 All Web UI users will be required to enter a one-time password on login.
 In other words, **the secret is the same for all users**.
 
+----
+## Whitelist Mode
+
+By default, all IPs can access the system. When the whitelist mode is enabled, only the specified IPs in the list can access. The list format is: `["xxx.xxx.xxx.xxx","xxx.xxx.xxx.xxx"]`.
+
+Edit the configuration file to enable this feature: `vim /mnt/exec/release/config/app.json`
+```
+    "ipWhite": {
+      "enable": false,
+      "list": []
+    }
+```
 
 ----
 ## Session expiration
