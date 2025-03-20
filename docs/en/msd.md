@@ -3,87 +3,103 @@
 !!! info "Reinstall the system Video"
     <iframe width="560" height="315" src="https://www.youtube.com/embed/MDuS3bHsVmc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-BliKVM's USB device simulation feature allows you to remotely mount images on the virtual machine's mass storage drive, making it easy to install or reinstall operating systems and other software. This can be a useful feature for system administrators who need to manage multiple virtual machines remotely. By mounting an image on the mass storage drive, you can quickly and easily set up or configure a new virtual machine without having to physically connect a USB drive or other external storage device.
-
-Note: the size of the MSD is limited by the size of your sd card or eMMC module.
+BliKVM supports USB drive emulation, allowing remote mounting of images for system reinstallation. Additionally, if you need to copy files from the controlled device, BliKVM also provides a command-line method.
 
 ## Web UI
+The entry point for the MSD virtual USB drive is:
+![](assets/images/msd/web-ui.png)
 
-The entrance to the MSD virtual USB drive is as follows:
-![web-ui](assets/images/msd/web-ui.png)
+## Manual (without using Web UI)
 
-!!! warning "Using the web to upload images and create bootable drives are both synchronous processes. If you exit the MSD UI interface after uploading an image, you can resume the upload from where it left off the next time you select the same image. However, once you exit the bootable drive creation process, you cannot resume it; you will need to start over."
-    - The default upload path for images is `/mnt/upload`. If an upload fails, you can manually delete the cache files that were not successfully uploaded.
-    - Due to the large size of some image files, image uploads are divided into slices and then merged. The merging process cannot be resumed, so please ensure you wait for the merge to complete (which may take some time) before proceeding to the next step.  
-    - Creating a bootable drive involves two steps: creating a virtual USB drive and copying the selected ISO image into the created virtual USB drive. Both steps have progress indicators. Please wait until both steps show 100% progress before clicking Next.
-
-    ![progress](assets/images/msd/progress.png){width="300"}
-    ![merger](assets/images/msd/merger.png){width="300"}
-
-## Upload images manually (without Web UI)
-
-1. Confirm that the following four paths exist. If you are using the official latest image of blikvm, and it is fully configured, there is no need to check.
-
-```bash
-  /usr/bin/blikvm/ventoy-1.0.88
-  /usr/bin/blikvm/kvmd-msd.sh
+!!! info "1. Ensure the following four paths exist. If you are using the latest BliKVM image, no check is needed. The /opt/bin/msd/user path is used to store system images."
+  ```
+  /mnt/exec/release/lib/ventoy-1.0.99
+  /mnt/exec/release/lib/kvmd-msd.sh
   /mnt/msd/user    
   /mnt/msd/ventoy
+  ```
+
+!!! info "2. Log in to the BliKVM terminal via SSH, with both the username and password as blikvm. Use the rw command to make the read-only system writable."
+  ```
+    sudo rw
+  ```
+
+!!! info "3. On your control computer, use the following command in the terminal to copy the ISO image file to the specified path in the BliKVM image."
+  ```
+    scp ***.iso blikvm@xxx.xxx.xxx.xxx:/mnt/msd/user/
+  ```	
+!!! warning "Of course, you can also use any other method you are familiar with to copy the ISO image file to the specified path."
+  
+!!! info "4. Use one of the following commands to copy the image to the emulated USB drive. The default size of the USB drive is set to 5GB. If you need more space, you need to modify the kvmd-msd.sh script."
+  - If there is only one image file in the /mnt/msd/user path, you can use this command directly.
+  ```
+     sudo bash /mnt/exec/release/lib/kvmd-msd.sh -c make
+  ```
+  - If there is more than one image file in the /mnt/msd/user path, you can specify the file using the following command. **xxx.iso** represents the image name. The number after -s is the size of the USB drive in GB, which can be modified according to your needs. The string after -n is the USB drive name.
+  ```
+    sudo bash /mnt/exec/release/lib/kvmd-msd.sh -c make -s 5 -n ventoy -f xxx.iso
+  ```
+
+!!! warning "The cp process is very slow, please be patient."
+
+!!! info "5. Run the following command to connect the emulated USB drive to your controlled device."
+  ```
+    sudo bash  /mnt/exec/release/lib/kvmd-msd.sh -c conn
+  ```
+
+!!! info "6. Run the following command to eject the emulated USB drive from your controlled device."		
+  ```
+    sudo bash  /mnt/exec/release/lib/kvmd-msd.sh -c disconn
+  ```
+
+!!! info "7. Run the following command to clear the emulated USB drive, which will release the corresponding space."		
+  ```
+    sudo bash  /mnt/exec/release/lib/kvmd-msd.sh -c clean
+  ```
+
+!!! info "8. If everything is correct, you should now see the emulated USB drive in a PC system. Restart your PC through the web, then use the shortcut key (many computers use F2) to enter the BIOS, change the boot priority, and set the emulated USB drive device to the highest priority."		
+
+!!! info "9. According to the BIOS system prompts, save and restart to enter the Ventoy boot interface for system reinstallation."
+
+## General USB Drive
+To transfer general files, note that the file names must be in English, as Chinese characters will appear garbled. The conn, disconn, and clean commands are still valid for general USB drives.
+### Create a General USB Drive
+The number after -s is the size of the general USB drive in GB. The larger the capacity, the longer the creation time. Please set it according to your actual situation. -t must be other.
+```
+sudo bash /mnt/exec/release/lib/kvmd-msd.sh -c make -s 4 -t other
+```
+### File Transfer from User Computer ==> KVM ==> Controlled Computer
+
+1. First, you need to send the file from the user control computer to the KVM.
+```
+scp xxx blikvm@xxxx:/mnt/msd/user/
+```
+2. Synchronize the file to the controlled computer and connect it.
+```
+sudo bash /mnt/exec/release/lib/kvmd-msd.sh -c forward
+```
+For new content that needs to be transferred from the user computer to the controlled computer, repeat steps 1 and 2.
+
+### File Transfer from Controlled Computer ==> KVM ==> User Computer
+1. First, copy the file to the emulated virtual USB drive on the controlled computer, then execute the following command to copy the file to the /mnt/msd/user/ directory on the KVM.
+```
+sudo bash /mnt/exec/release/lib/kvmd-msd.sh -c rever
+```
+2. Copy the file from the KVM to the user computer.
+```
+scp blikvm@xxxx:/mnt/msd/user/*  .
 ```
 
-2. SSH logs in to blikvm, executes the rw command, and changes the system permission to writable.
-
-```bash
-  rw
+## **Disabling Mass Storage**
+In rare cases, if the BIOS/UEFI cannot correctly recognize and even refuses to use the USB keyboard and mouse, it may be necessary to disable mass storage emulation.
+Edit the `enable` field in `/mnt/exec/release/config/app.json` to `false`, then restart the KVM to disable mass storage emulation.
+```json
+"msd": {
+  "enable": true,
+  "isoFilePath": "/mnt/msd/user",
+  "shell": "./lib/kvmd-msd.sh",
+  "stateFilePath": "/mnt/msd/config/msd.json",
+  "tusPort": 10002
+}
 ```
-
-3. In your PC ,use scp cmd send iso file to kvm board.
-
-```bash
-  scp ***.iso blikvm@xxx.xxx.xxx.xxx:/mnt/msd/user/
-```
-
-4. excute msd cmd.wait until excute end.
-
-- If you don't use option paramter：
-- The default size of the USB flash disk is 5GB.
-- The default filename is scan /mnt/msd/user dir.
-- The default msd name is ventoy.
-
-```bash
-  sudo bash /usr/bin/blikvm/kvmd-msd.sh -c make
-```
-
-- If your iso is large than 5GB.You can specify the optional parameter - s xxx, xxx is the Size.
-- If you need specify iso ,you can use -f xxx.iso.
-- If you want to specify the msd name, you can use -n xxx.
-
-```bash
-  sudo bash /usr/bin/blikvm/kvmd-msd.sh -c make -s 5 -n ventoy -f xxx.iso
-```
-
-- Tips: cp progresses slowly, please be patient.
-
-- If you want to excute other cmd, you can use other option. c option contains :  make/conn/disconn/clean
-
-5. Connect msd
-
-```bash
-  sudo bash  /usr/bin/blikvm/kvmd-msd.sh -c conn
-```
-
-6. Disconnect msd
-
-```bash
-  sudo bash  /usr/bin/blikvm/kvmd-msd.sh -c disconn
-```
-
-7. Clean msd
-
-```bash
-  sudo bash  /usr/bin/blikvm/kvmd-msd.sh -c clean
-```
-
-8. Through the WebUI restart PC, enter BIOS, modify boot priority, set BliKVM USB first.
-
-9. According to the steps, select operating system, format partition and install.
+   

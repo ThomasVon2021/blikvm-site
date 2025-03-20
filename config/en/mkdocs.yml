@@ -90,14 +90,19 @@ nav:
       - "WebRTC configuration": webrtc.md
       - "HDMI EDID": edid.md
       - "HDMI passthrough": hdmi-passthrough.md
+    - "Peripheral devices":
+      - "Keyboard & Mouse":
+        - "Mouse Mode": mouse.md
+        - "Mouse jiggler": mouse-jiggler.md
+        - "Shortcuts": shortcuts.md
+        - "Loop": hid-loop.md
+      - "MSD": msd.md
     - "Function":
         - "Upgrade": update.md
-        - "Keyboard": hid.md
         - "RTC clock": rtc.md
         - "OLED Display": OLED-display.md
         - "Expand Filesystem": Expand_Filesystem.md
         - "Serial-over-USB": serial_over_usb.md 
-        - "MSD": msd.md
         - "Wake-on-LAN": wake-on-lan.md
         - "SSH Terminal": ssh.md 
     - "Installation Instructions":

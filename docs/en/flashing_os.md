@@ -1,4 +1,4 @@
-# Flasing the OS image
+# Flashing the OS image
 
 !!! warning "Micro-SD Card Requirements"
     - Minimum **16 Gb**

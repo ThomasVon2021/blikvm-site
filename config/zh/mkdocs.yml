@@ -90,13 +90,18 @@ nav:
       - "WebRTC 配置": webrtc.md
       - "HDMI EDID设置": edid.md
       - "HDMI环出": hdmi-passthrough.md
+    - "外围设备":
+      - "鼠标和键盘":
+        - "鼠标模式": mouse.md
+        - "鼠标抖动": mouse-jiggler.md
+        - "快捷键": shortcuts.md
+        - "键鼠环出": hid-loop.md
+      - "U盘驱动": msd.md
     - "功能说明":
         - "更新软件": update.md
-        - "视频&键鼠": hid.md
         - "RTC时钟": rtc.md
         - "OLED显示器": OLED-display.md
         - "存储卡扩容": Expand_Filesystem.md
-        - "U盘驱动": msd.md
         - "串口终端": serial_over_usb.md
         - "Wake-on-LAN": wake-on-lan.md
         - "SSH终端": ssh.md 
