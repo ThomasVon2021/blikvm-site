@@ -8,19 +8,28 @@ To configure a static IP address on a BliKVM image, you can follow these steps:
 2. Edit the network interfaces configuration file using the following command:
 
    ```bash
-   sudo vim /etc/dhcpcd.conf
+   sudo vim /etc/NetworkManager/NetworkManager.conf
+   # make sure ifupdown if true
+   [main]
+   dns=none
+   plugins=ifupdown,keyfile
+
+   [ifupdown]
+   managed=true
+
+   [device]
+   wifi.scan-rand-mac-address=no
    ```
 
-3. Within the file, locate the section that starts with `# Example static IP configuration`.
-4. Uncomment the lines below that section and modify them to set your desired static IP address, gateway, DNS servers, and other network settings.
-
-   For example:
+3. example `vim /etc/network/interfaces`.
 
    ```bash
-   interface eth0
-   static ip_address=192.168.1.100/24
-   static routers=192.168.1.1
-   static domain_name_servers=192.168.1.1
+   source /etc/network/interfaces.d/*
+   auto eth0
+   iface eth0 inet static
+   address 192.168.1.100
+   netmask 255.255.255.0
+   gateway 192.168.1.1
    ```
 
    Adjust the values according to your network configuration.

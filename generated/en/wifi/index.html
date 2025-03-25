@@ -610,6 +610,21 @@
 </ol>
 </div>
 <h2 id="v1-v2-v3-use-raspi-config-for-wi-fi-config-on-raspberry-pi-debian-systems"><strong>v1 v2 v3 Use raspi-config for Wi-Fi config on Raspberry Pi Debian systems</strong></h2>
+<div class="admonition info">
+<p class="admonition-title">If the connection error occurs, you can modify the configuration file and reconnect again</p>
+<p>```bash</p>
+</div>
+<p>sudo vim /etc/NetworkManager/NetworkManager.conf
+   # make sure ifupdown if true
+   [main]
+   dns=none
+   plugins=ifupdown,keyfile</p>
+<p>[ifupdown]
+   managed=true</p>
+<p>[device]
+   wifi.scan-rand-mac-address=no
+   ```
+   systemctl restart NetworkManager</p>
 <ol>
 <li>Log in to SSH. Command: <code>ssh blikvm@ip</code></li>
 <li>Mount the system as writable. Command: <code>rw</code></li>

@@ -619,6 +619,21 @@
 <li>将系统挂载为只读, 命令: ro</li>
 </ol>
 <h2 id="v4armbianarmbian-config"><strong>v4硬件使用的为armbian系统，使用armbian-config</strong></h2>
+<div class="admonition info">
+<p class="admonition-title">如果出现连接错误，您可以修改配置文件并重新连接</p>
+<p>```bash</p>
+</div>
+<p>sudo vim /etc/NetworkManager/NetworkManager.conf
+   # make sure ifupdown if true
+   [main]
+   dns=none
+   plugins=ifupdown,keyfile</p>
+<p>[ifupdown]
+   managed=true</p>
+<p>[device]
+   wifi.scan-rand-mac-address=no
+   ```
+   systemctl restart NetworkManager</p>
 <ol>
 <li>登录ssh,命令: ssh blikvm@ip，登录到 Armbian 系统. 如果是只读系统需要先使用命令<code>rw</code>变为可读写,并且使用命令<code>sudo chmod 777 -R /etc/NetworkManager/system-connections</code>给对应文件夹权限, 修改权限后需要重启NetworkManager服务生效 <code>systemctl restart NetworkManager</code>.</li>
 <li>输入以下命令以启动 <code>armbian-config</code> 工具：

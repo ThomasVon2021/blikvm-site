@@ -8,6 +8,22 @@
 
 ## **v1 v2 v3 Use raspi-config for Wi-Fi config on Raspberry Pi Debian systems**
 
+!!! info "If the connection error occurs, you can modify the configuration file and reconnect again"
+    ```bash
+   sudo vim /etc/NetworkManager/NetworkManager.conf
+   # make sure ifupdown if true
+   [main]
+   dns=none
+   plugins=ifupdown,keyfile
+
+   [ifupdown]
+   managed=true
+
+   [device]
+   wifi.scan-rand-mac-address=no
+   ```
+   systemctl restart NetworkManager
+
 1. Log in to SSH. Command: `ssh blikvm@ip`
 2. Mount the system as writable. Command: `rw`
 3. Start raspi-config. Command: `sudo raspi-config`
