@@ -6,22 +6,22 @@ After v1.5.0 version, to avoid OLED/LCD display burn-in the display's on-time is
 // All time-parameters are in seconds, and are required to be integer multiples of 5.
 // This json file is on /mnt/exec/release/config/app.json
 "Display":{
-    "isActive": true,
-    "mode": 1,              
+    "mode": "boot",              
     "onBootTime": 3600,     
     "cycleInterval": 300,
     "displayTime": 30,
 }
 ```
-Use `isActive` to activate the display :rotating_light:  . While `"isActive": "false"`, the display will not function.
+The `mode` parameter has 4 possible values, detailed as follows:
 
 ## All BliKVM versions
 
 |mode||
 |-|-|
-|0|always on, doesn't care about any of the paramters|
-|1|Display remains on for `onBootTime` seconds,  after which the display turns off. Depends on "onBootTime"|
-|2|Every period of `cycleInterval`, the display turns on for `displayTime` seconds`, then turns off. :rotating_light: Depends on "cycleInterval"and "displayTime"|
+|off|display off|
+|always|always on, doesn't care about any of the paramters|
+|boot|Display remains on for `onBootTime` seconds,  after which the display turns off. Depends on "onBootTime"|
+|interval|Every period of `cycleInterval`, the display turns on for `displayTime` seconds`, then turns off. :rotating_light: Depends on "cycleInterval"and "displayTime"|
 
 ## Only BliKVM v4 Allwinner
 * Since v4 has the sw1 buttons, if set mode to 1.

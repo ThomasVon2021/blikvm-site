@@ -621,33 +621,36 @@
 <p><div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>// 所有时间参数均以秒为单位，且必须为 5 的整数倍。
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>// 配置文件路径在/mnt/exec/release/config/app.json
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>"display":{
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    "isActive": true,
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    "mode": 1,              
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    "onBootTime": 3600,     
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>    "cycleInterval": 300,
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>    "displayTime": 30,
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>}
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    "mode": "boot",              
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    "onBootTime": 3600,     
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    "cycleInterval": 300,
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>    "displayTime": 30,
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>}
 </code></pre></div>
-当 <code>isActive</code>: <code>true</code> 激活显示屏 。当 <code>"isActive": "false"</code> 时，显示屏将不会工作。</p>
+mode共有4个值，具体内容如下：</p>
 <h2 id="blikvm">所有 BliKVM 版本</h2>
 <table>
 <thead>
 <tr>
-<th>模式</th>
+<th>mode</th>
 <th>描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>0</td>
+<td>off</td>
+<td>关闭OLED</td>
+</tr>
+<tr>
+<td>always</td>
 <td>始终开启，不考虑任何参数</td>
 </tr>
 <tr>
-<td>1</td>
+<td>boot</td>
 <td>显示屏保持开启 <code>onBootTime</code> 秒，然后关闭。取决于 "onBootTime"</td>
 </tr>
 <tr>
-<td>2</td>
+<td>interval</td>
 <td>每个 <code>cycleInterval</code> 周期内，显示屏开启 <code>displayTime</code> 秒，然后关闭。:rotating_light: 取决于 "cycleInterval" 和 "displayTime"</td>
 </tr>
 </tbody>

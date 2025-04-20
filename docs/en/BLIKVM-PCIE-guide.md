@@ -47,7 +47,7 @@ BLIKVM PCIe is a PCIe add-in card based on Raspberry Pi CM4 for KVM Over IP. Thi
 
 | 1 | HDMI in            | 2   | USB-PC port  |
 | --| -------------------| --- | ------------------ |
-| 3 | Power Input 5V 3A         | 4   | RJ45 100M Ethernet port & PoE |
+| 3 | Power Input 5V 3A         | 4   | RJ45 1000M Ethernet port & PoE |
 | 5 | ATX control port        | 6 | OLED Display |
 | 7 | PWM FAN | 8  | BOOT |
 | 9 | REAL TIME CLOCK(RTC)         | 10  | UART port|

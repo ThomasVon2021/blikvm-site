@@ -1,4 +1,4 @@
-# **Keyboard and Mouse Loop**
+# **Throughput for local keyboard and mouse**
 
 Starting from version v1.5.8, BliKVM supports connecting local keyboards and mice to the KVM's USB 2.0 or USB 3.0 ports, allowing unified management of keyboard and mouse data through the KVM.
 This feature is disabled by default. To enable it, edit the `pass_through` field in `/mnt/exec/release/config/app.json`, setting `enabled` to `true`. The `mouse_sensitivity` field adjusts the physical mouse sensitivity; you can modify this value if the mouse feels too sluggish or too sensitive.
