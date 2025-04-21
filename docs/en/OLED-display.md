@@ -1,5 +1,5 @@
 ## Principle
-After v1.5.0 version, to avoid OLED/LCD display burn-in the display's on-time is only turned on according to its configuration.
+After v1.5.9 version, to avoid OLED/LCD display burn-in the display's on-time is only turned on according to its configuration.
 
 ## Configuration 
 ```

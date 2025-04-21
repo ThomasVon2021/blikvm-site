@@ -95,10 +95,10 @@ nav:
         - "Mouse Mode": mouse.md
         - "Mouse jiggler": mouse-jiggler.md
         - "Shortcuts": shortcuts.md
-        - "Loop": hid-loop.md
+        - "Passthrough": hid-passthrough.md
       - "MSD": msd.md
     - "Function":
-        - "Upgrade": update.md
+        - "update": update.md
         - "RTC clock": rtc.md
         - "OLED Display": OLED-display.md
         - "Expand Filesystem": Expand_Filesystem.md
