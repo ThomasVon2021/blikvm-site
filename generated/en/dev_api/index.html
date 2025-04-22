@@ -536,36 +536,9 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          HTTP API
-          <span class="md-nav__icon md-icon"></span>
-</label>
 <a class="md-nav__link md-nav__link--active" href="./">
         HTTP API
       </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#authentication">
-    Authentication
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#mjpeg-video">
-    MJPEG Video
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#keyboard">
-    Keyboard
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -579,27 +552,6 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#authentication">
-    Authentication
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#mjpeg-video">
-    MJPEG Video
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#keyboard">
-    Keyboard
-  </a>
-</li>
-</ul>
 </nav>
 </div>
 </div>
@@ -610,157 +562,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="api">API</h1>
-<div class="admonition warning">
-<p class="admonition-title">DISCLAIMER: This API is experimental and subject to change at any moment! This document is only valid for v1.4.0 and earlier versions, and will be updated soon</p>
-</div>
-<p>This document is the HTTP API development manual for BLIKVM OS. If you have new API requirements not covered in this document, you can submit a pull request on GitHub to seek support. Please replace the kvmip in the request URL with the actual IP address of your KVM.</p>
-<h3 id="authentication"><strong>Authentication</strong></h3>
-<p>This API is used for user login and returns an access token. This token expires after 12 hours and can be presented as a bearer token for APIs that require authentication.</p>
-<ul>
-<li>Request URL: <code>https://kvmip/api/login</code></li>
-<li>Request Method: POST</li>
-<li>Request Body: JSON format, for example:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>{
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    "username": "admin",
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    "password": "admin"
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>}
-</code></pre></div>
-<p>The response is as follows; if the status is not 1, the authentication has failed.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>{
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>    "status": 1,
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>    "info": "login success",
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>    "data": {
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>        "token": "2sscdada6a97a774fcd4714c"
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>    }
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>}
-</code></pre></div>
-<h3 id="mjpeg-video"><strong>MJPEG Video</strong></h3>
-<p>This API is used to obtain the MJPEG video stream when the image mode is set to MJPEG.  </p>
-<ul>
-<li>Request URL: <code>http://kvmip:8008/stream</code> </li>
-</ul>
-<p>This API is used to capture a frame of MJPEG in image mode.</p>
-<ul>
-<li>Request URL: <code>http://kvmip:8008/snapshot</code> </li>
-<li>Request Method: GET</li>
-</ul>
-<h3 id="keyboard"><strong>Keyboard</strong></h3>
-<details class="info">
-<summary>For specific keyboard encoding, please refer to the following:</summary>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>"KeyA"=&gt; 4,
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>"KeyB"=&gt; 5,
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>"KeyC"=&gt; 6,
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>"KeyD"=&gt; 7,
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>"KeyE"=&gt; 8,
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>"KeyF"=&gt; 9,
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>"KeyG"=&gt; 10,
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>"KeyH"=&gt; 11,
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>"KeyI"=&gt; 12,
-<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a>"KeyJ"=&gt; 13,
-<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a>"KeyK"=&gt; 14,
-<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a>"KeyL"=&gt; 15,
-<a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a>"KeyM"=&gt; 16,
-<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a>"KeyN"=&gt; 17,
-<a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a>"KeyO"=&gt; 18,
-<a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a>"KeyP"=&gt; 19,
-<a href="#__codelineno-2-17" id="__codelineno-2-17" name="__codelineno-2-17"></a>"KeyQ"=&gt; 20,
-<a href="#__codelineno-2-18" id="__codelineno-2-18" name="__codelineno-2-18"></a>"KeyR"=&gt; 21,
-<a href="#__codelineno-2-19" id="__codelineno-2-19" name="__codelineno-2-19"></a>"KeyS"=&gt; 22,
-<a href="#__codelineno-2-20" id="__codelineno-2-20" name="__codelineno-2-20"></a>"KeyT"=&gt; 23,
-<a href="#__codelineno-2-21" id="__codelineno-2-21" name="__codelineno-2-21"></a>"KeyU"=&gt; 24,
-<a href="#__codelineno-2-22" id="__codelineno-2-22" name="__codelineno-2-22"></a>"KeyV"=&gt; 25,
-<a href="#__codelineno-2-23" id="__codelineno-2-23" name="__codelineno-2-23"></a>"KeyW"=&gt; 26,
-<a href="#__codelineno-2-24" id="__codelineno-2-24" name="__codelineno-2-24"></a>"KeyX"=&gt; 27,
-<a href="#__codelineno-2-25" id="__codelineno-2-25" name="__codelineno-2-25"></a>"KeyY"=&gt; 28,
-<a href="#__codelineno-2-26" id="__codelineno-2-26" name="__codelineno-2-26"></a>"KeyZ"=&gt; 29,
-<a href="#__codelineno-2-27" id="__codelineno-2-27" name="__codelineno-2-27"></a>"Digit1"=&gt; 30,
-<a href="#__codelineno-2-28" id="__codelineno-2-28" name="__codelineno-2-28"></a>"Digit2"=&gt; 31,
-<a href="#__codelineno-2-29" id="__codelineno-2-29" name="__codelineno-2-29"></a>"Digit3"=&gt; 32,
-<a href="#__codelineno-2-30" id="__codelineno-2-30" name="__codelineno-2-30"></a>"Digit4"=&gt; 33,
-<a href="#__codelineno-2-31" id="__codelineno-2-31" name="__codelineno-2-31"></a>"Digit5"=&gt; 34,
-<a href="#__codelineno-2-32" id="__codelineno-2-32" name="__codelineno-2-32"></a>"Digit6"=&gt; 35,
-<a href="#__codelineno-2-33" id="__codelineno-2-33" name="__codelineno-2-33"></a>"Digit7"=&gt; 36,
-<a href="#__codelineno-2-34" id="__codelineno-2-34" name="__codelineno-2-34"></a>"Digit8"=&gt; 37,
-<a href="#__codelineno-2-35" id="__codelineno-2-35" name="__codelineno-2-35"></a>"Digit9"=&gt; 38,
-<a href="#__codelineno-2-36" id="__codelineno-2-36" name="__codelineno-2-36"></a>"Digit0"=&gt; 39,
-<a href="#__codelineno-2-37" id="__codelineno-2-37" name="__codelineno-2-37"></a>"Enter"=&gt; 40,
-<a href="#__codelineno-2-38" id="__codelineno-2-38" name="__codelineno-2-38"></a>"Escape"=&gt; 41,
-<a href="#__codelineno-2-39" id="__codelineno-2-39" name="__codelineno-2-39"></a>"Backspace"=&gt; 42,
-<a href="#__codelineno-2-40" id="__codelineno-2-40" name="__codelineno-2-40"></a>"Tab"=&gt; 43,
-<a href="#__codelineno-2-41" id="__codelineno-2-41" name="__codelineno-2-41"></a>"Space"=&gt; 44,
-<a href="#__codelineno-2-42" id="__codelineno-2-42" name="__codelineno-2-42"></a>"Minus"=&gt; 45,
-<a href="#__codelineno-2-43" id="__codelineno-2-43" name="__codelineno-2-43"></a>"Equal"=&gt; 46,
-<a href="#__codelineno-2-44" id="__codelineno-2-44" name="__codelineno-2-44"></a>"BracketLeft"=&gt; 47,
-<a href="#__codelineno-2-45" id="__codelineno-2-45" name="__codelineno-2-45"></a>"BracketRight"=&gt; 48,
-<a href="#__codelineno-2-46" id="__codelineno-2-46" name="__codelineno-2-46"></a>"Backslash"=&gt; 49,
-<a href="#__codelineno-2-47" id="__codelineno-2-47" name="__codelineno-2-47"></a>"Semicolon"=&gt; 51,
-<a href="#__codelineno-2-48" id="__codelineno-2-48" name="__codelineno-2-48"></a>"Quote"=&gt; 52,
-<a href="#__codelineno-2-49" id="__codelineno-2-49" name="__codelineno-2-49"></a>"Backquote"=&gt; 53,
-<a href="#__codelineno-2-50" id="__codelineno-2-50" name="__codelineno-2-50"></a>"Comma"=&gt; 54,
-<a href="#__codelineno-2-51" id="__codelineno-2-51" name="__codelineno-2-51"></a>"Period"=&gt; 55,
-<a href="#__codelineno-2-52" id="__codelineno-2-52" name="__codelineno-2-52"></a>"Slash"=&gt; 56,
-<a href="#__codelineno-2-53" id="__codelineno-2-53" name="__codelineno-2-53"></a>"CapsLock"=&gt; 57,
-<a href="#__codelineno-2-54" id="__codelineno-2-54" name="__codelineno-2-54"></a>"F1"=&gt; 58,
-<a href="#__codelineno-2-55" id="__codelineno-2-55" name="__codelineno-2-55"></a>"F2"=&gt; 59,
-<a href="#__codelineno-2-56" id="__codelineno-2-56" name="__codelineno-2-56"></a>"F3"=&gt; 60,
-<a href="#__codelineno-2-57" id="__codelineno-2-57" name="__codelineno-2-57"></a>"F4"=&gt; 61,
-<a href="#__codelineno-2-58" id="__codelineno-2-58" name="__codelineno-2-58"></a>"F5"=&gt; 62,
-<a href="#__codelineno-2-59" id="__codelineno-2-59" name="__codelineno-2-59"></a>"F6"=&gt; 63,
-<a href="#__codelineno-2-60" id="__codelineno-2-60" name="__codelineno-2-60"></a>"F7"=&gt; 64,
-<a href="#__codelineno-2-61" id="__codelineno-2-61" name="__codelineno-2-61"></a>"F8"=&gt; 65,
-<a href="#__codelineno-2-62" id="__codelineno-2-62" name="__codelineno-2-62"></a>"F9"=&gt; 66,
-<a href="#__codelineno-2-63" id="__codelineno-2-63" name="__codelineno-2-63"></a>"F10"=&gt; 67,
-<a href="#__codelineno-2-64" id="__codelineno-2-64" name="__codelineno-2-64"></a>"F11"=&gt; 68,
-<a href="#__codelineno-2-65" id="__codelineno-2-65" name="__codelineno-2-65"></a>"F12"=&gt; 69,
-<a href="#__codelineno-2-66" id="__codelineno-2-66" name="__codelineno-2-66"></a>"PrtSc"=&gt; 70,
-<a href="#__codelineno-2-67" id="__codelineno-2-67" name="__codelineno-2-67"></a>"ScrollLock"=&gt; 71,
-<a href="#__codelineno-2-68" id="__codelineno-2-68" name="__codelineno-2-68"></a>"Pause"=&gt; 72,
-<a href="#__codelineno-2-69" id="__codelineno-2-69" name="__codelineno-2-69"></a>"Insert"=&gt; 73,
-<a href="#__codelineno-2-70" id="__codelineno-2-70" name="__codelineno-2-70"></a>"Home"=&gt; 74,
-<a href="#__codelineno-2-71" id="__codelineno-2-71" name="__codelineno-2-71"></a>"PageUp"=&gt; 75,
-<a href="#__codelineno-2-72" id="__codelineno-2-72" name="__codelineno-2-72"></a>"Delete"=&gt; 76,
-<a href="#__codelineno-2-73" id="__codelineno-2-73" name="__codelineno-2-73"></a>"End"=&gt; 77,
-<a href="#__codelineno-2-74" id="__codelineno-2-74" name="__codelineno-2-74"></a>"PageDown"=&gt; 78,
-<a href="#__codelineno-2-75" id="__codelineno-2-75" name="__codelineno-2-75"></a>"ArrowRight"=&gt; 79,
-<a href="#__codelineno-2-76" id="__codelineno-2-76" name="__codelineno-2-76"></a>"ArrowLeft"=&gt; 80,
-<a href="#__codelineno-2-77" id="__codelineno-2-77" name="__codelineno-2-77"></a>"ArrowDown"=&gt; 81,
-<a href="#__codelineno-2-78" id="__codelineno-2-78" name="__codelineno-2-78"></a>"ArrowUp"=&gt; 82,
-<a href="#__codelineno-2-79" id="__codelineno-2-79" name="__codelineno-2-79"></a>"NumLock"=&gt; 83,
-<a href="#__codelineno-2-80" id="__codelineno-2-80" name="__codelineno-2-80"></a>"NumpadDivide"=&gt; 84,
-<a href="#__codelineno-2-81" id="__codelineno-2-81" name="__codelineno-2-81"></a>"NumpadMultiply"=&gt; 85,
-<a href="#__codelineno-2-82" id="__codelineno-2-82" name="__codelineno-2-82"></a>"NumpadSubtract"=&gt; 86,
-<a href="#__codelineno-2-83" id="__codelineno-2-83" name="__codelineno-2-83"></a>"NumpadAdd"=&gt; 87,
-<a href="#__codelineno-2-84" id="__codelineno-2-84" name="__codelineno-2-84"></a>"NumpadEnter"=&gt; 88,
-<a href="#__codelineno-2-85" id="__codelineno-2-85" name="__codelineno-2-85"></a>"Numpad1"=&gt; 89,
-<a href="#__codelineno-2-86" id="__codelineno-2-86" name="__codelineno-2-86"></a>"Numpad2"=&gt; 90,
-<a href="#__codelineno-2-87" id="__codelineno-2-87" name="__codelineno-2-87"></a>"Numpad3"=&gt; 91,
-<a href="#__codelineno-2-88" id="__codelineno-2-88" name="__codelineno-2-88"></a>"Numpad4"=&gt; 92,
-<a href="#__codelineno-2-89" id="__codelineno-2-89" name="__codelineno-2-89"></a>"Numpad5"=&gt; 93,
-<a href="#__codelineno-2-90" id="__codelineno-2-90" name="__codelineno-2-90"></a>"Numpad6"=&gt; 94,
-<a href="#__codelineno-2-91" id="__codelineno-2-91" name="__codelineno-2-91"></a>"Numpad7"=&gt; 95,
-<a href="#__codelineno-2-92" id="__codelineno-2-92" name="__codelineno-2-92"></a>"Numpad8"=&gt; 96,
-<a href="#__codelineno-2-93" id="__codelineno-2-93" name="__codelineno-2-93"></a>"Numpad9"=&gt; 97,
-<a href="#__codelineno-2-94" id="__codelineno-2-94" name="__codelineno-2-94"></a>"Numpad0"=&gt; 98,
-<a href="#__codelineno-2-95" id="__codelineno-2-95" name="__codelineno-2-95"></a>"NumpadDecimal"=&gt; 99
-</code></pre></div>
-</details>
-<ul>
-<li>Request URL: <code>http://kvmip/keyboard</code> </li>
-<li>Request Method: GET  </li>
-<li>Request Body: JSON format, where "keycodes" is a string array supporting multiple inputs at once. For example:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>{
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>    "keycodes": ["Digit1"]
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>}
-</code></pre></div>
-<p>The response result is as follows:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>{
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>    "status": 1,
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>    "info": "key input success",
-<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>    "data": []
-<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>}
-</code></pre></div>
+<p><a href="https://doc.apipost.net/docs/detail/371d463f8cec000?target_id=0">API docs</a></p>
 <hr/>
 <div class="md-source-file">
 <small>
