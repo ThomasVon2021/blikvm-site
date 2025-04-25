@@ -10,19 +10,21 @@
 
 !!! info "If the connection error occurs, you can modify the configuration file and reconnect again"
     ```bash
-   sudo vim /etc/NetworkManager/NetworkManager.conf
-   # make sure ifupdown if true
-   [main]
-   dns=none
-   plugins=ifupdown,keyfile
+    sudo vim /etc/NetworkManager/NetworkManager.conf
+    # make sure ifupdown if true
+    [main]
+    dns=none
+    plugins=ifupdown,keyfile
 
-   [ifupdown]
-   managed=true
+    [ifupdown]
+    managed=true
 
-   [device]
-   wifi.scan-rand-mac-address=no
-   ```
-   systemctl restart NetworkManager
+    [device]
+    wifi.scan-rand-mac-address=no
+    ```
+    ```
+    systemctl restart NetworkManager
+    ```
 
 1. Log in to SSH. Command: `ssh blikvm@ip`
 2. Mount the system as writable. Command: `rw`

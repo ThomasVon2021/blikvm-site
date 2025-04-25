@@ -612,19 +612,21 @@
 <h2 id="v1-v2-v3-use-raspi-config-for-wi-fi-config-on-raspberry-pi-debian-systems"><strong>v1 v2 v3 Use raspi-config for Wi-Fi config on Raspberry Pi Debian systems</strong></h2>
 <div class="admonition info">
 <p class="admonition-title">If the connection error occurs, you can modify the configuration file and reconnect again</p>
-<p>```bash</p>
+<p><div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo vim /etc/NetworkManager/NetworkManager.conf
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="c1"># make sure ifupdown if true</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="o">[</span>main<span class="o">]</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="nv">dns</span><span class="o">=</span>none
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="nv">plugins</span><span class="o">=</span>ifupdown,keyfile
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="o">[</span>ifupdown<span class="o">]</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="nv">managed</span><span class="o">=</span><span class="nb">true</span>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="o">[</span>device<span class="o">]</span>
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>wifi.scan-rand-mac-address<span class="o">=</span>no
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>systemctl restart NetworkManager
+</code></pre></div></p>
 </div>
-<p>sudo vim /etc/NetworkManager/NetworkManager.conf
-   # make sure ifupdown if true
-   [main]
-   dns=none
-   plugins=ifupdown,keyfile</p>
-<p>[ifupdown]
-   managed=true</p>
-<p>[device]
-   wifi.scan-rand-mac-address=no
-   ```
-   systemctl restart NetworkManager</p>
 <ol>
 <li>Log in to SSH. Command: <code>ssh blikvm@ip</code></li>
 <li>Mount the system as writable. Command: <code>rw</code></li>
@@ -643,7 +645,7 @@
 <li>Log in via SSH using the command: <code>ssh blikvm@ip</code> to access the Armbian system. If it is a read-only system, you need to first use the command <code>rw</code> to make it read-write, and use the command <code>sudo chmod 777 -R /etc/NetworkManager/system-connections</code> to give the corresponding folder permissions. After modifying the permissions, you need to restart the NetworkManager service for the changes to take effect using the command <code>systemctl restart NetworkManager</code>.</li>
 <li>Enter the following command to launch the <code>armbian-config</code> tool:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo armbian-config
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>sudo armbian-config
 </code></pre></div>
 <ol>
 <li>In the <code>armbian-config</code> menu, navigate and select options using the arrow keys and press <strong>Enter</strong>.</li>
