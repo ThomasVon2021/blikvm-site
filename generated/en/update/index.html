@@ -630,14 +630,14 @@
 <div class="admonition info">
 <p class="admonition-title">In the terminal，if the system terminal shows the <code>ro</code> keyword that means your system is currently in read-only, it is necessary to use the <code>rw</code> command to make the system writable.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo -i
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>curl -L https://raw.githubusercontent.com/ThomasVon2021/blikvm/master/script/update.py -o /tmp/update.py &amp;&amp; python3 /tmp/update.py
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>curl -L https://raw.githubusercontent.com/blikvm/blikvm/master/script/update.py -o /tmp/update.py &amp;&amp; python3 /tmp/update.py
 </code></pre></div>
 </div>
 <p>Observe the output of the terminal. </p>
 <div class="admonition warning">
 <p class="admonition-title">If you are unable to update successfully due to network issues, you can download the latest release package on a PC with a stable network and then install it using the following commands.</p>
 <ul>
-<li>Download link: https://github.com/ThomasVon2021/blikvm/releases</li>
+<li>Download link: https://github.com/blikvm/blikvm/releases</li>
 <li>For v1, v2, and v3 hardware, use blikvm-v1-v2-v3.deb</li>
 <li>For v4 hardware, use blikvm-v4.deb
 ssh into the device terminal and use <code>dpkg -i xxx.deb</code></li>

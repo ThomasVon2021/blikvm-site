@@ -102,4 +102,4 @@ ro
 ```
 そして、BLIKVMを再起動してから、1080p 60Hzの信号をお試しください。
 
-![](https://github.com/ThomasVon2021/pikvm-CM4-Board/blob/main/images/wiki/60hz.jpg)  
+![](https://github.com/blikvm/pikvm-CM4-Board/blob/main/images/wiki/60hz.jpg)  

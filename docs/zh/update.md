@@ -21,12 +21,12 @@
 !!! info "ssh进入设备终端。若当前系统终端可以看到ro关键字，为只读系统，需使用`rw`让系统为可写权限。"
     ```
     sudo -i
-    curl -L https://raw.githubusercontent.com/ThomasVon2021/blikvm/master/script/update.py -o /tmp/update.py && python3 /tmp/update.py
+    curl -L https://raw.githubusercontent.com/blikvm/blikvm/master/script/update.py -o /tmp/update.py && python3 /tmp/update.py
     ```
     观察终端输出，当看到升级升级成功消息提醒时，终端输入reboot，重启生效。
 
 !!! warning "若您因网络原因，一直无法更新成功，可以采用在其它网络ok的PC上下载最新的release包，然后按照以下命令进行安装。"
-    - 下载地址: https://github.com/ThomasVon2021/blikvm/releases
+    - 下载地址: https://github.com/blikvm/blikvm/releases
     - 其中v1 v2 v3硬件使用 blikvm-v1-v2-v3.deb
     - v4硬件使用 blikvm-v4.deb
     ssh进入设备终端，并使用`dpkg -i xxx.deb`

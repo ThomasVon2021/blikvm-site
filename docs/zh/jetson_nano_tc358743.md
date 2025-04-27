@@ -9,7 +9,7 @@ tar xf kernel_src.tbz2
 ```
 根据仓库里的目录结构进行文件替换，要全部替换
 ```
-git clone https://github.com/ThomasVon2021/jetson_tc358743
+git clone https://github.com/blikvm/jetson_tc358743
 cp ~/jetson_tc358743/* ./ -r
 .
 └── jetson_tc358743-main

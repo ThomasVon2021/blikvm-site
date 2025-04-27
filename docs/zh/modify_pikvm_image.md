@@ -6,7 +6,7 @@
     ```
     su -
     rw
-    git clone https://github.com/ThomasVon2021/blikvm.git
+    git clone https://github.com/blikvm/blikvm.git
     cd blikvm/package/kvmd-fan
     bash install-kvmd-fan.sh
     ro

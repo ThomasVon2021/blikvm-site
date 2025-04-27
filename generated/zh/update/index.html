@@ -625,14 +625,14 @@
 <div class="admonition info">
 <p class="admonition-title">ssh进入设备终端。若当前系统终端可以看到ro关键字，为只读系统，需使用<code>rw</code>让系统为可写权限。</p>
 <p><div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo -i
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>curl -L https://raw.githubusercontent.com/ThomasVon2021/blikvm/master/script/update.py -o /tmp/update.py &amp;&amp; python3 /tmp/update.py
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>curl -L https://raw.githubusercontent.com/blikvm/blikvm/master/script/update.py -o /tmp/update.py &amp;&amp; python3 /tmp/update.py
 </code></pre></div>
 观察终端输出，当看到升级升级成功消息提醒时，终端输入reboot，重启生效。</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">若您因网络原因，一直无法更新成功，可以采用在其它网络ok的PC上下载最新的release包，然后按照以下命令进行安装。</p>
 <ul>
-<li>下载地址: https://github.com/ThomasVon2021/blikvm/releases</li>
+<li>下载地址: https://github.com/blikvm/blikvm/releases</li>
 <li>其中v1 v2 v3硬件使用 blikvm-v1-v2-v3.deb</li>
 <li>v4硬件使用 blikvm-v4.deb
 ssh进入设备终端，并使用<code>dpkg -i xxx.deb</code>

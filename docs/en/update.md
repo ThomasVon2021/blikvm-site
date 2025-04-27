@@ -22,12 +22,12 @@
 !!! info "In the terminal，if the system terminal shows the `ro` keyword that means your system is currently in read-only, it is necessary to use the `rw` command to make the system writable."
     ```
     sudo -i
-    curl -L https://raw.githubusercontent.com/ThomasVon2021/blikvm/master/script/update.py -o /tmp/update.py && python3 /tmp/update.py
+    curl -L https://raw.githubusercontent.com/blikvm/blikvm/master/script/update.py -o /tmp/update.py && python3 /tmp/update.py
     ```
    Observe the output of the terminal. 
 
 !!! warning "If you are unable to update successfully due to network issues, you can download the latest release package on a PC with a stable network and then install it using the following commands."
-    - Download link: https://github.com/ThomasVon2021/blikvm/releases
+    - Download link: https://github.com/blikvm/blikvm/releases
     - For v1, v2, and v3 hardware, use blikvm-v1-v2-v3.deb
     - For v4 hardware, use blikvm-v4.deb
     ssh into the device terminal and use `dpkg -i xxx.deb`

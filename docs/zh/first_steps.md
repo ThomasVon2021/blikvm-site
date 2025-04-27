@@ -66,7 +66,7 @@ v1、v2、v3版本的BliKVM存储卡以只读模式挂载。这样可以在突�
 * 使用 [端口转发](./port-forwarding.md) 或 [Tailscale VPN](./tailscale.md) 设置互联网访问。
 * 使用左侧的目录导航探索BliKVM的功能。
 * 加入我们的 [Discord](https://discord.com/invite/9Y374gUF6C) 与社区和开发人员交流。
-* 查看 [GitHub](https://github.com/ThomasVon2021/blikvm) - BliKVM 是一个开源的项目！
+* 查看 [GitHub](https://github.com/blikvm/blikvm) - BliKVM 是一个开源的项目！
 
 
 -----

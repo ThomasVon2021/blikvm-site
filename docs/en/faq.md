@@ -1,6 +1,6 @@
 # FAQ & Troubleshooting
 
-As a first step, we recommend carefully reading our documentation. Most steps to successfully set up your BLIKVM are already described there. If you run into any issues you can check this page which will list common errors. If that still doesn't help you you're welcome to raise an [issue ticket](https://github.com/ThomasVon2021/blikvm/issues) or [join our Discord](https://discord.gg/9Y374gUF6C) for further help.
+As a first step, we recommend carefully reading our documentation. Most steps to successfully set up your BLIKVM are already described there. If you run into any issues you can check this page which will list common errors. If that still doesn't help you you're welcome to raise an [issue ticket](https://github.com/blikvm/blikvm/issues) or [join our Discord](https://discord.gg/9Y374gUF6C) for further help.
 
 ## **Common Questions**
 
@@ -115,7 +115,7 @@ As a first step, we recommend carefully reading our documentation. Most steps to
 ## **Hardware Problems** (Wi-Fi, ATX, etc)
 
 ??? question "If you use PiKVM software, the web UI show **FAN** error!"
-    - Because the fan model used by BLIKVM hardware is different from that of PIKVM hardware, viewing the fan status through the web interface may fail in the latest system of pikvm. However, this will not affect the normal operation of BLIKVM fan. Therefore, when using the PIKVM image, as long as you ensure that the [install script](https://github.com/ThomasVon2021/blikvm/tree/master/package/kvmd-fan) displays OK, it means that the update of the kvmd fan program is successful. The threshold temperature set by the default program is 60 degrees Celsius. When the CPU temperature is detected to exceed 60 degrees Celsius, the fan will start rotating at 85% speed. If you want to modify the threshold temperature and speed, you can modify the kvmd-fan.py script, and then re-execute install.sh.
+    - Because the fan model used by BLIKVM hardware is different from that of PIKVM hardware, viewing the fan status through the web interface may fail in the latest system of pikvm. However, this will not affect the normal operation of BLIKVM fan. Therefore, when using the PIKVM image, as long as you ensure that the [install script](https://github.com/blikvm/blikvm/tree/master/package/kvmd-fan) displays OK, it means that the update of the kvmd fan program is successful. The threshold temperature set by the default program is 60 degrees Celsius. When the CPU temperature is detected to exceed 60 degrees Celsius, the fan will start rotating at 85% speed. If you want to modify the threshold temperature and speed, you can modify the kvmd-fan.py script, and then re-execute install.sh.
 
 ??? question "I can't connect to Wi-Fi at all!"
     - If your device is unable to connect to the Wi-Fi network that you have set up, check the 2.4 GHz Wi-Fi channel used by your Wi-Fi access point.

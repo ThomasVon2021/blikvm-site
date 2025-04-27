@@ -1,6 +1,6 @@
 # FAQ & 故障排除
 
-作为第一步，我们建议仔细阅读我们的文档。大部分设置BLIKVM所需的步骤已经在文档中描述了。如果您遇到任何问题，您可以查看本页，其中列出了常见错误。如果仍然无法解决问题，欢迎提交[问题反馈](https://github.com/ThomasVon2021/blikvm/issues)或[加入我们的Discord](https://discord.gg/9Y374gUF6C)寻求进一步帮助。
+作为第一步，我们建议仔细阅读我们的文档。大部分设置BLIKVM所需的步骤已经在文档中描述了。如果您遇到任何问题，您可以查看本页，其中列出了常见错误。如果仍然无法解决问题，欢迎提交[问题反馈](https://github.com/blikvm/blikvm/issues)或[加入我们的Discord](https://discord.gg/9Y374gUF6C)寻求进一步帮助。
 
 ## 常见问题
 
@@ -115,7 +115,7 @@
 ## 硬件问题（Wi-Fi、ATX等）
 
 ??? question "如果使用PiKVM软件，Web界面显示**FAN**错误！"
-    * 由于BLIKVM硬件使用的风扇型号与PIKVM硬件不同，因此在pikvm的最新系统中，通过Web界面查看风扇状态可能会失败。但这不会影响BLIKVM风扇的正常运行。因此，在使用PIKVM镜像时，只要确保[安装脚本](https://github.com/ThomasVon2021/blikvm/tree/master/package/kvmd-fan)显示OK，就表示kvmd风扇程序的更新成功。默认程序设置的温度阈值为摄氏60度。当检测到CPU温度超过60摄氏度时，风扇将以85%的速度开始旋转。如果要修改温度阈值和速度，可以修改kvmd-fan.py脚本，然后重新执行install.sh。
+    * 由于BLIKVM硬件使用的风扇型号与PIKVM硬件不同，因此在pikvm的最新系统中，通过Web界面查看风扇状态可能会失败。但这不会影响BLIKVM风扇的正常运行。因此，在使用PIKVM镜像时，只要确保[安装脚本](https://github.com/blikvm/blikvm/tree/master/package/kvmd-fan)显示OK，就表示kvmd风扇程序的更新成功。默认程序设置的温度阈值为摄氏60度。当检测到CPU温度超过60摄氏度时，风扇将以85%的速度开始旋转。如果要修改温度阈值和速度，可以修改kvmd-fan.py脚本，然后重新执行install.sh。
 
 ??? question "我根本无法连接到Wi-Fi！"
     * 如果您的设备无法连接到您设置的Wi-Fi网络，请检查您的Wi-Fi接入点使用的2.4GHz Wi-Fi信道。如果使用了12到14信道（某些国家禁止使用这些信道），请尝试使用1到11之间的信道。
