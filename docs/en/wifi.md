@@ -6,8 +6,6 @@
     3. PiKVM OS is arch linux;
     4. BLIKVM OS raspberry pi series is debian system, and v4 series is armbian system;
 
-## **v1 v2 v3 Use raspi-config for Wi-Fi config on Raspberry Pi Debian systems**
-
 !!! info "If the connection error occurs, you can modify the configuration file and reconnect again"
     ```bash
     sudo vim /etc/NetworkManager/NetworkManager.conf
@@ -23,8 +21,13 @@
     wifi.scan-rand-mac-address=no
     ```
     ```
+    sudo chmod 777 -R /etc/NetworkManager/system-connections
     systemctl restart NetworkManager
     ```
+
+## **v1 v2 v3 Use raspi-config for Wi-Fi config on Raspberry Pi Debian systems**
+
+
 
 1. Log in to SSH. Command: `ssh blikvm@ip`
 2. Mount the system as writable. Command: `rw`

@@ -609,7 +609,6 @@
 <li>BLIKVM OS raspberry pi series is debian system, and v4 series is armbian system;</li>
 </ol>
 </div>
-<h2 id="v1-v2-v3-use-raspi-config-for-wi-fi-config-on-raspberry-pi-debian-systems"><strong>v1 v2 v3 Use raspi-config for Wi-Fi config on Raspberry Pi Debian systems</strong></h2>
 <div class="admonition info">
 <p class="admonition-title">If the connection error occurs, you can modify the configuration file and reconnect again</p>
 <p><div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo vim /etc/NetworkManager/NetworkManager.conf
@@ -624,9 +623,11 @@
 <a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="o">[</span>device<span class="o">]</span>
 <a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>wifi.scan-rand-mac-address<span class="o">=</span>no
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>systemctl restart NetworkManager
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>sudo chmod 777 -R /etc/NetworkManager/system-connections
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>systemctl restart NetworkManager
 </code></pre></div></p>
 </div>
+<h2 id="v1-v2-v3-use-raspi-config-for-wi-fi-config-on-raspberry-pi-debian-systems"><strong>v1 v2 v3 Use raspi-config for Wi-Fi config on Raspberry Pi Debian systems</strong></h2>
 <ol>
 <li>Log in to SSH. Command: <code>ssh blikvm@ip</code></li>
 <li>Mount the system as writable. Command: <code>rw</code></li>
