@@ -30,8 +30,15 @@
 
 ### Base on PiKVM software
 
-!!! info "Raspberry 4B and CM4 board use different PiKVM software image. After entering the link, you can see the image named with each hardware version (HAT CM4 PCIe)"
-    * **[PiKVM image](https://zcwrego195.feishu.cn/drive/folder/fldcntj64syIznoYuTdRFattP2f)**
+~~!!! info "Raspberry 4B and CM4 board use different PiKVM software image. After entering the link, you can see the image named with each hardware version (HAT CM4 PCIe)"
+    * **[PiKVM image](https://zcwrego195.feishu.cn/drive/folder/fldcntj64syIznoYuTdRFattP2f)**~~
+If you want to use PiKVM image download it from the official website
+!!! PiKVM download for BLIKVM V3
+    [Raspberry Pi 4 for HDMI-CSI Bridge](https://files.pikvm.org/images/v2-hdmi-rpi4/aarch64/v2-hdmi-rpi4-aarch64-latest.img.xz)
+
+!!! Post installation instructions
+    After the flashing the image and first boot update the OS with `pikvm-update` then follow the instructions described here:
+    [PiKVM Post install instructions](https://wiki.blicube.com/blikvm/en/modify_pikvm_image/)
 
 ## Flash the image
 
