@@ -10,8 +10,9 @@
 
 !!! info "Common causes of upgrade errors"
     - The device is not connected to the network;
-    - Network access to GitHub is limited;
-    - Your local version may be incompatible with the latest version. If the update is successful but runs abnormally, you need to reflash the latest system to recover;
+    - Network access to GitHub is restricted;
+    - Your local version may be incompatible with the latest version. If the update is successful but behaves abnormally, you need to reflash the latest system to recover;
+    - You cannot use the web SSH terminal for the update because the web program will terminate during the update process, which will cause the installation to never complete.
 
 !!! warning "We strongly recommend performing the update while you are in close proximity to the BliKVM hardware you are upgrading. This way if anything goes wrong you can intervene."
     - If you are familiar with command-line operations, we recommend manually updating so that you can monitor the command-line status in real time.
