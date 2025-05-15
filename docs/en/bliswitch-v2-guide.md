@@ -9,6 +9,9 @@ Switch Method: Button or USB control.
 !!! info "BliSwitchv2 Introduction"
     <iframe width="560" height="315" src="https://www.youtube.com/embed/BipzzTIIIQg?si=8Ygw3gYhE-Sgm6mF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+!!! warning "BliSwitch v2 Power Supply Logic"
+    In addition to the power supply port, the v2 can also be powered via USB from the connected controlled PCs. The specific port providing power depends on which port has the higher voltage. When using the v2 with a KVM, if you notice abnormal behavior such as the KVM restarting during switching or external keyboards malfunctioning, it indicates that one of your controlled PCs is powering the KVM. To prevent this issue, you need to add a [USB splitter board](./usb-splitter-guide.md) to the KVM's USB-PC port.
+
 ## **Features**
 * **ATX on each port(support button and remote control)**
 * **Full control via web ui**

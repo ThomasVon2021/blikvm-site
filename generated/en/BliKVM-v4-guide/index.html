@@ -713,8 +713,11 @@
 <p class="admonition-title">Notice!</p>
 <p>Before upgrading, execute the following command, otherwise, after running apt-get update and apt-get upgrade, the image will fail to start.
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>apt-mark hold linux-dtb-edge-sunxi64 linux-image-edge-sunxi64
-</code></pre></div>
-If you applied a few updates it still says you have some updates total and last check time is locked at a error time.This is NOT a bug, but a false positive.(Because the ro system)</p>
+</code></pre></div></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Solution for v4 Power Supply Issues</p>
+<p>The v4 is designed to support multiple power input methods simultaneously, such as the 5V port, USB-PC port, 12V port, and PoE port. When multiple power sources are connected, the v4 will select the port with the highest voltage for power supply. This may result in the controlled PC powering the v4. Since many PCs have limited USB power supply capabilities, you might notice that the v4 is affected when the controlled PC is powered on or off. To prevent this issue, you need to add a <a href="../usb-splitter-guide/">USB splitter board</a> to the USB port.</p>
 </div>
 <div class="admonition info">
 <p class="admonition-title">Video Guide: Unpacking and connecting case step by step</p>
@@ -731,6 +734,7 @@ Please refer to the <a href="../atx/">ATX Connection Guide</a>.</p>
 <p><strong>5.</strong> You can explore other pages in the wiki to discover more features of BliKVM. Enjoy your experience!</p>
 <h2 id="video-mode"><strong>Video Mode</strong></h2>
 <p>v4 supports a maximum video input of 4K30Hz, and the default transmission resolution is 1920x1080.</p>
+<p>The current firmware of v4 provides H.264 software encoding. When using this mode, the CPU usage of v4 will be relatively high, and the latency will be greater than MJPEG under good network conditions. It is recommended to use this mode only when the public network bandwidth is insufficient.</p>
 <h2 id="packing-list"><strong>Packing List</strong></h2>
 <table>
 <thead>

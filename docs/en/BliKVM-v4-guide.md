@@ -49,7 +49,8 @@ BliKVM v4 is a production-ready, plug and play KVM-over-IP device that offers pr
     ```
     apt-mark hold linux-dtb-edge-sunxi64 linux-image-edge-sunxi64
     ```
-    If you applied a few updates it still says you have some updates total and last check time is locked at a error time.This is NOT a bug, but a false positive.(Because the ro system)
+!!! warning "Solution for v4 Power Supply Issues"
+    The v4 is designed to support multiple power input methods simultaneously, such as the 5V port, USB-PC port, 12V port, and PoE port. When multiple power sources are connected, the v4 will select the port with the highest voltage for power supply. This may result in the controlled PC powering the v4. Since many PCs have limited USB power supply capabilities, you might notice that the v4 is affected when the controlled PC is powered on or off. To prevent this issue, you need to add a [USB splitter board](./usb-splitter-guide.md) to the USB port.
 
 !!! info "Video Guide: Unpacking and connecting case step by step"
     <iframe width="560" height="315" src="https://www.youtube.com/embed/aRVzbb_g-UQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -73,6 +74,8 @@ Please refer to the [ATX Connection Guide](./atx.md).
 ## **Video Mode**
 
 v4 supports a maximum video input of 4K30Hz, and the default transmission resolution is 1920x1080.
+
+The current firmware of v4 provides H.264 software encoding. When using this mode, the CPU usage of v4 will be relatively high, and the latency will be greater than MJPEG under good network conditions. It is recommended to use this mode only when the public network bandwidth is insufficient.
 
 ## **Packing List**
 

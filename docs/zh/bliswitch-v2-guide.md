@@ -8,6 +8,9 @@ BliSwitch v2是一款8通道KVM+ATX切换器，使8台主机共享一套键盘�
 !!! info "BliSwitchv2 介绍视频"
     <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=114246314688652&bvid=BV1CnZYYDECA&cid=29136127131&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 
+!!! warning "BliSwitch v2供电逻辑"
+    v2出了供电端口外，也会由与被控PC连接的USB供电，具体哪个端口供电，取决于哪个端口的电压高。当v2与KVM配合时，如果发现KVM工作异常，譬如在切换时KVM可能会重启，或者外接的键盘工作失灵，那说明你的某台被控PC在给KVM供电，为了杜绝此问题，需要在KVM的USB-PC口增加一个[USB分电板](./usb-splitter-guide.md)
+
 ## **端口定义**
 
 ![Interface](assets/images/Product-Datasheet-BliSwitch-v2.assets/Interface.png)

@@ -701,6 +701,10 @@ BliKVM v4是一款生产就绪、即插即用的 KVM-over-IP 设备，为专业�
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>apt-mark hold linux-dtb-edge-sunxi64 linux-image-edge-sunxi64
 </code></pre></div></p>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">v4供电异常解决方案</p>
+<p>v4设计多输入方式可同时供电，譬如5v端口,USB-PC端口，12V端口，PoE端口,如果多路电源接入时，v4会选择由电压最高的端口供电。这就有可能实际由被控PC供电，很多PC USB供电能力有限，若你发现当被控PC开关机时，v4有可能也跟着被影响，那么你需要在USB口加一个<a href="../usb-splitter-guide/">USB分电板</a>杜绝此问题。</p>
+</div>
 <div class="admonition info">
 <p class="admonition-title">BliKVM v4 拆箱，连接，使用参考视频</p>
 <p><iframe allowfullscreen="true" border="0" frameborder="no" framespacing="0" scrolling="no" src="//player.bilibili.com/player.html?aid=488438623&amp;bvid=BV1NN41127g9&amp;cid=1195577253&amp;page=1"> </iframe></p>
@@ -715,7 +719,8 @@ BliKVM v4是一款生产就绪、即插即用的 KVM-over-IP 设备，为专业�
 <p><strong>4.</strong> <strong>尝试使用 Web 界面管理计算机的 BliKVM。</strong> 确保您可以看到图像并且键盘和鼠标都正常工作。如果遇到任何问题，请查看我们的<a href="../faq/">常见问题</a>（它非常有用）。如果没有任何帮助，请在我们的<a href="https://discord.com/invite/9Y374gUF6C">Discord聊天室</a>寻求支持。</p>
 <p><strong>5.</strong> 您可以查看wiki其他的页面，探索BliKVM的更多功能，祝您玩的开心！</p>
 <h2 id="_4"><strong>视频模式</strong></h2>
-<p>v4最高支持4K30Hz的视频输入，传输分辨率默认为1920x1080。</p>
+<p>v4最高支持4K30Hz的视频输入，传输分辨率默认为1920x1080。
+v4目前固件提供的H264是软件编码，当你使用此模式时，v4的CPU占用率会较高，并且在网络较好的情况下，延迟大于mjpeg，建议此模式在公网带宽不够的情况下使用。</p>
 <h2 id="_5"><strong>发货清单</strong></h2>
 <table>
 <thead>

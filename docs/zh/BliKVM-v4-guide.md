@@ -47,6 +47,9 @@ BliKVM v4是一款生产就绪、即插即用的 KVM-over-IP 设备，为专业�
     ```
     apt-mark hold linux-dtb-edge-sunxi64 linux-image-edge-sunxi64
     ```
+!!! warning "v4供电异常解决方案"
+    v4设计多输入方式可同时供电，譬如5v端口,USB-PC端口，12V端口，PoE端口,如果多路电源接入时，v4会选择由电压最高的端口供电。这就有可能实际由被控PC供电，很多PC USB供电能力有限，若你发现当被控PC开关机时，v4有可能也跟着被影响，那么你需要在USB口加一个[USB分电板](./usb-splitter-guide.md)杜绝此问题。
+
 !!! info "BliKVM v4 拆箱，连接，使用参考视频"
     <iframe src="//player.bilibili.com/player.html?aid=488438623&bvid=BV1NN41127g9&cid=1195577253&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
@@ -67,6 +70,7 @@ BliKVM v4是一款生产就绪、即插即用的 KVM-over-IP 设备，为专业�
 
 ## **视频模式**
 v4最高支持4K30Hz的视频输入，传输分辨率默认为1920x1080。
+v4目前固件提供的H264是软件编码，当你使用此模式时，v4的CPU占用率会较高，并且在网络较好的情况下，延迟大于mjpeg，建议此模式在公网带宽不够的情况下使用。
 
 ## **发货清单**
 
