@@ -6,7 +6,7 @@ EDID文件在BliKVM中的作用是告诉被控计算机期望输出的HDMI分辨
     - BliKVM v1 v2 v3使用的为CSI视频采集方案，支持EDID设置，v4使用的是USB视频采集方案，不支持EDID设置；
     - 其中v3 HAT受树莓派4B只有2通道CSI限制，最高只能采集1080P50Hz的视频输入，因此若对v3设置1080P60Hz的EDID，v3会无法捕获到图像；
     - 如果你使用的是PiKVM OS，可以参照[此链接](https://docs.pikvm.org/edid/)进行修改;
-    - 如果你使用的是BliKVM OS，EDID文件在```/usr/bin/blikvm/edid.txt```,打开此文件，替换下面你想要分辨率的EDID文件即可；
+    - 如果你使用的是BliKVM OS，EDID文件在```/mnt/exec/release/lib/edid.txt```,打开此文件，替换下面你想要分辨率的EDID文件即可；
 
 ## EDID 例子 1080P60Hz
 下面的edid适用于v1和v2硬件。 

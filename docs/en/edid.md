@@ -6,7 +6,7 @@ The EDID file in BliKVM serves the purpose of informing the controlled computer 
     - BliKVM v1, v2, and v3 use the CSI video capture scheme, which supports EDID settings. However, BliKVM v4 uses the USB video capture scheme, which does not support EDID settings.
     - For v3 HAT, there is a limitation of two CSI channels on the Raspberry Pi 4B, which means it can only capture video input with a maximum resolution of 1080P50Hz. Therefore, if you set 1080P60Hz EDID for v3, it will not be able to capture the image.
     - If you are using PiKVM OS, you can refer to [this link](https://docs.pikvm.org/edid/) for modification instructions.
-    - If you are using BliKVM OS, the EDID file is located at `/usr/bin/blikvm/edid.txt`. Open this file, and replace the EDID contents with the desired resolution's EDID.
+    - If you are using BliKVM OS, the EDID file is located at `/mnt/exec/release/lib/edid.txt`. Open this file, and replace the EDID contents with the desired resolution's EDID.
 
 ## EDID Examples for 1080P60Hz
 
