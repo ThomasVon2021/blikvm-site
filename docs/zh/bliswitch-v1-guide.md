@@ -3,7 +3,8 @@
     <iframe width="560" height="315" src="//player.bilibili.com/player.html?aid=349888644&bvid=BV16R4y1m7Pt&cid=955481186&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 ## **简介**
 BliKVM-Switch-V1.0为四通道HDMI+USB切换器，支持机器按键切换，桌面控制器切换，KVM远程切换，3种切换模式。切换器本身最高支持4K@60HZ的输入，即插即用，免驱动。  
-BliKVM-Switch-V1.0使用和XH-HK4401相同的硬件方案,AG7210 HDMI切换芯片最高支持到4K@60Hz，CH444G USB切换芯片支持USB2.0。不同的是BliKVM-Switch-V1.0配备有KVM USB cable,可以通过KVM USB cable连接BliKVM-Switch-V1.0,实现对KVM端口的选择。BliKVM-Switch-V1.0适配BliKVM和PiKVM。
+BliKVM-Switch-V1.0使用和XH-HK4401相同的硬件方案,AG7210 HDMI切换芯片最高支持到4K@60Hz，CH444G USB切换芯片支持USB2.0。不同的是BliKVM-Switch-V1.0配备有KVM USB cable,可以通过KVM USB cable连接BliKVM-Switch-V1.0,实现对KVM端口的选择。
+BliSwitch v1可以独立工作，如果需要远程通过IP通知切换，它需要搭配BliKVM或者其它KVM。BliKVM-Switch-V1.0适配BliKVM和PiKVM。
 !!! note "注意事项"
     * switch可以直接从输入电脑的USB取电，即一般不需要给switch供电，即可正常工作；
     * 若被控电脑的USB供电无法使switch工作，可以对switch进行单独供电使用；

@@ -6,7 +6,7 @@
 ## **Introduction**
 
 BliKVM-Switch-V1.0 is a four channel HDMI+USB switch, which supports panel button, desktop controller and KVM remote to switch between computers. Maximum support of the switch itself 4K@60HZ Plug and play, driver free.  
-BliKVM-Switch-V1.0 uses the same hardware solution as XH-HK4401, AG7210 HDMI switching chip supports up to 4K@60Hz, CH444G USB switching chip supports USB2.0. The difference is that BliKVM-Switch-V1.0 is equipped with KVM USB cable, which can realize KVM port selection. BliKVM-Switch-V1.0 is compatible with BliKVM and PiKVM.
+BliKVM-Switch-V1.0 uses the same hardware solution as XH-HK4401, AG7210 HDMI switching chip supports up to 4K@60Hz, CH444G USB switching chip supports USB2.0. The difference is that BliKVM-Switch-V1.0 is equipped with KVM USB cable, which can realize KVM port selection.  BliSwitch v1 works on its own, but for KVM-Over-IP it needs BliKVM or other KVM. BliKVM-Switch-V1.0 is compatible with BliKVM and PiKVM.
 !!! note "points for attention"
     - The switch can be powered directly from the USB input to the computer, that is, the switch can work normally without power supply.
     - If the USB power supply of the controlled computer cannot make the switch work, the switch can be powered independently.

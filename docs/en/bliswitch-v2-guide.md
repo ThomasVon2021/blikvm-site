@@ -3,7 +3,7 @@
 ![main](assets/images/Product-Datasheet-BliSwitch-v2.assets/back.png)
 The BliSwitch v2 is an 8-channel KVM+ATX switch for 8 hosts to share input and power.
 Function: 8 hosts share a keyboard, mouse, and display, with power control for all.
-Switch Method: Button or USB control.
+Switch Method: Button or USB control. BliSwitch v2 works on its own, but for KVM-Over-IP it needs BliKVM or other KVM.
 ![main](assets/images/Product-Datasheet-BliSwitch-v2.assets/main.png)
 
 !!! info "BliSwitchv2 Introduction"
