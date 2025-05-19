@@ -1,0 +1,1560 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Open and cost-effective "KVM over IP". BliKVM comes in 3 different models, BliKVM PCIe, BliKVM HAT and BliKVM CM4, all based on Raspberry Pi.">
+      
+      
+        <meta name="author" content="Thomas Von">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>HDMI转CSI&I2S模块手册 - BLIKVM Handbook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M1%207.775V2.75C1%201.784%201.784%201%202.75%201h5.025c.464%200%20.91.184%201.238.513l6.25%206.25a1.75%201.75%200%200%201%200%202.474l-5.026%205.026a1.75%201.75%200%200%201-2.474%200l-6.25-6.25A1.75%201.75%200%200%201%201%207.775m1.5%200c0%20.066.026.13.073.177l6.25%206.25a.25.25%200%200%200%20.354%200l5.025-5.025a.25.25%200%200%200%200-.354l-6.25-6.25a.25.25%200%200%200-.177-.073H2.75a.25.25%200%200%200-.25.25ZM6%205a1%201%200%201%201%200%202%201%201%200%200%201%200-2%22/%3E%3C/svg%3E');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M2.5%201.75v11.5c0%20.138.112.25.25.25h3.17a.75.75%200%200%201%200%201.5H2.75A1.75%201.75%200%200%201%201%2013.25V1.75C1%20.784%201.784%200%202.75%200h8.5C12.216%200%2013%20.784%2013%201.75v7.736a.75.75%200%200%201-1.5%200V1.75a.25.25%200%200%200-.25-.25h-8.5a.25.25%200%200%200-.25.25m13.274%209.537zl-4.557%204.45a.75.75%200%200%201-1.055-.008l-1.943-1.95a.75.75%200%200%201%201.062-1.058l1.419%201.425%204.026-3.932a.75.75%200%201%201%201.048%201.074M4.75%204h4.5a.75.75%200%200%201%200%201.5h-4.5a.75.75%200%200%201%200-1.5M4%207.75A.75.75%200%200%201%204.75%207h2a.75.75%200%200%201%200%201.5h-2A.75.75%200%200%201%204%207.75%22/%3E%3C/svg%3E');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M0%208a8%208%200%201%201%2016%200A8%208%200%200%201%200%208m8-6.5a6.5%206.5%200%201%200%200%2013%206.5%206.5%200%200%200%200-13M6.5%207.75A.75.75%200%200%201%207.25%207h1a.75.75%200%200%201%20.75.75v2.75h.25a.75.75%200%200%201%200%201.5h-2a.75.75%200%200%201%200-1.5h.25v-2h-.25a.75.75%200%200%201-.75-.75M8%206a1%201%200%201%201%200-2%201%201%200%200%201%200%202%22/%3E%3C/svg%3E');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M3.499.75a.75.75%200%200%201%201.5%200v.996C5.9%202.903%206.793%203.65%207.662%204.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873%2010.794-.045%2012.622.26%2014.408.558%2016%201.94%2016%204.25c0%201.278-.954%202.575-2.44%202.734l.146.508.065.22c.203.701.412%201.455.476%202.226.142%201.707-.4%203.03-1.487%203.898C11.714%2014.671%2010.27%2015%208.75%2015h-6a.75.75%200%200%201%200-1.5h1.376a4.5%204.5%200%200%201-.563-1.191%203.84%203.84%200%200%201-.05-2.063%204.65%204.65%200%200%201-2.025-.293.75.75%200%200%201%20.525-1.406c1.357.507%202.376-.006%202.698-.318l.009-.01a.747.747%200%200%201%201.06%200%20.75.75%200%200%201-.012%201.074c-.912.92-.992%201.835-.768%202.586.221.74.745%201.337%201.196%201.621H8.75c1.343%200%202.398-.296%203.074-.836.635-.507%201.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.4%202.4%200%200%201-.507-.441%203.1%203.1%200%200%201-.633-1.248.75.75%200%200%201%201.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738%200%201.25-.615%201.25-1.25%200-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706%201.345-.46.92-.27%201.774.019%203.062l.042.19.01.05c.348.443.666.949.94%201.553a.75.75%200%201%201-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7%205.527c-.814-.68-1.75-1.462-2.692-2.619a3.7%203.7%200%200%200-1.023.88c-.406.495-.663%201.036-.722%201.508.116.122.306.21.591.239.388.038.797-.06%201.032-.19a.75.75%200%200%201%20.728%201.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75%205.677V5.5c0-.984.48-1.94%201.077-2.664.46-.559%201.05-1.055%201.673-1.353z%22/%3E%3C/svg%3E');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M13.78%204.22a.75.75%200%200%201%200%201.06l-7.25%207.25a.75.75%200%200%201-1.06%200L2.22%209.28a.75.75%200%200%201%20.018-1.042.75.75%200%200%201%201.042-.018L6%2010.94l6.72-6.72a.75.75%200%200%201%201.06%200%22/%3E%3C/svg%3E');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M0%208a8%208%200%201%201%2016%200A8%208%200%200%201%200%208m8-6.5a6.5%206.5%200%201%200%200%2013%206.5%206.5%200%200%200%200-13M6.92%206.085h.001a.749.749%200%201%201-1.342-.67c.169-.339.436-.701.849-.977C6.845%204.16%207.369%204%208%204a2.76%202.76%200%200%201%201.637.525c.503.377.863.965.863%201.725%200%20.448-.115.83-.329%201.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6%206%200%200%200-.26.16%201%201%200%200%200-.276.245.75.75%200%200%201-1.248-.832c.184-.264.42-.489.692-.661q.154-.1.313-.195l.007-.004c.1-.061.182-.11.258-.161a1%201%200%200%200%20.277-.245C8.96%206.514%209%206.427%209%206.25a.61.61%200%200%200-.262-.525A1.27%201.27%200%200%200%208%205.5c-.369%200-.595.09-.74.187a1%201%200%200%200-.34.398M9%2011a1%201%200%201%201-2%200%201%201%200%200%201%202%200%22/%3E%3C/svg%3E');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M6.457%201.047c.659-1.234%202.427-1.234%203.086%200l6.082%2011.378A1.75%201.75%200%200%201%2014.082%2015H1.918a1.75%201.75%200%200%201-1.543-2.575Zm1.763.707a.25.25%200%200%200-.44%200L1.698%2013.132a.25.25%200%200%200%20.22.368h12.164a.25.25%200%200%200%20.22-.368Zm.53%203.996v2.5a.75.75%200%200%201-1.5%200v-2.5a.75.75%200%200%201%201.5%200M9%2011a1%201%200%201%201-2%200%201%201%200%200%201%202%200%22/%3E%3C/svg%3E');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M2.344%202.343za8%208%200%200%201%2011.314%2011.314A8.002%208.002%200%200%201%20.234%2010.089a8%208%200%200%201%202.11-7.746m1.06%2010.253a6.5%206.5%200%201%200%209.108-9.275%206.5%206.5%200%200%200-9.108%209.275M6.03%204.97%208%206.94l1.97-1.97a.749.749%200%200%201%201.275.326.75.75%200%200%201-.215.734L9.06%208l1.97%201.97a.749.749%200%200%201-.326%201.275.75.75%200%200%201-.734-.215L8%209.06l-1.97%201.97a.749.749%200%200%201-1.275-.326.75.75%200%200%201%20.215-.734L6.94%208%204.97%206.03a.75.75%200%200%201%20.018-1.042.75.75%200%200%201%201.042-.018%22/%3E%3C/svg%3E');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M9.504.43a1.516%201.516%200%200%201%202.437%201.713L10.415%205.5h2.123c1.57%200%202.346%201.909%201.22%203.004l-7.34%207.142a1.25%201.25%200%200%201-.871.354h-.302a1.25%201.25%200%200%201-1.157-1.723L5.633%2010.5H3.462c-1.57%200-2.346-1.909-1.22-3.004zm1.047%201.074L3.286%208.571A.25.25%200%200%200%203.462%209H6.75a.75.75%200%200%201%20.694%201.034l-1.713%204.188%206.982-6.793A.25.25%200%200%200%2012.538%207H9.25a.75.75%200%200%201-.683-1.06l2.008-4.418.003-.006-.004-.009-.006-.006-.008-.001q-.005%200-.009.004%22/%3E%3C/svg%3E');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M4.72.22a.75.75%200%200%201%201.06%200l1%20.999a3.5%203.5%200%200%201%202.441%200l.999-1a.748.748%200%200%201%201.265.332.75.75%200%200%201-.205.729l-.775.776c.616.63.995%201.493.995%202.444v.327q0%20.15-.025.292c.408.14.764.392%201.029.722l1.968-.787a.75.75%200%200%201%20.556%201.392L13%207.258V9h2.25a.75.75%200%200%201%200%201.5H13v.5q-.002.615-.141%201.186l2.17.868a.75.75%200%200%201-.557%201.392l-2.184-.873A5%205%200%200%201%208%2016a5%205%200%200%201-4.288-2.427l-2.183.873a.75.75%200%200%201-.558-1.392l2.17-.868A5%205%200%200%201%203%2011v-.5H.75a.75.75%200%200%201%200-1.5H3V7.258L.971%206.446a.75.75%200%200%201%20.558-1.392l1.967.787c.265-.33.62-.583%201.03-.722a1.7%201.7%200%200%201-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72%201.28a.75.75%200%200%201%200-1.06m.53%206.28a.75.75%200%200%200-.75.75V11a3.5%203.5%200%201%200%207%200V7.25a.75.75%200%200%200-.75-.75ZM6.173%205h3.654A.17.17%200%200%200%2010%204.827V4.5a2%202%200%201%200-4%200v.327c0%20.096.077.173.173.173%22/%3E%3C/svg%3E');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M5%205.782V2.5h-.25a.75.75%200%200%201%200-1.5h6.5a.75.75%200%200%201%200%201.5H11v3.282l3.666%205.76C15.619%2013.04%2014.543%2015%2012.767%2015H3.233c-1.776%200-2.852-1.96-1.899-3.458Zm-2.4%206.565a.75.75%200%200%200%20.633%201.153h9.534a.75.75%200%200%200%20.633-1.153L12.225%2010.5h-8.45ZM9.5%202.5h-3V6c0%20.143-.04.283-.117.403L4.73%209h6.54L9.617%206.403A.75.75%200%200%201%209.5%206Z%22/%3E%3C/svg%3E');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M1.75%202.5h10.5a.75.75%200%200%201%200%201.5H1.75a.75.75%200%200%201%200-1.5m4%205h8.5a.75.75%200%200%201%200%201.5h-8.5a.75.75%200%200%201%200-1.5m0%205h8.5a.75.75%200%200%201%200%201.5h-8.5a.75.75%200%200%201%200-1.5M2.5%207.75v6a.75.75%200%200%201-1.5%200v-6a.75.75%200%200%201%201.5%200%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hdmicsii2s" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://www.blicube.com" title="BLIKVM Handbook" class="md-header__button md-logo" aria-label="BLIKVM Handbook" data-md-component="logo">
+      
+  <img src="../../image/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            BLIKVM Handbook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              HDMI转CSI&amp;I2S模块手册
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="/en/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/zh/" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ThomasVon2021/blikvm.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    blikvm
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://www.blicube.com" title="BLIKVM Handbook" class="md-nav__button md-logo" aria-label="BLIKVM Handbook" data-md-component="logo">
+      
+  <img src="../../image/logo.png" alt="logo">
+
+    </a>
+    BLIKVM Handbook
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ThomasVon2021/blikvm.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    blikvm
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Getting started
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Getting started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BLIKVM Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    HAT version
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            HAT version
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BLIKVM-HAT-guide.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BLIKVM HAT guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BLIHAT-Installation.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    illustrated instructions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BLIKVM-CM4-guide.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BLIKVM CM4 guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_4" id="__nav_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    PCIe version
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            PCIe version
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BLIKVM-PCIE-guide.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BLIKVM PCIe guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BLIKVM-PCIe-installation.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    illustrated instructions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Configure
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Configure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../flashing_os.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Flashing os
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OLED-display.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OLED display
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Accessories
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Accessories
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atx-guide.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ATX guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hdmi-csi-i2s.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HDMI to CSI & Audio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usb-splitter-guide.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    USB splitter
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      简介
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      性能参数
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="性能参数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#c790" class="md-nav__link">
+    <span class="md-ellipsis">
+      C790
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c780" class="md-nav__link">
+    <span class="md-ellipsis">
+      C780
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c779" class="md-nav__link">
+    <span class="md-ellipsis">
+      C779
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#csi" class="md-nav__link">
+    <span class="md-ellipsis">
+      CSI接口定义
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#demo" class="md-nav__link">
+    <span class="md-ellipsis">
+      软件使用demo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      芯片资料
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      发货清单
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      测试视频
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      采购连接
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="hdmicsii2s">HDMI转CSI&amp;I2S模块手册</h1>
+<blockquote>
+<p>将HDMI信号转换成CSI视频信号和I2S音频信号, 目前全平台支持(zero, Pi3B, Pi4B, CM4, Pi5B),其中最高采集分辨率不仅仅取决于HDMI转CSI转换板，同时也取决于你使用的树莓派硬件版本，树莓派硬件版目前主要分两个系列，最高支持1080P60Hz，和最高支持1080P50Hz。</p>
+</blockquote>
+<ul>
+<li>最高支持1080P60Hz的Pi版本(CM3，CM4，Pi5B)</li>
+<li>最高支持1080P50Hz的Pi版本(zero, zero2, Pi3B, Pi4B等)</li>
+</ul>
+<h2 id="_1"><strong>简介</strong></h2>
+<p>此模块将HDMI信号转换成CSI视频信号和I2S音频信号，最高支持1080P60Hz的视频输入，在树莓派上工作的很好，目前共有3个版本(C779、C780、C790).
+C790是目前最新的版本，解决了所有已知的问题，同是有CSI 2通道和4通道接口，I2S音频接口，修复了HDMI反向供电问题。
+<img alt="" src="assets/images/hdmi-csi-i2s/c790.png" /></p>
+<h2 id="_2"><strong>性能参数</strong></h2>
+<h3 id="c790"><strong>C790</strong></h3>
+<div class="admonition note">
+<p class="admonition-title">硬件参数</p>
+<ul>
+<li>HDMI输入: 在树莓派上此模块最高支持1080P60Hz输入；</li>
+<li>HDMI转CSI-2桥接芯片:Toshiba TC358743XBG</li>
+<li>4路CSI-2通道和时钟</li>
+<li>CSI-2接口1: 15 pin FPC, 间距1.0 mm, 在C790模块的正面.</li>
+<li>CSI-2接口2, 22 pin FPC, 间距0.5 mm, 在C790模块的背面.</li>
+<li>尺寸: 30 x 45 mm</li>
+<li>安装孔位:4 x M2.5</li>
+<li>供电电压:3.3V</li>
+<li>重量: 10g</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">树莓派4B只支持1080P50Hz(因为4B只有两个CSI-2通道) ,树莓派CM4只支持1080P60Hz,所以如果你的输入设备一定要是1080P60Hz，请同时使用CM4和C790.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">接口</p>
+<p><img alt="" src="assets/images/hdmi-csi-i2s/c790-interface.png" width="400" />
+C790有两个CSI输出接口: 接口1，在C790正面，15 pin FPC, 间距1.0 mm;
+接口1，在C790背面,22 pin FPC, 间距0.5 mm。
+<img alt="" src="assets/images/hdmi-csi-i2s/c790-i2s-connect.png" width="400" /></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">尺寸</p>
+<p><img alt="" src="assets/images/hdmi-csi-i2s/c790-size.png" width="400" /></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">安装参考</p>
+<p><img alt="" src="assets/images/hdmi-csi-i2s/install_c790_pi4b.png" width="400" /></p>
+</div>
+<h3 id="c780"><strong>C780</strong></h3>
+<details class="info">
+<summary>C780A硬件参数</summary>
+<ul>
+<li>HDMI输入: 最高支持080P50Hz在树莓派上；</li>
+<li>HDMI转CSI-2桥接芯片:Toshiba TC358743XBG；</li>
+<li>2路CSI-2通道和时钟；</li>
+<li>CSI-2接口: 15 pin FPC, 间距 1.0 mm；</li>
+<li>尺寸: 30 x 65 mm (折断前); 30 x 45 mm (折断后)</li>
+<li>安装孔位:6 x M2.5</li>
+<li>供电电压:3.3V</li>
+<li>重量: 10g</li>
+</ul>
+</details>
+<details class="info">
+<summary>C780B硬件参数</summary>
+<ul>
+<li>HDMI输入: 最高支持080P60Hz在树莓派上；</li>
+<li>HDMI转CSI-2桥接芯片:Toshiba TC358743XBG；</li>
+<li>4路CSI-2通道和时钟；</li>
+<li>CSI-2接口: 22 pin FPC, 间距 0.5 mm；</li>
+<li>尺寸: 30 x 65 mm (折断前); 30 x 45 mm (折断后)</li>
+<li>安装孔位:6 x M2.5</li>
+<li>供电电压:3.3V</li>
+<li>重量: 10g</li>
+</ul>
+</details>
+<details class="info">
+<summary>接口</summary>
+<p><img alt="" src="assets/images/hdmi-csi-i2s/2-4.png" width="400" />
+音频引脚定义如下图所示:
+<img alt="" src="assets/images/hdmi-csi-i2s/2-8.png" width="400" /></p>
+</details>
+<details class="info">
+<summary>尺寸</summary>
+<p>尺寸如下图所示. 有6个直径为2。75mm的孔位用于安装，安装螺钉可以选择M2.5。
+<img alt="" src="assets/images/hdmi-csi-i2s/2-1.png" width="400" />
+如下图所示，C780被设计成可折断式的，C780模块在未被折断前可以完美的安装在zero上。
+<img alt="" src="assets/images/hdmi-csi-i2s/2-2.png" width="400" /></p>
+</details>
+<h3 id="c779"><strong>C779</strong></h3>
+<details class="info">
+<summary>硬件参数</summary>
+<ul>
+<li>HDMI输入: 最高支持080P50Hz在树莓派上；</li>
+<li>HDMI转CSI-2桥接芯片:Toshiba TC358743XBG；</li>
+<li>2路CSI-2通道和时钟；</li>
+<li>CSI-2接口: 15 pin FPC, 间距 1.0 mm；</li>
+<li>尺寸: 35 x 50 mm </li>
+<li>安装孔位:4 x M2.5</li>
+<li>供电电压:3.3V</li>
+<li>重量: 10g</li>
+</ul>
+</details>
+<details class="info">
+<summary>尺寸</summary>
+<p>尺寸如下图所示. 有4个直径为2.75mm的孔位用于安装，安装螺钉可以选择M2.5。
+<img alt="" src="assets/images/hdmi-csi-i2s/c779-size.png" width="400" /></p>
+</details>
+<h2 id="csi"><strong>CSI接口定义</strong></h2>
+<p>其中C779，C780A只有15PIN引脚，C780B只有22PIN引脚，C790同时有15和22PIN引脚。
+<img alt="" src="assets/images/hdmi-csi-i2s/interface.png" width="400" /> </p>
+<h2 id="demo"><strong>软件使用demo</strong></h2>
+<p>下文中的软件使用方法跟你使用的树莓派镜像版本有关，可能存在不同。如果你有任何疑问，请加入
+<a href="https://discord.com/invite/9Y374gUF6C">BLIKVM Discord 社区</a>获得支持、解答和新闻。 
+以下说明适用于内核为5.4或者更高版本。如果你的树莓派镜像低于此版本，请升级。终端使用使用“uname-a”可以查看你系统的内核版本。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pi@raspberrypi:~ $ uname -a
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Linux raspberrypi 5.10.63-v7l+ #1459 SMP Wed Oct 6 16:41:57 BST 2021 armv7l GNU/Linux
+</code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">1. 使用下列命令进行升级 (不是必须的，在某些国家这个花费的时间可能很长)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo apt-get update
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo apt-get upgrade
+</code></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">2. 使能相机模块(在树莓派Bullseys OS系统中，相机已默认被使能)</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo raspi-config
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sudo reboot
+</code></pre></div>
+移动光标到‘Interfacing Options’，然后按Enter键进入。然后选择‘Camera’选项，按Enter键进入后，使能相机。然后选择“Finish”后，
+选择“reboot”。<strong>重启非常重要!!</strong></p>
+</div>
+<details class="warning">
+<summary>由于Pi5B取消了硬编码器，下面软件使用方法在Pi平台目前分为两个部分，Pi5B配置，和其它Pi平台配置。</summary>
+</details>
+<details class="note">
+<summary>在zero, zero2,Pi3B,Pi4B等平台HDMI转CSI模块测试demo参考</summary>
+<p>编辑 /boot/config.txt (需要sudo权限)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo nano /boot/config.txt
+</code></pre></div>
+添加下面的内容
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>dtoverlay=tc358743
+</code></pre></div>
+如果你的模块(C780和C790)支持声音，添加下面内容支持声音
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>dtoverlay=tc358743-audio
+</code></pre></div>
+如果你是用树莓派计算模组(CM3、CM4)，可以通过下列配置，使能CSI的4个通道。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>dtoverlay=tc358743,4lane=1
+</code></pre></div>
+使用“dmesg | grep cma”检查分配给CMA堆的内存量，终端出现的第一行内容应该如下所示:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>pi@raspberrypi:~ $ dmesg | grep cma
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>[0.000000] cma: Reserved 256 MiB at 0x000000001ec00000
+</code></pre></div>
+如果显示少于96MB，编辑/boot/cmdline.txt，添加下面一行。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>cma=96M
+</code></pre></div>
+重启树莓派，如果配置成功，你将会看到/dev/video0设备描述符出现。可以使用“v4l2-ctl –list-devices” 命令列出所有的video描述符。再将树莓派与模块正确连接后，树莓派上电，你可以看到C790模块上有一个绿色灯常亮，然后可以按照下面的命令，检查是否已经正常出现了video0。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>pi@raspberrypi:~ $ ls /dev/video0
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>/dev/video0
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>pi@raspberrypi:~ $ v4l2-ctl --list-devices
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>bcm2835-codec-decode (platform:bcm2835-codec):
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    /dev/video10
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    /dev/video11
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>    /dev/video12
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>    /dev/video18
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>    /dev/media1
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>bcm2835-isp (platform:bcm2835-isp):
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>    /dev/video13
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>    /dev/video14
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>    /dev/video15
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>    /dev/video16
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>    /dev/media0
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>unicam (platform:fe801000.csi):
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>    /dev/video0
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>    /dev/video1
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>    /dev/media2
+</code></pre></div>
+默认没有加载EDID,如果你有EDID编辑器，你可以自己编辑你所需要的分辨率，或者使用下面提供的EDID分辨率（720p60hz）。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>00ffffffffffff005262888800888888
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>1c150103800000780aEE91A3544C9926
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>0F505400000001010101010101010101
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>010101010101011d007251d01e206e28
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>5500c48e2100001e8c0ad08a20e02d10
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>103e9600138e2100001e000000fc0054
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>6f73686962612d4832430a20000000FD
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>003b3d0f2e0f1e0a2020202020200100
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>020321434e041303021211012021a23c
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>3d3e1f2309070766030c00300080E300
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>7F8c0ad08a20e02d10103e9600c48e21
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>0000188c0ad08a20e02d10103e960013
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>8e210000188c0aa01451f01600267c43
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>00138e21000098000000000000000000
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>00000000000000000000000000000000
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>00000000000000000000000000000000
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>cd ~
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>sudo nano edid.txt
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a># 拷贝上门的内容到edid.txt文件中，然后保存退出。使用下列命令设置加载edid，如果正确设置，可以看到如下的输出。
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>pi@raspberrypi:~ $ v4l2-ctl --set-edid=file=edid.txt --fix-edid-checksums
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>CTA-861 Header
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>  IT Formats Underscanned: yes
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>  Audio:                   yes
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>  YCbCr 4:4:4:             no
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>  YCbCr 4:2:2:             no
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>HDMI Vendor-Specific Data Block
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>  Physical Address:        3.0.0.0
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>  YCbCr 4:4:4 Deep Color:  no
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>  30-bit:                  no
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>  36-bit:                  no
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>  48-bit:                  no
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>CTA-861 Video Capability Descriptor
+<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>  RGB Quantization Range:  yes
+<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>  YCC Quantization Range:  no
+<a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>  PT:                      Supports both over- and underscan
+<a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>  IT:                      Supports both over- and underscan
+<a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a>  CE:                      Supports both over- and underscan
+</code></pre></div>
+驱动程序不会自动切换到检测到的分辨率。是用下列命令检查目前HDMI的输入
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>pi@raspberrypi:~ $ v4l2-ctl --query-dv-timings
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>Active width: 1280
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>Active height: 720
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>Total width: 1650
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>Total height: 750
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>Frame format: progressive
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>Polarities: -vsync -hsync
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>Pixelclock: 74250000 Hz (60.00 frames per second)
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>Horizontal frontporch: 0
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>Horizontal sync: 370
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>Horizontal backporch: 0
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>Vertical frontporch: 0
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>Vertical sync: 30
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>Vertical backporch: 0
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>Standards: 
+<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>Flags: 
+</code></pre></div>
+你必须使用“v4l2-ctl –set-dv-bt-timings”命令设置驱动程序使用目前的输入分辨率
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>v4l2-ctl --set-dv-bt-timings query
+</code></pre></div>
+to select the currently detected timings.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>v4l2-ctl -V
+</code></pre></div>
+should now reflect the resolution detected.</p>
+<p>芯片支持两种格式(BGR3和UYVY)，BGR3像素深度为24bpp，UYVY为YUV4:2:2 16bpp。如果使用CSI 2通道，BGR3格式最大支持1080P30Hz的输入，使用UYVY则最大支持1080P60Hz的输入。使用下面命令设置为UYVY格式。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>v4l2-ctl -v pixelformat=UYVY
+</code></pre></div>
+使用下列命令，检查音频硬件和驱动是否正常。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>pi@raspberrypi:~ $ arecord -l
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>**** List of CAPTURE Hardware Devices ****
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>card 1: tc358743 [tc358743], device 0: bcm2835-i2s-dir-hifi dir-hifi-0 [bcm2835-i2s-dir-hifi dir-hifi-0]
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>  Subdevices: 1/1
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>  Subdevice #0: subdevice #0
+</code></pre></div>
+Note: card 1: tc358743意味着音频相关硬件已被正确加载，注意这里的1可能不同。</p>
+<p>安装GStreamer工具.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>sudo apt install gstreamer1.0-tools
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>sudo apt-get install gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly gstreamer1.0-plugins-bad
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>sudo apt-get install gstreamer1.0-plugins-base
+</code></pre></div>
+检查gstreamer工具版本:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>pi@raspberrypi:~ $ gst-launch-1.0 --version
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>gst-launch-1.0 version 1.18.4
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>GStreamer 1.18.4
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>http://packages.qa.debian.org/gstreamer1.0
+</code></pre></div>
+Note:不同的版本这里输出可能不同.</p>
+<p>使用gstreamer去录制视频或者声音
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>#GStreamer v1.14 command
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>gst-launch-1.0 v4l2src io-mode=5 ! video/x-raw, format=UYVY, framerate=25/1 ! v4l2h264enc output-io-mode=4 ! video/x-h264,profile=high ! h264parse ! queue ! matroskamux name=mux ! filesink location=foo.mkv alsasrc device=hw:1 ! audio/x-raw,rate=48000,channels=2 ! audioconvert ! avenc_aac bitrate=48000 ! aacparse ! queue ! mux.
+</code></pre></div>
+你会得到一个foo.mkv文件.
+如果你的gstreamer是1.8或者更高版本，可以尝试使用下列命令。其中device=hw:1表示的是TC358743声卡。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>#The command to recode a video with audio. (GStreamer 1.18.4)
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>gst-launch-1.0 -vvv v4l2src ! &quot;video/x-raw,framerate=30/1,format=UYVY&quot; ! v4l2h264enc extra-controls=&quot;controls,h264_profile=4,h264_level=13,video_bitrate=256000;&quot; ! &quot;video/x-h264,profile=high, level=(string)4.2&quot; ! h264parse ! queue ! matroskamux name=mux ! filesink location=foo.mkv alsasrc device=hw:1 ! audio/x-raw,rate=48000,channels=2 ! audioconvert ! avenc_aac bitrate=48000 ! aacparse ! queue ! mux.
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>#The sample command to recode a video without audio. (C779 doesn&#39;t support audio)
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>gst-launch-1.0 -vvv v4l2src ! &quot;video/x-raw,framerate=30/1,format=UYVY&quot; ! v4l2h264enc extra-controls=&quot;controls,h264_profile=4,h264_level=13,video_bitrate=256000;&quot; ! &quot;video/x-h264,profile=high, level=(string)4.2&quot; ! h264parse ! queue ! matroskamux name=mux ! filesink location=foo.mkv
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>Press CTRL+C to end recording.
+</code></pre></div>
+PS: 这里我们建议你使用实际的输入帧率去采集HDMI信号。你可以使用 ‘v4l2-ctl –query-dv-timings’去检查实际输入帧率。
+<img alt="Image title" src="assets/images/hdmi-csi-i2s/v4l2-rate.png" width="400" /></p>
+<p>如上图中的HDMI输入设备，帧率是60Hz，所以我们可以使用下面命令去录制视频：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>gst-launch-1.0 -vvv v4l2src ! &quot;video/x-raw,framerate=60/1,format=UYVY&quot; ! v4l2h264enc extra-controls=&quot;controls,h264_profile=4,h264_level=13,video_bitrate=256000;&quot; ! &quot;video/x-h264,profile=high, level=(string)4.2&quot; ! h264parse ! queue ! matroskamux name=mux ! filesink location=foo.mkv
+</code></pre></div>
+录制视频和音频: (如果你的设备支持音频的话)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>gst-launch-1.0 -vvv v4l2src ! &quot;video/x-raw,framerate=60/1,format=UYVY&quot; ! v4l2h264enc extra-controls=&quot;controls,h264_profile=4,h264_level=13,video_bitrate=256000;&quot; ! &quot;video/x-h264,profile=high, level=(string)4.2&quot; ! h264parse ! queue ! matroskamux name=mux ! filesink location=foo.mkv alsasrc device=hw:1 ! audio/x-raw,rate=48000,channels=2 ! audioconvert ! avenc_aac bitrate=48000 ! aacparse ! queue ! mux.
+</code></pre></div>
+Note: alsasrc device=hw:1 – “1” means the audio card number, You must change to correct audio card number.
+(Query the car number via ‘arecord –l’, refer to step 9)</p>
+</details>
+<details class="note">
+<summary>Pi5B等平台HDMI转CSI模块测试demo参考</summary>
+<div class="admonition warning">
+<p class="admonition-title">下面测试中，使用cam1通道进行测试，测试输入分辨率为1080P24Hz。树莓派5b测试过程中发现edid设置无效，因此需要通过添加HDMI诱骗器来强制目标设置输出HDMI，否则树莓派5b很有可能获取不到任何输入。由于树莓派5b没有对应的硬编码硬件，所以树莓派5b+C790图像采集能力性能一般，不如用树莓派4b</p>
+</div>
+<p>编辑 /boot/config.txt (需要sudo权限)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>sudo nano /boot/config.txt
+</code></pre></div>
+添加下面的内容
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>dtoverlay=tc358743
+</code></pre></div>
+如果你的模块(C780和C790)支持声音，添加下面内容支持声音
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>dtoverlay=tc358743-audio
+</code></pre></div>
+重启树莓派,执行下面指令，找到csi对应的media节点为media0,即rp1-cfe (platform:1f00128000.csi)字段下的media设备:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>blikvm@blikvm:~ $ v4l2-ctl --list-devices
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>pispbe (platform:1000880000.pisp_be):
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>        /dev/video20
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>        /dev/video21
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>        /dev/video22
+<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>        /dev/video23
+<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>        /dev/video24
+<a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>        /dev/video25
+<a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a>        /dev/video26
+<a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a>        /dev/video27
+<a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a>        /dev/video28
+<a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a>        /dev/video29
+<a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a>        /dev/video30
+<a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a>        /dev/video31
+<a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a>        /dev/video32
+<a id="__codelineno-26-16" name="__codelineno-26-16" href="#__codelineno-26-16"></a>        /dev/video33
+<a id="__codelineno-26-17" name="__codelineno-26-17" href="#__codelineno-26-17"></a>        /dev/video34
+<a id="__codelineno-26-18" name="__codelineno-26-18" href="#__codelineno-26-18"></a>        /dev/video35
+<a id="__codelineno-26-19" name="__codelineno-26-19" href="#__codelineno-26-19"></a>        /dev/video36
+<a id="__codelineno-26-20" name="__codelineno-26-20" href="#__codelineno-26-20"></a>        /dev/video37
+<a id="__codelineno-26-21" name="__codelineno-26-21" href="#__codelineno-26-21"></a>        /dev/media1
+<a id="__codelineno-26-22" name="__codelineno-26-22" href="#__codelineno-26-22"></a>        /dev/media2
+<a id="__codelineno-26-23" name="__codelineno-26-23" href="#__codelineno-26-23"></a>
+<a id="__codelineno-26-24" name="__codelineno-26-24" href="#__codelineno-26-24"></a>rp1-cfe (platform:1f00128000.csi):
+<a id="__codelineno-26-25" name="__codelineno-26-25" href="#__codelineno-26-25"></a>        /dev/video0
+<a id="__codelineno-26-26" name="__codelineno-26-26" href="#__codelineno-26-26"></a>        /dev/video1
+<a id="__codelineno-26-27" name="__codelineno-26-27" href="#__codelineno-26-27"></a>        /dev/video2
+<a id="__codelineno-26-28" name="__codelineno-26-28" href="#__codelineno-26-28"></a>        /dev/video3
+<a id="__codelineno-26-29" name="__codelineno-26-29" href="#__codelineno-26-29"></a>        /dev/video4
+<a id="__codelineno-26-30" name="__codelineno-26-30" href="#__codelineno-26-30"></a>        /dev/video5
+<a id="__codelineno-26-31" name="__codelineno-26-31" href="#__codelineno-26-31"></a>        /dev/video6
+<a id="__codelineno-26-32" name="__codelineno-26-32" href="#__codelineno-26-32"></a>        /dev/video7
+<a id="__codelineno-26-33" name="__codelineno-26-33" href="#__codelineno-26-33"></a>        /dev/media0
+<a id="__codelineno-26-34" name="__codelineno-26-34" href="#__codelineno-26-34"></a>
+<a id="__codelineno-26-35" name="__codelineno-26-35" href="#__codelineno-26-35"></a>rpivid (platform:rpivid):
+<a id="__codelineno-26-36" name="__codelineno-26-36" href="#__codelineno-26-36"></a>        /dev/video19
+<a id="__codelineno-26-37" name="__codelineno-26-37" href="#__codelineno-26-37"></a>        /dev/media3
+</code></pre></div></p>
+<p>找到tc358743对应节点为v4l-subdev2，rp1-cfe-csi2_ch0的pad0为video0:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>blikvm@blikvm:~ $ media-ctl -d /dev/media0 -p
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>Media controller API version 6.1.63
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>Media device information
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>------------------------
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>driver          rp1-cfe
+<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>model           rp1-cfe
+<a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a>serial
+<a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a>bus info        platform:1f00128000.csi
+<a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a>hw revision     0x114666
+<a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a>driver version  6.1.63
+<a id="__codelineno-27-12" name="__codelineno-27-12" href="#__codelineno-27-12"></a>
+<a id="__codelineno-27-13" name="__codelineno-27-13" href="#__codelineno-27-13"></a>Device topology
+<a id="__codelineno-27-14" name="__codelineno-27-14" href="#__codelineno-27-14"></a>- entity 1: csi2 (8 pads, 8 links)
+<a id="__codelineno-27-15" name="__codelineno-27-15" href="#__codelineno-27-15"></a>            type V4L2 subdev subtype Unknown flags 0
+<a id="__codelineno-27-16" name="__codelineno-27-16" href="#__codelineno-27-16"></a>            device node name /dev/v4l-subdev0
+<a id="__codelineno-27-17" name="__codelineno-27-17" href="#__codelineno-27-17"></a>        pad0: Sink
+<a id="__codelineno-27-18" name="__codelineno-27-18" href="#__codelineno-27-18"></a>                [fmt:SRGGB10_1X10/640x480 field:none colorspace:raw xfer:none ycbcr:601 quantization:full-range]
+<a id="__codelineno-27-19" name="__codelineno-27-19" href="#__codelineno-27-19"></a>                &lt;- &quot;tc358743 4-000f&quot;:0 [ENABLED,IMMUTABLE]
+<a id="__codelineno-27-20" name="__codelineno-27-20" href="#__codelineno-27-20"></a>        pad1: Sink
+<a id="__codelineno-27-21" name="__codelineno-27-21" href="#__codelineno-27-21"></a>                [fmt:unknown/8192x1 field:none]
+<a id="__codelineno-27-22" name="__codelineno-27-22" href="#__codelineno-27-22"></a>        pad2: Sink
+<a id="__codelineno-27-23" name="__codelineno-27-23" href="#__codelineno-27-23"></a>                [fmt:SRGGB10_1X10/640x480 field:none colorspace:raw xfer:none ycbcr:601 quantization:full-range]
+<a id="__codelineno-27-24" name="__codelineno-27-24" href="#__codelineno-27-24"></a>        pad3: Sink
+<a id="__codelineno-27-25" name="__codelineno-27-25" href="#__codelineno-27-25"></a>                [fmt:SRGGB10_1X10/640x480 field:none colorspace:raw xfer:none ycbcr:601 quantization:full-range]
+<a id="__codelineno-27-26" name="__codelineno-27-26" href="#__codelineno-27-26"></a>        pad4: Source
+<a id="__codelineno-27-27" name="__codelineno-27-27" href="#__codelineno-27-27"></a>                [fmt:SRGGB10_1X10/640x480 field:none colorspace:raw xfer:none ycbcr:601 quantization:full-range]
+<a id="__codelineno-27-28" name="__codelineno-27-28" href="#__codelineno-27-28"></a>                -&gt; &quot;rp1-cfe-csi2_ch0&quot;:0 []
+<a id="__codelineno-27-29" name="__codelineno-27-29" href="#__codelineno-27-29"></a>                -&gt; &quot;pisp-fe&quot;:0 []
+<a id="__codelineno-27-30" name="__codelineno-27-30" href="#__codelineno-27-30"></a>        pad5: Source
+<a id="__codelineno-27-31" name="__codelineno-27-31" href="#__codelineno-27-31"></a>                [fmt:unknown/8192x1 field:none]
+<a id="__codelineno-27-32" name="__codelineno-27-32" href="#__codelineno-27-32"></a>                -&gt; &quot;rp1-cfe-embedded&quot;:0 []
+<a id="__codelineno-27-33" name="__codelineno-27-33" href="#__codelineno-27-33"></a>        pad6: Source
+<a id="__codelineno-27-34" name="__codelineno-27-34" href="#__codelineno-27-34"></a>                [fmt:SRGGB10_1X10/640x480 field:none colorspace:raw xfer:none ycbcr:601 quantization:full-range]
+<a id="__codelineno-27-35" name="__codelineno-27-35" href="#__codelineno-27-35"></a>                -&gt; &quot;rp1-cfe-csi2_ch2&quot;:0 []
+<a id="__codelineno-27-36" name="__codelineno-27-36" href="#__codelineno-27-36"></a>                -&gt; &quot;pisp-fe&quot;:0 []
+<a id="__codelineno-27-37" name="__codelineno-27-37" href="#__codelineno-27-37"></a>        pad7: Source
+<a id="__codelineno-27-38" name="__codelineno-27-38" href="#__codelineno-27-38"></a>                [fmt:SRGGB10_1X10/640x480 field:none colorspace:raw xfer:none ycbcr:601 quantization:full-range]
+<a id="__codelineno-27-39" name="__codelineno-27-39" href="#__codelineno-27-39"></a>                -&gt; &quot;rp1-cfe-csi2_ch3&quot;:0 []
+<a id="__codelineno-27-40" name="__codelineno-27-40" href="#__codelineno-27-40"></a>                -&gt; &quot;pisp-fe&quot;:0 []
+<a id="__codelineno-27-41" name="__codelineno-27-41" href="#__codelineno-27-41"></a>
+<a id="__codelineno-27-42" name="__codelineno-27-42" href="#__codelineno-27-42"></a>- entity 10: pisp-fe (5 pads, 7 links)
+<a id="__codelineno-27-43" name="__codelineno-27-43" href="#__codelineno-27-43"></a>            type V4L2 subdev subtype Unknown flags 0
+<a id="__codelineno-27-44" name="__codelineno-27-44" href="#__codelineno-27-44"></a>            device node name /dev/v4l-subdev1
+<a id="__codelineno-27-45" name="__codelineno-27-45" href="#__codelineno-27-45"></a>        pad0: Sink
+<a id="__codelineno-27-46" name="__codelineno-27-46" href="#__codelineno-27-46"></a>                [fmt:SRGGB16_1X16/640x480 field:none colorspace:raw xfer:none ycbcr:601 quantization:full-range]
+<a id="__codelineno-27-47" name="__codelineno-27-47" href="#__codelineno-27-47"></a>                &lt;- &quot;csi2&quot;:4 []
+<a id="__codelineno-27-48" name="__codelineno-27-48" href="#__codelineno-27-48"></a>                &lt;- &quot;csi2&quot;:6 []
+<a id="__codelineno-27-49" name="__codelineno-27-49" href="#__codelineno-27-49"></a>                &lt;- &quot;csi2&quot;:7 []
+<a id="__codelineno-27-50" name="__codelineno-27-50" href="#__codelineno-27-50"></a>        pad1: Sink
+<a id="__codelineno-27-51" name="__codelineno-27-51" href="#__codelineno-27-51"></a>                [fmt:FIXED/8192x1 field:none]
+<a id="__codelineno-27-52" name="__codelineno-27-52" href="#__codelineno-27-52"></a>                &lt;- &quot;rp1-cfe-fe_config&quot;:0 []
+<a id="__codelineno-27-53" name="__codelineno-27-53" href="#__codelineno-27-53"></a>        pad2: Source
+<a id="__codelineno-27-54" name="__codelineno-27-54" href="#__codelineno-27-54"></a>                [fmt:SRGGB16_1X16/640x480 field:none colorspace:raw xfer:none ycbcr:601 quantization:full-range]
+<a id="__codelineno-27-55" name="__codelineno-27-55" href="#__codelineno-27-55"></a>                -&gt; &quot;rp1-cfe-fe_image0&quot;:0 []
+<a id="__codelineno-27-56" name="__codelineno-27-56" href="#__codelineno-27-56"></a>        pad3: Source
+<a id="__codelineno-27-57" name="__codelineno-27-57" href="#__codelineno-27-57"></a>                [fmt:SRGGB16_1X16/640x480 field:none colorspace:raw xfer:none ycbcr:601 quantization:full-range]
+<a id="__codelineno-27-58" name="__codelineno-27-58" href="#__codelineno-27-58"></a>                -&gt; &quot;rp1-cfe-fe_image1&quot;:0 []
+<a id="__codelineno-27-59" name="__codelineno-27-59" href="#__codelineno-27-59"></a>        pad4: Source
+<a id="__codelineno-27-60" name="__codelineno-27-60" href="#__codelineno-27-60"></a>                [fmt:FIXED/8192x1 field:none]
+<a id="__codelineno-27-61" name="__codelineno-27-61" href="#__codelineno-27-61"></a>                -&gt; &quot;rp1-cfe-fe_stats&quot;:0 []
+<a id="__codelineno-27-62" name="__codelineno-27-62" href="#__codelineno-27-62"></a>
+<a id="__codelineno-27-63" name="__codelineno-27-63" href="#__codelineno-27-63"></a>- entity 16: tc358743 4-000f (1 pad, 1 link)
+<a id="__codelineno-27-64" name="__codelineno-27-64" href="#__codelineno-27-64"></a>            type V4L2 subdev subtype Unknown flags 0
+<a id="__codelineno-27-65" name="__codelineno-27-65" href="#__codelineno-27-65"></a>            device node name /dev/v4l-subdev2
+<a id="__codelineno-27-66" name="__codelineno-27-66" href="#__codelineno-27-66"></a>        pad0: Source
+<a id="__codelineno-27-67" name="__codelineno-27-67" href="#__codelineno-27-67"></a>                [fmt:RGB888_1X24/640x480 field:none colorspace:srgb]
+<a id="__codelineno-27-68" name="__codelineno-27-68" href="#__codelineno-27-68"></a>                [dv.caps:BT.656/1120 min:640x350@13000000 max:1920x1200@165000000 stds:CEA-861,DMT,CVT,GTF caps:progressive,reduced-blanking,custom]
+<a id="__codelineno-27-69" name="__codelineno-27-69" href="#__codelineno-27-69"></a>                [dv.detect:BT.656/1120 1920x1080p24 (2750x1125) stds: flags:]
+<a id="__codelineno-27-70" name="__codelineno-27-70" href="#__codelineno-27-70"></a>                [dv.current:BT.656/1120 640x480p59 (800x525) stds:CEA-861,DMT flags:has-cea861-vic]
+<a id="__codelineno-27-71" name="__codelineno-27-71" href="#__codelineno-27-71"></a>                -&gt; &quot;csi2&quot;:0 [ENABLED,IMMUTABLE]
+<a id="__codelineno-27-72" name="__codelineno-27-72" href="#__codelineno-27-72"></a>
+<a id="__codelineno-27-73" name="__codelineno-27-73" href="#__codelineno-27-73"></a>- entity 18: rp1-cfe-csi2_ch0 (1 pad, 1 link)
+<a id="__codelineno-27-74" name="__codelineno-27-74" href="#__codelineno-27-74"></a>            type Node subtype V4L flags 0
+<a id="__codelineno-27-75" name="__codelineno-27-75" href="#__codelineno-27-75"></a>            device node name /dev/video0
+<a id="__codelineno-27-76" name="__codelineno-27-76" href="#__codelineno-27-76"></a>        pad0: Sink
+<a id="__codelineno-27-77" name="__codelineno-27-77" href="#__codelineno-27-77"></a>                &lt;- &quot;csi2&quot;:4 []
+<a id="__codelineno-27-78" name="__codelineno-27-78" href="#__codelineno-27-78"></a>
+<a id="__codelineno-27-79" name="__codelineno-27-79" href="#__codelineno-27-79"></a>- entity 22: rp1-cfe-embedded (1 pad, 1 link)
+<a id="__codelineno-27-80" name="__codelineno-27-80" href="#__codelineno-27-80"></a>            type Node subtype V4L flags 0
+<a id="__codelineno-27-81" name="__codelineno-27-81" href="#__codelineno-27-81"></a>            device node name /dev/video1
+<a id="__codelineno-27-82" name="__codelineno-27-82" href="#__codelineno-27-82"></a>        pad0: Sink
+<a id="__codelineno-27-83" name="__codelineno-27-83" href="#__codelineno-27-83"></a>                &lt;- &quot;csi2&quot;:5 []
+<a id="__codelineno-27-84" name="__codelineno-27-84" href="#__codelineno-27-84"></a>
+<a id="__codelineno-27-85" name="__codelineno-27-85" href="#__codelineno-27-85"></a>- entity 26: rp1-cfe-csi2_ch2 (1 pad, 1 link)
+<a id="__codelineno-27-86" name="__codelineno-27-86" href="#__codelineno-27-86"></a>            type Node subtype V4L flags 0
+<a id="__codelineno-27-87" name="__codelineno-27-87" href="#__codelineno-27-87"></a>            device node name /dev/video2
+<a id="__codelineno-27-88" name="__codelineno-27-88" href="#__codelineno-27-88"></a>        pad0: Sink
+<a id="__codelineno-27-89" name="__codelineno-27-89" href="#__codelineno-27-89"></a>                &lt;- &quot;csi2&quot;:6 []
+<a id="__codelineno-27-90" name="__codelineno-27-90" href="#__codelineno-27-90"></a>
+<a id="__codelineno-27-91" name="__codelineno-27-91" href="#__codelineno-27-91"></a>- entity 30: rp1-cfe-csi2_ch3 (1 pad, 1 link)
+<a id="__codelineno-27-92" name="__codelineno-27-92" href="#__codelineno-27-92"></a>            type Node subtype V4L flags 0
+<a id="__codelineno-27-93" name="__codelineno-27-93" href="#__codelineno-27-93"></a>            device node name /dev/video3
+<a id="__codelineno-27-94" name="__codelineno-27-94" href="#__codelineno-27-94"></a>        pad0: Sink
+<a id="__codelineno-27-95" name="__codelineno-27-95" href="#__codelineno-27-95"></a>                &lt;- &quot;csi2&quot;:7 []
+<a id="__codelineno-27-96" name="__codelineno-27-96" href="#__codelineno-27-96"></a>
+<a id="__codelineno-27-97" name="__codelineno-27-97" href="#__codelineno-27-97"></a>- entity 34: rp1-cfe-fe_image0 (1 pad, 1 link)
+<a id="__codelineno-27-98" name="__codelineno-27-98" href="#__codelineno-27-98"></a>            type Node subtype V4L flags 1
+<a id="__codelineno-27-99" name="__codelineno-27-99" href="#__codelineno-27-99"></a>            device node name /dev/video4
+<a id="__codelineno-27-100" name="__codelineno-27-100" href="#__codelineno-27-100"></a>        pad0: Sink
+<a id="__codelineno-27-101" name="__codelineno-27-101" href="#__codelineno-27-101"></a>                &lt;- &quot;pisp-fe&quot;:2 []
+<a id="__codelineno-27-102" name="__codelineno-27-102" href="#__codelineno-27-102"></a>
+<a id="__codelineno-27-103" name="__codelineno-27-103" href="#__codelineno-27-103"></a>- entity 38: rp1-cfe-fe_image1 (1 pad, 1 link)
+<a id="__codelineno-27-104" name="__codelineno-27-104" href="#__codelineno-27-104"></a>            type Node subtype V4L flags 0
+<a id="__codelineno-27-105" name="__codelineno-27-105" href="#__codelineno-27-105"></a>            device node name /dev/video5
+<a id="__codelineno-27-106" name="__codelineno-27-106" href="#__codelineno-27-106"></a>        pad0: Sink
+<a id="__codelineno-27-107" name="__codelineno-27-107" href="#__codelineno-27-107"></a>                &lt;- &quot;pisp-fe&quot;:3 []
+<a id="__codelineno-27-108" name="__codelineno-27-108" href="#__codelineno-27-108"></a>
+<a id="__codelineno-27-109" name="__codelineno-27-109" href="#__codelineno-27-109"></a>- entity 42: rp1-cfe-fe_stats (1 pad, 1 link)
+<a id="__codelineno-27-110" name="__codelineno-27-110" href="#__codelineno-27-110"></a>            type Node subtype V4L flags 0
+<a id="__codelineno-27-111" name="__codelineno-27-111" href="#__codelineno-27-111"></a>            device node name /dev/video6
+<a id="__codelineno-27-112" name="__codelineno-27-112" href="#__codelineno-27-112"></a>        pad0: Sink
+<a id="__codelineno-27-113" name="__codelineno-27-113" href="#__codelineno-27-113"></a>                &lt;- &quot;pisp-fe&quot;:4 []
+<a id="__codelineno-27-114" name="__codelineno-27-114" href="#__codelineno-27-114"></a>
+<a id="__codelineno-27-115" name="__codelineno-27-115" href="#__codelineno-27-115"></a>- entity 46: rp1-cfe-fe_config (1 pad, 1 link)
+<a id="__codelineno-27-116" name="__codelineno-27-116" href="#__codelineno-27-116"></a>            type Node subtype V4L flags 0
+<a id="__codelineno-27-117" name="__codelineno-27-117" href="#__codelineno-27-117"></a>            device node name /dev/video7
+<a id="__codelineno-27-118" name="__codelineno-27-118" href="#__codelineno-27-118"></a>        pad0: Source
+<a id="__codelineno-27-119" name="__codelineno-27-119" href="#__codelineno-27-119"></a>                -&gt; &quot;pisp-fe&quot;:1 []
+</code></pre></div>
+查询当前输入源信息,若分辨率显示0则表示为检查到输入源信号，需要检查硬件连接和上述步骤排查。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>blikvm@blikvm:~ $ v4l2-ctl -d /dev/v4l-subdev2 --query-dv-timings
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>    Active width: 1920
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>    Active height: 1080
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>    Total width: 2750
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>    Total height: 1125
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>    Frame format: progressive
+<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a>    Polarities: -vsync -hsync
+<a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a>    Pixelclock: 74250000 Hz (24.00 frames per second)
+<a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a>    Horizontal frontporch: 0
+<a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a>    Horizontal sync: 830
+<a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a>    Horizontal backporch: 0
+<a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a>    Vertical frontporch: 0
+<a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a>    Vertical sync: 45
+<a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a>    Vertical backporch: 0
+<a id="__codelineno-28-15" name="__codelineno-28-15" href="#__codelineno-28-15"></a>    Standards:
+<a id="__codelineno-28-16" name="__codelineno-28-16" href="#__codelineno-28-16"></a>    Flags:
+</code></pre></div>
+确认当前输入源信息
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>blikvm@blikvm:~ $ v4l2-ctl -d /dev/v4l-subdev2 --set-dv-bt-timings query
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>BT timings set
+</code></pre></div>
+初始化media0
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>blikvm@blikvm:~ $ media-ctl -d /dev/media0 -r
+</code></pre></div>
+把csi2的pad4连接到rp1-cfe-csi2_ch0的pad0
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>blikvm@blikvm:~ $ media-ctl -d /dev/media0 -l &#39;&#39;\&#39;&#39;csi2&#39;\&#39;&#39;:4 -&gt; &#39;\&#39;&#39;rp1-cfe-csi2_ch0&#39;\&#39;&#39;:0 [1]&#39;
+</code></pre></div>
+配置media节点
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>blikvm@blikvm:~ $ media-ctl -d /dev/media0 -V &#39;&#39;\&#39;&#39;csi2&#39;\&#39;&#39;:0 [fmt:RGB888_1X24/1920x1080 field:none colorspace:srgb]&#39;
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>blikvm@blikvm:~ $ media-ctl -d /dev/media0 -V &#39;&#39;\&#39;&#39;csi2&#39;\&#39;&#39;:4 [fmt:RGB888_1X24/1920x1080 field:none colorspace:srgb]&#39;
+</code></pre></div>
+设置输出格式
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>v4l2-ctl -v width=1920,height=1080,pixelformat=RGB3
+</code></pre></div>
+采集两帧画面用于测试tc358743是否可以工作，其它如使用gstreamer的方法暂时未
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>v4l2-ctl --verbose -d /dev/video0 --set-fmt-video=width=1920,height=1080,pixelformat=&#39;RGB3&#39; --stream-mmap=4 --stream-skip=3 --stream-count=2 --stream-to=hdmiin.yuv --stream-poll
+</code></pre></div>
+Pi如果安装的是带桌面的系统，可以使用ffplay直接播放yuv文件。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>ffplay -f rawvideo -video_size 1920x1080 -pixel_format bgr24 hdmiin.yuv 
+</code></pre></div>
+windows电脑可以使用7yuv等软件查看.yuv文件，教程输入格式为1920<em>1080，所以在7yuv右上角格式选择BGR888，分辨率设置1920</em>1080，即可看到两帧刚采集到的画面</p>
+</details>
+<h2 id="_3"><strong>芯片资料</strong></h2>
+<p><a href="https://zcwrego195.feishu.cn/drive/folder/V3dXfMA5UlBNmXdX2hycYZuLnxc?from=from_copylink">tc358743芯片资料</a></p>
+<h2 id="_4"><strong>发货清单</strong></h2>
+<details class="info">
+<summary>C790</summary>
+<p><img alt="" src="assets/images/hdmi-csi-i2s/c790-packing-list.png" width="400" /></p>
+</details>
+<h2 id="_5"><strong>测试视频</strong></h2>
+<p>C780A 测试:https://www.youtube.com/watch?v=ecqyINoiHNQ</p>
+<p>C780B 测试:https://www.youtube.com/watch?v=nc-hwPT2Uak&amp;t=15s</p>
+<h2 id="_6"><strong>采购连接</strong></h2>
+<p>中国客户采购链接：<a href="https://www.aliexpress.com/item/1005002861310912.html?pdp_ext_f=%7B%22sku_id%22:%2212000022635165947%22,%22ship_from%22:%22CN%22%7D&gps-id=pcStoreJustForYou&scm=1007.23125.137358.0&scm_id=1007.23125.137358.0&scm-url=1007.23125.137358.0&pvid=8e29d7e9-f257-4f20-a0b2-c2bff6a048d6&spm=a2g0o.store_pc_home.smartJustForYou_6000897758043.1" target="_blank">C790 &amp; C780</a></p>
+<p>其它国家客户采购连接：<a href="https://www.aliexpress.com/item/1005003033156483.html?spm=a2g0o.productlist.0.0.36f93cc2DFaouV&algo_pvid=2bfab2d1-a9c7-4c29-9434-2f451401d0e1&algo_exp_id=2bfab2d1-a9c7-4c29-9434-2f451401d0e1-9&pdp_ext_f=%7B%22sku_id%22%3A%2212000023351081819%22%7D" target="_blank">C779</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "navigation.expand", "search.highlight", "search.share", "search.suggest"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
