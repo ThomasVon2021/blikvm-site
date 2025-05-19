@@ -132,6 +132,10 @@ As a first step, we recommend carefully reading our documentation. Most steps to
 ??? question "In some board like BLIKVM-PCIe or BLIKVM-CM4-V2.2 has boot pin, how do I connect?"
     If you short them, CM4 will not start normally, but will enter the burning image mode. If your hardware version of boot has only two pins, use the jumper cap to connect the two pins as a short circuit. If you do not use the jumper cap or plug it into one pin, CM4 will start normally. If you use three boot pins of the hardware version, use the jumper cap to connect GND and another non-GND pin to indicate short circuit, and plug the jumper cap on the two GND pins or do not use it, CM4 will start normally.
 
+??? question "How can I transfer data using only a USB cable without providing power?"
+    * Some versions of KVM and switch USB ports support power input, which may cause the KVM or other devices to be powered by the controlled computer, leading to abnormal operation. Besides purchasing a USB splitter, you can use insulating tape to cover the VCC pin inside the USB connector.
+    ![](assets/images/faq/usb-not-power.png){width="400"}
+
 ## **Web Problems**
 
 ??? question "What ports does BliKVM OS occupy, and how should it be forwarded when using a public server?"
